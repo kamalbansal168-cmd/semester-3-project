@@ -1,0 +1,532 @@
+/* ============================================================
+   LEARNPATH AI — LeetCode / HackerRank Style Playground CSS
+   ============================================================ */
+
+.playground-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--header-height) - 40px);
+  min-height: 680px;
+  gap: 12px;
+}
+
+/* Playground Top Bar */
+.playground-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-xs);
+}
+
+.playground-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.playground-breadcrumbs .prob-title {
+  color: var(--text-main);
+  font-weight: 800;
+}
+
+.solved-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+/* Split Main Grid */
+.playground-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Left Pane: Problem Description & Tabs */
+.problem-pane {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.pane-tabs-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-subtle);
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.pane-tab-btn {
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.pane-tab-btn:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.pane-tab-btn.active {
+  background: white;
+  color: var(--primary);
+  box-shadow: var(--shadow-xs);
+}
+
+.problem-content-scroll {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.problem-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.problem-heading {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.problem-description-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+/* Example Boxes (LeetCode style) */
+.example-section-box {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.88rem;
+}
+
+.example-title {
+  font-weight: 800;
+  color: var(--text-main);
+  font-size: 0.85rem;
+}
+
+.example-io-line {
+  font-family: var(--font-mono);
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+.example-io-line strong {
+  font-family: var(--font-family);
+  color: var(--text-muted);
+}
+
+/* Constraints Box */
+.constraints-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.constraints-title {
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.constraints-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.86rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+/* Right Pane: Editor & Test Cases */
+.editor-pane {
+  display: flex;
+  flex-direction: column;
+  background: #0F172A;
+  border-radius: var(--radius-lg);
+  border: 1px solid #1E293B;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+/* Editor Toolbar */
+.editor-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1E293B;
+  padding: 8px 16px;
+  border-bottom: 1px solid #334155;
+}
+
+.editor-lang-select {
+  background: #0F172A;
+  color: #E2E8F0;
+  border: 1px solid #475569;
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  outline: none;
+}
+
+.editor-tool-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-editor-tool {
+  background: transparent;
+  color: #94A3B8;
+  border: 1px solid transparent;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-editor-tool:hover {
+  color: white;
+  background: #334155;
+}
+
+/* Code Area with Line Numbers */
+.code-editor-area {
+  display: flex;
+  flex: 1;
+  min-height: 280px;
+  background: #0F172A;
+  position: relative;
+  overflow: hidden;
+}
+
+.line-numbers-gutter {
+  width: 44px;
+  background: #0F172A;
+  color: #475569;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  text-align: right;
+  padding: 14px 10px 14px 0;
+  user-select: none;
+  border-right: 1px solid #1E293B;
+}
+
+.code-textarea-main {
+  flex: 1;
+  background: transparent;
+  color: #F8FAFC;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  padding: 14px 16px;
+  border: none;
+  outline: none;
+  resize: none;
+  white-space: pre;
+  overflow: auto;
+  tab-size: 4;
+}
+
+/* Testcases Console Bottom Panel */
+.testcase-panel {
+  background: #1E293B;
+  border-top: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  max-height: 240px;
+  min-height: 170px;
+}
+
+.testcase-tab-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 14px;
+  background: #0F172A;
+  border-bottom: 1px solid #334155;
+}
+
+.testcase-tabs-list {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+}
+
+.testcase-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #1E293B;
+  color: #94A3B8;
+  border: 1px solid #334155;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.testcase-tab:hover {
+  background: #334155;
+  color: white;
+}
+
+.testcase-tab.active {
+  background: #334155;
+  color: #38BDF8;
+  border-color: #38BDF8;
+  font-weight: 700;
+}
+
+.testcase-tab.passed {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.testcase-tab.failed {
+  border-color: var(--danger);
+  color: #F87171;
+}
+
+.testcase-body {
+  padding: 12px 16px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.testcase-field-label {
+  font-size: 0.75rem;
+  color: #94A3B8;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.testcase-box {
+  background: #0F172A;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  color: #E2E8F0;
+  border: 1px solid #334155;
+}
+
+.testcase-box.match {
+  border-color: var(--success);
+  background: #064E3B;
+  color: #A7F3D0;
+}
+
+.testcase-box.mismatch {
+  border-color: var(--danger);
+  background: #7F1D1D;
+  color: #FECACA;
+}
+
+/* Playground Bottom Action Bar */
+.playground-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1E293B;
+  padding: 10px 16px;
+  border-top: 1px solid #334155;
+}
+
+.btn-run-code-dark {
+  background: #334155;
+  color: white;
+  border: 1px solid #475569;
+  padding: 8px 18px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+}
+
+.btn-run-code-dark:hover {
+  background: #475569;
+}
+
+.btn-submit-code-dark {
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 8px 22px;
+  font-weight: 800;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+  transition: all var(--transition-fast);
+}
+
+.btn-submit-code-dark:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+/* Green Tick Acceptance Overlay */
+.acceptance-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(5px);
+  z-index: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+.acceptance-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border: 2px solid var(--success);
+  animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accepted-check-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--success-light);
+  color: var(--success);
+  border: 2px solid var(--success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 900;
+}
+
+.accepted-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--success-text);
+}
+
+.accepted-metrics-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  margin: 6px 0;
+}
+
+.accepted-metric-box {
+  background: var(--bg-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.accepted-metric-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.accepted-metric-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive Split Screen */
+@media (max-width: 960px) {
+  .playground-wrapper {
+    height: auto;
+  }
+  .playground-split-grid {
+    grid-template-columns: 1fr;
+  }
+  .code-editor-area {
+    min-height: 220px;
+  }
+}

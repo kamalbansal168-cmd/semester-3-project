@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnPath AI — Understand your mistakes. Improve your concepts.</title>
+  <meta name="description" content="AI-Based Personalized Learning and Knowledge Recovery Platform for Computer Science & Programming concepts.">
+
+  <!-- Typography: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Modular Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/practice.css">
+  <link rel="stylesheet" href="css/playground.css">
+  <link rel="stylesheet" href="css/notes.css">
+  <link rel="stylesheet" href="css/recovery.css">
+  <link rel="stylesheet" href="css/progress.css">
 </head>
-
 <body>
+  <!-- Universal Navigation Mount -->
+  <div id="navbar-mount"></div>
 
+  <!-- Main Application Content Mount -->
+  <main class="app-container" id="main-content-mount">
+    <!-- Dynamic Views will be mounted here by app.js -->
+  </main>
+
+  <!-- Toast Notifications Container -->
+  <div id="toast-mount" class="toast-container"></div>
+
+  <!-- Main JavaScript App Entry -->
+  <script type="module" src="js/app.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,466 @@
+/* ============================================================
+   LEARNPATH AI — In-Browser PDF / Study Notes Reader CSS
+   Masterclass Styles for Deep-Dive Notes, Sub-Type Cards,
+   Memory Layouts, ASCII Diagrams, and Dry-Run Tables
+   ============================================================ */
+
+.notes-view-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Notes Reader Top Toolbar */
+.notes-top-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 14px 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-xs);
+  position: sticky;
+  top: 72px;
+  z-index: 10;
+}
+
+.notes-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.notes-back-link {
+  color: var(--primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.notes-back-link:hover {
+  text-decoration: underline;
+  color: var(--primary-dark);
+}
+
+.notes-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Paper-Like Document Body */
+.notes-paper-card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 52px 56px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  line-height: 1.7;
+  color: var(--text-main);
+}
+
+.notes-document-header {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.notes-header-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notes-eyebrow-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+}
+
+.notes-read-time {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.notes-doc-title {
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: var(--text-main);
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+
+.notes-doc-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.notes-author-badge {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Notes Section Blocks */
+.notes-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.notes-section-title {
+  font-size: 1.35rem;
+  font-weight: 850;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-left: 4px solid var(--primary);
+  padding-left: 14px;
+}
+
+.notes-paragraph {
+  font-size: 1rem;
+  color: #334155;
+  line-height: 1.75;
+}
+
+/* Memory Architecture Diagram Box */
+.notes-memory-model-box {
+  background: #0B1120;
+  border: 1px solid #1E293B;
+  border-radius: var(--radius-lg);
+  padding: 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.notes-memory-title {
+  color: #38BDF8;
+  font-size: 0.95rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.02em;
+}
+
+.notes-ascii-diagram {
+  background: #020617;
+  color: #38BDF8;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  overflow-x: auto;
+  border: 1px solid #1E293B;
+  white-space: pre;
+}
+
+.notes-ascii-diagram.mini {
+  background: #0F172A;
+  color: #7DD3FC;
+  font-size: 0.84rem;
+  padding: 14px 18px;
+}
+
+.notes-memory-explanation {
+  color: #94A3B8;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Sub-Types Cards Layout */
+.notes-subtypes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.notes-subtype-card {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-xl);
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.notes-subtype-card:hover {
+  border-color: #CBD5E1;
+  box-shadow: var(--shadow-sm);
+}
+
+.notes-subtype-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.notes-subtype-badge {
+  background: var(--primary);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 800;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.notes-subtype-name {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.notes-subtype-recognition {
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 0.92rem;
+  color: #1E40AF;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.notes-subtype-mechanism {
+  font-size: 0.95rem;
+  color: #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.notes-box-label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+/* Java Code Block */
+.notes-code-block {
+  background: #0F172A;
+  color: #F8FAFC;
+  padding: 20px 24px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  overflow-x: auto;
+  border: 1px solid #1E293B;
+}
+
+/* Dry Run Execution Table */
+.notes-trace-box {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notes-trace-input {
+  font-size: 0.9rem;
+  color: #1E293B;
+}
+
+.notes-trace-input code {
+  background: #F1F5F9;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  color: var(--primary);
+}
+
+.notes-trace-table-wrapper {
+  overflow-x: auto;
+}
+
+.notes-trace-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+.notes-trace-table th {
+  background: #F8FAFC;
+  color: #1E293B;
+  font-weight: 800;
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 2px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.notes-trace-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-color);
+  color: #334155;
+}
+
+.notes-trace-table tr:last-child td {
+  border-bottom: none;
+}
+
+.notes-trace-table tr:hover {
+  background: #F1F5F9;
+}
+
+.notes-trace-result {
+  font-size: 0.9rem;
+  color: #047857;
+  background: #ECFDF5;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid #A7F3D0;
+  font-weight: 600;
+}
+
+/* Pitfalls Callout Box */
+.notes-pitfall-box {
+  background: #FFFBEB;
+  border: 1.5px solid #FDE68A;
+  border-radius: var(--radius-lg);
+  padding: 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notes-pitfall-title {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: #92400E;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.notes-pitfall-list {
+  list-style-type: disc;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.93rem;
+  color: #78350F;
+  line-height: 1.6;
+}
+
+/* Complexity Matrix Table */
+.notes-complexity-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-color);
+}
+
+.notes-complexity-table th,
+.notes-complexity-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.notes-complexity-table th {
+  background: var(--bg-subtle);
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.notes-complexity-table tr:hover {
+  background: var(--bg-primary);
+}
+
+/* Footer Navigation */
+.notes-footer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 28px;
+  border-top: 2px solid var(--border-color);
+}
+
+/* PDF Print Mode Styling */
+@media print {
+  body {
+    background: white !important;
+    font-size: 11pt;
+  }
+  .main-header,
+  .landing-header,
+  .notes-top-toolbar,
+  .notes-footer-actions,
+  .toast-container {
+    display: none !important;
+  }
+  .notes-paper-card {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+  .notes-subtype-card {
+    break-inside: avoid;
+    border: 1px solid #CCC !important;
+  }
+  .notes-code-block,
+  .notes-ascii-diagram {
+    background: #FAFAFA !important;
+    color: #111 !important;
+    border: 1px solid #CCC !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .notes-paper-card {
+    padding: 28px 20px;
+  }
+  .notes-doc-title {
+    font-size: 1.75rem;
+  }
+  .notes-subtype-card {
+    padding: 20px 16px;
+  }
+}
