@@ -1,0 +1,497 @@
+/* ============================================================
+   LEARNPATH AI — Recovery Path, Concept Explanation & Re-Test CSS
+   ============================================================ */
+
+/* Concept Insight Full View */
+.insight-full-view {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.insight-header-card {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  border: 2px solid #FDE68A;
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.insight-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #B45309;
+  text-transform: uppercase;
+}
+
+.insight-headline {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #78350F;
+  line-height: 1.3;
+}
+
+.insight-evidence-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  border: 1px solid #FDE68A;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.evidence-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #92400E;
+}
+
+.evidence-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.evidence-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.evidence-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #F59E0B;
+}
+
+/* ============================================================
+   Recovery Path View (5 Steps)
+   ============================================================ */
+.recovery-path-view {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.recovery-header-card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 28px 32px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.recovery-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.recovery-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  width: fit-content;
+}
+
+.recovery-main-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.recovery-steps-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.recovery-step-card {
+  background: white;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: all var(--transition-fast);
+}
+
+.recovery-step-card.active {
+  border-color: var(--primary);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.1);
+  background: #FAFAFF;
+}
+
+.recovery-step-card.completed {
+  border-color: var(--success-border);
+  background: #FAFCF9;
+}
+
+.recovery-step-card.locked {
+  opacity: 0.65;
+  background: var(--bg-subtle);
+}
+
+.step-card-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.step-number-pill {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.recovery-step-card.active .step-number-pill {
+  background: var(--primary);
+  color: white;
+}
+
+.recovery-step-card.completed .step-number-pill {
+  background: var(--success);
+  color: white;
+}
+
+.recovery-step-card.locked .step-number-pill {
+  background: white;
+  border: 2px solid var(--border-color);
+  color: var(--text-light);
+}
+
+.step-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.step-name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.step-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.step-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   Concept Explanation View (Micro-Learning Refresh)
+   ============================================================ */
+.explanation-view {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.explanation-card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.explanation-header {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 18px;
+}
+
+.explanation-eyebrow {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.explanation-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.explanation-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.explanation-section h3 {
+  font-size: 1.15rem;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.explanation-section p {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--text-main);
+}
+
+/* Visual Memory Diagram for Arrays */
+.array-visual-diagram {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.diagram-caption {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.array-cells-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.array-cell-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.cell-index {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-light);
+  font-family: var(--font-mono);
+}
+
+.cell-box {
+  width: 52px;
+  height: 52px;
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--text-main);
+  font-family: var(--font-mono);
+}
+
+.cell-box.highlight-left {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.cell-box.highlight-right {
+  border-color: var(--success);
+  background: var(--success-light);
+  color: var(--success);
+}
+
+.cell-pointer {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.cell-pointer.left-ptr { background: var(--primary-light); color: var(--primary); }
+.cell-pointer.right-ptr { background: var(--success-light); color: var(--success); }
+
+/* Code Callout Boxes */
+.code-callout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.code-callout-card {
+  border-radius: var(--radius-md);
+  padding: 16px;
+  font-size: 0.88rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.code-callout-card.bad {
+  background: #FEF2F2;
+  border: 1px solid var(--danger-border);
+}
+
+.code-callout-card.good {
+  background: var(--success-light);
+  border: 1px solid var(--success-border);
+}
+
+.callout-title {
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.code-callout-card.bad .callout-title { color: var(--danger-text); }
+.code-callout-card.good .callout-title { color: var(--success-text); }
+
+.code-callout-card code {
+  font-family: var(--font-mono);
+  background: white;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  display: block;
+  font-size: 0.82rem;
+  color: var(--text-main);
+}
+
+/* Explanation Footer */
+.explanation-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+/* ============================================================
+   Re-Test Evaluation Interface
+   ============================================================ */
+.retest-view {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.retest-score-banner {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  animation: slideInUp 0.35s ease;
+}
+
+.retest-score-banner.improved {
+  border-color: var(--success);
+  background: linear-gradient(180deg, #FFFFFF 0%, #F0FDF4 100%);
+}
+
+.retest-confetti-icon {
+  font-size: 3rem;
+}
+
+.retest-gain-comparison {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin: 10px 0;
+}
+
+.comparison-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.comparison-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+.comparison-score {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.comparison-arrow {
+  font-size: 1.8rem;
+  color: var(--success);
+}
+
+.retest-gain-pill {
+  background: var(--success);
+  color: white;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 1rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 650px) {
+  .code-callout-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .retest-gain-comparison {
+    gap: 16px;
+  }
+}

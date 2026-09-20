@@ -1,0 +1,1579 @@
+/* ============================================================
+   LEARNPATH AI — IntelliJ IDEA Style Full-Page Coding Arena CSS
+   Theme: JetBrains Darcula & New UI Dark
+   ============================================================ */
+
+.intellij-ide-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--header-height));
+  width: 100%;
+  background: #1E1F22;
+  border-radius: 0;
+  border: none;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+/* 1. IntelliJ Top Menu & Action Bar */
+.intellij-menu-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2B2D30;
+  padding: 8px 16px;
+  border-bottom: 1px solid #1E1F22;
+  gap: 12px;
+}
+
+.ide-menu-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ide-project-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #DFE1E5;
+}
+
+.ide-brand-icon {
+  font-size: 1rem;
+}
+
+.ide-project-title {
+  color: #DFE1E5;
+  font-family: var(--font-mono);
+}
+
+.ide-branch-tag {
+  font-size: 0.7rem;
+  background: #393B40;
+  color: #9DA0A8;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+}
+
+.ide-file-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #1E1F22;
+  color: #DFE1E5;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  border-top: 2px solid #3574F0;
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.ide-file-tab .file-solved-check {
+  color: #34D399;
+  font-weight: 800;
+}
+
+.ide-menu-center {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ide-run-config-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #1E1F22;
+  border: 1px solid #393B40;
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  color: #C6C8CE;
+  font-family: var(--font-mono);
+}
+
+.ide-run-config-pill .run-config-icon {
+  color: #34D399;
+}
+
+.btn-ide-action {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease;
+}
+
+.btn-ide-run {
+  background: #3574F0;
+  color: white;
+}
+
+.btn-ide-run:hover {
+  background: #295FCE;
+}
+
+.btn-ide-submit {
+  background: #059669;
+  color: white;
+  box-shadow: 0 2px 6px rgba(5, 150, 105, 0.35);
+}
+
+.btn-ide-submit:hover {
+  background: #047857;
+  transform: translateY(-1px);
+}
+
+.ide-menu-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ide-points-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+}
+
+.ide-timer-pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #1E1F22;
+  border: 1px solid #393B40;
+  color: #9DA0A8;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+}
+
+.btn-ide-tool {
+  background: #393B40;
+  color: #DFE1E5;
+  border: 1px solid transparent;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-ide-tool:hover {
+  background: #4E5157;
+}
+
+/* 2. Workspace Grid (Sidebar + Editor Pane) */
+.intellij-workspace-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  flex: 1;
+  min-height: 0;
+  background: #1E1F22;
+}
+
+/* Left Sidebar (Problem Spec / Project Explorer) */
+.intellij-sidebar-pane {
+  background: #2B2D30;
+  border-right: 1px solid #1E1F22;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar-tab-header {
+  display: flex;
+  background: #1E1F22;
+  border-bottom: 1px solid #2B2D30;
+  padding: 8px 12px;
+  gap: 4px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-tab-btn {
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #9DA0A8;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sidebar-tab-btn:hover {
+  color: #DFE1E5;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-tab-btn.active {
+  background: #2B2D30;
+  color: #3574F0;
+}
+
+.sidebar-content-scroll {
+  padding: 18px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #DFE1E5;
+  font-size: 0.9rem;
+}
+
+.problem-header-row .problem-heading {
+  color: #F8FAFC;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.problem-description-text {
+  color: #CBD5E1;
+  line-height: 1.6;
+  font-size: 0.92rem;
+}
+
+.example-section-box {
+  background: #1E1F22;
+  border: 1px solid #393B40;
+  border-left: 4px solid #3574F0;
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+}
+
+.example-title {
+  font-weight: 800;
+  color: #F8FAFC;
+  font-size: 0.82rem;
+}
+
+.example-io-line {
+  font-family: var(--font-mono);
+  color: #E2E8F0;
+}
+
+.example-io-line strong {
+  color: #94A3B8;
+}
+
+.constraints-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.constraints-title {
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: #9DA0A8;
+  text-transform: uppercase;
+}
+
+.constraints-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  color: #94A3B8;
+}
+
+/* Project Explorer Tree View */
+.project-tree-view {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tree-root-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+  color: #9DA0A8;
+  font-size: 0.82rem;
+  padding: 4px 6px;
+}
+
+.tree-children-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 12px;
+  border-left: 1px solid #393B40;
+  margin-left: 8px;
+}
+
+.tree-file-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.12s ease;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: #C6C8CE;
+}
+
+.tree-file-row:hover {
+  background: #35373B;
+  color: #F8FAFC;
+}
+
+.tree-file-row.active {
+  background: #2E436E;
+  color: #6BA4FF;
+  font-weight: 700;
+}
+
+.file-java-icon {
+  font-size: 0.9rem;
+}
+
+.tree-solved-tick {
+  color: #10B981;
+  font-weight: 800;
+}
+
+/* 3. Editor & Tool Window Area */
+.intellij-editor-pane {
+  display: flex;
+  flex-direction: column;
+  background: #1E1F22;
+  overflow: hidden;
+}
+
+.intellij-code-area {
+  display: flex;
+  flex: 1;
+  min-height: 280px;
+  background: #1E1F22;
+  position: relative;
+  overflow: hidden;
+}
+
+.line-numbers-gutter {
+  width: 48px;
+  background: #1E1F22;
+  color: #606366;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  text-align: right;
+  padding: 14px 10px 14px 0;
+  user-select: none;
+  border-right: 1px solid #2B2D30;
+}
+
+.code-textarea-main.intellij-font {
+  flex: 1;
+  background: #1E1F22;
+  color: #A9B7C6;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  padding: 14px 16px;
+  border: none;
+  outline: none;
+  resize: none;
+  white-space: pre;
+  overflow: auto;
+  tab-size: 4;
+}
+
+/* 4. Bottom Tool Window */
+.intellij-tool-window {
+  background: #2B2D30;
+  border-top: 1px solid #1E1F22;
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  min-height: 190px;
+}
+
+.tool-window-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1E1F22;
+  padding: 4px 12px;
+  border-bottom: 1px solid #2B2D30;
+}
+
+.tool-window-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tool-tab-btn {
+  padding: 5px 12px;
+  background: transparent;
+  color: #9DA0A8;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tool-tab-btn:hover {
+  color: #DFE1E5;
+}
+
+.tool-tab-btn.active {
+  background: #2B2D30;
+  color: #3574F0;
+}
+
+.tool-window-content {
+  flex: 1;
+  overflow-y: auto;
+  background: #2B2D30;
+}
+
+/* Testcases List */
+.testcase-tab-bar {
+  padding: 6px 12px;
+  background: #2B2D30;
+  border-bottom: 1px solid #1E1F22;
+}
+
+.testcase-tabs-list {
+  display: flex;
+  gap: 6px;
+}
+
+.testcase-tab {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #1E1F22;
+  color: #9DA0A8;
+  border: 1px solid #393B40;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  cursor: pointer;
+}
+
+.testcase-tab:hover {
+  background: #393B40;
+  color: #DFE1E5;
+}
+
+.testcase-tab.active {
+  background: #3574F0;
+  color: white;
+  border-color: #3574F0;
+  font-weight: 700;
+}
+
+.testcase-tab.passed {
+  border-color: #10B981;
+  color: #34D399;
+}
+
+.testcase-tab.failed {
+  border-color: #EF4444;
+  color: #F87171;
+}
+
+.testcase-body {
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.testcase-field-label {
+  font-size: 0.72rem;
+  color: #9DA0A8;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.testcase-box {
+  background: #1E1F22;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  color: #DFE1E5;
+  border: 1px solid #393B40;
+}
+
+.testcase-box.match {
+  border-color: #10B981;
+  background: #064E3B;
+  color: #A7F3D0;
+}
+
+.testcase-box.mismatch {
+  border-color: #EF4444;
+  background: #7F1D1D;
+  color: #FECACA;
+}
+
+/* Custom Input Field */
+.custom-input-field {
+  width: 100%;
+  background: #1E1F22;
+  border: 1px solid #393B40;
+  color: #DFE1E5;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.custom-input-field:focus {
+  border-color: #3574F0;
+}
+
+/* Terminal Console */
+.ide-terminal-console {
+  padding: 12px 16px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.82rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #DFE1E5;
+}
+
+.terminal-line {
+  line-height: 1.5;
+}
+
+.terminal-stdout {
+  color: #E2E8F0;
+  white-space: pre-wrap;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.terminal-error {
+  color: #FF6B68;
+  white-space: pre-wrap;
+  font-family: inherit;
+  font-weight: 600;
+  line-height: 1.5;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 6px 10px;
+  border-left: 3px solid #EF4444;
+  border-radius: var(--radius-sm);
+}
+
+.terminal-divider {
+  color: #393B40;
+  font-size: 0.75rem;
+  user-select: none;
+  overflow: hidden;
+}
+
+.stdin-tab-badge {
+  background: #3574F0;
+  color: white;
+  font-size: 0.68rem;
+  padding: 1px 6px;
+  border-radius: 10px;
+  font-weight: 800;
+  margin-left: 4px;
+}
+
+.terminal-stdin-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #232529;
+  border-bottom: 1px solid #32353A;
+  padding: 6px 14px;
+  gap: 12px;
+}
+
+.terminal-stdin-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.stdin-badge-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #60A5FA;
+  white-space: nowrap;
+}
+
+.quick-stdin-input {
+  flex: 1;
+  background: #1A1B1E;
+  border: 1px solid #393B40;
+  border-radius: var(--radius-sm);
+  color: #F1F5F9;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.82rem;
+  padding: 4px 10px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.quick-stdin-input:focus {
+  border-color: #3574F0;
+}
+
+.terminal-stdin-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stdin-meta-tag {
+  font-size: 0.72rem;
+  color: #94A3B8;
+  font-family: var(--font-mono);
+}
+
+.btn-ide-subaction {
+  background: #393B40;
+  color: #DFE1E5;
+  border: 1px solid transparent;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-ide-subaction:hover {
+  background: #4E5157;
+  color: white;
+}
+
+.btn-ide-subaction.btn-run-accent {
+  background: #10B981;
+  color: white;
+  font-weight: 700;
+}
+
+.btn-ide-subaction.btn-run-accent:hover {
+  background: #059669;
+}
+
+.terminal-hint-box {
+  background: rgba(245, 158, 11, 0.1);
+  border-left: 3px solid #F59E0B;
+  color: #FCD34D;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+.stdin-meta-pill {
+  background: #1E1F22;
+  border: 1px solid #393B40;
+  color: #9DA0A8;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+}
+
+.stdin-presets-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 2px 0;
+}
+
+.btn-preset-pill {
+  background: #1E1F22;
+  border: 1px solid #393B40;
+  color: #C6C8CE;
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: var(--font-mono);
+}
+
+.btn-preset-pill:hover {
+  background: #35373B;
+  color: #60A5FA;
+  border-color: #3574F0;
+}
+
+.stdin-footer-guide {
+  font-size: 0.74rem;
+  color: #8C9099;
+  line-height: 1.4;
+}
+
+.stdin-container {
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+.stdin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stdin-textarea.intellij-font {
+  width: 100%;
+  flex: 1;
+  min-height: 100px;
+  background: #1E1F22;
+  border: 1px solid #393B40;
+  border-radius: var(--radius-sm);
+  color: #DFE1E5;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  padding: 10px 14px;
+  outline: none;
+  resize: vertical;
+  tab-size: 4;
+}
+
+.stdin-textarea.intellij-font:focus {
+  border-color: #3574F0;
+}
+
+.btn-clear-console {
+  background: transparent;
+  color: #9DA0A8;
+  border: none;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  transition: all 0.15s ease;
+}
+
+.btn-clear-console:hover {
+  background: #393B40;
+  color: #DFE1E5;
+}
+
+.btn-sidebar-add {
+  background: #393B40;
+  color: #DFE1E5;
+  border: none;
+  border-radius: var(--radius-sm);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-sidebar-add:hover {
+  background: #3574F0;
+  color: white;
+}
+
+/* Navbar Points Badge */
+.points-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+  border: 1px solid #F59E0B;
+  color: #92400E;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 800;
+  box-shadow: 0 1px 4px rgba(245, 158, 11, 0.2);
+}
+
+.points-badge .star-icon {
+  font-size: 0.9rem;
+}
+
+.points-badge .points-val {
+  font-weight: 900;
+}
+
+.points-badge .points-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+/* Acceptance Overlay */
+.acceptance-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+.acceptance-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  border: 2px solid var(--success);
+  animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accepted-check-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--success-light);
+  color: var(--success);
+  border: 2px solid var(--success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.accepted-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--success-text);
+}
+
+.accepted-metrics-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  margin: 4px 0;
+}
+
+.accepted-metric-box {
+  background: var(--bg-subtle);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.accepted-metric-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.accepted-metric-val {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 960px) {
+  .intellij-ide-container {
+    height: auto;
+  }
+  .intellij-workspace-grid {
+    grid-template-columns: 1fr;
+  }
+  .intellij-code-area {
+    min-height: 240px;
+  }
+}
+
+/* ============================================================
+   MONACO EDITOR STYLING & CONTAINER
+   ============================================================ */
+.monaco-editor-wrapper {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  position: relative;
+  background: #1E1F22;
+  overflow: hidden;
+}
+
+#monaco-editor-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Fallback textarea in case CDN fails */
+.monaco-fallback-textarea {
+  width: 100%;
+  height: 100%;
+  background: #1E1F22;
+  color: #BCBEC4;
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  font-size: 13.5px;
+  line-height: 1.5;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 12px;
+}
+
+/* ============================================================
+   MULTI-TAB EDITOR BAR (IntelliJ Style)
+   ============================================================ */
+.ide-editor-tabbar {
+  display: flex;
+  align-items: center;
+  background: #1E1F22;
+  border-bottom: 1px solid #2B2D30;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  padding: 0 4px;
+  gap: 2px;
+  user-select: none;
+  min-height: 34px;
+}
+
+.ide-editor-tabbar::-webkit-scrollbar {
+  height: 3px;
+}
+.ide-editor-tabbar::-webkit-scrollbar-thumb {
+  background: #393B40;
+}
+
+.ide-tab-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #26282D;
+  color: #9DA0A8;
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  border-right: 1px solid #1E1F22;
+  border-top: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.ide-tab-item:hover {
+  background: #2D3035;
+  color: #DFE1E5;
+}
+
+.ide-tab-item.active {
+  background: #1E1F22;
+  color: #DFE1E5;
+  border-top: 2px solid #3574F0;
+  font-weight: 700;
+}
+
+.tab-icon {
+  font-size: 0.85rem;
+}
+
+.tab-title {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tab-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  color: #9DA0A8;
+  font-size: 0.75rem;
+  line-height: 1;
+  transition: all 0.1s ease;
+}
+
+.tab-close-btn:hover {
+  background: #4E5157;
+  color: #FFFFFF;
+}
+
+/* ============================================================
+   HIERARCHICAL VIRTUAL FILE TREE (Project Explorer)
+   ============================================================ */
+.sidebar-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: #2B2D30;
+  border-bottom: 1px solid #393B40;
+  gap: 4px;
+}
+
+.sidebar-action-tools {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.tree-tool-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #9DA0A8;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  transition: all 0.15s ease;
+}
+
+.tree-tool-btn:hover {
+  background: #393B40;
+  color: #DFE1E5;
+}
+
+.vfs-tree-container {
+  padding: 6px 0;
+  user-select: none;
+}
+
+.tree-node-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #BCBEC4;
+  border-radius: 3px;
+  margin: 1px 4px;
+  transition: background 0.12s ease;
+}
+
+.tree-node-row:hover {
+  background: #2D3035;
+  color: #FFFFFF;
+}
+
+.tree-node-row.active {
+  background: #2E436E !important;
+  color: #FFFFFF !important;
+  font-weight: 600;
+}
+
+.tree-node-left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.folder-arrow {
+  display: inline-block;
+  width: 12px;
+  font-size: 0.65rem;
+  color: #6C707E;
+  transition: transform 0.15s ease;
+}
+
+.folder-arrow.expanded {
+  transform: rotate(90deg);
+}
+
+.tree-node-icon {
+  font-size: 0.85rem;
+}
+
+.tree-node-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tree-node-badge {
+  font-size: 0.65rem;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: #393B40;
+  color: #9DA0A8;
+}
+
+.tree-children-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================
+   INTELLIJ RIGHT-CLICK CONTEXT MENU
+   ============================================================ */
+.ide-context-menu {
+  position: fixed;
+  z-index: 99999;
+  background: #2B2D30;
+  border: 1px solid #4E5157;
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  padding: 4px 0;
+  min-width: 190px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: #DFE1E5;
+  user-select: none;
+  animation: fadeIn 0.1s ease;
+}
+
+.context-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.1s ease;
+  gap: 12px;
+}
+
+.context-menu-item:hover {
+  background: #3574F0;
+  color: #FFFFFF;
+}
+
+.context-item-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.context-item-icon {
+  font-size: 0.9rem;
+  width: 16px;
+  text-align: center;
+}
+
+.context-item-shortcut {
+  font-size: 0.7rem;
+  color: #9DA0A8;
+  font-family: var(--font-mono);
+}
+
+.context-menu-item:hover .context-item-shortcut {
+  color: #E2E8F0;
+}
+
+.context-menu-separator {
+  height: 1px;
+  background: #393B40;
+  margin: 4px 0;
+}
+
+.context-menu-item.danger:hover {
+  background: #DC2626;
+  color: #FFFFFF;
+}
+
+/* ============================================================
+   VFS MODAL DIALOGS (New File, New Folder, Rename)
+   ============================================================ */
+.ide-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000;
+  animation: fadeIn 0.15s ease;
+}
+
+.ide-modal-card {
+  background: #2B2D30;
+  border: 1px solid #4E5157;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  animation: slideInUp 0.18s ease;
+}
+
+.ide-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #222427;
+  border-bottom: 1px solid #393B40;
+  color: #DFE1E5;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.ide-modal-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ide-modal-label {
+  font-size: 0.78rem;
+  color: #9DA0A8;
+  font-weight: 600;
+}
+
+.ide-modal-input {
+  width: 100%;
+  background: #1E1F22;
+  border: 1px solid #4E5157;
+  border-radius: 4px;
+  padding: 8px 12px;
+  color: #DFE1E5;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.ide-modal-input:focus {
+  border-color: #3574F0;
+  box-shadow: 0 0 0 2px rgba(53, 116, 240, 0.25);
+}
+
+.ide-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #222427;
+  border-top: 1px solid #393B40;
+}
+
+/* ============================================================
+   VS CODE ACTIVITY BAR & EXPLORER LAYOUT
+   ============================================================ */
+
+.vscode-ide-layout {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #181818;
+}
+
+/* 1. VS Code Left Activity Bar (48px) */
+.vscode-activity-bar {
+  width: 48px;
+  min-width: 48px;
+  background: #181818;
+  border-right: 1px solid #2B2B2B;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  user-select: none;
+  z-index: 10;
+}
+
+.activity-bar-top, .activity-bar-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.activity-item {
+  width: 100%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #858585;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.15s ease;
+  font-size: 1.3rem;
+  border-left: 2px solid transparent;
+}
+
+.activity-item:hover {
+  color: #FFFFFF;
+}
+
+.activity-item.active {
+  color: #FFFFFF;
+  border-left: 2px solid #007ACC;
+}
+
+.activity-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: #007ACC;
+  color: #FFFFFF;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 10px;
+  line-height: 1;
+}
+
+/* 2. VS Code Explorer Pane */
+.vscode-explorer-sidebar {
+  width: 250px;
+  min-width: 200px;
+  max-width: 400px;
+  background: #181818;
+  border-right: 1px solid #2B2B2B;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+}
+
+.vscode-explorer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px 6px;
+  color: #BBBBBB;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.vscode-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.vscode-icon-btn {
+  background: transparent;
+  border: none;
+  color: #858585;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 2px 4px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.vscode-icon-btn:hover {
+  color: #FFFFFF;
+  background: #2A2D2E;
+}
+
+/* 3. VS Code Root Section Header (e.g. ∨ JAVA) */
+.vscode-root-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  color: #BBBBBB;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: #1F1F1F;
+  border-top: 1px solid #252526;
+  border-bottom: 1px solid #252526;
+}
+
+.vscode-root-section:hover {
+  color: #FFFFFF;
+}
+
+.vscode-chevron {
+  font-size: 0.65rem;
+  display: inline-block;
+  margin-right: 5px;
+  transition: transform 0.15s ease;
+}
+
+.vscode-chevron.collapsed {
+  transform: rotate(-90deg);
+}
+
+/* 4. VS Code Red 'J' Java Icon matching screenshot */
+.vscode-java-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: #E5534B;
+  font-family: var(--font-mono);
+  font-weight: 900;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.vscode-file-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px 4px 18px;
+  color: #CCCCCC;
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.vscode-file-row:hover {
+  background: #2A2D2E;
+  color: #FFFFFF;
+}
+
+.vscode-file-row.active {
+  background: #37373D !important;
+  color: #FFFFFF !important;
+}
+
+/* 5. VS Code Open Folder Hero / Empty Dropzone */
+.vscode-open-folder-box {
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  background: #1E1E1E;
+  border: 1px dashed #3C3C3C;
+  border-radius: 6px;
+  margin: 10px;
+  transition: all 0.2s ease;
+}
+
+.vscode-open-folder-box.drag-over {
+  border-color: #007ACC;
+  background: rgba(0, 122, 204, 0.1);
+}
+
+.btn-vscode-open {
+  background: #007ACC;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 2px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background 0.15s ease;
+}
+
+.btn-vscode-open:hover {
+  background: #0062A3;
+}
+
+.vscode-tree-scroll {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.vscode-tree-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.vscode-tree-scroll::-webkit-scrollbar-thumb {
+  background: #333333;
+}
+
+

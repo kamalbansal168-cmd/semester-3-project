@@ -1,0 +1,23 @@
+{
+  "name": "learnpath-ai",
+  "version": "1.0.0",
+  "description": "AI-Based Personalized Learning and Knowledge Recovery Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js || node server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  },
+  "keywords": [
+    "ai",
+    "education",
+    "learning-path",
+    "mastery-learning",
+    "dsa",
+    "java"
+  ],
+  "author": "",
+  "license": "MIT"
+}
