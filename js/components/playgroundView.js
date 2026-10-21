@@ -1,458 +1,340 @@
 /* ============================================================
-   LEARNPATH AI — Full-Page Edge-to-Edge Coding Workspace
-   VS Code Style Activity Bar, Explorer Sidebar, Real Folder Import,
-   Monaco Editor, Multi-Tabs, and Interactive Stdin/Stdout
+   LEARNPATH AI — LeetCode / HackerRank Style Coding Arena
+   Direct Question View with Sample Test Cases, Starter Code,
+   Interactive Test Runner, Real-time Feedback & Acceptance Modal
    ============================================================ */
 
+import { QUESTIONS_DB } from '../data/questions.js';
 import { store } from '../state.js';
-import { vfs } from '../engine/virtualFileSystem.js';
 
-export function renderPlaygroundView(currentFilePath = 'java/cooordinat.java', activeTab = 'terminal', openTabs = ['java/cooordinat.java'], stdinValue = null, executionResult = null) {
-  const allFiles = vfs.getAllFiles();
-  const firstPath = Object.keys(allFiles)[0] || 'java/Main.java';
-  const activeFile = vfs.getFile(currentFilePath) || vfs.getFile(firstPath) || {
-    name: 'cooordinat.java',
-    path: 'java/cooordinat.java',
-    content: 'public class cooordinat {\n    public static void main(String[] args) {\n        System.out.println("Hello from VS Code!");\n    }\n}',
-    defaultStdin: ''
-  };
-
-  const stdinToDisplay = stdinValue !== null ? stdinValue : (activeFile.defaultStdin || '');
-  const stdinTokens = stdinToDisplay.trim() ? stdinToDisplay.trim().split(/\s+/).length : 0;
-  const stdinLines = stdinToDisplay ? stdinToDisplay.split('\n').length : 0;
-  const user = store.getState().user || { points: 0, rank: 'Novice Developer' };
-
-  // Generate recursive folder tree from VFS
-  const treeRoot = vfs.getTree();
-  const projectName = vfs.projectName || 'java';
+export function renderPlaygroundView(questionId, activeTab = 'description', activeCaseIdx = 0, currentCode = null, runResults = null, submissionResult = null, mode = 'problem') {
+  const codingQuestions = QUESTIONS_DB.filter(q => q.type === 'CODING');
+  const question = QUESTIONS_DB.find(q => q.id === questionId) || codingQuestions[0] || QUESTIONS_DB[0];
+  const isSolved = store.isQuestionSolved(question.id);
+  const codeToDisplay = currentCode !== null ? currentCode : (question.starterCode || '');
+  const linesCount = (codeToDisplay.split('\n').length) || 1;
+  const lineNumbers = Array.from({ length: Math.max(16, linesCount) }, (_, i) => i + 1).join('\n');
+  const testCases = question.testCases || [
+    { input: 'nums = [1, 2, 3]', expected: '[3, 2, 1]' },
+    { input: 'nums = [10]', expected: '[10]' }
+  ];
+  const safeCaseIdx = Math.max(0, Math.min(activeCaseIdx, testCases.length - 1));
+  const currentCase = testCases[safeCaseIdx] || testCases[0];
 
   return `
-    <div class="intellij-ide-container" data-filepath="${activeFile.path}">
+    <div class="playground-wrapper" data-qid="${question.id}">
       
-      <!-- Hidden File Input for Folder Import (webkitdirectory) -->
-      <input type="file" id="vfs-folder-input" webkitdirectory directory multiple style="display: none;" />
+      <!-- 1. Top Bar: Navigation, Breadcrumbs, Problem Selector, Status -->
+      <div class="playground-top-bar">
+        <div class="playground-breadcrumbs">
+          <a data-route="practice" style="cursor: pointer; color: var(--primary); text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 4px;">
+            ← Problem List
+          </a>
+          <span>/</span>
+          
+          <!-- Problem Switcher Dropdown -->
+          <select id="playground-problem-selector" class="editor-lang-select" style="max-width: 260px; font-weight: 700; font-family: var(--font-family); color: var(--text-main); background: var(--bg-subtle); border-color: var(--border-color);">
+            ${codingQuestions.map(q => `
+              <option value="${q.id}" ${q.id === question.id ? 'selected' : ''}>
+                ${store.isQuestionSolved(q.id) ? '✓ ' : ''}${q.title || q.subtopic || q.id} (${q.difficulty})
+              </option>
+            `).join('')}
+          </select>
 
-      <!-- 1. TOP MENU & ACTION TOOLBAR (VS Code / Dark Header) -->
-      <div class="intellij-menu-bar">
-        <div class="ide-menu-left">
-          <div class="ide-project-brand">
-            <span style="color: #007ACC; font-size: 1.1rem; font-weight: 800;">⚡</span>
-            <span class="ide-project-title">${projectName}</span>
-            <span class="ide-branch-tag">Java 17</span>
-          </div>
-
-          <!-- Active File Info -->
-          <div class="ide-file-tab active" title="${activeFile.path}">
-            <span class="vscode-java-icon">J</span>
-            <span class="file-name">${activeFile.name}</span>
-            <span class="file-status-dot" style="background: #34D399; width: 6px; height: 6px; border-radius: 50%;"></span>
-          </div>
+          <span class="badge ${getDifficultyBadgeClass(question.difficulty)}">${question.difficulty}</span>
+          ${isSolved ? `<span class="solved-status-badge">✓ Solved</span>` : ''}
         </div>
 
-        <div class="ide-menu-center">
-          <div class="ide-run-config-pill" title="Run Configuration">
-            <span class="run-config-icon" style="color: #34D399;">▶</span>
-            <span class="run-config-name">${activeFile.name}</span>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="question-timer-pill" id="question-timer" title="Time elapsed on this problem">
+            <span>⏱</span> <span id="timer-display">00:00</span>
           </div>
 
-          <!-- Main RUN Code Button -->
-          <button class="btn-ide-action btn-ide-run" id="btn-ide-run-code" title="Execute Code with Input (Shift + F10 or Ctrl + Enter)">
-            <span style="font-size: 0.9rem;">▶</span> Run (${activeFile.name})
-          </button>
-        </div>
-
-        <div class="ide-menu-right">
-          <!-- Live Gamification Points Badge -->
-          <div class="ide-points-pill" title="Earn +2 Points for every successful execution!">
-            <span>⭐</span>
-            <span style="font-weight: 800; color: #F59E0B;">+2 XP</span>
-            <span style="color: #94A3B8; font-size: 0.75rem;">(${user.points || 0} pts)</span>
-          </div>
-
-          <!-- Open Folder Button in Header -->
-          <button class="btn-ide-tool" id="btn-header-open-folder" title="Import a folder from your computer" style="background: #007ACC; color: white; border-color: #007ACC;">
-            📥 Open Folder
-          </button>
-
-          <!-- Format Code Button -->
-          <button class="btn-ide-tool" id="btn-format-code" title="Auto-Format & Indent Code">
-            🧹 Format
-          </button>
-
-          <!-- Reset Code Button -->
-          <button class="btn-ide-tool" id="btn-reset-code" title="Reset workspace">
-            ↺ Reset
+          <button class="btn btn-secondary btn-sm" id="btn-open-hint-tab" title="Get AI-powered hints without revealing full answer">
+            💡 AI Concept Hint
           </button>
         </div>
       </div>
 
-      <!-- 2. MAIN WORKSPACE (Activity Bar + Explorer + Code Editor) -->
-      <div class="vscode-ide-layout">
+      <!-- 2. Split Screen: Problem Description (Left) & Editor + Testcases (Right) -->
+      <div class="playground-split-grid">
         
-        <!-- A. FAR LEFT: VS CODE ACTIVITY BAR -->
-        <div class="vscode-activity-bar">
-          <div class="activity-bar-top">
-            <!-- Explorer Icon (Active with badge) -->
-            <div class="activity-item active" id="act-explorer" title="Explorer (Ctrl+Shift+E)">
-              <span>📑</span>
-              <span class="activity-badge">${Object.keys(allFiles).length}</span>
-            </div>
-            <!-- Search Icon -->
-            <div class="activity-item" id="act-search" title="Search (Ctrl+Shift+F)">
-              <span>🔍</span>
-            </div>
-            <!-- Source Control / Git Icon -->
-            <div class="activity-item" id="act-git" title="Source Control (Ctrl+Shift+G)">
-              <span>🌿</span>
-            </div>
-            <!-- Run & Debug Icon -->
-            <div class="activity-item" id="act-debug" title="Run & Debug (Ctrl+Shift+D)">
-              <span>▶️</span>
-            </div>
-            <!-- Extensions Icon -->
-            <div class="activity-item" id="act-extensions" title="Extensions">
-              <span>🧩</span>
-            </div>
+        <!-- LEFT PANE: Problem Description, Constraints, AI Hints & Submissions -->
+        <div class="problem-pane">
+          <div class="pane-tabs-header">
+            <button class="pane-tab-btn ${activeTab === 'description' ? 'active' : ''}" id="tab-btn-desc">
+              📄 Description
+            </button>
+            <button class="pane-tab-btn ${activeTab === 'hints' ? 'active' : ''}" id="tab-btn-hints">
+              💡 AI Hints
+            </button>
+            <button class="pane-tab-btn ${activeTab === 'submissions' ? 'active' : ''}" id="tab-btn-subs">
+              📜 Submissions ${isSolved ? '(1)' : '(0)'}
+            </button>
           </div>
 
-          <div class="activity-bar-bottom">
-            <div class="activity-item" id="act-settings" title="Settings / Reset">
-              <span>⚙️</span>
-            </div>
+          <div class="problem-content-scroll" id="pane-tab-content">
+            ${activeTab === 'description' ? renderDescriptionTab(question, isSolved) : ''}
+            ${activeTab === 'hints' ? renderHintsTab(question) : ''}
+            ${activeTab === 'submissions' ? renderSubmissionsTab(question, isSolved) : ''}
           </div>
         </div>
 
-        <!-- B. EXPLORER SIDEBAR PANE -->
-        <div class="vscode-explorer-sidebar" id="ide-sidebar-pane">
-          
-          <!-- Explorer Header (VS Code Style) -->
-          <div class="vscode-explorer-header">
-            <span>Explorer</span>
-            <div class="vscode-header-actions">
-              <button class="vscode-icon-btn" id="btn-vscode-open-folder" title="Open / Import Folder from PC">📥</button>
-              <button class="vscode-icon-btn" id="btn-tree-new-file" title="New Java Class / File">📄+</button>
-              <button class="vscode-icon-btn" id="btn-tree-new-folder" title="New Folder">📁+</button>
-              <button class="vscode-icon-btn" id="btn-tree-collapse-all" title="Collapse Folders in Explorer">⇋</button>
-              <button class="vscode-icon-btn" id="btn-tree-refresh" title="Refresh Explorer">↺</button>
+        <!-- RIGHT PANE: Code Editor & Test Case Runner Console -->
+        <div class="editor-pane">
+          <!-- Editor Toolbar -->
+          <div class="editor-toolbar">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <select class="editor-lang-select" id="editor-lang-selector">
+                <option value="java">Java (OpenJDK 17)</option>
+              </select>
+              <span style="font-size: 0.75rem; color: #64748B;">Auto-Save Enabled</span>
+            </div>
+
+            <div class="editor-tool-actions">
+              <button class="btn-editor-tool" id="btn-format-code" title="Auto-format and indent code">
+                🧹 Format
+              </button>
+              <button class="btn-editor-tool" id="btn-reset-code" title="Reset code to default template">
+                ↺ Reset
+              </button>
             </div>
           </div>
 
-          <!-- Project Root Collapsible Section (e.g. ∨ JAVA) -->
-          <div class="vscode-root-section" id="btn-toggle-root-section">
-            <div style="display: flex; align-items: center; gap: 4px;">
-              <span class="vscode-chevron">∨</span>
-              <span class="vscode-root-title">${projectName}</span>
-            </div>
-            <span style="font-size: 0.65rem; color: #858585; font-weight: normal;">${Object.keys(allFiles).length} files</span>
+          <!-- Code Editor Area -->
+          <div class="code-editor-area">
+            <pre class="line-numbers-gutter" id="line-numbers-gutter">${lineNumbers}</pre>
+            <textarea class="code-textarea-main" id="playground-code-input" spellcheck="false" placeholder="// Write your solution here...">${escapeHtml(codeToDisplay)}</textarea>
           </div>
 
-          <!-- Project Tree Scroll View & Dropzone -->
-          <div class="vscode-tree-scroll" id="ide-tree-scroll-container">
-            <div class="vfs-tree-container">
-              
-              <!-- Recursive Tree Structure -->
-              <div class="tree-children-container">
-                ${Object.keys(treeRoot.children).length > 0 
-                  ? Object.keys(treeRoot.children).sort().map(childKey => renderTreeNode(treeRoot.children[childKey], activeFile.path, 0)).join('')
-                  : `
-                    <!-- Open Folder Hero Banner if empty -->
-                    <div class="vscode-open-folder-box" id="dropzone-open-folder">
-                      <div style="font-size: 1.8rem;">📁</div>
-                      <div style="font-size: 0.8rem; color: #CCCCCC; font-weight: 600;">No Folder Opened</div>
-                      <div style="font-size: 0.72rem; color: #858585;">You have not yet opened a folder.</div>
-                      <button class="btn-vscode-open" id="btn-open-folder-hero">
-                        <span>📥</span> Open Folder
-                      </button>
-                      <div style="font-size: 0.68rem; color: #666; margin-top: 4px;">
-                        or Drag & Drop folder here
-                      </div>
-                    </div>
-                  `
-                }
-              </div>
-
-              <!-- Quick Import Banner at bottom of tree -->
-              <div style="padding: 10px; margin: 12px 8px; background: #1F1F1F; border: 1px solid #2B2B2B; border-radius: 4px;">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
-                  <span style="font-size: 0.72rem; font-weight: 700; color: #007ACC;">📥 Import Folder</span>
-                  <span style="font-size: 0.65rem; color: #858585;">PC → Web</span>
-                </div>
-                <button class="btn-vscode-open" id="btn-quick-import-bottom" style="font-size: 0.74rem; padding: 4px 8px;">
-                  Select Local Folder...
-                </button>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- C. CENTER / RIGHT: Multi-Tab Bar, Monaco Code Editor & Bottom Run Tool Window -->
-        <div class="intellij-editor-pane">
-          
-          <!-- MULTI-TAB BAR (VS Code Style) -->
-          <div class="ide-editor-tabbar" id="ide-editor-tabbar">
-            ${openTabs.map(tabPath => {
-              const file = vfs.getFile(tabPath) || { name: tabPath.split('/').pop(), path: tabPath };
-              const isActive = tabPath === activeFile.path;
-              const isJava = file.name.endsWith('.java');
-              return `
-                <div class="ide-tab-item ${isActive ? 'active' : ''}" data-tabpath="${tabPath}" title="${tabPath}">
-                  ${isJava ? `<span class="vscode-java-icon">J</span>` : `<span class="tab-icon">📄</span>`}
-                  <span class="tab-title">${file.name}</span>
-                  <span class="tab-close-btn" data-closepath="${tabPath}" title="Close Tab (Ctrl+W)">✕</span>
-                </div>
-              `;
-            }).join('')}
-          </div>
-
-          <!-- MONACO CODE EDITOR WRAPPER -->
-          <div class="intellij-code-area" style="padding: 0; position: relative;">
-            <div class="monaco-editor-wrapper">
-              <div id="monaco-editor-container"></div>
-              <!-- Fallback textarea for offline -->
-              <textarea id="playground-code-input" class="monaco-fallback-textarea" style="display: none;" spellcheck="false">${escapeHtml(activeFile.content || '')}</textarea>
-            </div>
-          </div>
-
-          <!-- BOTTOM TOOL WINDOW: Run Console & Standard Input (stdin) -->
-          <div class="intellij-tool-window">
-            
-            <!-- Tool Window Header -->
-            <div class="tool-window-header">
-              <div class="tool-window-tabs">
-                <button class="tool-tab-btn ${activeTab === 'terminal' ? 'active' : ''}" id="tool-tab-terminal">
-                  💻 Run (${activeFile.name}) ${executionResult ? (executionResult.success ? '✓' : '✕') : ''}
-                </button>
-                <button class="tool-tab-btn ${activeTab === 'stdin' ? 'active' : ''}" id="tool-tab-stdin">
-                  ⌨️ Standard Input (stdin) <span class="stdin-tab-badge">${stdinTokens}</span>
-                </button>
-                ${activeFile.isDSA && activeFile.question ? `
-                  <button class="tool-tab-btn ${activeTab === 'dsa_test' ? 'active' : ''}" id="tool-tab-dsa">
-                    🧪 DSA Testcases (${activeFile.question?.testCases?.length || 0})
-                  </button>
-                ` : ''}
-              </div>
-
-              <!-- Status Info & Actions -->
-              <div class="tool-window-status">
-                ${executionResult ? `
-                  <span style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: ${executionResult.success ? '#34D399' : '#EF4444'};">
-                    ${executionResult.success ? `✓ Process finished (exit 0) • ${executionResult.executionTimeMs}ms • ${executionResult.memoryMb} MB` : `✕ Execution Error (exit ${executionResult.exitCode || 1})`}
-                  </span>
-                ` : `
-                  <span style="font-size: 0.76rem; color: #64748B;">Shortcuts: Shift + F10 | Ctrl + Enter to Run</span>
-                `}
-                <button class="btn-clear-console" id="btn-clear-console" title="Clear Console Output">🗑</button>
-              </div>
-            </div>
-
-            <!-- Tool Window Body Area -->
-            <div class="tool-window-content" id="tool-window-body">
-              
-              <!-- 1. LIVE RUN TERMINAL / OUTPUT CONSOLE -->
-              <div id="view-terminal-content" style="display: ${activeTab === 'terminal' ? 'flex' : 'none'}; flex-direction: column; height: 100%;">
-                
-                <!-- Quick Stdin Input Bar inside Terminal -->
-                <div class="terminal-stdin-bar">
-                  <div class="terminal-stdin-bar-left">
-                    <span class="stdin-badge-label">⌨️ Stdin:</span>
-                    <input type="text" id="quick-stdin-input" class="quick-stdin-input" placeholder="Type input (e.g. 5 12) or click 'Standard Input' tab..." value="${escapeHtml(stdinToDisplay)}">
-                  </div>
-                  <div class="terminal-stdin-bar-right">
-                    <span class="stdin-meta-tag" id="quick-stdin-meta">${stdinTokens} tokens</span>
-                    <button class="btn-ide-subaction" id="btn-quick-switch-stdin" title="Switch to full multiline Standard Input tab">✏️ Multiline Stdin Tab</button>
-                    <button class="btn-ide-subaction btn-run-accent" id="btn-quick-run-stdin" title="Run with this input (Shift + F10)">▶ Run</button>
-                  </div>
-                </div>
-
-                <div class="ide-terminal-console" id="ide-console-output">
-                  <div class="terminal-line"><span style="color: #60A5FA;">/usr/lib/jvm/java-17-openjdk/bin/java</span> -cp target/classes ${activeFile.name.replace('.java', '')}</div>
-                  <div class="terminal-divider">--------------------------------------------------------------------------------</div>
-                  
-                  ${executionResult ? (
-                    executionResult.success ? `
-                      <div class="terminal-stdout">${escapeHtml(executionResult.stdout || '(Program completed with no stdout output)')}</div>
-                      <div class="terminal-divider">--------------------------------------------------------------------------------</div>
-                      <div class="terminal-line" style="color: #34D399; font-weight: bold;">
-                        Process finished with exit code 0 (Execution Time: ${executionResult.executionTimeMs} ms | Memory: ${executionResult.memoryMb} MB)
-                      </div>
-                      <div class="terminal-line" style="color: #F59E0B; font-weight: bold;">
-                        ⭐ +2 XP Points Added to your profile!
-                      </div>
-                    ` : `
-                      ${executionResult.stdout ? `<div class="terminal-stdout">${escapeHtml(executionResult.stdout)}</div>` : ''}
-                      <div class="terminal-error">
-                        Exception in thread "main" ${escapeHtml(executionResult.error)}
-                            at ${activeFile.name.replace('.java', '')}.main(${activeFile.name}:1)
-                      </div>
-                      ${executionResult.error && executionResult.error.includes('NoSuchElementException') ? `
-                        <div class="terminal-hint-box">
-                          💡 <strong>How to fix:</strong> Your Java code uses <code>Scanner(System.in)</code> to read input, but standard input was exhausted. Type your input values in the box above or in the <strong>"⌨️ Standard Input"</strong> tab, then press <strong>▶ Run</strong>!
-                        </div>
-                      ` : ''}
-                      <div class="terminal-divider">--------------------------------------------------------------------------------</div>
-                      <div class="terminal-line" style="color: #EF4444; font-weight: bold;">
-                        Process finished with exit code ${executionResult.exitCode || 1} (Execution Time: ${executionResult.executionTimeMs} ms)
-                      </div>
-                    `
-                  ) : `
-                    <div class="terminal-line" style="color: #64748B;">
-                      Tip: Type any input in the <strong>"⌨️ Stdin"</strong> field above or the <strong>"Standard Input (stdin)"</strong> tab, then click <strong>"▶ Run"</strong> or press <strong>Shift + F10</strong>.
-                    </div>
-                  `}
-                </div>
-              </div>
-
-              <!-- 2. INTERACTIVE STDIN INPUT TAB -->
-              <div id="view-stdin-content" style="display: ${activeTab === 'stdin' ? 'block' : 'none'}; height: 100%;">
-                <div class="stdin-container">
-                  <div class="stdin-header">
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                      <span class="testcase-field-label">Standard Input Stream (stdin) — Read by <code>Scanner(System.in)</code>:</span>
-                      <span class="stdin-meta-pill" id="stdin-meta-counter">${stdinTokens} tokens • ${stdinLines} lines • ${stdinToDisplay.length} chars</span>
-                    </div>
-                    <button class="btn btn-primary btn-sm" id="btn-run-with-stdin" style="padding: 4px 14px; font-size: 0.8rem; font-weight: 700;">
-                      ▶ Run Code with this Input (Shift + F10)
+          <!-- Testcases Console Bottom Panel -->
+          <div class="testcase-panel">
+            <div class="testcase-tab-bar">
+              <div class="testcase-tabs-list">
+                ${testCases.map((tc, idx) => {
+                  let passClass = '';
+                  let passIcon = '';
+                  if (runResults && runResults.results && runResults.results[idx]) {
+                    const r = runResults.results[idx];
+                    passClass = r.passed ? 'passed' : 'failed';
+                    passIcon = r.passed ? '✓ ' : '✕ ';
+                  }
+                  return `
+                    <button class="testcase-tab ${safeCaseIdx === idx ? 'active' : ''} ${passClass}" data-case-idx="${idx}">
+                      ${passIcon}Case ${idx + 1}
                     </button>
-                  </div>
+                  `;
+                }).join('')}
+              </div>
 
-                  <!-- Quick Presets -->
-                  <div class="stdin-presets-bar">
-                    <span style="font-size: 0.74rem; color: #8C9099; font-weight: 600;">Presets:</span>
-                    <button class="btn-preset-pill" data-preset="5 12">🔢 Coordinates (5 12)</button>
-                    <button class="btn-preset-pill" data-preset="10 20 30">🔢 Integers (10 20 30)</button>
-                    <button class="btn-preset-pill" data-preset="Alex Mercer">🔤 String ("Alex Mercer")</button>
-                    <button class="btn-preset-pill" data-preset="5\n10 20 30 40 50">📊 Array (5 items)</button>
-                    <button class="btn-preset-pill" data-preset="clear" style="color: #F87171;">🧹 Clear</button>
-                  </div>
+              ${runResults ? `
+                <span style="font-size: 0.8rem; font-family: var(--font-mono); color: ${runResults.success ? '#10B981' : '#EF4444'}; font-weight: 700;">
+                  ${runResults.success ? `✓ ${runResults.passedCount}/${runResults.totalCount} Passed (${runResults.executionTimeMs}ms)` : `✕ ${runResults.passedCount}/${runResults.totalCount} Passed`}
+                </span>
+              ` : `
+                <span style="font-size: 0.78rem; color: #94A3B8; font-family: var(--font-mono);">
+                  Sample Testcases
+                </span>
+              `}
+            </div>
 
-                  <textarea class="stdin-textarea intellij-font" id="ide-stdin-input" placeholder="Type or paste standard input data here (e.g., numbers, words, lines)...">${escapeHtml(stdinToDisplay)}</textarea>
+            <!-- Active Test Case Input & Output Box -->
+            <div class="testcase-body" id="testcase-display-body">
+              <div>
+                <div class="testcase-field-label">Sample Input</div>
+                <div class="testcase-box">${escapeHtml(currentCase.input)}</div>
+              </div>
 
-                  <div class="stdin-footer-guide">
-                    <span>💡 <strong>Scanner Info:</strong> <code>sc.nextInt()</code> reads numbers, <code>sc.next()</code> reads tokens, <code>sc.nextLine()</code> reads whole lines. Line breaks and multi-value inputs are preserved.</span>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div>
+                  <div class="testcase-field-label">Expected Output</div>
+                  <div class="testcase-box">${escapeHtml(currentCase.expected)}</div>
+                </div>
+                <div>
+                  <div class="testcase-field-label">Your Output</div>
+                  <div class="testcase-box ${runResults && runResults.results && runResults.results[safeCaseIdx] ? (runResults.results[safeCaseIdx].passed ? 'match' : 'mismatch') : ''}">
+                    ${runResults && runResults.results && runResults.results[safeCaseIdx] ? escapeHtml(runResults.results[safeCaseIdx].actual) : '<span style="color: #64748B;">Click Run Code to evaluate</span>'}
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
 
-              <!-- 3. DSA TESTCASES (if active file is a DSA challenge) -->
-              ${activeFile.isDSA && activeFile.question ? `
-                <div id="view-dsa-content" style="display: ${activeTab === 'dsa_test' ? 'block' : 'none'}; height: 100%;">
-                  <div style="padding: 10px 14px;">
-                    <div style="font-size: 0.82rem; font-weight: 700; color: #DFE1E5; margin-bottom: 6px;">
-                      Challenge: ${activeFile.question.title} (${activeFile.question.difficulty})
-                    </div>
-                    <p style="font-size: 0.78rem; color: #9DA0A8; margin-bottom: 10px;">
-                      ${activeFile.question.question}
-                    </p>
-                    <div class="testcase-box" style="margin-bottom: 8px;">
-                      <strong>Expected Input:</strong> ${activeFile.question.exampleInput || 'N/A'}<br>
-                      <strong>Expected Output:</strong> ${activeFile.question.exampleOutput || 'N/A'}
-                    </div>
-                  </div>
-                </div>
-              ` : ''}
-
+          <!-- Bottom Action Bar (Run & Submit) -->
+          <div class="playground-bottom-bar">
+            <div style="font-size: 0.78rem; color: #64748B; font-family: var(--font-mono);">
+              Shortcuts: <kbd style="background: #334155; padding: 2px 6px; border-radius: 3px; color: #CBD5E1;">Ctrl + Enter</kbd> to Run
             </div>
 
+            <div style="display: flex; gap: 10px;">
+              <button class="btn-run-code-dark" id="btn-playground-run" title="Run code against sample test cases">
+                ▶ Run Code
+              </button>
+              <button class="btn-submit-code-dark" id="btn-playground-submit" title="Submit code for full acceptance">
+                🚀 Submit
+              </button>
+            </div>
           </div>
 
         </div>
 
       </div>
 
-      <!-- 3. FLOATING VS CODE CONTEXT MENU (Hidden by default) -->
-      <div id="ide-context-menu" class="ide-context-menu" style="display: none;">
-        <div class="context-menu-item" id="ctx-new-class">
-          <div class="context-item-left">
-            <span class="vscode-java-icon">J</span>
-            <span>New Java Class</span>
-          </div>
-          <span class="context-item-shortcut">Alt+Insert</span>
-        </div>
-        <div class="context-menu-item" id="ctx-new-file">
-          <div class="context-item-left">
-            <span class="context-item-icon">📄</span>
-            <span>New File</span>
-          </div>
-        </div>
-        <div class="context-menu-item" id="ctx-new-folder">
-          <div class="context-item-left">
-            <span class="context-item-icon">📁</span>
-            <span>New Folder</span>
-          </div>
-        </div>
-        <div class="context-menu-separator"></div>
-        <div class="context-menu-item" id="ctx-open-folder">
-          <div class="context-item-left">
-            <span class="context-item-icon">📥</span>
-            <span>Open Folder...</span>
-          </div>
-        </div>
-        <div class="context-menu-separator"></div>
-        <div class="context-menu-item" id="ctx-rename">
-          <div class="context-item-left">
-            <span class="context-item-icon">✏️</span>
-            <span>Rename...</span>
-          </div>
-          <span class="context-item-shortcut">F2</span>
-        </div>
-        <div class="context-menu-item danger" id="ctx-delete">
-          <div class="context-item-left">
-            <span class="context-item-icon">🗑️</span>
-            <span>Delete</span>
-          </div>
-          <span class="context-item-shortcut">Del</span>
-        </div>
-      </div>
-
+      <!-- Submission / Done Acceptance Overlay Modal -->
+      ${submissionResult ? renderAcceptanceModal(question, submissionResult) : ''}
     </div>
   `;
 }
 
-// Recursive Tree Node Renderer matching VS Code layout
-function renderTreeNode(node, activeFilePath, depth = 0) {
-  if (node.type === 'folder') {
-    const isExpanded = node.isExpanded;
-    const paddingLeft = depth * 14 + 8;
-    const sortedKeys = Object.keys(node.children).sort((a, b) => {
-      const childA = node.children[a];
-      const childB = node.children[b];
-      if (childA.type === childB.type) return a.localeCompare(b);
-      return childA.type === 'folder' ? -1 : 1;
-    });
-
-    return `
-      <div class="tree-folder-group" data-folderpath="${node.path}">
-        <div class="tree-node-row tree-folder-row" data-folderpath="${node.path}" style="padding-left: ${paddingLeft}px;" title="${node.path}">
-          <div class="tree-node-left">
-            <span class="folder-arrow ${isExpanded ? 'expanded' : ''}">▶</span>
-            <span class="tree-node-icon" style="font-size: 0.8rem;">📁</span>
-            <span class="tree-node-name" style="font-size: 0.8rem;">${node.name}</span>
-          </div>
-          <span class="tree-node-badge">${Object.keys(node.children).length}</span>
+function renderDescriptionTab(question, isSolved) {
+  return `
+    <div class="problem-header-row">
+      <div>
+        <h2 class="problem-heading">${escapeHtml(question.title || question.question)}</h2>
+        <div style="display: flex; gap: 8px; margin-top: 6px; align-items: center;">
+          <span class="badge ${getDifficultyBadgeClass(question.difficulty)}">${question.difficulty}</span>
+          <span class="badge badge-neutral">${question.topic.toUpperCase().replace('-', ' ')}</span>
+          ${isSolved ? `<span class="solved-status-badge">✓ Solved</span>` : ''}
         </div>
-        ${isExpanded ? `
-          <div class="tree-children-container">
-            ${sortedKeys.map(k => renderTreeNode(node.children[k], activeFilePath, depth + 1)).join('')}
-          </div>
+      </div>
+    </div>
+
+    <div class="problem-description-text">
+      ${escapeHtml(question.question)}
+    </div>
+
+    <!-- Example 1 -->
+    ${question.exampleInput ? `
+      <div class="example-section-box">
+        <span class="example-title">Example 1:</span>
+        <div class="example-io-line"><strong>Input:</strong> <code>${escapeHtml(question.exampleInput)}</code></div>
+        <div class="example-io-line"><strong>Output:</strong> <code>${escapeHtml(question.exampleOutput)}</code></div>
+        ${question.explanation ? `
+          <div class="example-io-line"><strong>Explanation:</strong> ${escapeHtml(question.explanation)}</div>
         ` : ''}
       </div>
-    `;
-  } else {
-    // File node (e.g. J cooordinat.java)
-    const isJava = node.name.endsWith('.java');
-    const isActive = node.path === activeFilePath;
-    const paddingLeft = depth * 14 + 20;
-    return `
-      <div class="tree-node-row tree-file-row vscode-file-row ${isActive ? 'active' : ''}" data-filepath="${node.path}" style="padding-left: ${paddingLeft}px;" title="${node.path}">
-        <div class="tree-node-left" style="gap: 6px;">
-          ${isJava ? `<span class="vscode-java-icon">J</span>` : `<span style="font-size: 0.8rem;">📄</span>`}
-          <span class="tree-node-name">${node.name}</span>
-        </div>
-        ${node.isDSA ? `<span class="badge badge-neutral" style="font-size: 0.62rem; padding: 1px 4px;">DSA</span>` : ''}
+    ` : ''}
+
+    <!-- Example 2 (from test case if available) -->
+    ${question.testCases && question.testCases.length > 1 ? `
+      <div class="example-section-box">
+        <span class="example-title">Example 2:</span>
+        <div class="example-io-line"><strong>Input:</strong> <code>${escapeHtml(question.testCases[1].input)}</code></div>
+        <div class="example-io-line"><strong>Output:</strong> <code>${escapeHtml(question.testCases[1].expected)}</code></div>
       </div>
-    `;
-  }
+    ` : ''}
+
+    <!-- Constraints -->
+    <div class="constraints-box">
+      <div class="constraints-title">Constraints:</div>
+      <ul class="constraints-list">
+        ${(question.constraints || [
+          '1 <= nums.length <= 10^5',
+          '-10^9 <= nums[i] <= 10^9',
+          'Expected Time Complexity: O(log N) or O(N)',
+          'Expected Auxiliary Space: O(1)'
+        ]).map(c => `<li><code>${escapeHtml(c)}</code></li>`).join('')}
+      </ul>
+    </div>
+  `;
+}
+
+function renderHintsTab(question) {
+  return `
+    <div>
+      <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-bottom: 8px;">
+        💡 AI Concept Guidance
+      </h3>
+      <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px;">
+        Personalized algorithmic hints tailored to help you solve this without giving away the full code.
+      </p>
+
+      <div style="background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 18px; display: flex; flex-direction: column; gap: 12px;">
+        <div>
+          <strong style="color: var(--text-main);">Hint 1 (Core Concept):</strong>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 2px;">
+            ${escapeHtml(question.concept || 'Analyze array bounds, loop invariants, and pointer traversal.')}
+          </p>
+        </div>
+        <div style="border-top: 1px solid var(--border-color); padding-top: 10px;">
+          <strong style="color: var(--text-main);">Hint 2 (Implementation Strategy):</strong>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 2px;">
+            ${escapeHtml(question.explanation || 'Think about base cases, loop termination conditions (e.g. left <= right), and avoid off-by-one errors.')}
+          </p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderSubmissionsTab(question, isSolved) {
+  return `
+    <div>
+      <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
+        Submission History
+      </h3>
+      ${isSolved ? `
+        <div style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: var(--radius-md); padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-weight: 800; color: #065F46; font-size: 1rem;">✓ Done (Accepted)</div>
+            <div style="font-size: 0.8rem; color: #047857;">All sample test cases verified • Optimal memory usage</div>
+          </div>
+          <span style="font-size: 0.78rem; color: #065F46; font-weight: 600;">Status: Completed ✓</span>
+        </div>
+      ` : `
+        <div style="text-align: center; padding: 32px; color: var(--text-muted);">
+          No successful submissions yet. Write your code and click Run Code or Submit!
+        </div>
+      `}
+    </div>
+  `;
+}
+
+function renderAcceptanceModal(question, result) {
+  return `
+    <div class="acceptance-overlay" id="acceptance-modal-overlay">
+      <div class="acceptance-card">
+        <div class="accepted-check-icon">✓</div>
+        <h2 class="accepted-title">Done! Solved Successfully</h2>
+        <p style="font-size: 0.95rem; color: var(--text-muted);">
+          All <strong>${result.totalCount}/${result.totalCount}</strong> test cases passed with expected outputs!
+        </p>
+
+        <div class="accepted-metrics-row">
+          <div class="accepted-metric-box">
+            <span class="accepted-metric-label">Runtime</span>
+            <span class="accepted-metric-val" style="color: var(--success);">${result.executionTimeMs || 2} ms</span>
+            <span style="font-size: 0.72rem; color: var(--text-light);">Fast Execution</span>
+          </div>
+          <div class="accepted-metric-box">
+            <span class="accepted-metric-label">Memory</span>
+            <span class="accepted-metric-val">${result.memoryMb || '38.4'} MB</span>
+            <span style="font-size: 0.72rem; color: var(--text-light);">Optimal Space</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 8px; align-items: center; background: #ECFDF5; padding: 10px 16px; border-radius: var(--radius-md); width: 100%; justify-content: center;">
+          <span style="color: var(--success); font-weight: 800;">✓ Green Tick Applied:</span>
+          <span style="font-size: 0.85rem; color: #065F46; font-weight: 600;">Marked as Solved in Practice Bank (+2 XP)</span>
+        </div>
+
+        <div style="display: flex; gap: 12px; margin-top: 8px; width: 100%;">
+          <button class="btn btn-secondary" id="btn-close-acceptance" style="flex: 1;">
+            Back to Editor
+          </button>
+          <button class="btn btn-primary" data-route="practice" style="flex: 1;">
+            Practice More Problems →
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function getDifficultyBadgeClass(diff) {
+  if (diff === 'Easy') return 'badge-strong';
+  if (diff === 'Medium') return 'badge-improving';
+  return 'badge-needs-practice';
 }
 
 function escapeHtml(str) {

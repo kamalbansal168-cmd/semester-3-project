@@ -681,7 +681,21 @@ export class CodeExecutionEngine {
     // 9. Handle String length() -> length
     body = body.replace(/([a-zA-Z0-9_]+)\.length\(\)/g, '$1.length');
 
-    // 10. Loop safety guard against infinite loops
+    // 10. Handle Java integer division truncation
+    body = body.replace(/=\s*([^;\n{]+)\s*;/g, (match, expr) => {
+      if (expr.includes('/') && !expr.includes('//') && !expr.includes('"') && !expr.includes("'")) {
+        return `= Math.trunc(${expr.trim()});`;
+      }
+      return match;
+    });
+
+    // 11. Ensure array indexing uses integer indices
+    body = body.replace(/\[\s*([a-zA-Z0-9_]+)\s*\]/g, (match, idx) => {
+      if (['nums', 'arr', 'numbers', 'grid', 'matrix', 'String', 'int', 'boolean'].includes(idx)) return match;
+      return `[Math.trunc(${idx})]`;
+    });
+
+    // 12. Loop safety guard against infinite loops
     body = body.replace(/while\s*\(([^)]+)\)\s*\{/g, 'while ($1) { __checkLoop();');
     body = body.replace(/for\s*\(([^)]+)\)\s*\{/g, 'for ($1) { __checkLoop();');
 

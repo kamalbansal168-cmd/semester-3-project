@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    LEARNPATH AI â€” Main Application Orchestrator & Router (With Notes & 12 Topics)
    ============================================================ */
 
@@ -99,17 +99,17 @@ class LearnPathApp {
     }
 
     if (route === 'playground') {
-      // New freeform IDE â€” reset to fresh state on navigate
-      this.ideActiveTab = 'terminal';
-      const projectRoot = vfs.projectName || 'java';
-      const allFiles = Object.keys(vfs.getAllFiles());
-      const fileToOpen = params.filepath || allFiles[0] || `${projectRoot}/Main.java`;
-      this.ideCurrentFile = fileToOpen;
-      if (!this.ideOpenTabs.includes(fileToOpen)) {
-        this.ideOpenTabs = [fileToOpen];
-      }
-      this.ideStdin = null;
-      this.ideExecutionResult = null;
+      const qid = params.qid || this.currentQuestionId || 'lc_bin_search';
+      this.currentQuestionId = qid;
+      const question = QUESTIONS_DB.find(q => q.id === qid) || QUESTIONS_DB[0];
+      this.playgroundCode = question ? question.starterCode : '';
+      this.playgroundRunResults = null;
+      this.playgroundSubmission = null;
+      this.playgroundActiveTab = 'description';
+      this.playgroundActiveCaseIdx = 0;
+      this.stopTimer();
+      this.secondsElapsed = 0;
+      this.startTimer();
     }
 
     // Fix #5: Start timer only on initial navigation to 'question', not on every render
@@ -171,16 +171,20 @@ class LearnPathApp {
         mainEl.innerHTML = renderPracticeView(state, this.selectedPracticeTopic, this.selectedPracticeDifficulty);
         break;
 
-      case 'playground':
+      case 'playground': {
+        const pqid = this.routeParams.qid || this.currentQuestionId || 'lc_bin_search';
+        this.currentQuestionId = pqid;
         mainEl.innerHTML = renderPlaygroundView(
-          this.ideCurrentFile,
-          this.ideActiveTab,
-          this.ideOpenTabs,
-          this.ideStdin,
-          this.ideExecutionResult
+          pqid,
+          this.playgroundActiveTab,
+          this.playgroundActiveCaseIdx,
+          this.playgroundCode,
+          this.playgroundRunResults,
+          this.playgroundSubmission
         );
-        setTimeout(() => this.initMonacoEditor(), 50);
+        this.updateLineNumbers();
         break;
+      }
 
       case 'question': {
         const qid = this.routeParams.qid || 'tp_01';
@@ -264,11 +268,7 @@ class LearnPathApp {
     // Input event for Playground Code textarea and Stdin inputs
     document.addEventListener('input', (e) => {
       if (e.target.id === 'playground-code-input') {
-        if (this.currentRoute === 'playground') {
-          this.ideCode = e.target.value;
-        } else {
-          this.playgroundCode = e.target.value;
-        }
+        this.playgroundCode = e.target.value;
         this.updateLineNumbers();
       }
       
@@ -306,11 +306,7 @@ class LearnPathApp {
       // 1. Run Code Shortcut: Shift + F10 or Ctrl + Enter
       if ((e.key === 'F10' && e.shiftKey) || (e.key === 'Enter' && (e.ctrlKey || e.metaKey))) {
         e.preventDefault();
-        if (this.currentRoute === 'playground') {
-          this.handleIDERun();
-        } else {
-          this.handlePlaygroundRun();
-        }
+        this.handlePlaygroundRun();
         return;
       }
 
@@ -1223,6 +1219,9 @@ class LearnPathApp {
       } else if (e.target.id === 'difficulty-filter') {
         this.selectedPracticeDifficulty = e.target.value;
         this.render();
+      } else if (e.target.id === 'playground-problem-selector') {
+        const nextQid = e.target.value;
+        this.navigate('playground', { qid: nextQid });
       } else if (e.target.id === 'vfs-folder-input') {
         const files = Array.from(e.target.files);
         if (files.length === 0) return;
@@ -1763,9 +1762,30 @@ class LearnPathApp {
     this.playgroundRunResults = result;
 
     if (result.success) {
-      this.showToast('Test Cases Passed! âœ“', `${result.passedCount}/${result.totalCount} public cases matched.`, 'success');
+      this.stopTimer();
+      const pointsData = store.markQuestionSolved(question.id, 2);
+      
+      // If recovery gate is active, record coding challenge pass
+      const currentState = store.getState();
+      if (currentState.activeRecoveryGate && currentState.activeRecoveryGate.topicId === question.topic) {
+        store.recordRecoveryCodePass(question.id);
+      }
+
+      store.recordAttempt({
+        question,
+        isCorrect: true,
+        timeSpentSeconds: this.secondsElapsed,
+        codeSubmitted: code
+      });
+
+      this.playgroundSubmission = result;
+      this.showToast('Done! All Test Cases Passed ✓', `Marked as Solved! +2 XP Earned (${result.executionTimeMs}ms)`, 'success');
     } else {
-      this.showToast('Test Case Mismatch', `Failed on Case ${result.results.findIndex(r => !r.passed) + 1}. Check your output.`, 'error');
+      this.playgroundSubmission = null;
+      const failedIdx = result.results.findIndex(r => !r.passed);
+      const caseNum = failedIdx !== -1 ? failedIdx + 1 : 1;
+      this.playgroundActiveCaseIdx = failedIdx !== -1 ? failedIdx : 0;
+      this.showToast('Test Case Mismatch ✕', `Failed on Case ${caseNum}. Check Expected vs Your Output below.`, 'error');
     }
 
     this.render();
