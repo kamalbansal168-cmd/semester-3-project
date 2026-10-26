@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    LEARNPATH AI – Clean SaaS Navigation Bar Component
    3-Dot Dropdown Menu (replaces congested nav links)
    ============================================================ */
@@ -29,6 +29,7 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
             <li><a class="landing-nav-link" data-route="topics" data-requires-auth="true">Topics</a></li>
             <li><a class="landing-nav-link" data-route="practice" data-requires-auth="true">Practice</a></li>
             <li><a class="landing-nav-link" data-route="playground" data-qid="tp_code_01" data-requires-auth="true">Coding IDE</a></li>
+            <li><a class="landing-nav-link" data-route="battle" data-requires-auth="true">⚔️ Code Battle</a></li>
           </ul>
 
           <!-- Landing Nav Actions -->
@@ -48,6 +49,7 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
   // Helper: get active label for current route
   const activeLabel = {
     dashboard: 'Dashboard',
+    battle: '⚔️ Code Battle Arena',
     playground: 'Coding IDE',
     topics: 'Practice',
     practice: 'Practice',
@@ -57,6 +59,7 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
     mistakes: 'Review Mistakes',
     profile: 'Profile',
     notes: 'Notes',
+    evaluation: '🔬 Research Evaluation',
   }[activeRoute] || '';
 
   // Logged In Student Application Navigation
@@ -77,8 +80,14 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
         <!-- Active Route Pill (shows current page name) -->
         ${activeLabel ? `<div class="nav-active-pill">${activeLabel}</div>` : ''}
 
-        <!-- Right Side: Points, Streak, Profile, 3-Dot Menu & Logout -->
+        <!-- Right Side: Battle Button, Points, Streak, Profile, 3-Dot Menu & Logout -->
         <div class="nav-right">
+          <!-- Prominent Code Battle Arena Button -->
+          <button class="btn btn-sm btn-primary nav-battle-btn" data-route="battle" style="display:flex;align-items:center;gap:6px;font-weight:700;background:linear-gradient(135deg, #ef4444 0%, #8b5cf6 100%);border:none;box-shadow:0 2px 8px rgba(239, 68, 68, 0.35);">
+            <span>⚔️</span>
+            <span>Battle Arena</span>
+          </button>
+
           <div class="points-badge" id="nav-points-badge" title="Earned XP Points (2 pts per question)">
             <span class="star-icon">⭐</span>
             <span class="points-val">${user.points || 0}</span>
@@ -116,6 +125,11 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
                 <span>Dashboard</span>
                 ${activeRoute === 'dashboard' ? '<span class="nav-dropdown-active-dot"></span>' : ''}
               </a>
+              <a class="nav-dropdown-item ${activeRoute === 'battle' ? 'active' : ''}" data-route="battle" role="menuitem">
+                <span class="nav-dropdown-icon">⚔️</span>
+                <span>Code Battle Arena</span>
+                ${activeRoute === 'battle' ? '<span class="nav-dropdown-active-dot"></span>' : ''}
+              </a>
               <a class="nav-dropdown-item ${activeRoute === 'playground' ? 'active' : ''}" data-route="playground" data-qid="tp_code_01" role="menuitem">
                 <span class="nav-dropdown-icon">💻</span>
                 <span>Coding IDE</span>
@@ -140,6 +154,11 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
                 <span class="nav-dropdown-icon">🔍</span>
                 <span>Review Mistakes</span>
                 ${activeRoute === 'mistakes' ? '<span class="nav-dropdown-active-dot"></span>' : ''}
+              </a>
+              <a class="nav-dropdown-item ${activeRoute === 'evaluation' ? 'active' : ''}" data-route="evaluation" role="menuitem">
+                <span class="nav-dropdown-icon">🔬</span>
+                <span>Research Evaluation</span>
+                ${activeRoute === 'evaluation' ? '<span class="nav-dropdown-active-dot"></span>' : ''}
               </a>
               <div class="nav-dropdown-divider"></div>
               <button class="nav-dropdown-item nav-dropdown-logout" id="btn-logout" role="menuitem">

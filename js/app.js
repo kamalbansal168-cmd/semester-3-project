@@ -19,10 +19,14 @@ import { renderRetestView } from './components/retestView.js';
 import { renderProgressView } from './components/progressView.js';
 import { renderMistakesView } from './components/mistakesView.js';
 import { renderProfileView } from './components/profileView.js';
+import { renderBattleView } from './components/battleView.js';
+import { renderEvaluationView } from './components/evaluationView.js';
 import { QUESTIONS_DB } from './data/questions.js';
 import { AIService } from './engine/aiService.js';
 import { CodeExecutionEngine } from './engine/codeExecutionEngine.js';
 import { vfs } from './engine/virtualFileSystem.js';
+import { battleEngine } from './engine/battleEngine.js';
+import { exportResearchData } from './engine/dataExporter.js';
 
 class LearnPathApp {
   constructor() {
@@ -37,6 +41,8 @@ class LearnPathApp {
     this.questionFeedback = null;
     this.timerInterval = null;
     this.secondsElapsed = 0;
+    this.evaluationMetrics = null;
+    this.fetchEvaluationMetrics();
 
     // Active Playground State â€” Freeform IntelliJ IDEA IDE with Monaco & VFS
     this.ideActiveTab = 'terminal';
@@ -67,14 +73,39 @@ class LearnPathApp {
     this.selectedPracticeTopic = 'all';
     this.selectedPracticeDifficulty = 'all';
 
+    // Active Battle Arena State
+    this.battleEngineState = {
+      currentRoom: null,
+      myParticipantId: null,
+      isHost: false,
+      activeQuestionIdx: 0,
+      remainingSeconds: 600,
+      mcqAnswers: {},
+      codingSubmissions: {},
+      lastRunResults: null,
+      feedHistory: []
+    };
+
     this.init();
   }
 
   init() {
-    // Fix #2: If logged in but on landing page, redirect to dashboard
+    // Restore user-specific state on launch
     if (this.isLoggedIn) {
+      const savedEmail = localStorage.getItem('learnpath_user_email');
+      if (savedEmail) {
+        store.switchUser('', savedEmail);
+      }
       this.currentRoute = 'dashboard';
+    } else {
+      store.logout();
     }
+
+    // Subscribe to multiplayer battle events
+    battleEngine.subscribe((eventType, data) => {
+      this.handleBattleEngineEvent(eventType, data);
+    });
+
     this.render();
     store.subscribe(() => {
       this.render();
@@ -228,9 +259,28 @@ class LearnPathApp {
         mainEl.innerHTML = renderProfileView(state);
         break;
 
+      case 'battle':
+        mainEl.innerHTML = renderBattleView(this.battleEngineState);
+        break;
+
+      case 'evaluation':
+        mainEl.innerHTML = renderEvaluationView(state, this.evaluationMetrics);
+        break;
+
       default:
         mainEl.innerHTML = renderLandingView();
         break;
+    }
+  }
+
+  async fetchEvaluationMetrics() {
+    try {
+      const res = await fetch('/results/metrics.json');
+      if (res.ok) {
+        this.evaluationMetrics = await res.json();
+      }
+    } catch (err) {
+      // gracefully handled by default fallbacks in renderEvaluationView
     }
   }
 
@@ -747,9 +797,10 @@ class LearnPathApp {
       // 3. Log Out Button
       if (e.target.closest('#btn-logout')) {
         this.isLoggedIn = false;
-        // Fix #2: Clear persisted login state on logout
+        // Clear persisted login state on logout and isolate memory
         localStorage.removeItem('learnpath_logged_in');
         localStorage.removeItem('learnpath_user_email');
+        store.logout();
         this.showToast('Logged Out', 'You have been signed out.', 'info');
         this.navigate('landing');
         return;
@@ -760,6 +811,14 @@ class LearnPathApp {
         store.resetAllData();
         this.showToast('Progress Reset', 'All scores, attempts, and green ticks reset to 0%.', 'info');
         this.navigate('dashboard');
+        return;
+      }
+
+      // 4b. Export Research Dataset (EHKT Evaluation JSON)
+      if (e.target.closest('#btn-export-research-data')) {
+        const state = store.getState();
+        const res = exportResearchData(state);
+        this.showToast('Research Dataset Exported! 📊', `Downloaded ${res.totalAttempts} attempts for evaluate.py`, 'success');
         return;
       }
 
@@ -785,9 +844,9 @@ class LearnPathApp {
         const topic = routeTarget.getAttribute('data-topic');
         const requiresAuth = routeTarget.getAttribute('data-requires-auth') === 'true';
 
-        // Fix N6: Guard protected routes â€” redirect to signin if not logged in
-        const protectedRoutes = ['dashboard', 'topics', 'practice', 'playground', 'question',
-          'recovery', 'retest', 'progress', 'mistakes', 'profile', 'notes', 'insight', 'explanation'];
+        // Fix N6: Guard protected routes — redirect to signin if not logged in
+        const protectedRoutes = ['dashboard', 'battle', 'topics', 'practice', 'playground', 'question',
+          'recovery', 'retest', 'progress', 'mistakes', 'profile', 'notes', 'insight', 'explanation', 'evaluation'];
         if ((requiresAuth || protectedRoutes.includes(route)) && !this.isLoggedIn) {
           this.showToast('Login Required', 'Please sign in to access this feature.', 'warning');
           this.navigate('signin');
@@ -1208,6 +1267,242 @@ class LearnPathApp {
           this.navigate('question', { qid });
         }
         return;
+      }
+
+      // ============================================================
+      // MULTIPLAYER CODE BATTLE ARENA HANDLERS
+      // ============================================================
+
+      // Quick 10-Player Solo Demo button (Instant Presentation Mode)
+      if (e.target.closest('#btn-quick-demo')) {
+        const user = store.getState().user;
+        battleEngine.createRoom({
+          name: 'Grand 10-Player Arena (Live Demo)',
+          maxParticipants: 10,
+          topic: 'all',
+          difficulty: 'all',
+          mcqCount: 2,
+          codingCount: 1,
+          timeLimitMinutes: 10,
+          hostName: user.name || 'You (Host)',
+          hostAvatar: '👑'
+        });
+        this.showToast('🚀 Demo Arena Initialized!', 'Injecting 9 AI Competitors...', 'info');
+        for (let i = 0; i < 9; i++) {
+          setTimeout(() => battleEngine.addBot(), (i + 1) * 80);
+        }
+        this.render();
+        return;
+      }
+
+      // Avatar picker
+      const avatarOpt = e.target.closest('.avatar-opt');
+      if (avatarOpt) {
+        document.querySelectorAll('.avatar-opt').forEach(a => a.classList.remove('active'));
+        avatarOpt.classList.add('active');
+        return;
+      }
+
+      // Add 1 Bot button
+      if (e.target.closest('#btn-add-one-bot')) {
+        battleEngine.addBot();
+        this.showToast('AI Bot Added', 'An AI competitor joined the lobby.', 'info');
+        return;
+      }
+
+      // Fill with bots (+5)
+      if (e.target.closest('#btn-fill-bots')) {
+        battleEngine.addMultipleBots(5);
+        this.showToast('AI Bots Injected', '5 AI competitors joined the lobby!', 'info');
+        return;
+      }
+
+      // Copy room code
+      if (e.target.closest('#btn-copy-room-code')) {
+        const code = document.getElementById('lobby-room-code-val')?.textContent || (this.battleEngineState.currentRoom?.code);
+        if (code) {
+          navigator.clipboard.writeText(code).then(() => {
+            this.showToast('Code Copied! 📋', `Share "${code}" with your friends!`, 'success');
+          }).catch(() => {
+            this.showToast('Room Code', code, 'info');
+          });
+        }
+        return;
+      }
+
+      // Start Battle button
+      if (e.target.closest('#btn-start-battle')) {
+        battleEngine.startBattle();
+        return;
+      }
+
+      // Leave Room / Leave Battle
+      if (e.target.closest('#btn-leave-room') || e.target.closest('#btn-leave-battle')) {
+        if (confirm('Are you sure you want to leave the Battle Arena?')) {
+          battleEngine.leaveRoom();
+          this.showToast('Exited Arena', 'You left the battle room.', 'info');
+          this.navigate('dashboard');
+        }
+        return;
+      }
+
+      // Question tab switcher in Arena
+      const qTab = e.target.closest('.arena-q-tab');
+      if (qTab) {
+        const qIdx = parseInt(qTab.getAttribute('data-qidx'), 10);
+        this.battleEngineState.activeQuestionIdx = qIdx;
+        this.battleEngineState.lastRunResults = null;
+        this.render();
+        return;
+      }
+
+      // MCQ Option selection in Arena
+      const mcqOptBtn = e.target.closest('.mcq-option-btn');
+      if (mcqOptBtn && !mcqOptBtn.disabled) {
+        document.querySelectorAll('.mcq-option-btn').forEach(b => b.classList.remove('selected'));
+        mcqOptBtn.classList.add('selected');
+        const submitBtn = document.getElementById('btn-submit-mcq');
+        if (submitBtn) submitBtn.disabled = false;
+        return;
+      }
+
+      // Submit MCQ Answer in Arena
+      if (e.target.closest('#btn-submit-mcq')) {
+        const selectedOpt = document.querySelector('.mcq-option-btn.selected');
+        if (!selectedOpt) return;
+        const optIdx = parseInt(selectedOpt.getAttribute('data-optidx'), 10);
+        const q = this.battleEngineState.currentRoom?.questions[this.battleEngineState.activeQuestionIdx];
+        if (!q) return;
+
+        const res = battleEngine.submitMcqAnswer(q.id, optIdx);
+        if (res) {
+          if (!this.battleEngineState.mcqAnswers) this.battleEngineState.mcqAnswers = {};
+          this.battleEngineState.mcqAnswers[q.id] = { selectedIdx: optIdx, ...res };
+          if (res.isCorrect) {
+            this.showToast('Correct MCQ! 🎉', `+${res.ptsEarned} Points Added!`, 'success');
+          } else {
+            this.showToast('Incorrect', 'Check the explanation to learn the correct concept.', 'warning');
+          }
+          this.render();
+        }
+        return;
+      }
+
+      // Run Code against test cases in Arena
+      if (e.target.closest('#btn-run-code')) {
+        const textarea = document.getElementById('battle-code-textarea');
+        const q = this.battleEngineState.currentRoom?.questions[this.battleEngineState.activeQuestionIdx];
+        if (textarea && q) {
+          const code = textarea.value;
+          const results = battleEngine.runCode(q, code);
+          this.battleEngineState.lastRunResults = results;
+          if (results.allPassed) {
+            this.showToast('Tests Passed! ✅', 'All sample test cases passed. Ready to submit!', 'success');
+          } else {
+            this.showToast('Test Cases Failed', `${results.passedCount}/${results.totalCount} passed. Check edge cases.`, 'warning');
+          }
+          this.render();
+        }
+        return;
+      }
+
+      // Submit Final Code in Arena
+      if (e.target.closest('#btn-submit-code')) {
+        const textarea = document.getElementById('battle-code-textarea');
+        const q = this.battleEngineState.currentRoom?.questions[this.battleEngineState.activeQuestionIdx];
+        if (textarea && q) {
+          const code = textarea.value;
+          const res = battleEngine.submitCode(q, code);
+          if (res) {
+            if (!this.battleEngineState.codingSubmissions) this.battleEngineState.codingSubmissions = {};
+            this.battleEngineState.codingSubmissions[q.id] = { code, isSubmitted: true, ...res };
+            this.battleEngineState.lastRunResults = res;
+
+            if (res.isAllPassed) {
+              this.showToast('🎉 Accepted Solution!', `+${res.ptsEarned} Points Added to Leaderboard!`, 'success');
+            } else {
+              this.showToast('Partial Submission', `Passed ${res.passedCount}/${res.totalCount} test cases (+${res.ptsEarned} pts).`, 'warning');
+            }
+            this.render();
+          }
+        }
+        return;
+      }
+
+      // Reset Starter Code
+      if (e.target.closest('#btn-reset-code')) {
+        const q = this.battleEngineState.currentRoom?.questions[this.battleEngineState.activeQuestionIdx];
+        const textarea = document.getElementById('battle-code-textarea');
+        if (q && textarea) {
+          textarea.value = q.starterCode || '';
+          this.showToast('Code Reset', 'Starter template reloaded.', 'info');
+        }
+        return;
+      }
+
+      // Results: Play Another Battle
+      if (e.target.closest('#btn-results-new-battle')) {
+        battleEngine.leaveRoom();
+        this.battleEngineState.currentRoom = null;
+        this.battleEngineState.mcqAnswers = {};
+        this.battleEngineState.codingSubmissions = {};
+        this.battleEngineState.lastRunResults = null;
+        this.battleEngineState.feedHistory = [];
+        this.navigate('battle');
+        return;
+      }
+
+      // Results: Back to Dashboard
+      if (e.target.closest('#btn-results-dashboard')) {
+        battleEngine.leaveRoom();
+        this.battleEngineState.currentRoom = null;
+        this.navigate('dashboard');
+        return;
+      }
+    });
+
+    // Handle Battle Form Submissions
+    document.addEventListener('submit', (e) => {
+      if (e.target.id === 'form-create-battle') {
+        e.preventDefault();
+        const user = store.getState().user;
+        const name = document.getElementById('create-room-name')?.value;
+        const maxParticipants = document.getElementById('create-max-players')?.value;
+        const topic = document.getElementById('create-topic')?.value;
+        const difficulty = document.getElementById('create-difficulty')?.value;
+        const mcqCount = document.getElementById('create-mcq-count')?.value;
+        const codingCount = document.getElementById('create-coding-count')?.value;
+        const timeLimitMinutes = document.getElementById('create-time-limit')?.value;
+
+        battleEngine.createRoom({
+          name,
+          maxParticipants,
+          topic,
+          difficulty,
+          mcqCount,
+          codingCount,
+          timeLimitMinutes,
+          hostName: user.name || 'You (Host)',
+          hostAvatar: '👑'
+        });
+        this.showToast('Arena Created 👑', 'Waiting for participants or AI bots to join.', 'success');
+        this.render();
+      }
+
+      if (e.target.id === 'form-join-battle') {
+        e.preventDefault();
+        const code = document.getElementById('join-room-code')?.value;
+        const name = document.getElementById('join-player-name')?.value;
+        const activeAvatarEl = document.querySelector('.avatar-opt.active');
+        const avatar = activeAvatarEl ? activeAvatarEl.dataset.avatar : '⚔️';
+
+        if (!code) {
+          this.showToast('Room Code Required', 'Please enter a valid room code.', 'warning');
+          return;
+        }
+
+        battleEngine.joinRoom(code, name, avatar);
+        this.showToast('Connecting...', `Joining arena ${code}...`, 'info');
       }
     });
 
@@ -1888,6 +2183,107 @@ class LearnPathApp {
       hintText.textContent = hintData.hintText;
       hintBox.style.display = 'block';
       this.showToast('AI Hint Loaded', 'Review the concept advice below.', 'info');
+    }
+  }
+
+  // ============================================================
+  // MULTIPLAYER BATTLE ARENA EVENT DISPATCHERS
+  // ============================================================
+  handleBattleEngineEvent(eventType, data) {
+    if (eventType === 'ROOM_UPDATED') {
+      this.battleEngineState.currentRoom = data;
+      this.battleEngineState.myParticipantId = battleEngine.myParticipantId;
+      this.battleEngineState.isHost = battleEngine.isHost;
+      if (this.currentRoute === 'battle') this.render();
+    } else if (eventType === 'PARTICIPANT_JOINED') {
+      this.showToast('Participant Joined', `${data.name} entered the room!`, 'info');
+      if (this.currentRoute === 'battle') this.render();
+    } else if (eventType === 'BATTLE_STARTED') {
+      this.battleEngineState.currentRoom = data;
+      this.battleEngineState.activeQuestionIdx = 0;
+      this.battleEngineState.remainingSeconds = (data.timeLimitMinutes || 10) * 60;
+      this.showToast('⚔️ BATTLE STARTED!', 'Good luck! Compete for the #1 spot on the leaderboard.', 'success');
+      if (this.currentRoute === 'battle') this.render();
+    } else if (eventType === 'TIMER_TICK') {
+      this.battleEngineState.remainingSeconds = data.remainingSeconds;
+      const digitsEl = document.getElementById('arena-timer-digits');
+      if (digitsEl) {
+        const mins = Math.floor(data.remainingSeconds / 60);
+        const secs = data.remainingSeconds % 60;
+        digitsEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        if (data.remainingSeconds < 120) {
+          const timerBox = document.getElementById('arena-timer-box');
+          if (timerBox) timerBox.classList.add('pulse-danger');
+        }
+      }
+    } else if (eventType === 'PROGRESS_UPDATED') {
+      if (data.feedItem) {
+        this.battleEngineState.feedHistory.push(data.feedItem);
+      }
+      if (this.currentRoute === 'battle' && this.battleEngineState.currentRoom && this.battleEngineState.currentRoom.status === 'IN_BATTLE') {
+        this.updateArenaRadar();
+      }
+    } else if (eventType === 'BATTLE_FINISHED') {
+      this.battleEngineState.currentRoom = data;
+      this.showToast('🏆 Battle Finished!', 'Final leaderboard rankings are now ready.', 'success');
+      if (this.currentRoute === 'battle') this.render();
+    } else if (eventType === 'ERROR') {
+      this.showToast('Battle Alert', data, 'error');
+    } else if (eventType === 'ROOM_LEFT') {
+      this.battleEngineState.currentRoom = null;
+      if (this.currentRoute === 'battle') this.render();
+    }
+  }
+
+  updateArenaRadar() {
+    const radarList = document.getElementById('radar-participants-list');
+    const myScoreEl = document.getElementById('arena-my-score');
+    const feedBox = document.getElementById('arena-feed-box');
+    const room = this.battleEngineState.currentRoom;
+    if (!room) return;
+
+    const participants = [...(room.participants || [])].sort((a, b) => b.score - a.score);
+    const questions = room.questions || [];
+    const myId = this.battleEngineState.myParticipantId;
+    const me = participants.find(p => p.id === myId);
+
+    if (myScoreEl && me) {
+      myScoreEl.textContent = me.score || 0;
+    }
+
+    if (radarList) {
+      radarList.innerHTML = participants.map((p, idx) => {
+        const isMe = p.id === myId;
+        const rankIcon = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : `#${idx + 1}`;
+        const progressPct = Math.round(((p.solvedCount || 0) / Math.max(1, questions.length)) * 100);
+        return `
+          <div class="radar-participant-row ${isMe ? 'is-me' : ''}">
+            <div class="radar-rank">${rankIcon}</div>
+            <div class="radar-avatar">${p.avatar || '👤'}</div>
+            <div class="radar-info">
+              <div class="radar-name-row">
+                <span class="radar-name">${p.name} ${isMe ? '(You)' : ''}</span>
+                <span class="radar-score">${p.score || 0} pts</span>
+              </div>
+              <div class="radar-progress-bar-bg">
+                <div class="radar-progress-fill" style="width: ${progressPct}%"></div>
+              </div>
+              <div class="radar-status-msg">
+                <span>${p.status || 'Thinking...'}</span>
+                <span class="radar-solved-tag">${p.solvedCount || 0}/${questions.length} Solved</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    if (feedBox) {
+      feedBox.innerHTML = `
+        <div class="feed-item">🚀 Battle officially launched! Timer started.</div>
+        ${this.battleEngineState.feedHistory.slice(-5).map(f => `<div class="feed-item">${f}</div>`).join('')}
+      `;
+      feedBox.scrollTop = feedBox.scrollHeight;
     }
   }
 

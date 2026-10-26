@@ -6,27 +6,65 @@ import { FRESH_STUDENT_STATE, INITIAL_TOPICS } from './data/initialData.js';
 import { KnowledgeModel } from './engine/knowledgeModel.js';
 import { RecoveryPathEngine } from './engine/recoveryPathEngine.js';
 
-const STORAGE_KEY = 'learnpath_ai_state_v4_topics12';
+const LEGACY_STORAGE_KEY = 'learnpath_ai_state_v4_topics12';
+const REGISTERED_USERS_KEY = 'learnpath_registered_users_v1';
+
+export function getUserStorageKey(email) {
+  if (!email) return 'learnpath_user_state_guest';
+  const clean = String(email).trim().toLowerCase().replace(/[^a-z0-9]/g, '_');
+  return `learnpath_user_state_${clean}`;
+}
 
 export class StateStore {
   constructor() {
     this.subscribers = [];
-    this.state = this.loadInitialState();
+    this.currentEmail = localStorage.getItem('learnpath_user_email') || null;
+    this.state = this.loadUserState(this.currentEmail);
   }
 
-  loadInitialState() {
+  getStorageKey() {
+    return getUserStorageKey(this.currentEmail);
+  }
+
+  loadUserState(email, fallbackName = '') {
+    const key = getUserStorageKey(email);
     let state = null;
     try {
-      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('learnpath_ai_state_v3_fresh');
+      const saved = localStorage.getItem(key);
       if (saved) {
         state = JSON.parse(saved);
+      } else if (email) {
+        // If this user has no isolated key yet, check legacy storage to preserve Aryan's or first user's work
+        const legacy = localStorage.getItem(LEGACY_STORAGE_KEY);
+        if (legacy) {
+          try {
+            const parsedLegacy = JSON.parse(legacy);
+            const legacyEmail = (parsedLegacy.user?.email || '').toLowerCase();
+            if (legacyEmail === email.toLowerCase()) {
+              state = parsedLegacy;
+            }
+          } catch (e) {}
+        }
+      } else {
+        // Guest / not logged in
+        const savedGuest = localStorage.getItem('learnpath_user_state_guest') || localStorage.getItem(LEGACY_STORAGE_KEY);
+        if (savedGuest) {
+          state = JSON.parse(savedGuest);
+        }
       }
     } catch (e) {
-      console.warn('Could not read localStorage:', e);
+      console.warn('Could not read user state from localStorage:', e);
     }
     
+    // If no saved state exists for this specific user, start with a 100% clean baseline
     if (!state) {
       state = JSON.parse(JSON.stringify(FRESH_STUDENT_STATE));
+      if (email) {
+        const displayName = fallbackName || email.split('@')[0];
+        state.user.name = displayName;
+        state.user.email = email;
+        state.user.avatar = displayName ? displayName.charAt(0).toUpperCase() : 'S';
+      }
     }
 
     // Auto-merge to ensure all 12 topics from INITIAL_TOPICS are always present
@@ -61,7 +99,7 @@ export class StateStore {
     // Points and rank auto-sync
     if (state.user) {
       if (state.user.points === undefined) {
-        state.user.points = (state.metrics.questionsSolved || 0) * 2;
+        state.user.points = (state.metrics?.questionsSolved || 0) * 2;
       }
       state.user.rank = this.getRankFromPoints(state.user.points);
       state.user.level = this.getLevelFromPoints(state.user.points);
@@ -75,7 +113,8 @@ export class StateStore {
 
   saveState() {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.state));
+      const key = this.getStorageKey();
+      localStorage.setItem(key, JSON.stringify(this.state));
     } catch (e) {
       console.warn('Could not save state to localStorage:', e);
     }
@@ -166,12 +205,51 @@ export class StateStore {
     return StateStore.getLevelFromPoints(points);
   }
 
-  // Action: Set User Identity on Login/Signup
-  setUser(name, email) {
-    this.state.user.name = name || 'Student';
-    this.state.user.email = email || 'student@example.com';
-    this.state.user.avatar = (name ? name.charAt(0).toUpperCase() : 'S');
+  // Action: Switch Active User (Isolates progress per student email)
+  switchUser(name, email) {
+    if (!email) {
+      this.currentEmail = null;
+      this.state = this.loadUserState(null);
+      this.notify();
+      return;
+    }
+
+    const cleanEmail = String(email).trim().toLowerCase();
+    this.currentEmail = cleanEmail;
+
+    // Register user in local user registry
+    try {
+      const reg = JSON.parse(localStorage.getItem(REGISTERED_USERS_KEY) || '{}');
+      const prevName = reg[cleanEmail]?.name || '';
+      const finalName = name || prevName || email.split('@')[0];
+      reg[cleanEmail] = {
+        name: finalName,
+        email: cleanEmail,
+        lastActive: new Date().toISOString()
+      };
+      localStorage.setItem(REGISTERED_USERS_KEY, JSON.stringify(reg));
+    } catch (e) {}
+
+    // Load isolated state for this specific user
+    this.state = this.loadUserState(cleanEmail, name);
+    if (name) {
+      this.state.user.name = name;
+      this.state.user.avatar = name.charAt(0).toUpperCase();
+    }
+    this.state.user.email = cleanEmail;
     this.saveState();
+  }
+
+  // Alias for backward compatibility
+  setUser(name, email) {
+    this.switchUser(name, email);
+  }
+
+  // Action: Clear active session on logout
+  logout() {
+    this.currentEmail = null;
+    this.state = this.loadUserState(null);
+    this.notify();
   }
 
   // Action: Record Question Attempt
@@ -353,9 +431,16 @@ export class StateStore {
     this.saveState();
   }
 
-  // Action: Reset All Data to Fresh State
+  // Action: Reset All Data to Fresh State for Current User
   resetAllData() {
+    const curEmail = this.currentEmail;
+    const curName = this.state.user?.name || (curEmail ? curEmail.split('@')[0] : 'Student');
     this.state = JSON.parse(JSON.stringify(FRESH_STUDENT_STATE));
+    if (curEmail) {
+      this.state.user.name = curName;
+      this.state.user.email = curEmail;
+      this.state.user.avatar = curName ? curName.charAt(0).toUpperCase() : 'S';
+    }
     this.saveState();
   }
 }

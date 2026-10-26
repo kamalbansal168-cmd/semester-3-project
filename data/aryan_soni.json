@@ -1,0 +1,183 @@
+{
+  "exportedAt": "2026-10-22T17:57:00.523Z",
+  "version": "1.0",
+  "student": {
+    "name": "Aryan Soni",
+    "totalQuestionsSolved": 2,
+    "overallMastery": 1,
+    "conceptsMastered": 0,
+    "points": 6,
+    "rank": "Novice Developer"
+  },
+  "topicMastery": [
+    {
+      "topicId": "basic-arrays",
+      "topicName": "Array Basics",
+      "masteryPercent": 7,
+      "masteryProbability": 0.07,
+      "status": "Needs Practice",
+      "solvedCount": 2
+    },
+    {
+      "topicId": "searching",
+      "topicName": "Searching Algorithms",
+      "masteryPercent": 0,
+      "masteryProbability": 0,
+      "status": "Needs Practice",
+      "solvedCount": 0
+    },
+    {
+      "topicId": "sorting",
+      "topicName": "Sorting Algorithms",
+      "masteryPercent": 0,
+      "masteryProbability": 0,
+      "status": "Needs Practice",
+      "solvedCount": 0
+    },
+    {
+      "topicId": "strings",
+      "topicName": "Strings & Char Arrays",
+      "masteryPercent": 0,
+      "masteryProbability": 0,
+      "status": "Needs Practice",
+      "solvedCount": 0
+    },
+    {
+      "topicId": "2d-arrays",
+      "topicName": "2D Arrays & Matrices",
+      "masteryPercent": 0,
+      "masteryProbability": 0,
+      "status": "Needs Practice",
+      "solvedCount": 0
+    },
+    {
+      "topicId": "two-pointer",
+      "topicName": "Two Pointer Technique",
+      "masteryPercent": 0,
+      "masteryProbability": 0,
+      "status": "Needs Practice",
+      "solvedCount": 0
+    },
+    {
+      "topicId": "sliding-window",
+      "topicName": "Sliding Window",
+      "masteryPercent": 0,
+      "masteryProbability": 0,
+      "status": "Needs Practice",
+      "solvedCount": 0
+    },
+    {
+      "topicId": "prefix-sum",
+      "topicName": "Prefix Sum & Cumulative",
+      "masteryPercent": 0,
+      "masteryProbability": 0,
+      "status": "Needs Practice",
+      "solvedCount": 0
+    },
+    {
+      "topicId": "recursion",
+      "topicName": "Recursion & Backtracking",
+      "masteryPercent": 0,
+      "masteryProbability": 0,
+      "status": "Needs Practice",
+      "solvedCount": 0
+    },
+    {
+      "topicId": "monotonic-stack",
+      "topicName": "Monotonic Stacks & Queues",
+      "masteryPercent": 0,
+      "masteryProbability": 0,
+      "status": "Needs Practice",
+      "solvedCount": 0
+    },
+    {
+      "topicId": "linked-list",
+      "topicName": "Linked List Fundamentals",
+      "masteryPercent": 0,
+      "masteryProbability": 0,
+      "status": "Needs Practice",
+      "solvedCount": 0
+    },
+    {
+      "topicId": "bit-manipulation",
+      "topicName": "Bit Manipulation & Hashing",
+      "masteryPercent": 0,
+      "masteryProbability": 0,
+      "status": "Needs Practice",
+      "solvedCount": 0
+    }
+  ],
+  "attemptLog": [
+    {
+      "attemptId": "att_1791973894499",
+      "questionId": "arr_02",
+      "topicId": "basic-arrays",
+      "topicName": "Array Basics",
+      "difficulty": "Easy",
+      "isCorrect": 0,
+      "errorType": "SYNTAX_ERROR",
+      "timeSpent": "0m 4s",
+      "feedbackNote": "In Java, `length` is a final public instance field on array objects, n..."
+    },
+    {
+      "attemptId": "att_1791973880435",
+      "questionId": "arr_01",
+      "topicId": "basic-arrays",
+      "topicName": "Array Basics",
+      "difficulty": "Easy",
+      "isCorrect": 1,
+      "errorType": null,
+      "timeSpent": "0m 3s",
+      "feedbackNote": "Great job! Concept applied accurately."
+    }
+  ],
+  "recoveryEvents": [
+    {
+      "type": "IN_PROGRESS",
+      "topicId": "basic-arrays",
+      "stage": 1,
+      "mcqScore": 0,
+      "mcqsTotal": 5,
+      "recovered": false
+    }
+  ],
+  "mistakesList": [
+    {
+      "questionId": "arr_02",
+      "topicId": "basic-arrays",
+      "topicName": "Array Basics",
+      "difficulty": "Easy",
+      "errorPattern": "SYNTAX_ERROR",
+      "whatWentWrong": "Incorrect selection or off-by-one boundary check."
+    }
+  ],
+  "resolvedConcepts": [],
+  "activeRecoveryGate": {
+    "topicId": "basic-arrays",
+    "status": "ACTIVE",
+    "currentStage": 1,
+    "mcqScore": 0,
+    "mcqsTotal": 5,
+    "mcqsAnswered": 0,
+    "codingSolved": 0,
+    "codingRequired": 2,
+    "notesRead": false,
+    "startedAt": "2026-10-14T10:31:34.499Z"
+  },
+  "summaryMetrics": {
+    "totalAttempts": 2,
+    "correctAttempts": 1,
+    "wrongAttempts": 1,
+    "rawAccuracy": 0.5,
+    "approximateBCELoss": 1.3659,
+    "recoveryRate": null,
+    "resolvedConcepts": 0,
+    "pendingMistakes": 1,
+    "errorTypeDistribution": {
+      "SYNTAX_ERROR": 1
+    },
+    "overallMastery": 1,
+    "conceptsMastered": 0,
+    "totalTopics": 12
+  }
+}

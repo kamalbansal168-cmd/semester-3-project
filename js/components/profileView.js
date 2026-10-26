@@ -54,6 +54,33 @@ export function renderProfileView(state) {
         </div>
       </div>
 
+      <!-- Research & Empirical Study (EHKT Paper Data Exporter) -->
+      <div class="persona-switch-card" style="margin-top: 14px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+          <h3 class="card-title" style="margin: 0; display: flex; align-items: center; gap: 8px;">
+            <span>🔬</span> EHKT Research Study Data Exporter
+          </h3>
+          <span class="badge badge-strong" style="font-size: 0.72rem;">IEEE / Springer Evaluation</span>
+        </div>
+        <p class="card-subtitle" style="margin-top: 6px;">
+          Export your interaction log (questions, accuracy, response time, misconception tags, and recovery trajectories) as a standardized JSON dataset for <code>evaluate.py</code> model benchmarking.
+        </p>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 16px; margin-top: 12px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <div style="font-weight: 800; color: var(--text-main); font-size: 0.95rem;">
+              Download Interaction Dataset (JSON)
+            </div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;">
+              Directly loads into <code>python evaluate.py</code> to calculate AUC, F1-Score, Recovery Rate, and Wilcoxon significance.
+            </p>
+          </div>
+          <button class="btn btn-primary btn-sm" id="btn-export-research-data" style="font-weight: 700; display: flex; align-items: center; gap: 6px;">
+            📥 Export Dataset (.json)
+          </button>
+        </div>
+      </div>
+
       <!-- Account Settings & Reset Progress -->
       <div class="persona-switch-card">
         <h3 class="card-title">Account & Learning Progress Settings</h3>

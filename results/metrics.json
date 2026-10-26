@@ -1,0 +1,123 @@
+{
+  "real_metrics": {
+    "attempts": 375,
+    "auc": 0.7688,
+    "auc_note": "Valid",
+    "f1": 0.7417,
+    "accuracy": 0.6453,
+    "precision": 0.6083,
+    "recall": 0.9502,
+    "mse": 0.2346,
+    "bce_loss": null,
+    "audit_warnings": [],
+    "data_source": "Real - 375 attempts, 13 student(s)"
+  },
+  "novel_contributions": {
+    "recovery_rate": {
+      "total": 174,
+      "resolved": 66,
+      "pending": 108,
+      "rate_pct": 37.9,
+      "avg_gain_pct": 26.2424
+    },
+    "time_to_mastery": {
+      "avg_attempts": 5.5789,
+      "status": "5.6 questions"
+    }
+  },
+  "paper_comparison": [
+    {
+      "model": "DKT",
+      "source": "PAPER",
+      "auc": 0.82,
+      "f1": 0.801,
+      "acc": 0.762,
+      "mse": 0.185
+    },
+    {
+      "model": "DKT+",
+      "source": "PAPER",
+      "auc": 0.835,
+      "f1": 0.819,
+      "acc": 0.771,
+      "mse": 0.172
+    },
+    {
+      "model": "TransDKT",
+      "source": "PAPER",
+      "auc": 0.843,
+      "f1": 0.833,
+      "acc": 0.784,
+      "mse": 0.161
+    },
+    {
+      "model": "TransDKT+ (ref paper)",
+      "source": "PAPER",
+      "auc": 0.8546,
+      "f1": 0.8511,
+      "acc": 0.7941,
+      "mse": 0.149
+    }
+  ],
+  "synthetic_benchmark": [
+    {
+      "model": "DKT",
+      "source": "SYNTHETIC",
+      "auc": 0.5395,
+      "f1": 0.1043,
+      "acc": 0.7054,
+      "mse": 0.2084
+    },
+    {
+      "model": "DKT+",
+      "source": "SYNTHETIC",
+      "auc": 0.4642,
+      "f1": 0.0,
+      "acc": 0.6988,
+      "mse": 0.2157
+    },
+    {
+      "model": "TransDKT",
+      "source": "SYNTHETIC",
+      "auc": 0.5589,
+      "f1": 0.0063,
+      "acc": 0.6988,
+      "mse": 0.2078
+    },
+    {
+      "model": "TransDKT+",
+      "source": "SYNTHETIC",
+      "auc": 0.552,
+      "f1": 0.2152,
+      "acc": 0.694,
+      "mse": 0.222
+    }
+  ],
+  "figures": [
+    {
+      "id": "fig1",
+      "title": "Topic Mastery Distribution",
+      "file": "results/fig1_topic_mastery.png"
+    },
+    {
+      "id": "fig2",
+      "title": "Misconception / Error Distribution",
+      "file": "results/fig2_error_distribution.png"
+    },
+    {
+      "id": "fig3",
+      "title": "Recovery Rate Analysis",
+      "file": "results/fig3_recovery_rate.png"
+    },
+    {
+      "id": "fig4",
+      "title": "ROC Curve (Knowledge Prediction Performance)",
+      "file": "results/fig4_roc_curve.png"
+    },
+    {
+      "id": "fig5",
+      "title": "Model Performance Benchmark Comparison",
+      "file": "results/fig5_model_comparison.png"
+    }
+  ]
+}
