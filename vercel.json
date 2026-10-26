@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "outputDirectory": ".",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/((?!css/|js/|data/|results/|assets/|favicon.ico).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
