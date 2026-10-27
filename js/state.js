@@ -2,9 +2,10 @@
    LEARNPATH AI — Central Reactive State Store (Fresh Mode)
    ============================================================ */
 
-import { FRESH_STUDENT_STATE, INITIAL_TOPICS } from './data/initialData.js';
+import { FRESH_STUDENT_STATE, INITIAL_TOPICS, ALL_TOPICS } from './data/initialData.js';
 import { KnowledgeModel } from './engine/knowledgeModel.js';
 import { RecoveryPathEngine } from './engine/recoveryPathEngine.js';
+import { calculateStreakStats, formatDate, generateSeedActivity } from './engine/streakEngine.js';
 
 const LEGACY_STORAGE_KEY = 'learnpath_ai_state_v4_topics12';
 const REGISTERED_USERS_KEY = 'learnpath_registered_users_v1';
@@ -67,9 +68,10 @@ export class StateStore {
       }
     }
 
-    // Auto-merge to ensure all 12 topics from INITIAL_TOPICS are always present
+    // Auto-merge to ensure all topics from Java and Python are always present
+    const topicCatalog = ALL_TOPICS || INITIAL_TOPICS;
     const existingMap = new Map((state.topics || []).map(t => [t.id, t]));
-    state.topics = INITIAL_TOPICS.map(initTopic => {
+    state.topics = topicCatalog.map(initTopic => {
       const existing = existingMap.get(initTopic.id);
       return existing ? { ...initTopic, ...existing } : JSON.parse(JSON.stringify(initTopic));
     });
@@ -106,6 +108,21 @@ export class StateStore {
     }
     if (state.metrics) {
       state.metrics.points = state.user ? state.user.points : 0;
+    }
+
+    // LeetCode Streak & Submission Calendar auto-sync
+    if (!state.submissionCalendar) {
+      state.submissionCalendar = generateSeedActivity();
+    }
+    const streakStats = calculateStreakStats(state.submissionCalendar);
+    if (state.user) {
+      state.user.streakDays = streakStats.currentStreak;
+    }
+    if (state.metrics) {
+      state.metrics.learningStreak = streakStats.currentStreak;
+      state.metrics.maxStreak = streakStats.maxStreak;
+      state.metrics.totalActiveDays = streakStats.totalActiveDays;
+      state.metrics.totalSubmissions = streakStats.totalSubmissions;
     }
 
     return state;
@@ -263,12 +280,49 @@ export class StateStore {
       const today = this.state.weeklyActivity.find(w => w.today) || this.state.weeklyActivity[this.state.weeklyActivity.length - 1];
       if (today) today.count = (today.count || 0) + 1;
     }
-    // Streak
-    if (this.state.metrics.questionsSolved === 1) {
-      this.state.user.streakDays = 1;
-      this.state.metrics.learningStreak = 1;
+    // Update LeetCode Submission Calendar & Streak
+    const todayStr = formatDate(new Date());
+    if (!this.state.submissionCalendar) {
+      this.state.submissionCalendar = {};
     }
+    this.state.submissionCalendar[todayStr] = (this.state.submissionCalendar[todayStr] || 0) + 1;
+    const streakStats = calculateStreakStats(this.state.submissionCalendar);
+    this.state.user.streakDays = streakStats.currentStreak;
+    this.state.metrics.learningStreak = streakStats.currentStreak;
+    this.state.metrics.maxStreak = streakStats.maxStreak;
+    this.state.metrics.totalActiveDays = streakStats.totalActiveDays;
+    this.state.metrics.totalSubmissions = streakStats.totalSubmissions;
     this.saveState();
+  }
+
+  // Action: Manually Log Submission (e.g. for testing / playground solves)
+  logSubmission(count = 1, dateStr = null) {
+    const targetDate = dateStr || formatDate(new Date());
+    if (!this.state.submissionCalendar) {
+      this.state.submissionCalendar = {};
+    }
+    this.state.submissionCalendar[targetDate] = (this.state.submissionCalendar[targetDate] || 0) + count;
+    const stats = calculateStreakStats(this.state.submissionCalendar);
+    this.state.user.streakDays = stats.currentStreak;
+    this.state.metrics.learningStreak = stats.currentStreak;
+    this.state.metrics.maxStreak = stats.maxStreak;
+    this.state.metrics.totalActiveDays = stats.totalActiveDays;
+    this.state.metrics.totalSubmissions = stats.totalSubmissions;
+    this.saveState();
+    return stats;
+  }
+
+  // Action: Restore Demo Seed Activity (63 submissions, 15 active days, max streak 3)
+  restoreDemoSeedActivity() {
+    this.state.submissionCalendar = generateSeedActivity();
+    const stats = calculateStreakStats(this.state.submissionCalendar);
+    this.state.user.streakDays = stats.currentStreak;
+    this.state.metrics.learningStreak = stats.currentStreak;
+    this.state.metrics.maxStreak = stats.maxStreak;
+    this.state.metrics.totalActiveDays = stats.totalActiveDays;
+    this.state.metrics.totalSubmissions = stats.totalSubmissions;
+    this.saveState();
+    return stats;
   }
 
   // Action: Advance Recovery Path Step

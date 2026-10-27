@@ -14,7 +14,7 @@ export function renderQuestionView(questionId, userSelection = null, feedbackSta
       <!-- Question Nav Header -->
       <div class="question-nav-header">
         <div class="question-breadcrumbs">
-          <span>Java Arrays</span>
+          <span>${(question.subject === 'python' || question.topic.startsWith('py-')) ? 'Python Core' : 'Java Arrays'}</span>
           <span>/</span>
           <span class="topic-tag">${question.topic.toUpperCase().replace('-', ' ')}</span>
           <span>/</span>

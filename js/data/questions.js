@@ -1,6 +1,9 @@
 /* ============================================================
-   LEARNPATH AI — Realistic Java Arrays Question Bank (30+ Questions)
+   LEARNPATH AI — Full Question Bank (Java + Python)
+   Java: 30+ Questions | Python: 64 MCQ Questions
    ============================================================ */
+
+import { PYTHON_QUESTIONS } from './pythonQuestions.js';
 
 export const QUESTIONS_DB = [
   // ==========================================
@@ -493,5 +496,6 @@ export const QUESTIONS_DB = [
     explanation: 'Linear time O(N) with in-place O(1) auxiliary space.',
     concept: 'Two Pointer Algorithmic Efficiency',
     misconception_tag: 'APPROACH_ERROR'
-  }
+  },
+  ...PYTHON_QUESTIONS
 ];

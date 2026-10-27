@@ -3,76 +3,76 @@
   "version": "1.0",
   "student": {
     "name": "Ananya Patel",
-    "totalQuestionsSolved": 30,
-    "overallMastery": 57,
-    "conceptsMastered": 3,
-    "points": 140,
+    "totalQuestionsSolved": 34,
+    "overallMastery": 60,
+    "conceptsMastered": 4,
+    "points": 160,
     "rank": "Rising Coder"
   },
   "topicMastery": [
     {
       "topicId": "basic-arrays",
       "topicName": "Array Basics",
-      "masteryPercent": 83,
-      "masteryProbability": 0.83,
+      "masteryPercent": 96,
+      "masteryProbability": 0.96,
       "status": "Mastered",
-      "solvedCount": 6
+      "solvedCount": 5
     },
     {
       "topicId": "two-pointer",
       "topicName": "Two Pointer Technique",
-      "masteryPercent": 51,
-      "masteryProbability": 0.51,
-      "status": "In Progress",
-      "solvedCount": 4
+      "masteryPercent": 96,
+      "masteryProbability": 0.96,
+      "status": "Mastered",
+      "solvedCount": 5
     },
     {
       "topicId": "sliding-window",
       "topicName": "Sliding Window",
-      "masteryPercent": 32,
-      "masteryProbability": 0.32,
-      "status": "In Progress",
+      "masteryPercent": 96,
+      "masteryProbability": 0.96,
+      "status": "Mastered",
       "solvedCount": 5
     },
     {
       "topicId": "prefix-sum",
       "topicName": "Prefix Sum & Cumulative",
-      "masteryPercent": 80,
-      "masteryProbability": 0.8,
-      "status": "Mastered",
+      "masteryPercent": 35,
+      "masteryProbability": 0.35,
+      "status": "In Progress",
       "solvedCount": 3
     },
     {
       "topicId": "searching",
       "topicName": "Searching Algorithms",
-      "masteryPercent": 71,
-      "masteryProbability": 0.71,
-      "status": "In Progress",
-      "solvedCount": 4
+      "masteryPercent": 79,
+      "masteryProbability": 0.79,
+      "status": "Mastered",
+      "solvedCount": 5
     },
     {
       "topicId": "sorting",
       "topicName": "Sorting Algorithms",
+      "masteryPercent": 38,
+      "masteryProbability": 0.38,
+      "status": "In Progress",
+      "solvedCount": 6
+    },
+    {
+      "topicId": "strings",
+      "topicName": "Strings & Char Arrays",
       "masteryPercent": 0,
       "masteryProbability": 0.0,
       "status": "Needs Practice",
       "solvedCount": 0
     },
     {
-      "topicId": "strings",
-      "topicName": "Strings & Char Arrays",
-      "masteryPercent": 61,
-      "masteryProbability": 0.61,
-      "status": "In Progress",
-      "solvedCount": 5
-    },
-    {
       "topicId": "2d-arrays",
       "topicName": "2D Arrays & Matrices",
-      "masteryPercent": 78,
-      "masteryProbability": 0.78,
-      "status": "Mastered",
-      "solvedCount": 3
+      "masteryPercent": 39,
+      "masteryProbability": 0.39,
+      "status": "In Progress",
+      "solvedCount": 5
     }
   ],
   "attemptLog": [
@@ -82,10 +82,13 @@
       "topicId": "basic-arrays",
       "topicName": "Array Basics",
       "difficulty": "Easy",
-      "isCorrect": 0,
-      "errorType": "INDEX_BOUNDS",
-      "timeSpent": "0m 52s",
-      "feedbackNote": "Identified INDEX_BOUNDS pattern."
+      "isCorrect": 1,
+      "errorType": null,
+      "preMastery": 78,
+      "postMastery": 93,
+      "predictedProb": 0.92,
+      "timeSpent": "1m 39s",
+      "feedbackNote": "Applied concept accurately."
     },
     {
       "attemptId": "att_student_03_ananya_patel_002",
@@ -93,10 +96,13 @@
       "topicId": "basic-arrays",
       "topicName": "Array Basics",
       "difficulty": "Easy",
-      "isCorrect": 0,
-      "errorType": "LOGIC_ERROR",
-      "timeSpent": "1m 18s",
-      "feedbackNote": "Identified LOGIC_ERROR pattern."
+      "isCorrect": 1,
+      "errorType": null,
+      "preMastery": 93,
+      "postMastery": 98,
+      "predictedProb": 0.92,
+      "timeSpent": "0m 10s",
+      "feedbackNote": "Applied concept accurately."
     },
     {
       "attemptId": "att_student_03_ananya_patel_003",
@@ -104,10 +110,13 @@
       "topicId": "basic-arrays",
       "topicName": "Array Basics",
       "difficulty": "Easy",
-      "isCorrect": 0,
-      "errorType": "INDEX_BOUNDS",
-      "timeSpent": "1m 14s",
-      "feedbackNote": "Identified INDEX_BOUNDS pattern."
+      "isCorrect": 1,
+      "errorType": null,
+      "preMastery": 98,
+      "postMastery": 98,
+      "predictedProb": 0.92,
+      "timeSpent": "0m 14s",
+      "feedbackNote": "Applied concept accurately."
     },
     {
       "attemptId": "att_student_03_ananya_patel_004",
@@ -117,7 +126,10 @@
       "difficulty": "Medium",
       "isCorrect": 1,
       "errorType": null,
-      "timeSpent": "2m 16s",
+      "preMastery": 98,
+      "postMastery": 98,
+      "predictedProb": 0.89,
+      "timeSpent": "1m 18s",
       "feedbackNote": "Applied concept accurately."
     },
     {
@@ -126,65 +138,83 @@
       "topicId": "basic-arrays",
       "topicName": "Array Basics",
       "difficulty": "Medium",
-      "isCorrect": 1,
-      "errorType": null,
-      "timeSpent": "2m 26s",
-      "feedbackNote": "Applied concept accurately."
+      "isCorrect": 0,
+      "errorType": "SYNTAX_ERROR",
+      "preMastery": 98,
+      "postMastery": 95,
+      "predictedProb": 0.89,
+      "timeSpent": "1m 28s",
+      "feedbackNote": "Identified SYNTAX_ERROR pattern."
     },
     {
       "attemptId": "att_student_03_ananya_patel_006",
-      "questionId": "bas_06",
-      "topicId": "basic-arrays",
-      "topicName": "Array Basics",
-      "difficulty": "Medium",
-      "isCorrect": 1,
-      "errorType": null,
-      "timeSpent": "0m 25s",
-      "feedbackNote": "Applied concept accurately."
-    },
-    {
-      "attemptId": "att_student_03_ananya_patel_007",
       "questionId": "two_01",
       "topicId": "two-pointer",
       "topicName": "Two Pointer Technique",
       "difficulty": "Easy",
-      "isCorrect": 0,
-      "errorType": "TYPE_MISMATCH",
-      "timeSpent": "2m 51s",
-      "feedbackNote": "Identified TYPE_MISMATCH pattern."
+      "isCorrect": 1,
+      "errorType": null,
+      "preMastery": 36,
+      "postMastery": 48,
+      "predictedProb": 0.262,
+      "timeSpent": "2m 16s",
+      "feedbackNote": "Applied concept accurately."
     },
     {
-      "attemptId": "att_student_03_ananya_patel_008",
+      "attemptId": "att_student_03_ananya_patel_007",
       "questionId": "two_02",
       "topicId": "two-pointer",
       "topicName": "Two Pointer Technique",
       "difficulty": "Easy",
       "isCorrect": 0,
-      "errorType": "TYPE_MISMATCH",
-      "timeSpent": "1m 52s",
-      "feedbackNote": "Identified TYPE_MISMATCH pattern."
+      "errorType": "LOGIC_ERROR",
+      "preMastery": 48,
+      "postMastery": 44,
+      "predictedProb": 0.262,
+      "timeSpent": "0m 16s",
+      "feedbackNote": "Identified LOGIC_ERROR pattern."
     },
     {
-      "attemptId": "att_student_03_ananya_patel_009",
+      "attemptId": "att_student_03_ananya_patel_008",
       "questionId": "two_03",
       "topicId": "two-pointer",
       "topicName": "Two Pointer Technique",
       "difficulty": "Easy",
-      "isCorrect": 1,
-      "errorType": null,
-      "timeSpent": "1m 17s",
-      "feedbackNote": "Applied concept accurately."
+      "isCorrect": 0,
+      "errorType": "LOGIC_ERROR",
+      "preMastery": 44,
+      "postMastery": 40,
+      "predictedProb": 0.262,
+      "timeSpent": "1m 48s",
+      "feedbackNote": "Identified LOGIC_ERROR pattern."
     },
     {
-      "attemptId": "att_student_03_ananya_patel_010",
+      "attemptId": "att_student_03_ananya_patel_009",
       "questionId": "two_04",
       "topicId": "two-pointer",
       "topicName": "Two Pointer Technique",
       "difficulty": "Medium",
-      "isCorrect": 0,
-      "errorType": "TYPE_MISMATCH",
-      "timeSpent": "0m 27s",
-      "feedbackNote": "Identified TYPE_MISMATCH pattern."
+      "isCorrect": 1,
+      "errorType": null,
+      "preMastery": 40,
+      "postMastery": 55,
+      "predictedProb": 0.217,
+      "timeSpent": "2m 26s",
+      "feedbackNote": "Applied concept accurately."
+    },
+    {
+      "attemptId": "att_student_03_ananya_patel_010",
+      "questionId": "two_05",
+      "topicId": "two-pointer",
+      "topicName": "Two Pointer Technique",
+      "difficulty": "Medium",
+      "isCorrect": 1,
+      "errorType": null,
+      "preMastery": 55,
+      "postMastery": 67,
+      "predictedProb": 0.89,
+      "timeSpent": "0m 15s",
+      "feedbackNote": "Applied concept accurately."
     },
     {
       "attemptId": "att_student_03_ananya_patel_011",
@@ -192,10 +222,13 @@
       "topicId": "sliding-window",
       "topicName": "Sliding Window",
       "difficulty": "Easy",
-      "isCorrect": 0,
-      "errorType": "INDEX_BOUNDS",
-      "timeSpent": "1m 26s",
-      "feedbackNote": "Identified INDEX_BOUNDS pattern."
+      "isCorrect": 1,
+      "errorType": null,
+      "preMastery": 77,
+      "postMastery": 92,
+      "predictedProb": 0.92,
+      "timeSpent": "1m 20s",
+      "feedbackNote": "Applied concept accurately."
     },
     {
       "attemptId": "att_student_03_ananya_patel_012",
@@ -203,10 +236,13 @@
       "topicId": "sliding-window",
       "topicName": "Sliding Window",
       "difficulty": "Easy",
-      "isCorrect": 0,
-      "errorType": "SYNTAX_ERROR",
+      "isCorrect": 1,
+      "errorType": null,
+      "preMastery": 92,
+      "postMastery": 98,
+      "predictedProb": 0.92,
       "timeSpent": "2m 37s",
-      "feedbackNote": "Identified SYNTAX_ERROR pattern."
+      "feedbackNote": "Applied concept accurately."
     },
     {
       "attemptId": "att_student_03_ananya_patel_013",
@@ -214,10 +250,13 @@
       "topicId": "sliding-window",
       "topicName": "Sliding Window",
       "difficulty": "Easy",
-      "isCorrect": 0,
-      "errorType": "SYNTAX_ERROR",
-      "timeSpent": "1m 18s",
-      "feedbackNote": "Identified SYNTAX_ERROR pattern."
+      "isCorrect": 1,
+      "errorType": null,
+      "preMastery": 98,
+      "postMastery": 98,
+      "predictedProb": 0.92,
+      "timeSpent": "0m 54s",
+      "feedbackNote": "Applied concept accurately."
     },
     {
       "attemptId": "att_student_03_ananya_patel_014",
@@ -226,9 +265,12 @@
       "topicName": "Sliding Window",
       "difficulty": "Medium",
       "isCorrect": 0,
-      "errorType": "INDEX_BOUNDS",
-      "timeSpent": "2m 38s",
-      "feedbackNote": "Identified INDEX_BOUNDS pattern."
+      "errorType": "NULL_POINTER",
+      "preMastery": 98,
+      "postMastery": 96,
+      "predictedProb": 0.89,
+      "timeSpent": "1m 47s",
+      "feedbackNote": "Identified NULL_POINTER pattern."
     },
     {
       "attemptId": "att_student_03_ananya_patel_015",
@@ -236,10 +278,13 @@
       "topicId": "sliding-window",
       "topicName": "Sliding Window",
       "difficulty": "Medium",
-      "isCorrect": 0,
-      "errorType": "TIME_LIMIT",
-      "timeSpent": "0m 17s",
-      "feedbackNote": "Identified TIME_LIMIT pattern."
+      "isCorrect": 1,
+      "errorType": null,
+      "preMastery": 96,
+      "postMastery": 98,
+      "predictedProb": 0.89,
+      "timeSpent": "0m 12s",
+      "feedbackNote": "Applied concept accurately."
     },
     {
       "attemptId": "att_student_03_ananya_patel_016",
@@ -248,9 +293,12 @@
       "topicName": "Prefix Sum & Cumulative",
       "difficulty": "Easy",
       "isCorrect": 0,
-      "errorType": "LOGIC_ERROR",
-      "timeSpent": "0m 12s",
-      "feedbackNote": "Identified LOGIC_ERROR pattern."
+      "errorType": "TYPE_MISMATCH",
+      "preMastery": 26,
+      "postMastery": 24,
+      "predictedProb": 0.262,
+      "timeSpent": "1m 45s",
+      "feedbackNote": "Identified TYPE_MISMATCH pattern."
     },
     {
       "attemptId": "att_student_03_ananya_patel_017",
@@ -258,10 +306,13 @@
       "topicId": "prefix-sum",
       "topicName": "Prefix Sum & Cumulative",
       "difficulty": "Easy",
-      "isCorrect": 1,
-      "errorType": null,
-      "timeSpent": "0m 32s",
-      "feedbackNote": "Applied concept accurately."
+      "isCorrect": 0,
+      "errorType": "TIME_LIMIT",
+      "preMastery": 24,
+      "postMastery": 18,
+      "predictedProb": 0.262,
+      "timeSpent": "2m 19s",
+      "feedbackNote": "Identified TIME_LIMIT pattern."
     },
     {
       "attemptId": "att_student_03_ananya_patel_018",
@@ -269,10 +320,13 @@
       "topicId": "prefix-sum",
       "topicName": "Prefix Sum & Cumulative",
       "difficulty": "Easy",
-      "isCorrect": 1,
-      "errorType": null,
-      "timeSpent": "2m 16s",
-      "feedbackNote": "Applied concept accurately."
+      "isCorrect": 0,
+      "errorType": "LOGIC_ERROR",
+      "preMastery": 18,
+      "postMastery": 15,
+      "predictedProb": 0.262,
+      "timeSpent": "0m 36s",
+      "feedbackNote": "Identified LOGIC_ERROR pattern."
     },
     {
       "attemptId": "att_student_03_ananya_patel_019",
@@ -281,9 +335,12 @@
       "topicName": "Searching Algorithms",
       "difficulty": "Easy",
       "isCorrect": 0,
-      "errorType": "LOGIC_ERROR",
-      "timeSpent": "0m 21s",
-      "feedbackNote": "Identified LOGIC_ERROR pattern."
+      "errorType": "TYPE_MISMATCH",
+      "preMastery": 33,
+      "postMastery": 30,
+      "predictedProb": 0.262,
+      "timeSpent": "1m 20s",
+      "feedbackNote": "Identified TYPE_MISMATCH pattern."
     },
     {
       "attemptId": "att_student_03_ananya_patel_020",
@@ -292,9 +349,12 @@
       "topicName": "Searching Algorithms",
       "difficulty": "Easy",
       "isCorrect": 0,
-      "errorType": "INDEX_BOUNDS",
-      "timeSpent": "2m 25s",
-      "feedbackNote": "Identified INDEX_BOUNDS pattern."
+      "errorType": "SYNTAX_ERROR",
+      "preMastery": 30,
+      "postMastery": 25,
+      "predictedProb": 0.262,
+      "timeSpent": "0m 40s",
+      "feedbackNote": "Identified SYNTAX_ERROR pattern."
     },
     {
       "attemptId": "att_student_03_ananya_patel_021",
@@ -304,7 +364,10 @@
       "difficulty": "Easy",
       "isCorrect": 1,
       "errorType": null,
-      "timeSpent": "2m 16s",
+      "preMastery": 25,
+      "postMastery": 38,
+      "predictedProb": 0.262,
+      "timeSpent": "1m 29s",
       "feedbackNote": "Applied concept accurately."
     },
     {
@@ -313,97 +376,180 @@
       "topicId": "searching",
       "topicName": "Searching Algorithms",
       "difficulty": "Medium",
-      "isCorrect": 1,
-      "errorType": null,
-      "timeSpent": "1m 24s",
-      "feedbackNote": "Applied concept accurately."
-    },
-    {
-      "attemptId": "att_student_03_ananya_patel_023",
-      "questionId": "str_01",
-      "topicId": "strings",
-      "topicName": "Strings & Char Arrays",
-      "difficulty": "Easy",
       "isCorrect": 0,
       "errorType": "LOGIC_ERROR",
+      "preMastery": 38,
+      "postMastery": 35,
+      "predictedProb": 0.217,
       "timeSpent": "0m 52s",
       "feedbackNote": "Identified LOGIC_ERROR pattern."
     },
     {
+      "attemptId": "att_student_03_ananya_patel_023",
+      "questionId": "sea_05",
+      "topicId": "searching",
+      "topicName": "Searching Algorithms",
+      "difficulty": "Medium",
+      "isCorrect": 1,
+      "errorType": null,
+      "preMastery": 35,
+      "postMastery": 51,
+      "predictedProb": 0.217,
+      "timeSpent": "0m 27s",
+      "feedbackNote": "Applied concept accurately."
+    },
+    {
       "attemptId": "att_student_03_ananya_patel_024",
-      "questionId": "str_02",
-      "topicId": "strings",
-      "topicName": "Strings & Char Arrays",
+      "questionId": "sor_01",
+      "topicId": "sorting",
+      "topicName": "Sorting Algorithms",
       "difficulty": "Easy",
-      "isCorrect": 1,
-      "errorType": null,
-      "timeSpent": "1m 14s",
-      "feedbackNote": "Applied concept accurately."
-    },
-    {
-      "attemptId": "att_student_03_ananya_patel_025",
-      "questionId": "str_03",
-      "topicId": "strings",
-      "topicName": "Strings & Char Arrays",
-      "difficulty": "Easy",
-      "isCorrect": 0,
-      "errorType": "INDEX_BOUNDS",
-      "timeSpent": "2m 42s",
-      "feedbackNote": "Identified INDEX_BOUNDS pattern."
-    },
-    {
-      "attemptId": "att_student_03_ananya_patel_026",
-      "questionId": "str_04",
-      "topicId": "strings",
-      "topicName": "Strings & Char Arrays",
-      "difficulty": "Medium",
-      "isCorrect": 1,
-      "errorType": null,
-      "timeSpent": "2m 31s",
-      "feedbackNote": "Applied concept accurately."
-    },
-    {
-      "attemptId": "att_student_03_ananya_patel_027",
-      "questionId": "str_05",
-      "topicId": "strings",
-      "topicName": "Strings & Char Arrays",
-      "difficulty": "Medium",
       "isCorrect": 0,
       "errorType": "SYNTAX_ERROR",
+      "preMastery": 30,
+      "postMastery": 26,
+      "predictedProb": 0.262,
       "timeSpent": "0m 47s",
       "feedbackNote": "Identified SYNTAX_ERROR pattern."
     },
     {
+      "attemptId": "att_student_03_ananya_patel_025",
+      "questionId": "sor_02",
+      "topicId": "sorting",
+      "topicName": "Sorting Algorithms",
+      "difficulty": "Easy",
+      "isCorrect": 0,
+      "errorType": "INDEX_BOUNDS",
+      "preMastery": 26,
+      "postMastery": 24,
+      "predictedProb": 0.262,
+      "timeSpent": "0m 48s",
+      "feedbackNote": "Identified INDEX_BOUNDS pattern."
+    },
+    {
+      "attemptId": "att_student_03_ananya_patel_026",
+      "questionId": "sor_03",
+      "topicId": "sorting",
+      "topicName": "Sorting Algorithms",
+      "difficulty": "Easy",
+      "isCorrect": 0,
+      "errorType": "TYPE_MISMATCH",
+      "preMastery": 24,
+      "postMastery": 20,
+      "predictedProb": 0.262,
+      "timeSpent": "1m 48s",
+      "feedbackNote": "Identified TYPE_MISMATCH pattern."
+    },
+    {
+      "attemptId": "att_student_03_ananya_patel_027",
+      "questionId": "sor_04",
+      "topicId": "sorting",
+      "topicName": "Sorting Algorithms",
+      "difficulty": "Medium",
+      "isCorrect": 0,
+      "errorType": "SYNTAX_ERROR",
+      "preMastery": 20,
+      "postMastery": 15,
+      "predictedProb": 0.217,
+      "timeSpent": "2m 22s",
+      "feedbackNote": "Identified SYNTAX_ERROR pattern."
+    },
+    {
       "attemptId": "att_student_03_ananya_patel_028",
+      "questionId": "sor_05",
+      "topicId": "sorting",
+      "topicName": "Sorting Algorithms",
+      "difficulty": "Medium",
+      "isCorrect": 0,
+      "errorType": "TYPE_MISMATCH",
+      "preMastery": 15,
+      "postMastery": 10,
+      "predictedProb": 0.217,
+      "timeSpent": "0m 43s",
+      "feedbackNote": "Identified TYPE_MISMATCH pattern."
+    },
+    {
+      "attemptId": "att_student_03_ananya_patel_029",
+      "questionId": "sor_06",
+      "topicId": "sorting",
+      "topicName": "Sorting Algorithms",
+      "difficulty": "Medium",
+      "isCorrect": 0,
+      "errorType": "NULL_POINTER",
+      "preMastery": 10,
+      "postMastery": 10,
+      "predictedProb": 0.217,
+      "timeSpent": "1m 37s",
+      "feedbackNote": "Identified NULL_POINTER pattern."
+    },
+    {
+      "attemptId": "att_student_03_ananya_patel_030",
       "questionId": "2d-_01",
       "topicId": "2d-arrays",
       "topicName": "2D Arrays & Matrices",
       "difficulty": "Easy",
-      "isCorrect": 1,
-      "errorType": null,
-      "timeSpent": "1m 37s",
-      "feedbackNote": "Applied concept accurately."
+      "isCorrect": 0,
+      "errorType": "INDEX_BOUNDS",
+      "preMastery": 23,
+      "postMastery": 17,
+      "predictedProb": 0.262,
+      "timeSpent": "1m 52s",
+      "feedbackNote": "Identified INDEX_BOUNDS pattern."
     },
     {
-      "attemptId": "att_student_03_ananya_patel_029",
+      "attemptId": "att_student_03_ananya_patel_031",
       "questionId": "2d-_02",
       "topicId": "2d-arrays",
       "topicName": "2D Arrays & Matrices",
       "difficulty": "Easy",
-      "isCorrect": 1,
-      "errorType": null,
-      "timeSpent": "0m 34s",
-      "feedbackNote": "Applied concept accurately."
+      "isCorrect": 0,
+      "errorType": "TIME_LIMIT",
+      "preMastery": 17,
+      "postMastery": 13,
+      "predictedProb": 0.262,
+      "timeSpent": "2m 18s",
+      "feedbackNote": "Identified TIME_LIMIT pattern."
     },
     {
-      "attemptId": "att_student_03_ananya_patel_030",
+      "attemptId": "att_student_03_ananya_patel_032",
       "questionId": "2d-_03",
       "topicId": "2d-arrays",
       "topicName": "2D Arrays & Matrices",
       "difficulty": "Easy",
+      "isCorrect": 1,
+      "errorType": null,
+      "preMastery": 13,
+      "postMastery": 26,
+      "predictedProb": 0.262,
+      "timeSpent": "2m 21s",
+      "feedbackNote": "Applied concept accurately."
+    },
+    {
+      "attemptId": "att_student_03_ananya_patel_033",
+      "questionId": "2d-_04",
+      "topicId": "2d-arrays",
+      "topicName": "2D Arrays & Matrices",
+      "difficulty": "Medium",
+      "isCorrect": 0,
+      "errorType": "INDEX_BOUNDS",
+      "preMastery": 26,
+      "postMastery": 21,
+      "predictedProb": 0.217,
+      "timeSpent": "2m 10s",
+      "feedbackNote": "Identified INDEX_BOUNDS pattern."
+    },
+    {
+      "attemptId": "att_student_03_ananya_patel_034",
+      "questionId": "2d-_05",
+      "topicId": "2d-arrays",
+      "topicName": "2D Arrays & Matrices",
+      "difficulty": "Medium",
       "isCorrect": 0,
       "errorType": "LOGIC_ERROR",
-      "timeSpent": "0m 55s",
+      "preMastery": 21,
+      "postMastery": 16,
+      "predictedProb": 0.217,
+      "timeSpent": "2m 48s",
       "feedbackNote": "Identified LOGIC_ERROR pattern."
     }
   ],
@@ -450,7 +596,7 @@
     },
     {
       "type": "COMPLETED",
-      "topicId": "strings",
+      "topicId": "sorting",
       "stage": 3,
       "mcqScore": 5,
       "mcqsTotal": 5,
@@ -467,95 +613,55 @@
   ],
   "mistakesList": [
     {
-      "questionId": "bas_01",
+      "questionId": "bas_05",
       "topicId": "basic-arrays",
       "topicName": "Array Basics",
-      "difficulty": "Easy",
-      "errorPattern": "INDEX_BOUNDS",
-      "whatWentWrong": "Misconception regarding INDEX_BOUNDS in Array Basics."
-    },
-    {
-      "questionId": "bas_02",
-      "topicId": "basic-arrays",
-      "topicName": "Array Basics",
-      "difficulty": "Easy",
-      "errorPattern": "LOGIC_ERROR",
-      "whatWentWrong": "Misconception regarding LOGIC_ERROR in Array Basics."
-    },
-    {
-      "questionId": "bas_03",
-      "topicId": "basic-arrays",
-      "topicName": "Array Basics",
-      "difficulty": "Easy",
-      "errorPattern": "INDEX_BOUNDS",
-      "whatWentWrong": "Misconception regarding INDEX_BOUNDS in Array Basics."
-    },
-    {
-      "questionId": "two_01",
-      "topicId": "two-pointer",
-      "topicName": "Two Pointer Technique",
-      "difficulty": "Easy",
-      "errorPattern": "TYPE_MISMATCH",
-      "whatWentWrong": "Misconception regarding TYPE_MISMATCH in Two Pointer Technique."
+      "difficulty": "Medium",
+      "errorPattern": "SYNTAX_ERROR",
+      "whatWentWrong": "Misconception regarding SYNTAX_ERROR in Array Basics."
     },
     {
       "questionId": "two_02",
       "topicId": "two-pointer",
       "topicName": "Two Pointer Technique",
       "difficulty": "Easy",
-      "errorPattern": "TYPE_MISMATCH",
-      "whatWentWrong": "Misconception regarding TYPE_MISMATCH in Two Pointer Technique."
+      "errorPattern": "LOGIC_ERROR",
+      "whatWentWrong": "Misconception regarding LOGIC_ERROR in Two Pointer Technique."
     },
     {
-      "questionId": "two_04",
+      "questionId": "two_03",
       "topicId": "two-pointer",
       "topicName": "Two Pointer Technique",
-      "difficulty": "Medium",
-      "errorPattern": "TYPE_MISMATCH",
-      "whatWentWrong": "Misconception regarding TYPE_MISMATCH in Two Pointer Technique."
-    },
-    {
-      "questionId": "sli_01",
-      "topicId": "sliding-window",
-      "topicName": "Sliding Window",
       "difficulty": "Easy",
-      "errorPattern": "INDEX_BOUNDS",
-      "whatWentWrong": "Misconception regarding INDEX_BOUNDS in Sliding Window."
-    },
-    {
-      "questionId": "sli_02",
-      "topicId": "sliding-window",
-      "topicName": "Sliding Window",
-      "difficulty": "Easy",
-      "errorPattern": "SYNTAX_ERROR",
-      "whatWentWrong": "Misconception regarding SYNTAX_ERROR in Sliding Window."
-    },
-    {
-      "questionId": "sli_03",
-      "topicId": "sliding-window",
-      "topicName": "Sliding Window",
-      "difficulty": "Easy",
-      "errorPattern": "SYNTAX_ERROR",
-      "whatWentWrong": "Misconception regarding SYNTAX_ERROR in Sliding Window."
+      "errorPattern": "LOGIC_ERROR",
+      "whatWentWrong": "Misconception regarding LOGIC_ERROR in Two Pointer Technique."
     },
     {
       "questionId": "sli_04",
       "topicId": "sliding-window",
       "topicName": "Sliding Window",
       "difficulty": "Medium",
-      "errorPattern": "INDEX_BOUNDS",
-      "whatWentWrong": "Misconception regarding INDEX_BOUNDS in Sliding Window."
-    },
-    {
-      "questionId": "sli_05",
-      "topicId": "sliding-window",
-      "topicName": "Sliding Window",
-      "difficulty": "Medium",
-      "errorPattern": "TIME_LIMIT",
-      "whatWentWrong": "Misconception regarding TIME_LIMIT in Sliding Window."
+      "errorPattern": "NULL_POINTER",
+      "whatWentWrong": "Misconception regarding NULL_POINTER in Sliding Window."
     },
     {
       "questionId": "pre_01",
+      "topicId": "prefix-sum",
+      "topicName": "Prefix Sum & Cumulative",
+      "difficulty": "Easy",
+      "errorPattern": "TYPE_MISMATCH",
+      "whatWentWrong": "Misconception regarding TYPE_MISMATCH in Prefix Sum & Cumulative."
+    },
+    {
+      "questionId": "pre_02",
+      "topicId": "prefix-sum",
+      "topicName": "Prefix Sum & Cumulative",
+      "difficulty": "Easy",
+      "errorPattern": "TIME_LIMIT",
+      "whatWentWrong": "Misconception regarding TIME_LIMIT in Prefix Sum & Cumulative."
+    },
+    {
+      "questionId": "pre_03",
       "topicId": "prefix-sum",
       "topicName": "Prefix Sum & Cumulative",
       "difficulty": "Easy",
@@ -567,46 +673,102 @@
       "topicId": "searching",
       "topicName": "Searching Algorithms",
       "difficulty": "Easy",
-      "errorPattern": "LOGIC_ERROR",
-      "whatWentWrong": "Misconception regarding LOGIC_ERROR in Searching Algorithms."
+      "errorPattern": "TYPE_MISMATCH",
+      "whatWentWrong": "Misconception regarding TYPE_MISMATCH in Searching Algorithms."
     },
     {
       "questionId": "sea_02",
       "topicId": "searching",
       "topicName": "Searching Algorithms",
       "difficulty": "Easy",
-      "errorPattern": "INDEX_BOUNDS",
-      "whatWentWrong": "Misconception regarding INDEX_BOUNDS in Searching Algorithms."
+      "errorPattern": "SYNTAX_ERROR",
+      "whatWentWrong": "Misconception regarding SYNTAX_ERROR in Searching Algorithms."
     },
     {
-      "questionId": "str_01",
-      "topicId": "strings",
-      "topicName": "Strings & Char Arrays",
-      "difficulty": "Easy",
+      "questionId": "sea_04",
+      "topicId": "searching",
+      "topicName": "Searching Algorithms",
+      "difficulty": "Medium",
       "errorPattern": "LOGIC_ERROR",
-      "whatWentWrong": "Misconception regarding LOGIC_ERROR in Strings & Char Arrays."
+      "whatWentWrong": "Misconception regarding LOGIC_ERROR in Searching Algorithms."
     },
     {
-      "questionId": "str_03",
-      "topicId": "strings",
-      "topicName": "Strings & Char Arrays",
+      "questionId": "sor_01",
+      "topicId": "sorting",
+      "topicName": "Sorting Algorithms",
+      "difficulty": "Easy",
+      "errorPattern": "SYNTAX_ERROR",
+      "whatWentWrong": "Misconception regarding SYNTAX_ERROR in Sorting Algorithms."
+    },
+    {
+      "questionId": "sor_02",
+      "topicId": "sorting",
+      "topicName": "Sorting Algorithms",
       "difficulty": "Easy",
       "errorPattern": "INDEX_BOUNDS",
-      "whatWentWrong": "Misconception regarding INDEX_BOUNDS in Strings & Char Arrays."
+      "whatWentWrong": "Misconception regarding INDEX_BOUNDS in Sorting Algorithms."
     },
     {
-      "questionId": "str_05",
-      "topicId": "strings",
-      "topicName": "Strings & Char Arrays",
+      "questionId": "sor_03",
+      "topicId": "sorting",
+      "topicName": "Sorting Algorithms",
+      "difficulty": "Easy",
+      "errorPattern": "TYPE_MISMATCH",
+      "whatWentWrong": "Misconception regarding TYPE_MISMATCH in Sorting Algorithms."
+    },
+    {
+      "questionId": "sor_04",
+      "topicId": "sorting",
+      "topicName": "Sorting Algorithms",
       "difficulty": "Medium",
       "errorPattern": "SYNTAX_ERROR",
-      "whatWentWrong": "Misconception regarding SYNTAX_ERROR in Strings & Char Arrays."
+      "whatWentWrong": "Misconception regarding SYNTAX_ERROR in Sorting Algorithms."
     },
     {
-      "questionId": "2d-_03",
+      "questionId": "sor_05",
+      "topicId": "sorting",
+      "topicName": "Sorting Algorithms",
+      "difficulty": "Medium",
+      "errorPattern": "TYPE_MISMATCH",
+      "whatWentWrong": "Misconception regarding TYPE_MISMATCH in Sorting Algorithms."
+    },
+    {
+      "questionId": "sor_06",
+      "topicId": "sorting",
+      "topicName": "Sorting Algorithms",
+      "difficulty": "Medium",
+      "errorPattern": "NULL_POINTER",
+      "whatWentWrong": "Misconception regarding NULL_POINTER in Sorting Algorithms."
+    },
+    {
+      "questionId": "2d-_01",
       "topicId": "2d-arrays",
       "topicName": "2D Arrays & Matrices",
       "difficulty": "Easy",
+      "errorPattern": "INDEX_BOUNDS",
+      "whatWentWrong": "Misconception regarding INDEX_BOUNDS in 2D Arrays & Matrices."
+    },
+    {
+      "questionId": "2d-_02",
+      "topicId": "2d-arrays",
+      "topicName": "2D Arrays & Matrices",
+      "difficulty": "Easy",
+      "errorPattern": "TIME_LIMIT",
+      "whatWentWrong": "Misconception regarding TIME_LIMIT in 2D Arrays & Matrices."
+    },
+    {
+      "questionId": "2d-_04",
+      "topicId": "2d-arrays",
+      "topicName": "2D Arrays & Matrices",
+      "difficulty": "Medium",
+      "errorPattern": "INDEX_BOUNDS",
+      "whatWentWrong": "Misconception regarding INDEX_BOUNDS in 2D Arrays & Matrices."
+    },
+    {
+      "questionId": "2d-_05",
+      "topicId": "2d-arrays",
+      "topicName": "2D Arrays & Matrices",
+      "difficulty": "Medium",
       "errorPattern": "LOGIC_ERROR",
       "whatWentWrong": "Misconception regarding LOGIC_ERROR in 2D Arrays & Matrices."
     }
@@ -615,72 +777,72 @@
     {
       "name": "Array Basics",
       "topicId": "basic-arrays",
-      "previousMastery": 56,
-      "currentMastery": 83,
-      "masteryGain": 27,
+      "previousMastery": 71,
+      "currentMastery": 96,
+      "masteryGain": 25,
       "resolvedAt": "2026-10-23T10:00:00Z"
     },
     {
       "name": "Two Pointer Technique",
       "topicId": "two-pointer",
-      "previousMastery": 27,
-      "currentMastery": 51,
-      "masteryGain": 24,
+      "previousMastery": 65,
+      "currentMastery": 96,
+      "masteryGain": 31,
       "resolvedAt": "2026-10-23T10:00:00Z"
     },
     {
       "name": "Sliding Window",
       "topicId": "sliding-window",
-      "previousMastery": 10,
-      "currentMastery": 32,
-      "masteryGain": 22,
+      "previousMastery": 73,
+      "currentMastery": 96,
+      "masteryGain": 23,
       "resolvedAt": "2026-10-23T10:00:00Z"
     },
     {
       "name": "Prefix Sum & Cumulative",
       "topicId": "prefix-sum",
-      "previousMastery": 49,
-      "currentMastery": 80,
-      "masteryGain": 31,
+      "previousMastery": 15,
+      "currentMastery": 35,
+      "masteryGain": 20,
       "resolvedAt": "2026-10-23T10:00:00Z"
     },
     {
       "name": "Searching Algorithms",
       "topicId": "searching",
-      "previousMastery": 39,
-      "currentMastery": 71,
-      "masteryGain": 32,
+      "previousMastery": 51,
+      "currentMastery": 79,
+      "masteryGain": 28,
       "resolvedAt": "2026-10-23T10:00:00Z"
     },
     {
-      "name": "Strings & Char Arrays",
-      "topicId": "strings",
-      "previousMastery": 42,
-      "currentMastery": 61,
-      "masteryGain": 19,
+      "name": "Sorting Algorithms",
+      "topicId": "sorting",
+      "previousMastery": 10,
+      "currentMastery": 38,
+      "masteryGain": 28,
       "resolvedAt": "2026-10-23T10:00:00Z"
     },
     {
       "name": "2D Arrays & Matrices",
       "topicId": "2d-arrays",
-      "previousMastery": 60,
-      "currentMastery": 78,
-      "masteryGain": 18,
+      "previousMastery": 16,
+      "currentMastery": 39,
+      "masteryGain": 23,
       "resolvedAt": "2026-10-23T10:00:00Z"
     }
   ],
   "activeRecoveryGate": null,
   "summaryMetrics": {
-    "totalAttempts": 30,
-    "correctAttempts": 12,
-    "wrongAttempts": 18,
-    "rawAccuracy": 0.4,
+    "totalAttempts": 34,
+    "correctAttempts": 14,
+    "wrongAttempts": 20,
+    "rawAccuracy": 0.41,
     "approximateBCELoss": 0.38,
-    "recoveryRate": 0.39,
+    "recoveryRate": 0.35,
     "resolvedConcepts": 7,
-    "pendingMistakes": 11,
-    "overallMastery": 57,
-    "conceptsMastered": 3,
+    "pendingMistakes": 13,
+    "overallMastery": 60,
+    "conceptsMastered": 4,
     "totalTopics": 8
   }
 }

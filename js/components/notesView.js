@@ -92,8 +92,8 @@ export function renderNotesView(topicId = 'basic-arrays') {
                   ` : ''}
 
                   <div class="notes-subtype-code">
-                    <div class="notes-box-label">💻 Annotated Java Reference Implementation:</div>
-                    <pre class="notes-code-block"><code>${escapeHtml(st.javaCode)}</code></pre>
+                    <div class="notes-box-label">${st.codeLabel || (notes.id.startsWith('py-') ? '🐍 Annotated Python Reference Implementation:' : '💻 Annotated Java Reference Implementation:')}</div>
+                    <pre class="notes-code-block"><code>${escapeHtml(st.javaCode || st.code || '')}</code></pre>
                   </div>
 
                   ${st.dryRunTrace ? `

@@ -1,28 +1,28 @@
 {
   "real_metrics": {
-    "attempts": 375,
-    "auc": 0.7688,
+    "attempts": 383,
+    "auc": 0.8309,
     "auc_note": "Valid",
-    "f1": 0.7417,
-    "accuracy": 0.6453,
-    "precision": 0.6083,
-    "recall": 0.9502,
-    "mse": 0.2346,
-    "bce_loss": null,
+    "f1": 0.852,
+    "accuracy": 0.8277,
+    "precision": 0.9005,
+    "recall": 0.8085,
+    "mse": 0.1374,
+    "bce_loss": 0.4406,
     "audit_warnings": [],
-    "data_source": "Real - 375 attempts, 13 student(s)"
+    "data_source": "Real - 383 attempts, 13 student(s)"
   },
   "novel_contributions": {
     "recovery_rate": {
-      "total": 174,
-      "resolved": 66,
-      "pending": 108,
-      "rate_pct": 37.9,
-      "avg_gain_pct": 26.2424
+      "total": 148,
+      "resolved": 55,
+      "pending": 93,
+      "rate_pct": 37.2,
+      "avg_gain_pct": 24.9091
     },
     "time_to_mastery": {
-      "avg_attempts": 5.5789,
-      "status": "5.6 questions"
+      "avg_attempts": 5.54,
+      "status": "5.5 questions"
     }
   },
   "paper_comparison": [
@@ -63,34 +63,34 @@
     {
       "model": "DKT",
       "source": "SYNTHETIC",
-      "auc": 0.5395,
-      "f1": 0.1043,
-      "acc": 0.7054,
-      "mse": 0.2084
+      "auc": 0.7393,
+      "f1": 0.7003,
+      "acc": 0.6811,
+      "mse": 0.2069
     },
     {
       "model": "DKT+",
       "source": "SYNTHETIC",
-      "auc": 0.4642,
-      "f1": 0.0,
-      "acc": 0.6988,
-      "mse": 0.2157
+      "auc": 0.741,
+      "f1": 0.7065,
+      "acc": 0.6889,
+      "mse": 0.2065
     },
     {
       "model": "TransDKT",
       "source": "SYNTHETIC",
-      "auc": 0.5589,
-      "f1": 0.0063,
-      "acc": 0.6988,
-      "mse": 0.2078
+      "auc": 0.7407,
+      "f1": 0.7081,
+      "acc": 0.6909,
+      "mse": 0.2066
     },
     {
       "model": "TransDKT+",
       "source": "SYNTHETIC",
-      "auc": 0.552,
-      "f1": 0.2152,
-      "acc": 0.694,
-      "mse": 0.222
+      "auc": 0.7419,
+      "f1": 0.6952,
+      "acc": 0.6811,
+      "mse": 0.206
     }
   ],
   "figures": [

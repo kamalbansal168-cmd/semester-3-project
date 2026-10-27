@@ -277,7 +277,7 @@
    Profile & Settings View
    ============================================================ */
 .profile-view {
-  max-width: 800px;
+  max-width: 960px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;

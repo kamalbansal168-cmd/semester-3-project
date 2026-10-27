@@ -46,6 +46,9 @@ export function exportResearchData(state) {
       difficulty: a.difficulty,
       isCorrect: a.isCorrect ? 1 : 0,           // 1 = correct, 0 = wrong
       errorType: a.errorType || null,            // null if correct
+      preMastery: a.preMastery !== undefined ? a.preMastery : null,
+      postMastery: a.postMastery !== undefined ? a.postMastery : null,
+      predictedProb: a.predictedProb !== undefined ? a.predictedProb : null,
       timeSpent: a.timeSpent || '0m 0s',
       feedbackNote: a.feedbackNote || ''
     })),

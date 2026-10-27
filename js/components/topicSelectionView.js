@@ -5,9 +5,9 @@
 import { INITIAL_SUBJECTS } from '../data/initialData.js';
 
 export function renderTopicSelectionView(state, activeSubject = 'java') {
-  // Fix #7: Filter topics by active subject; show "Coming Soon" for non-Java
-  const filteredTopics = state.topics.filter(t => (t.subjectId || 'java') === activeSubject);
-  const isJava = activeSubject === 'java';
+  // Filter topics by active subject; show "Coming Soon" for subjects without topic content yet
+  const filteredTopics = (state.topics || []).filter(t => (t.subjectId || 'java') === activeSubject);
+  const hasTopics = filteredTopics.length > 0;
 
   return `
     <div class="topics-view">
@@ -26,19 +26,24 @@ export function renderTopicSelectionView(state, activeSubject = 'java') {
         </div>
       </div>
 
-      ${!isJava ? `
-        <!-- Fix #7: Coming Soon message for non-Java subjects -->
+      ${!hasTopics ? `
+        <!-- Coming Soon message for subjects without curriculum content yet -->
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 24px; text-align: center;">
           <div style="font-size: 3rem; margin-bottom: 16px;">🚧</div>
           <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">
             ${INITIAL_SUBJECTS.find(s => s.id === activeSubject)?.name || activeSubject} Track — Coming Soon!
           </h2>
-          <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 420px;">
-            We are actively building content for this subject. For now, please continue with the <strong>Java &amp; Arrays</strong> track which has full question sets, notes, and recovery paths.
+          <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 440px;">
+            We are actively building content for this subject. For now, please explore our full <strong>Java Core</strong> or <strong>Python Foundations</strong> tracks with complete questions, notes, and metrics.
           </p>
-          <button class="btn btn-primary" data-subject="java" style="margin-top: 24px;">
-            ← Switch to Java Track
-          </button>
+          <div style="display: flex; gap: 12px; margin-top: 24px;">
+            <button class="btn btn-primary" data-subject="java">
+              ☕ Java Track
+            </button>
+            <button class="btn btn-secondary" data-subject="python">
+              🐍 Python Track
+            </button>
+          </div>
         </div>
       ` : `
         <!-- 12 Topic Cards Grid -->

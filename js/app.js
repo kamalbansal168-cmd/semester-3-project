@@ -471,6 +471,30 @@ class LearnPathApp {
       }
     });
 
+    // LeetCode Streak Heatmap Hover Tooltip Listeners
+    document.addEventListener('mouseover', (e) => {
+      const cell = e.target.closest('.streak-cell');
+      const tooltip = document.getElementById('streak-floating-tooltip');
+      if (cell && tooltip) {
+        const text = cell.getAttribute('data-tooltip');
+        if (text) {
+          tooltip.textContent = text;
+          tooltip.style.display = 'block';
+          const rect = cell.getBoundingClientRect();
+          tooltip.style.left = `${rect.left + rect.width / 2}px`;
+          tooltip.style.top = `${rect.top - 6}px`;
+        }
+      }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+      const cell = e.target.closest('.streak-cell');
+      if (cell) {
+        const tooltip = document.getElementById('streak-floating-tooltip');
+        if (tooltip) tooltip.style.display = 'none';
+      }
+    });
+
     document.addEventListener('click', (e) => {
 
       // Close 3-dot dropdown when clicking outside
@@ -822,15 +846,47 @@ class LearnPathApp {
         return;
       }
 
-      // 5. Subject Tab Click
-      const subjectTab = e.target.closest('.subject-tab[data-subject]');
+      // 4c. LeetCode Streak Heatmap Interactive Day Click
+      const streakCell = e.target.closest('.streak-cell');
+      if (streakCell) {
+        document.querySelectorAll('.streak-cell.active-inspect').forEach(c => c.classList.remove('active-inspect'));
+        streakCell.classList.add('active-inspect');
+        const formatted = streakCell.getAttribute('data-formatted') || streakCell.getAttribute('data-date');
+        const count = parseInt(streakCell.getAttribute('data-count') || '0', 10);
+        const inspected = document.getElementById('streak-inspected-date');
+        if (inspected) {
+          inspected.innerHTML = `
+            <span class="streak-hint-icon">📅</span>
+            <span class="streak-hint-text"><strong>${formatted}</strong>: ${count > 0 ? `${count} submission${count > 1 ? 's' : ''}` : 'No submissions recorded'}</span>
+          `;
+        }
+      }
+
+      // 4d. LeetCode Streak Quick Simulation: +1 Practice Solve
+      if (e.target.closest('#btn-streak-simulate-solve')) {
+        const stats = store.logSubmission(1);
+        this.showToast('Submission Logged! 🔥', `Added +1 practice solve today. Current Streak: ${stats.currentStreak} day(s), Total: ${stats.totalSubmissions}.`, 'success');
+        return;
+      }
+
+      // 4e. LeetCode Streak Restore Demo Baseline (63 submissions)
+      if (e.target.closest('#btn-streak-restore-demo')) {
+        const stats = store.restoreDemoSeedActivity();
+        this.showToast('Sample Activity Restored', 'Restored 63 submissions and 15 active days sample data.', 'info');
+        return;
+      }
+
+      // 5. Subject Tab / Switcher Click
+      const subjectTab = e.target.closest('[data-subject]');
       if (subjectTab) {
         const subj = subjectTab.getAttribute('data-subject');
         this.activeSubject = subj;
         if (subj === 'java') {
           this.showToast('Java Track Active', 'Viewing Java Array & DSA topics.', 'info');
+        } else if (subj === 'python') {
+          this.showToast('Python Track Active', 'Viewing Python syntax, OOP, sequences & notes.', 'info');
         } else {
-          this.showToast(`${subj.toUpperCase()} Track`, 'Java Arrays is currently the primary focused track.', 'info');
+          this.showToast(`${subj.toUpperCase()} Track`, 'Content for this subject is under development.', 'info');
         }
         this.render();
         return;

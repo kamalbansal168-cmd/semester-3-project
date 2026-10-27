@@ -49,18 +49,26 @@ export class KnowledgeModel {
     // 5. Update Concepts Mastered (count topics with mastery >= 75)
     state.metrics.conceptsMastered = state.topics.filter(t => t.mastery >= 75).length;
 
-    // 6. Record Recent Attempt
-    // Fix #10: Always set errorType so MisconceptionEngine can detect patterns
+    // 6. Record Recent Attempt with BKT & IRT Calibration
+    const diffVal = question.difficulty === 'Hard' ? 0.75 : (question.difficulty === 'Medium' ? 0.50 : 0.25);
+    const slip = 0.05 + 0.12 * diffVal;
+    const guess = 0.25 - 0.18 * diffVal;
+    const currentL = prevMastery / 100.0;
+    const predictedProb = parseFloat(Math.min(0.95, Math.max(0.08, currentL * (1 - slip) + (1 - currentL) * guess)).toFixed(4));
+
     const attemptRecord = {
       id: 'att_' + Date.now(),
       questionId: question.id,
-      topicId: topicId, // Fix #10: Added topicId for MisconceptionEngine matching
+      topicId: topicId,
       topicName: topic.name,
       questionTitle: question.subtopic || question.question.slice(0, 40) + '...',
       isCorrect,
       difficulty: question.difficulty,
+      preMastery: prevMastery,
+      postMastery: topic.mastery,
+      predictedProb,
       timeSpent: `${Math.floor(timeSpentSeconds / 60)}m ${timeSpentSeconds % 60}s`,
-      errorType: isCorrect ? null : (question.misconception_tag || 'LOGIC_ERROR'), // Always set on wrong answer
+      errorType: isCorrect ? null : (question.misconception_tag || 'LOGIC_ERROR'),
       feedbackNote: isCorrect ? 'Great job! Concept applied accurately.' : (question.common_errors || question.explanation.slice(0, 70) + '...')
     };
 

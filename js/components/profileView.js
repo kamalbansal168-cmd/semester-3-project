@@ -1,6 +1,4 @@
-/* ============================================================
-   LEARNPATH AI — Profile & Settings View (Fresh Model)
-   ============================================================ */
+import { renderStreakHeatmapCard } from '../engine/streakEngine.js';
 
 export function renderProfileView(state) {
   const user = state.user;
@@ -18,9 +16,13 @@ export function renderProfileView(state) {
             <span class="badge badge-good">⭐ ${user.points || 0} XP Points</span>
             <span class="badge badge-strong">${user.rank || 'Novice Developer'}</span>
             <span class="badge badge-neutral">Level: ${user.level || 'Beginner'}</span>
+            <span class="badge badge-good" style="background: rgba(56, 189, 248, 0.15); color: #0284c7; border: 1px solid rgba(56, 189, 248, 0.3);">🔥 ${user.streakDays || 0} Day Streak</span>
           </div>
         </div>
       </div>
+
+      <!-- LeetCode Style Submission Heatmap & Streak System -->
+      ${renderStreakHeatmapCard(state)}
 
       <!-- Live Stats Grid -->
       <div class="snapshot-grid">

@@ -1,8 +1,10 @@
 /* ============================================================
    LEARNPATH AI — Comprehensive Topic Notes & PDF Study Guides
-   Masterclass In-Depth DSA Knowledge Base with Sub-Types,
-   Memory Models, Dry-Run Tables, and Annotated Java Implementations
+   Masterclass In-Depth DSA & Python Knowledge Base with Sub-Types,
+   Memory Models, Dry-Run Tables, and Annotated Implementations
    ============================================================ */
+
+import { PYTHON_TOPIC_NOTES } from './pythonNotes.js';
 
 export const TOPIC_NOTES_DB = {
   'basic-arrays': {
@@ -1635,5 +1637,7 @@ Set 3rd bit (n | mask): 1 0 1 0 1 1 0 1
       { operation: 'Single Number Search', time: 'O(N)', space: 'O(1)' },
       { operation: 'Brian Kernighan Count Bits', time: 'O(Set_Bits)', space: 'O(1)' }
     ]
-  }
+  },
+
+  ...PYTHON_TOPIC_NOTES
 };

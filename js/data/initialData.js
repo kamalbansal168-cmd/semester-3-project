@@ -4,10 +4,83 @@
 
 export const INITIAL_SUBJECTS = [
   { id: 'java', name: 'Java', icon: '☕', description: 'Core object-oriented & data structures', active: true },
-  { id: 'python', name: 'Python', icon: '🐍', description: 'Scripting, algorithmic problems & syntax', active: false },
+  { id: 'python', name: 'Python', icon: '🐍', description: 'Scripting, algorithms, OOP & syntax mastery', active: false },
   { id: 'dsa', name: 'DSA', icon: '⚡', description: 'Data structures & algorithmic techniques', active: false },
   { id: 'dbms', name: 'DBMS', icon: '🗄️', description: 'Relational databases & SQL queries', active: false },
   { id: 'webdev', name: 'Web Dev', icon: '🌐', description: 'Frontend & backend web technologies', active: false }
+];
+
+export const PYTHON_TOPICS = [
+  {
+    id: 'py-basics',
+    subjectId: 'python',
+    name: 'Python Basics',
+    description: 'Variables, data types, operators, input/output & type casting',
+    mastery: 0,
+    status: 'Needs Practice',
+    totalQuestions: 12,
+    solvedCount: 0
+  },
+  {
+    id: 'py-lists-tuples',
+    subjectId: 'python',
+    name: 'Lists & Tuples',
+    description: 'Sequences, slicing, list methods, mutability & tuple packing',
+    mastery: 0,
+    status: 'Needs Practice',
+    totalQuestions: 12,
+    solvedCount: 0
+  },
+  {
+    id: 'py-strings',
+    subjectId: 'python',
+    name: 'Strings in Python',
+    description: 'String methods, f-strings, slicing, immutability & formatting',
+    mastery: 0,
+    status: 'Needs Practice',
+    totalQuestions: 10,
+    solvedCount: 0
+  },
+  {
+    id: 'py-dict-sets',
+    subjectId: 'python',
+    name: 'Dictionaries & Sets',
+    description: 'Hash maps, key-value pairs, set operations & comprehensions',
+    mastery: 0,
+    status: 'Needs Practice',
+    totalQuestions: 10,
+    solvedCount: 0
+  },
+  {
+    id: 'py-functions',
+    subjectId: 'python',
+    name: 'Functions & Scope',
+    description: 'def, args/kwargs, lambda, closures, LEGB scope rules',
+    mastery: 0,
+    status: 'Needs Practice',
+    totalQuestions: 10,
+    solvedCount: 0
+  },
+  {
+    id: 'py-oop',
+    subjectId: 'python',
+    name: 'OOP in Python',
+    description: 'Classes, __init__, inheritance, polymorphism & dunder methods',
+    mastery: 0,
+    status: 'Needs Practice',
+    totalQuestions: 10,
+    solvedCount: 0
+  },
+  {
+    id: 'py-exceptions',
+    subjectId: 'python',
+    name: 'Exceptions & File I/O',
+    description: 'try/except/finally, custom exceptions, file read/write',
+    mastery: 0,
+    status: 'Needs Practice',
+    totalQuestions: 10,
+    solvedCount: 0
+  }
 ];
 
 export const INITIAL_TOPICS = [
@@ -133,6 +206,13 @@ export const INITIAL_TOPICS = [
   }
 ];
 
+import { generateSeedActivity, calculateStreakStats } from '../engine/streakEngine.js';
+
+export const ALL_TOPICS = [...INITIAL_TOPICS, ...PYTHON_TOPICS];
+
+const defaultSeedCalendar = generateSeedActivity();
+const defaultStats = calculateStreakStats(defaultSeedCalendar);
+
 export const FRESH_STUDENT_STATE = {
   user: {
     id: 'user_' + Math.random().toString(36).substr(2, 9), // Stable random ID
@@ -142,7 +222,7 @@ export const FRESH_STUDENT_STATE = {
     level: 'Beginner',
     rank: 'Novice Developer',
     points: 0,
-    streakDays: 0,
+    streakDays: defaultStats.currentStreak,
     createdAt: new Date().toISOString().split('T')[0]
   },
   metrics: {
@@ -152,10 +232,14 @@ export const FRESH_STUDENT_STATE = {
     questionsSolved: 0,
     points: 0,
     conceptsMastered: 0,
-    learningStreak: 0,
+    learningStreak: defaultStats.currentStreak,
+    maxStreak: defaultStats.maxStreak,
+    totalActiveDays: defaultStats.totalActiveDays,
+    totalSubmissions: defaultStats.totalSubmissions,
     avgSolvingTimeSeconds: 0
   },
-  topics: JSON.parse(JSON.stringify(INITIAL_TOPICS)),
+  submissionCalendar: defaultSeedCalendar,
+  topics: JSON.parse(JSON.stringify([...INITIAL_TOPICS, ...PYTHON_TOPICS])),
   focusAreas: [],
   conceptInsight: null,
   recoveryPath: null,

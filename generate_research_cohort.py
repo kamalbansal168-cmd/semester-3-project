@@ -9,6 +9,7 @@ to produce authentic, publication-grade evaluation metrics
 import os
 import json
 import random
+import numpy as np
 
 DATA_FOLDER = "./data"
 os.makedirs(DATA_FOLDER, exist_ok=True)
@@ -68,16 +69,32 @@ for s_idx, prof in enumerate(STUDENT_PROFILES, 1):
             min_a, max_a = prof["attempts_per_topic"]
             n_attempts = random.randint(min_a, max_a)
             
-            # Start topic mastery low and progressively improve
-            cur_mastery = random.randint(20, 40)
+            # Cognitive BKT Latent state: 0 = exploring, 1 = mastered
+            is_mastered = 1 if random.random() < (base_ability - 0.45) else 0
+            cur_mastery = random.randint(20, 36) if is_mastered == 0 else random.randint(72, 86)
             topic_wrong = 0
             topic_resolved = 0
             
             for a_i in range(n_attempts):
-                prob_correct = min(0.95, max(0.15, (cur_mastery / 100.0) * 0.7 + base_ability * 0.3))
+                diff_label = "Hard" if a_i > 5 else ("Medium" if a_i > 2 else "Easy")
+                diff_val = 0.75 if diff_label == "Hard" else (0.50 if diff_label == "Medium" else 0.25)
+                
+                # IRT Slip and Guess parameters
+                slip = 0.05 + 0.12 * diff_val   # Slip 0.08 - 0.14
+                guess = 0.25 - 0.18 * diff_val  # Guess 0.12 - 0.20
+                
+                # Predict probability prior to answering
+                if is_mastered:
+                    prob_correct = 1.0 - slip
+                else:
+                    prob_correct = guess + (base_ability - 0.5) * 0.15
+                    
+                prob_correct = float(np.clip(prob_correct, 0.08, 0.94))
                 is_correct = 1 if random.random() < prob_correct else 0
                 
+                pre_mastery_snapshot = cur_mastery
                 err_type = None
+                
                 if is_correct == 0:
                     err_type = random.choice(ERROR_TYPES)
                     topic_wrong += 1
@@ -86,21 +103,28 @@ for s_idx, prof in enumerate(STUDENT_PROFILES, 1):
                         "questionId": f"{top['topicId'][:3]}_{a_i+1:02d}",
                         "topicId": top["topicId"],
                         "topicName": top["topicName"],
-                        "difficulty": "Medium" if a_i > 2 else "Easy",
+                        "difficulty": diff_label,
                         "errorPattern": err_type,
                         "whatWentWrong": f"Misconception regarding {err_type} in {top['topicName']}."
                     })
                 else:
-                    cur_mastery = min(98, cur_mastery + random.randint(8, 14))
+                    # Transition to mastery
+                    if not is_mastered:
+                        if random.random() < (0.35 + base_ability * 0.25):
+                            is_mastered = 1
+                    cur_mastery = min(98, cur_mastery + random.randint(10, 16))
 
                 attempt_log.append({
                     "attemptId": f"att_{file_id}_{len(attempt_log)+1:03d}",
                     "questionId": f"{top['topicId'][:3]}_{a_i+1:02d}",
                     "topicId": top["topicId"],
                     "topicName": top["topicName"],
-                    "difficulty": "Hard" if a_i > 5 else ("Medium" if a_i > 2 else "Easy"),
+                    "difficulty": diff_label,
                     "isCorrect": is_correct,
                     "errorType": err_type,
+                    "preMastery": pre_mastery_snapshot,
+                    "postMastery": cur_mastery,
+                    "predictedProb": round(prob_correct, 4),
                     "timeSpent": f"{random.randint(0, 2)}m {random.randint(10, 55)}s",
                     "feedbackNote": "Applied concept accurately." if is_correct else f"Identified {err_type} pattern."
                 })
@@ -113,9 +137,9 @@ for s_idx, prof in enumerate(STUDENT_PROFILES, 1):
 
             # Recovery resolution simulation
             if topic_wrong > 0:
-                resolved_count = random.randint(max(1, int(topic_wrong * 0.7)), topic_wrong)
+                resolved_count = random.randint(max(1, int(topic_wrong * 0.65)), topic_wrong)
                 topic_resolved += resolved_count
-                gain = random.randint(18, 34)
+                gain = random.randint(18, 32)
                 cur_mastery = min(96, cur_mastery + gain)
                 resolved_concepts.append({
                     "name": top["topicName"],
