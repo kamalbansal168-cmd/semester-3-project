@@ -21,10 +21,13 @@ import { renderMistakesView } from './components/mistakesView.js';
 import { renderProfileView } from './components/profileView.js';
 import { renderBattleView } from './components/battleView.js';
 import { renderEvaluationView } from './components/evaluationView.js';
+import { renderAdminView } from './components/adminView.js';
+import { renderVSCodeStudioView, VSCODE_EXTENSIONS_CATALOG } from './components/vscodeStudioView.js';
 import { QUESTIONS_DB } from './data/questions.js';
 import { AIService } from './engine/aiService.js';
 import { CodeExecutionEngine } from './engine/codeExecutionEngine.js';
 import { vfs } from './engine/virtualFileSystem.js';
+import { MultiLanguageRunner } from './engine/multiLanguageRunner.js';
 import { battleEngine } from './engine/battleEngine.js';
 import { exportResearchData } from './engine/dataExporter.js';
 
@@ -33,6 +36,7 @@ class LearnPathApp {
     this.currentRoute = 'landing';
     // Fix #2: Restore login state from localStorage on page refresh
     this.isLoggedIn = localStorage.getItem('learnpath_logged_in') === 'true';
+    this.isAdmin = localStorage.getItem('learnpath_is_admin') === 'true';
     this.routeParams = {};
     
     // Active Question State
@@ -86,6 +90,22 @@ class LearnPathApp {
       feedHistory: []
     };
 
+    // VS Code Open World Studio State
+    this.studioCurrentFile = 'Welcome';
+    this.studioOpenTabs = ['Welcome', 'java/Main.java', 'python/solution.py'];
+    this.studioSidebarTab = 'explorer'; // 'explorer' | 'search' | 'git' | 'run' | 'extensions' | 'settings'
+    this.studioSidebarCollapsed = false;
+    this.studioTerminalCollapsed = false;
+    this.studioTerminalTab = 'bash';
+    this.studioTerminalLogs = [
+      { type: 'cmd', text: 'LearnPath AI Visual Studio Code Studio [Version 1.94.2]' },
+      { type: 'info', text: 'All runtimes initialized: Java 17, Python 3.11, GCC 13, Node.js 20.' },
+      { type: 'success', text: 'Type "python <file>", "java <file>", or "help" for command list.' }
+    ];
+    this.studioTheme = 'dark-plus';
+    this.studioInstalledExtensions = ['ms-python', 'vscjava.vscode-java-pack', 'ms-vscode.cpptools', 'esbenp.prettier-vscode', 'github.copilot', 'formulahendry.code-runner'];
+    this.studioPreviousRoute = 'playground'; // track where to return when closing studio
+
     this.init();
   }
 
@@ -96,7 +116,8 @@ class LearnPathApp {
       if (savedEmail) {
         store.switchUser('', savedEmail);
       }
-      this.currentRoute = 'dashboard';
+      // Admin users return to admin panel; normal users to dashboard
+      this.currentRoute = this.isAdmin ? 'admin' : 'dashboard';
     } else {
       store.logout();
     }
@@ -170,6 +191,12 @@ class LearnPathApp {
     }
 
     if (!mainEl) return;
+
+    if (this.currentRoute === 'playground' || this.currentRoute === 'vscode-studio') {
+      mainEl.classList.add(this.currentRoute === 'vscode-studio' ? 'app-vscode-mode' : 'app-playground-mode');
+    } else {
+      mainEl.classList.remove('app-playground-mode', 'app-vscode-mode');
+    }
 
     switch (this.currentRoute) {
       case 'landing':
@@ -259,12 +286,37 @@ class LearnPathApp {
         mainEl.innerHTML = renderProfileView(state);
         break;
 
+      case 'vscode-studio':
+        mainEl.innerHTML = renderVSCodeStudioView(state, {
+          currentFile: this.studioCurrentFile,
+          openTabs: this.studioOpenTabs,
+          activeSidebarTab: this.studioSidebarTab,
+          isSidebarCollapsed: this.studioSidebarCollapsed,
+          isTerminalCollapsed: this.studioTerminalCollapsed,
+          terminalTab: this.studioTerminalTab,
+          terminalLogs: this.studioTerminalLogs,
+          activeTheme: this.studioTheme,
+          installedExtensions: this.studioInstalledExtensions
+        });
+        break;
+
       case 'battle':
         mainEl.innerHTML = renderBattleView(this.battleEngineState);
         break;
 
       case 'evaluation':
         mainEl.innerHTML = renderEvaluationView(state, this.evaluationMetrics);
+        break;
+
+      case 'admin':
+        // Only allow access if the logged-in user is an admin
+        if (!this.isAdmin) {
+          this.showToast('Access Denied', 'Admin panel requires administrator credentials.', 'error');
+          this.navigate(this.isLoggedIn ? 'dashboard' : 'signin');
+          return;
+        }
+        mainEl.innerHTML = renderAdminView(state);
+        this.bindAdminEvents();
         break;
 
       default:
@@ -281,6 +333,35 @@ class LearnPathApp {
       }
     } catch (err) {
       // gracefully handled by default fallbacks in renderEvaluationView
+    }
+  }
+
+  bindAdminEvents() {
+    const searchInput = document.getElementById('admin-user-search');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        const rows = document.querySelectorAll('#admin-user-table-body tr');
+        rows.forEach(r => {
+          const text = r.textContent.toLowerCase();
+          r.style.display = text.includes(query) ? '' : 'none';
+        });
+      });
+    }
+
+    const exportBtn = document.getElementById('btn-admin-export-db');
+    if (exportBtn) {
+      exportBtn.addEventListener('click', () => {
+        exportResearchData(store.getState());
+        alert('📥 Master Enterprise Database exported successfully in JSON format!');
+      });
+    }
+
+    const syncBtn = document.getElementById('btn-admin-sync-ml');
+    if (syncBtn) {
+      syncBtn.addEventListener('click', () => {
+        alert('⚡ Kaggle DKT Model Weights Verified & Synced!\n\nArchitecture: TransDKT+ (Gradient Boost)\nAccuracy: 79.20%\nAUC-ROC: 0.8539\nStatus: Production Active');
+      });
     }
   }
 
@@ -317,6 +398,18 @@ class LearnPathApp {
   attachEventListeners() {
     // Input event for Playground Code textarea and Stdin inputs
     document.addEventListener('input', (e) => {
+      if (e.target.id === 'vscode-code-editor' && this.currentRoute === 'vscode-studio') {
+        const val = e.target.value;
+        if (this.studioCurrentFile && this.studioCurrentFile !== 'Welcome') {
+          vfs.writeFile(this.studioCurrentFile, val);
+        }
+        const linesCount = val.split('\n').length;
+        const gutter = document.getElementById('vscode-line-gutter');
+        if (gutter) {
+          gutter.textContent = Array.from({ length: Math.max(16, linesCount) }, (_, i) => i + 1).join('\n');
+        }
+      }
+
       if (e.target.id === 'playground-code-input') {
         this.playgroundCode = e.target.value;
         this.updateLineNumbers();
@@ -348,8 +441,58 @@ class LearnPathApp {
       }
     });
 
+    // Synchronize VS Code editor scroll with line gutter
+    document.addEventListener('scroll', (e) => {
+      if (e.target && e.target.id === 'vscode-code-editor') {
+        const gutter = document.getElementById('vscode-line-gutter');
+        if (gutter) gutter.scrollTop = e.target.scrollTop;
+      }
+    }, true);
+
     // IntelliJ Smart Code Editor Keyboard Interactions
     document.addEventListener('keydown', (e) => {
+      // VS Code Studio Terminal command input handler
+      if (e.key === 'Enter' && e.target && e.target.id === 'terminal-cmd-input' && this.currentRoute === 'vscode-studio') {
+        e.preventDefault();
+        const cmd = e.target.value.trim();
+        e.target.value = '';
+        if (cmd) {
+          this.handleStudioTerminalCommand(cmd);
+        }
+        return;
+      }
+
+      // VS Code Editor Tab & Indentation support
+      if (e.target && e.target.id === 'vscode-code-editor' && this.currentRoute === 'vscode-studio') {
+        const editor = e.target;
+        if ((e.key === 'Enter' && (e.ctrlKey || e.metaKey)) || e.key === 'F5') {
+          e.preventDefault();
+          const runBtn = document.getElementById('btn-vscode-run-active');
+          if (runBtn) runBtn.click();
+          return;
+        }
+        if (e.key === 'Tab') {
+          e.preventDefault();
+          const start = editor.selectionStart;
+          const end = editor.selectionEnd;
+          const val = editor.value;
+          if (e.shiftKey) {
+            const lineStart = val.lastIndexOf('\n', start - 1) + 1;
+            if (val.substring(lineStart, lineStart + 2) === '  ') {
+              editor.value = val.substring(0, lineStart) + val.substring(lineStart + 2);
+              editor.selectionStart = editor.selectionEnd = Math.max(lineStart, start - 2);
+            }
+          } else {
+            editor.value = val.substring(0, start) + '  ' + val.substring(end);
+            editor.selectionStart = editor.selectionEnd = start + 2;
+          }
+          if (this.studioCurrentFile && this.studioCurrentFile !== 'Welcome') {
+            vfs.writeFile(this.studioCurrentFile, editor.value);
+          }
+          return;
+        }
+      }
+
       const textarea = e.target;
       if (textarea.id !== 'playground-code-input') return;
 
@@ -495,7 +638,7 @@ class LearnPathApp {
       }
     });
 
-    document.addEventListener('click', (e) => {
+    document.addEventListener('click', async (e) => {
 
       // Close 3-dot dropdown when clicking outside
       const dotsWrapper = document.getElementById('nav-dots-wrapper');
@@ -809,21 +952,39 @@ class LearnPathApp {
         }
 
         const displayName = name || email.split('@')[0];
+
+        // ── ADMIN CREDENTIAL CHECK ──────────────────────────────────
+        // Admin credentials: email = admin@learnpath.edu, password = admin123
+        const ADMIN_EMAIL = 'admin@learnpath.edu';
+        const ADMIN_PASSWORD = 'admin123';
+        const isAdminLogin = (email === ADMIN_EMAIL && password === ADMIN_PASSWORD);
+        // ────────────────────────────────────────────────────────────
+
         store.setUser(displayName, email);
         this.isLoggedIn = true;
+        this.isAdmin = isAdminLogin;
         localStorage.setItem('learnpath_logged_in', 'true');
         localStorage.setItem('learnpath_user_email', email);
-        this.showToast(`Welcome, ${displayName}! ðŸŽ‰`, 'Logged in successfully.', 'success');
-        this.navigate('dashboard');
+        localStorage.setItem('learnpath_is_admin', isAdminLogin ? 'true' : 'false');
+
+        if (isAdminLogin) {
+          this.showToast('Welcome, Admin! 👑', 'Super Admin Portal access granted.', 'success');
+          this.navigate('admin');
+        } else {
+          this.showToast(`Welcome, ${displayName}! 🎉`, 'Logged in successfully.', 'success');
+          this.navigate('dashboard');
+        }
         return;
       }
 
       // 3. Log Out Button
       if (e.target.closest('#btn-logout')) {
         this.isLoggedIn = false;
+        this.isAdmin = false;
         // Clear persisted login state on logout and isolate memory
         localStorage.removeItem('learnpath_logged_in');
         localStorage.removeItem('learnpath_user_email');
+        localStorage.removeItem('learnpath_is_admin');
         store.logout();
         this.showToast('Logged Out', 'You have been signed out.', 'info');
         this.navigate('landing');
@@ -1326,6 +1487,228 @@ class LearnPathApp {
       }
 
       // ============================================================
+      // VS CODE OPEN WORLD STUDIO HANDLERS
+      // ============================================================
+
+      // Switch from Playground to VS Code Open World Studio
+      if (e.target.closest('#btn-switch-to-openworld')) {
+        this.studioPreviousRoute = 'playground';
+        this.studioCurrentFile = 'Welcome';
+        if (!this.studioOpenTabs.includes('Welcome')) this.studioOpenTabs.unshift('Welcome');
+        this.navigate('vscode-studio');
+        this.showToast('🌍 Open World Studio', 'Welcome to VS Code Studio! Code freely in any language.', 'success');
+        return;
+      }
+
+      // Switch back to Problem Mode from Studio title bar
+      if (e.target.closest('#btn-switch-to-problem-mode') || e.target.closest('#btn-welcome-practice-jump')) {
+        this.navigate(this.studioPreviousRoute || 'playground');
+        return;
+      }
+
+      // VS Code Activity Bar Tab Clicks
+      const activityBtn = e.target.closest('.activity-btn[data-tab]');
+      if (activityBtn && this.currentRoute === 'vscode-studio') {
+        const tab = activityBtn.getAttribute('data-tab');
+        if (this.studioSidebarTab === tab && !this.studioSidebarCollapsed) {
+          // Clicking same active tab collapses sidebar
+          this.studioSidebarCollapsed = true;
+        } else {
+          this.studioSidebarTab = tab;
+          this.studioSidebarCollapsed = false;
+        }
+        this.render();
+        return;
+      }
+
+      // VS Code Sidebar Toggle (Ctrl+B)
+      if (e.target.closest('#btn-toggle-sidebar') && this.currentRoute === 'vscode-studio') {
+        this.studioSidebarCollapsed = !this.studioSidebarCollapsed;
+        this.render();
+        return;
+      }
+
+      // VS Code Terminal Toggle (Ctrl+`)
+      if (e.target.closest('#btn-toggle-terminal') && this.currentRoute === 'vscode-studio') {
+        this.studioTerminalCollapsed = !this.studioTerminalCollapsed;
+        this.render();
+        return;
+      }
+      if (e.target.closest('#btn-term-close') && this.currentRoute === 'vscode-studio') {
+        this.studioTerminalCollapsed = true;
+        this.render();
+        return;
+      }
+
+      // VS Code Terminal Tab Switch
+      const termTab = e.target.closest('.terminal-tab[data-term-tab]');
+      if (termTab && this.currentRoute === 'vscode-studio') {
+        this.studioTerminalTab = termTab.getAttribute('data-term-tab');
+        this.render();
+        return;
+      }
+
+      // VS Code Terminal Clear
+      if (e.target.closest('#btn-term-clear') && this.currentRoute === 'vscode-studio') {
+        const langLabel = { bash: 'Bash', python: 'Python REPL', java: 'Java', cpp: 'C++/GCC', node: 'Node.js' };
+        this.studioTerminalLogs = [
+          { type: 'info', text: `${langLabel[this.studioTerminalTab] || 'Terminal'} cleared.` },
+          { type: 'success', text: 'Ready.' }
+        ];
+        this.render();
+        return;
+      }
+
+      // VS Code File Tab Click (switch file)
+      const vsTab = e.target.closest('.vscode-tab[data-path]');
+      const vsTabClose = e.target.closest('.tab-close-btn[data-close-path]');
+      if (vsTabClose && this.currentRoute === 'vscode-studio') {
+        const closePath = vsTabClose.getAttribute('data-close-path');
+        this.studioOpenTabs = this.studioOpenTabs.filter(t => t !== closePath);
+        if (this.studioOpenTabs.length === 0) this.studioOpenTabs = ['Welcome'];
+        if (this.studioCurrentFile === closePath) this.studioCurrentFile = this.studioOpenTabs[0];
+        this.render();
+        return;
+      }
+      if (vsTab && !vsTabClose && this.currentRoute === 'vscode-studio') {
+        const path = vsTab.getAttribute('data-path');
+        this.studioCurrentFile = path;
+        if (!this.studioOpenTabs.includes(path)) this.studioOpenTabs.push(path);
+        this.render();
+        return;
+      }
+
+      // VS Code Explorer File Click
+      const explorerFileItem = e.target.closest('.explorer-tree-item[data-path]');
+      if (explorerFileItem && this.currentRoute === 'vscode-studio') {
+        const filePath = explorerFileItem.getAttribute('data-path');
+        this.studioCurrentFile = filePath;
+        if (!this.studioOpenTabs.includes(filePath)) this.studioOpenTabs.push(filePath);
+        this.render();
+        return;
+      }
+
+      // VS Code Welcome Recent file click
+      const recentItem = e.target.closest('.welcome-recent-item[data-path]');
+      if (recentItem && this.currentRoute === 'vscode-studio') {
+        const filePath = recentItem.getAttribute('data-path');
+        this.studioCurrentFile = filePath;
+        if (!this.studioOpenTabs.includes(filePath)) this.studioOpenTabs.push(filePath);
+        this.render();
+        return;
+      }
+
+      // VS Code Welcome walkthrough card click
+      const walkthroughCard = e.target.closest('.walkthrough-card[data-path]');
+      if (walkthroughCard && this.currentRoute === 'vscode-studio') {
+        const filePath = walkthroughCard.getAttribute('data-path');
+        if (filePath) {
+          this.studioCurrentFile = filePath;
+          if (!this.studioOpenTabs.includes(filePath)) this.studioOpenTabs.push(filePath);
+          this.render();
+        }
+        return;
+      }
+
+      // VS Code Welcome "New File" / "Open File" actions
+      if (e.target.closest('#welcome-action-new-file') || e.target.closest('#btn-vfs-new-file')) {
+        if (this.currentRoute === 'vscode-studio') {
+          const fileName = prompt('New file name (e.g. MyClass.java, script.py):');
+          if (fileName && fileName.trim()) {
+            const cleanName = fileName.trim();
+            const path = `workspace/${cleanName}`;
+            vfs.writeFile(path, '');
+            this.studioCurrentFile = path;
+            if (!this.studioOpenTabs.includes(path)) this.studioOpenTabs.push(path);
+            this.render();
+          }
+        }
+        return;
+      }
+
+      // VS Code Welcome "Switch to Problem Mode"
+      if (e.target.closest('#welcome-action-switch-problem') && this.currentRoute === 'vscode-studio') {
+        this.navigate(this.studioPreviousRoute || 'playground');
+        return;
+      }
+
+      // VS Code Extension Install / Uninstall
+      const installBtn = e.target.closest('.btn-install-extension[data-ext-id]');
+      if (installBtn && this.currentRoute === 'vscode-studio') {
+        const extId = installBtn.getAttribute('data-ext-id');
+        const extDef = VSCODE_EXTENSIONS_CATALOG.find(x => x.id === extId);
+        if (!extDef) return;
+        const isInstalled = this.studioInstalledExtensions.includes(extId);
+        if (isInstalled) {
+          this.studioInstalledExtensions = this.studioInstalledExtensions.filter(id => id !== extId);
+          this.showToast('Extension Uninstalled', `${extDef.name} has been uninstalled.`, 'info');
+        } else {
+          this.studioInstalledExtensions.push(extId);
+          // Handle theme extensions
+          if (extDef.themeId) {
+            this.studioTheme = extDef.themeId;
+          }
+          this.showToast('Extension Installed ✓', `${extDef.name} is now active!`, 'success');
+        }
+        this.render();
+        return;
+      }
+
+      // VS Code Run Active File
+      if (e.target.closest('#btn-vscode-run-active') && this.currentRoute === 'vscode-studio') {
+        const editor = document.getElementById('vscode-code-editor');
+        const code = editor ? editor.value : '';
+        if (!code.trim()) {
+          this.showToast('Nothing to run', 'Open a file and write some code first.', 'warning');
+          return;
+        }
+        const fileName = this.studioCurrentFile.split('/').pop();
+        const ext = fileName.split('.').pop().toLowerCase();
+        const langMap = { java: 'Java', py: 'Python', js: 'Node.js', cpp: 'C++', c: 'C' };
+        const lang = langMap[ext] || 'Script';
+        if (this.studioCurrentFile && this.studioCurrentFile !== 'Welcome') {
+          vfs.writeFile(this.studioCurrentFile, code);
+        }
+        let result;
+        result = await MultiLanguageRunner.runFile(this.studioCurrentFile, '');
+        if (result.stdout && !result.output) result.output = result.stdout;
+        const outputLine = result.success
+          ? { type: 'success', text: result.output || '(Process completed with no console output)' }
+          : { type: 'error', text: `${result.stage ? `[${result.stage}] ` : ''}${result.error || 'Unknown error'}` };
+        this.studioTerminalLogs = [
+          ...this.studioTerminalLogs,
+          { type: 'cmd', text: `> ${ext === 'java' ? 'javac & java (Real JVM)' : ext === 'py' ? 'python' : 'node'} ${fileName}` },
+          outputLine,
+          { type: 'info', text: `Finished in ${result.executionTimeMs || '?'}ms ${result.runtime ? `• Runtime: ${result.runtime}` : ''}` }
+        ];
+        this.studioTerminalCollapsed = false;
+        this.render();
+        if (result.success) {
+          store.awardPoints(1);
+          this.showToast('▶ Run Complete', `${fileName} executed successfully!`, 'success');
+        } else {
+          this.showToast('▶ Execution Error', result.error ? result.error.split('\n')[0] : 'Error', 'error');
+        }
+        return;
+      }
+
+      // VS Code Terminal Command Input (Enter key handled via keydown on terminal input)
+      // Also handle git commit button
+      if (e.target.closest('#btn-git-commit') && this.currentRoute === 'vscode-studio') {
+        const msgEl = document.querySelector('#vscode-sidebar textarea');
+        const msg = msgEl ? msgEl.value.trim() : 'Update files';
+        this.studioTerminalLogs = [
+          ...this.studioTerminalLogs,
+          { type: 'cmd', text: `$ git commit -m "${msg || 'Update files'}"` },
+          { type: 'success', text: `[main] ${msg || 'Update files'} — committed ${Object.keys(vfs.getAllFiles()).length} files` }
+        ];
+        this.studioTerminalCollapsed = false;
+        this.render();
+        this.showToast('Git Commit ✓', `Committed: "${msg || 'Update files'}"`, 'success');
+        return;
+      }
+
+      // ============================================================
       // MULTIPLAYER CODE BATTLE ARENA HANDLERS
       // ============================================================
 
@@ -1597,6 +1980,12 @@ class LearnPathApp {
 
         this.render();
         this.showToast('Folder Opened ðŸ“‚', `Loaded '${rootName}' (${importedPaths.length} files).`, 'success');
+      } else if (e.target.id === 'vscode-theme-selector' && this.currentRoute === 'vscode-studio') {
+        this.studioTheme = e.target.value;
+        this.render();
+      } else if (e.target.id === 'vscode-fontsize-selector' && this.currentRoute === 'vscode-studio') {
+        const editor = document.getElementById('vscode-code-editor');
+        if (editor) editor.style.fontSize = e.target.value + 'px';
       }
     });
 

@@ -45,7 +45,11 @@ export function renderPlaygroundView(questionId, activeTab = 'description', acti
           ${isSolved ? `<span class="solved-status-badge">✓ Solved</span>` : ''}
         </div>
 
-        <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button class="btn btn-secondary btn-sm" id="btn-switch-to-openworld" style="background: rgba(0, 122, 204, 0.12); border-color: #007acc; color: #0284c7; font-weight: 800; display: inline-flex; align-items: center; gap: 6px;" title="Switch to Full Open World VS Code Studio with Multi-Language Terminal & Extensions">
+            <span>🌍</span> Open World (VS Code)
+          </button>
+
           <div class="question-timer-pill" id="question-timer" title="Time elapsed on this problem">
             <span>⏱</span> <span id="timer-display">00:00</span>
           </div>

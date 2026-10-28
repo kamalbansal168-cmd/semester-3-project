@@ -282,6 +282,14 @@ export function renderDashboardView(state) {
 
           <!-- 10.15 Quick Actions Grid -->
           <div class="quick-actions-grid">
+            <button class="btn-quick-action" data-route="vscode-studio" style="border-color: rgba(99, 102, 241, 0.4); background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%);">
+              <span class="action-icon">🌍</span>
+              <span style="font-weight: 700; color: #818cf8;">VS Code Studio</span>
+            </button>
+            <button class="btn-quick-action" data-route="playground" data-qid="tp_code_01">
+              <span class="action-icon">💻</span>
+              <span>Coding IDE</span>
+            </button>
             <button class="btn-quick-action" data-route="recovery">
               <span class="action-icon">🎯</span>
               <span>Practice Weak Topics</span>

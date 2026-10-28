@@ -90,6 +90,69 @@ public class Calculator {
     }
 }`,
     defaultStdin: '15 25'
+  },
+  'python/solution.py': {
+    path: 'python/solution.py',
+    name: 'solution.py',
+    type: 'file',
+    isPython: true,
+    content: `# Python 3.11 Interactive Workspace
+def greet(name):
+    return f"Hello, {name}! Welcome to VS Code Open World."
+
+if __name__ == "__main__":
+    username = input("Enter your name: ") or "Developer"
+    print(greet(username))
+    
+    # Quick demo: Fibonacci numbers
+    fib = [0, 1]
+    for i in range(2, 10):
+        fib.append(fib[-1] + fib[-2])
+    print("Fibonacci sequence:", fib)
+`,
+    defaultStdin: 'Aryan'
+  },
+  'cpp/main.cpp': {
+    path: 'cpp/main.cpp',
+    name: 'main.cpp',
+    type: 'file',
+    isCpp: true,
+    content: `#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+    cout << "=== VS Code C++ Workspace ===" << endl;
+    string name;
+    cout << "Enter your name: ";
+    if (cin >> name) {
+        cout << "Hello, " << name << "! Happy Competitive Programming." << endl;
+    }
+    return 0;
+}
+`,
+    defaultStdin: 'Coder'
+  },
+  'javascript/index.js': {
+    path: 'javascript/index.js',
+    name: 'index.js',
+    type: 'file',
+    isJs: true,
+    content: `// Node.js & JavaScript Open World Workspace
+console.log("=== VS Code JavaScript Sandbox ===");
+
+function calculateStats(numbers) {
+    const sum = numbers.reduce((a, b) => a + b, 0);
+    const avg = sum / numbers.length;
+    return { sum, avg, count: numbers.length };
+}
+
+const sample = [12, 45, 68, 23, 91, 54];
+console.log("Sample Data:", sample);
+console.log("Stats:", calculateStats(sample));
+`,
+    defaultStdin: ''
   }
 };
 

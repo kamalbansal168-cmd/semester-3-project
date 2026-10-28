@@ -1,0 +1,1658 @@
+order_id,user_id,problem_id,skill_name,difficulty,difficulty_score,correct,error_tag,response_time_ms,hint_count,attempt_step,latent_mastery
+1,student_101,prob_151,Prefix Sum & Cumulative,Medium,0.5,1,NONE,49882,0,1,0.682
+2,student_101,prob_172,Recursion & Backtracking,Medium,0.5,1,NONE,32743,0,2,0.703
+3,student_101,prob_209,Array Basics,Medium,0.5,1,NONE,45650,0,3,0.687
+4,student_101,prob_187,Sorting Algorithms,Easy,0.25,1,NONE,27947,0,4,0.561
+5,student_101,prob_189,Two Pointer Technique,Easy,0.25,1,NONE,15866,0,5,0.561
+6,student_101,prob_218,Stack & Queue Fundamentals,Easy,0.25,1,NONE,27944,0,6,0.691
+7,student_101,prob_261,Recursion & Backtracking,Easy,0.25,0,OFF_BY_ONE_ERROR,42064,0,7,0.739
+8,student_101,prob_150,Stack & Queue Fundamentals,Hard,0.75,1,NONE,43177,0,8,0.728
+9,student_101,prob_175,Two Pointer Technique,Easy,0.25,1,NONE,42383,0,9,0.614
+10,student_101,prob_194,Two Pointer Technique,Hard,0.75,0,NULL_POINTER_EXCEPTION,12170,3,10,0.66
+11,student_101,prob_169,Sliding Window,Medium,0.5,1,NONE,43470,0,11,0.66
+12,student_101,prob_163,Two Pointer Technique,Medium,0.5,1,NONE,34652,0,12,0.674
+13,student_101,prob_264,Sliding Window,Medium,0.5,1,NONE,30019,0,13,0.701
+14,student_101,prob_115,Recursion & Backtracking,Easy,0.25,1,NONE,24709,0,14,0.749
+15,student_101,prob_246,Prefix Sum & Cumulative,Hard,0.75,0,NULL_POINTER_EXCEPTION,19757,1,15,0.72
+16,student_101,prob_265,Sorting Algorithms,Easy,0.25,1,NONE,20971,0,16,0.614
+17,student_101,prob_244,2D Arrays & Matrices,Easy,0.25,1,NONE,27893,0,17,0.591
+18,student_101,prob_250,Recursion & Backtracking,Easy,0.25,1,NONE,41342,0,18,0.779
+19,student_101,prob_124,Strings & Char Arrays,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,27388,0,19,0.6
+20,student_101,prob_141,Array Basics,Hard,0.75,1,NONE,33905,0,20,0.725
+21,student_101,prob_253,Strings & Char Arrays,Medium,0.5,1,NONE,27586,0,21,0.616
+22,student_101,prob_130,2D Arrays & Matrices,Medium,0.5,0,OFF_BY_ONE_ERROR,44592,0,22,0.64
+23,student_101,prob_141,Recursion & Backtracking,Medium,0.5,0,TIME_LIMIT_EXCEEDED,37552,2,23,0.806
+24,student_101,prob_168,2D Arrays & Matrices,Easy,0.25,1,NONE,17250,0,24,0.655
+25,student_101,prob_128,Recursion & Backtracking,Medium,0.5,1,NONE,39767,0,25,0.814
+26,student_101,prob_151,Binary Search,Hard,0.75,1,NONE,44772,0,26,0.689
+27,student_101,prob_236,Sliding Window,Medium,0.5,1,NONE,45231,0,27,0.737
+28,student_101,prob_129,Array Basics,Medium,0.5,1,NONE,25183,0,28,0.758
+29,student_101,prob_246,Sorting Algorithms,Hard,0.75,0,TIME_LIMIT_EXCEEDED,39675,1,29,0.66
+30,student_101,prob_118,Two Pointer Technique,Easy,0.25,1,NONE,18902,0,30,0.713
+31,student_102,prob_272,Prefix Sum & Cumulative,Medium,0.5,1,NONE,17569,0,1,0.498
+32,student_102,prob_187,Sorting Algorithms,Medium,0.5,0,OFF_BY_ONE_ERROR,38685,1,2,0.433
+33,student_102,prob_157,Array Basics,Medium,0.5,1,NONE,38264,0,3,0.455
+34,student_102,prob_159,Array Basics,Easy,0.25,1,NONE,25193,0,4,0.52
+35,student_102,prob_172,Two Pointer Technique,Hard,0.75,0,OFF_BY_ONE_ERROR,42316,0,5,0.582
+36,student_102,prob_247,2D Arrays & Matrices,Easy,0.25,1,NONE,8147,0,6,0.566
+37,student_102,prob_269,Stack & Queue Fundamentals,Medium,0.5,0,NULL_POINTER_EXCEPTION,30084,1,7,0.462
+38,student_102,prob_114,Strings & Char Arrays,Medium,0.5,1,NONE,31019,0,8,0.523
+39,student_102,prob_128,Two Pointer Technique,Easy,0.25,1,NONE,15504,0,9,0.599
+40,student_102,prob_136,Prefix Sum & Cumulative,Easy,0.25,1,NONE,23196,0,10,0.558
+41,student_102,prob_120,Strings & Char Arrays,Easy,0.25,1,NONE,29980,0,11,0.58
+42,student_102,prob_104,2D Arrays & Matrices,Hard,0.75,0,OFF_BY_ONE_ERROR,67766,3,12,0.618
+43,student_102,prob_155,Two Pointer Technique,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,47226,2,13,0.647
+44,student_102,prob_101,Strings & Char Arrays,Hard,0.75,1,NONE,48222,0,14,0.631
+45,student_102,prob_243,Strings & Char Arrays,Easy,0.25,0,NULL_POINTER_EXCEPTION,24238,3,15,0.675
+46,student_102,prob_115,2D Arrays & Matrices,Easy,0.25,1,NONE,8000,0,16,0.633
+47,student_102,prob_181,Stack & Queue Fundamentals,Medium,0.5,1,NONE,34813,0,17,0.483
+48,student_102,prob_236,Array Basics,Easy,0.25,1,NONE,25854,0,18,0.578
+49,student_102,prob_148,Sliding Window,Easy,0.25,1,NONE,54690,0,19,0.513
+50,student_102,prob_164,Two Pointer Technique,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,32823,3,20,0.661
+51,student_102,prob_245,Stack & Queue Fundamentals,Medium,0.5,0,NULL_POINTER_EXCEPTION,38750,0,21,0.545
+52,student_102,prob_272,Recursion & Backtracking,Easy,0.25,1,NONE,24715,0,22,0.5
+53,student_102,prob_272,Sorting Algorithms,Easy,0.25,1,NONE,11107,0,23,0.456
+54,student_102,prob_245,Binary Search,Medium,0.5,0,OFF_BY_ONE_ERROR,48845,3,24,0.555
+55,student_102,prob_168,Two Pointer Technique,Easy,0.25,1,NONE,34155,0,25,0.675
+56,student_102,prob_213,Sliding Window,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,54624,1,26,0.571
+57,student_102,prob_271,Recursion & Backtracking,Medium,0.5,0,LOGIC_EDGE_CASE,24219,0,27,0.56
+58,student_102,prob_135,Recursion & Backtracking,Easy,0.25,1,NONE,41965,0,28,0.578
+59,student_103,prob_171,Array Basics,Easy,0.25,1,NONE,8000,0,1,0.711
+60,student_103,prob_264,Array Basics,Easy,0.25,1,NONE,30287,0,2,0.745
+61,student_103,prob_210,Binary Search,Easy,0.25,1,NONE,49531,0,3,0.613
+62,student_103,prob_277,Recursion & Backtracking,Easy,0.25,1,NONE,11359,0,4,0.681
+63,student_103,prob_211,Sliding Window,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,26449,0,5,0.623
+64,student_103,prob_111,Sliding Window,Easy,0.25,1,NONE,24441,0,6,0.638
+65,student_103,prob_127,Sorting Algorithms,Easy,0.25,1,NONE,17203,0,7,0.59
+66,student_103,prob_140,Sorting Algorithms,Medium,0.5,0,NULL_POINTER_EXCEPTION,14637,0,8,0.639
+67,student_103,prob_107,Prefix Sum & Cumulative,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,44068,0,9,0.679
+68,student_103,prob_206,Sliding Window,Medium,0.5,1,NONE,20497,0,10,0.681
+69,student_103,prob_128,Prefix Sum & Cumulative,Easy,0.25,1,NONE,28928,0,11,0.692
+70,student_103,prob_190,Strings & Char Arrays,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,32212,2,12,0.693
+71,student_103,prob_203,Binary Search,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,61844,1,13,0.659
+72,student_103,prob_172,Sorting Algorithms,Easy,0.25,1,NONE,13846,0,14,0.654
+73,student_103,prob_238,Sorting Algorithms,Medium,0.5,1,NONE,29380,0,15,0.695
+74,student_103,prob_167,Sorting Algorithms,Hard,0.75,1,NONE,53007,0,16,0.732
+75,student_103,prob_189,Sliding Window,Medium,0.5,0,OFF_BY_ONE_ERROR,18475,2,17,0.72
+76,student_103,prob_149,Sorting Algorithms,Medium,0.5,0,OFF_BY_ONE_ERROR,35975,3,18,0.764
+77,student_103,prob_234,Binary Search,Easy,0.25,1,NONE,38931,0,19,0.673
+78,student_103,prob_194,Recursion & Backtracking,Medium,0.5,0,LOGIC_EDGE_CASE,13955,0,20,0.719
+79,student_103,prob_185,Strings & Char Arrays,Easy,0.25,1,NONE,25461,0,21,0.705
+80,student_103,prob_230,Stack & Queue Fundamentals,Easy,0.25,0,LOGIC_EDGE_CASE,26364,0,22,0.636
+81,student_103,prob_279,Binary Search,Medium,0.5,1,NONE,42627,0,23,0.712
+82,student_103,prob_271,Binary Search,Medium,0.5,1,NONE,18402,0,24,0.747
+83,student_104,prob_231,2D Arrays & Matrices,Medium,0.5,1,NONE,15299,0,1,0.788
+84,student_104,prob_173,2D Arrays & Matrices,Medium,0.5,0,LOGIC_EDGE_CASE,37408,1,2,0.813
+85,student_104,prob_124,Recursion & Backtracking,Medium,0.5,1,NONE,34708,0,3,0.758
+86,student_104,prob_151,Prefix Sum & Cumulative,Medium,0.5,1,NONE,34150,0,4,0.813
+87,student_104,prob_222,Sliding Window,Easy,0.25,1,NONE,25302,0,5,0.751
+88,student_104,prob_207,Stack & Queue Fundamentals,Hard,0.75,1,NONE,32984,0,6,0.743
+89,student_104,prob_227,Stack & Queue Fundamentals,Easy,0.25,1,NONE,23931,0,7,0.774
+90,student_104,prob_102,Strings & Char Arrays,Easy,0.25,1,NONE,24661,0,8,0.816
+91,student_104,prob_279,Two Pointer Technique,Medium,0.5,1,NONE,22572,0,9,0.693
+92,student_104,prob_132,Recursion & Backtracking,Medium,0.5,1,NONE,53534,0,10,0.787
+93,student_104,prob_236,2D Arrays & Matrices,Easy,0.25,1,NONE,26830,0,11,0.821
+94,student_104,prob_230,Recursion & Backtracking,Medium,0.5,0,NULL_POINTER_EXCEPTION,16849,0,12,0.812
+95,student_104,prob_141,Strings & Char Arrays,Hard,0.75,1,NONE,49023,0,13,0.838
+96,student_104,prob_225,2D Arrays & Matrices,Medium,0.5,0,LOGIC_EDGE_CASE,19448,3,14,0.842
+97,student_104,prob_174,Prefix Sum & Cumulative,Easy,0.25,1,NONE,30589,0,15,0.836
+98,student_104,prob_239,Prefix Sum & Cumulative,Easy,0.25,1,NONE,35047,0,16,0.856
+99,student_104,prob_278,Two Pointer Technique,Easy,0.25,1,NONE,11296,0,17,0.73
+100,student_104,prob_205,Sliding Window,Medium,0.5,1,NONE,42705,0,18,0.781
+101,student_104,prob_153,Sorting Algorithms,Medium,0.5,1,NONE,36098,0,19,0.85
+102,student_104,prob_198,Strings & Char Arrays,Medium,0.5,0,LOGIC_EDGE_CASE,41009,3,20,0.858
+103,student_104,prob_200,2D Arrays & Matrices,Easy,0.25,1,NONE,43906,0,21,0.848
+104,student_104,prob_255,Strings & Char Arrays,Medium,0.5,1,NONE,28200,0,22,0.863
+105,student_104,prob_225,Prefix Sum & Cumulative,Medium,0.5,1,NONE,22099,0,23,0.873
+106,student_104,prob_204,Array Basics,Medium,0.5,1,NONE,20470,0,24,0.738
+107,student_104,prob_201,Sliding Window,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,31355,0,25,0.807
+108,student_104,prob_265,Stack & Queue Fundamentals,Medium,0.5,1,NONE,30219,0,26,0.801
+109,student_105,prob_190,Binary Search,Hard,0.75,0,LOGIC_EDGE_CASE,49455,0,1,0.55
+110,student_105,prob_164,Prefix Sum & Cumulative,Medium,0.5,0,LOGIC_EDGE_CASE,38682,1,2,0.517
+111,student_105,prob_130,Prefix Sum & Cumulative,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,55288,3,3,0.536
+112,student_105,prob_143,Stack & Queue Fundamentals,Hard,0.75,0,TIME_LIMIT_EXCEEDED,45517,0,4,0.426
+113,student_105,prob_142,Stack & Queue Fundamentals,Medium,0.5,0,OFF_BY_ONE_ERROR,52804,0,5,0.449
+114,student_105,prob_180,Binary Search,Easy,0.25,1,NONE,22186,0,6,0.568
+115,student_105,prob_151,Stack & Queue Fundamentals,Medium,0.5,0,NULL_POINTER_EXCEPTION,68003,0,7,0.471
+116,student_105,prob_276,Two Pointer Technique,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,42869,2,8,0.5
+117,student_105,prob_189,Stack & Queue Fundamentals,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,35076,0,9,0.492
+118,student_105,prob_230,Recursion & Backtracking,Medium,0.5,1,NONE,22511,0,10,0.442
+119,student_105,prob_226,Sorting Algorithms,Easy,0.25,1,NONE,31151,0,11,0.527
+120,student_105,prob_218,Two Pointer Technique,Medium,0.5,1,NONE,32680,0,12,0.52
+121,student_105,prob_224,Sliding Window,Medium,0.5,0,LOGIC_EDGE_CASE,43929,3,13,0.582
+122,student_105,prob_123,2D Arrays & Matrices,Medium,0.5,0,TIME_LIMIT_EXCEEDED,41040,1,14,0.517
+123,student_105,prob_219,Binary Search,Hard,0.75,1,NONE,44488,0,15,0.62
+124,student_105,prob_108,Stack & Queue Fundamentals,Medium,0.5,1,NONE,25200,0,16,0.513
+125,student_105,prob_155,2D Arrays & Matrices,Hard,0.75,1,NONE,27183,0,17,0.536
+126,student_105,prob_253,Sorting Algorithms,Medium,0.5,1,NONE,30003,0,18,0.584
+127,student_105,prob_149,Binary Search,Medium,0.5,1,NONE,45638,0,19,0.666
+128,student_105,prob_243,Two Pointer Technique,Easy,0.25,1,NONE,27931,0,20,0.578
+129,student_105,prob_124,Prefix Sum & Cumulative,Medium,0.5,0,NULL_POINTER_EXCEPTION,20413,1,21,0.555
+130,student_105,prob_179,Binary Search,Easy,0.25,1,NONE,27440,0,22,0.706
+131,student_105,prob_189,Stack & Queue Fundamentals,Medium,0.5,1,NONE,39985,0,23,0.571
+132,student_105,prob_170,Strings & Char Arrays,Hard,0.75,0,TIME_LIMIT_EXCEEDED,34755,0,24,0.44
+133,student_105,prob_150,Binary Search,Easy,0.25,1,NONE,27206,0,25,0.741
+134,student_105,prob_277,Sorting Algorithms,Easy,0.25,1,NONE,26060,0,26,0.634
+135,student_106,prob_171,Binary Search,Easy,0.25,1,NONE,11646,0,1,0.44
+136,student_106,prob_264,Array Basics,Hard,0.75,0,LOGIC_EDGE_CASE,49655,0,2,0.554
+137,student_106,prob_173,2D Arrays & Matrices,Easy,0.25,1,NONE,32091,0,3,0.426
+138,student_106,prob_114,2D Arrays & Matrices,Medium,0.5,1,NONE,48358,0,4,0.495
+139,student_106,prob_248,Binary Search,Hard,0.75,0,OFF_BY_ONE_ERROR,58007,1,5,0.508
+140,student_106,prob_131,Array Basics,Easy,0.25,0,TIME_LIMIT_EXCEEDED,8829,1,6,0.572
+141,student_106,prob_198,Recursion & Backtracking,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,24108,3,7,0.533
+142,student_106,prob_251,2D Arrays & Matrices,Hard,0.75,1,NONE,51542,0,8,0.556
+143,student_106,prob_257,Strings & Char Arrays,Easy,0.25,1,NONE,31527,0,9,0.396
+144,student_106,prob_155,Two Pointer Technique,Hard,0.75,1,NONE,51542,0,10,0.445
+145,student_106,prob_145,Binary Search,Medium,0.5,1,NONE,81594,0,11,0.527
+146,student_106,prob_216,Recursion & Backtracking,Easy,0.25,1,NONE,32212,0,12,0.552
+147,student_106,prob_174,Stack & Queue Fundamentals,Medium,0.5,1,NONE,48988,0,13,0.52
+148,student_106,prob_276,Binary Search,Medium,0.5,1,NONE,46809,0,14,0.584
+149,student_106,prob_151,Prefix Sum & Cumulative,Hard,0.75,0,LOGIC_EDGE_CASE,53178,0,15,0.475
+150,student_106,prob_139,Strings & Char Arrays,Easy,0.25,1,NONE,21578,0,16,0.469
+151,student_106,prob_143,Binary Search,Hard,0.75,1,NONE,54469,0,17,0.634
+152,student_106,prob_277,Binary Search,Medium,0.5,0,TIME_LIMIT_EXCEEDED,26088,2,18,0.678
+153,student_106,prob_213,Binary Search,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,32520,0,19,0.691
+154,student_106,prob_107,Two Pointer Technique,Medium,0.5,0,LOGIC_EDGE_CASE,29537,2,20,0.511
+155,student_106,prob_248,Two Pointer Technique,Easy,0.25,1,NONE,26344,0,21,0.531
+156,student_106,prob_248,Stack & Queue Fundamentals,Hard,0.75,0,LOGIC_EDGE_CASE,73137,0,22,0.578
+157,student_107,prob_142,Strings & Char Arrays,Easy,0.25,1,NONE,8000,0,1,0.795
+158,student_107,prob_270,Sorting Algorithms,Medium,0.5,1,NONE,39245,0,2,0.683
+159,student_107,prob_217,Strings & Char Arrays,Hard,0.75,1,NONE,21657,0,3,0.82
+160,student_107,prob_204,Two Pointer Technique,Easy,0.25,1,NONE,15346,0,4,0.848
+161,student_107,prob_239,Recursion & Backtracking,Hard,0.75,1,NONE,54077,0,5,0.689
+162,student_107,prob_193,2D Arrays & Matrices,Medium,0.5,1,NONE,31781,0,6,0.72
+163,student_107,prob_114,Stack & Queue Fundamentals,Medium,0.5,1,NONE,18076,0,7,0.789
+164,student_107,prob_174,Prefix Sum & Cumulative,Easy,0.25,1,NONE,12426,0,8,0.794
+165,student_107,prob_108,2D Arrays & Matrices,Hard,0.75,1,NONE,49165,0,9,0.753
+166,student_107,prob_180,Stack & Queue Fundamentals,Medium,0.5,1,NONE,22245,0,10,0.814
+167,student_107,prob_158,Recursion & Backtracking,Easy,0.25,1,NONE,23607,0,11,0.726
+168,student_107,prob_140,Two Pointer Technique,Medium,0.5,1,NONE,31556,0,12,0.866
+169,student_107,prob_170,2D Arrays & Matrices,Hard,0.75,1,NONE,33190,0,13,0.783
+170,student_107,prob_138,Strings & Char Arrays,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,66737,0,14,0.842
+171,student_107,prob_135,Strings & Char Arrays,Easy,0.25,1,NONE,28616,0,15,0.848
+172,student_107,prob_207,Two Pointer Technique,Easy,0.25,1,NONE,8000,0,16,0.882
+173,student_107,prob_101,Sorting Algorithms,Hard,0.75,1,NONE,43247,0,17,0.721
+174,student_107,prob_226,Binary Search,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,23068,0,18,0.827
+175,student_107,prob_186,Sliding Window,Medium,0.5,1,NONE,41239,0,19,0.779
+176,student_107,prob_183,Recursion & Backtracking,Medium,0.5,1,NONE,21499,0,20,0.759
+177,student_108,prob_229,Sliding Window,Medium,0.5,1,NONE,31581,0,1,0.676
+178,student_108,prob_213,Stack & Queue Fundamentals,Easy,0.25,1,NONE,29018,0,2,0.555
+179,student_108,prob_137,Two Pointer Technique,Medium,0.5,1,NONE,43347,0,3,0.705
+180,student_108,prob_168,Strings & Char Arrays,Hard,0.75,0,OFF_BY_ONE_ERROR,28554,0,4,0.658
+181,student_108,prob_121,Sorting Algorithms,Medium,0.5,1,NONE,28944,0,5,0.689
+182,student_108,prob_261,Sorting Algorithms,Hard,0.75,0,NULL_POINTER_EXCEPTION,37258,0,6,0.726
+183,student_108,prob_118,2D Arrays & Matrices,Hard,0.75,1,NONE,35118,0,7,0.57
+184,student_108,prob_212,Prefix Sum & Cumulative,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,54143,0,8,0.582
+185,student_108,prob_177,Two Pointer Technique,Medium,0.5,0,OFF_BY_ONE_ERROR,37817,3,9,0.74
+186,student_108,prob_138,Array Basics,Easy,0.25,0,TIME_LIMIT_EXCEEDED,8000,2,10,0.557
+187,student_108,prob_147,Prefix Sum & Cumulative,Medium,0.5,1,NONE,43972,0,11,0.598
+188,student_108,prob_198,Sliding Window,Easy,0.25,1,NONE,48424,0,12,0.715
+189,student_108,prob_250,Stack & Queue Fundamentals,Medium,0.5,1,NONE,45347,0,13,0.608
+190,student_108,prob_218,Sliding Window,Easy,0.25,1,NONE,8000,0,14,0.749
+191,student_108,prob_274,Binary Search,Medium,0.5,0,NULL_POINTER_EXCEPTION,27147,0,15,0.671
+192,student_108,prob_189,Recursion & Backtracking,Easy,0.25,1,NONE,38161,0,16,0.677
+193,student_108,prob_151,Stack & Queue Fundamentals,Easy,0.25,0,LOGIC_EDGE_CASE,14466,2,17,0.655
+194,student_108,prob_198,Strings & Char Arrays,Hard,0.75,1,NONE,48283,0,18,0.672
+195,student_108,prob_280,Stack & Queue Fundamentals,Medium,0.5,1,NONE,42253,0,19,0.669
+196,student_108,prob_276,Binary Search,Easy,0.25,0,NULL_POINTER_EXCEPTION,11834,3,20,0.684
+197,student_108,prob_159,Array Basics,Hard,0.75,0,TIME_LIMIT_EXCEEDED,42243,0,21,0.574
+198,student_108,prob_149,Stack & Queue Fundamentals,Hard,0.75,1,NONE,8000,0,22,0.709
+199,student_108,prob_269,Stack & Queue Fundamentals,Easy,0.25,1,NONE,10665,0,23,0.744
+200,student_109,prob_239,Strings & Char Arrays,Easy,0.25,1,NONE,22895,0,1,0.439
+201,student_109,prob_176,Sorting Algorithms,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,20953,2,2,0.467
+202,student_109,prob_274,Sorting Algorithms,Hard,0.75,0,OFF_BY_ONE_ERROR,65515,1,3,0.488
+203,student_109,prob_104,Strings & Char Arrays,Hard,0.75,0,TIME_LIMIT_EXCEEDED,28765,2,4,0.506
+204,student_109,prob_273,Binary Search,Medium,0.5,1,NONE,30646,0,5,0.493
+205,student_109,prob_221,Binary Search,Medium,0.5,0,TIME_LIMIT_EXCEEDED,37495,1,6,0.554
+206,student_109,prob_157,Array Basics,Medium,0.5,0,TIME_LIMIT_EXCEEDED,53222,0,7,0.387
+207,student_109,prob_280,Two Pointer Technique,Medium,0.5,1,NONE,18696,0,8,0.429
+208,student_109,prob_112,Binary Search,Medium,0.5,1,NONE,49884,0,9,0.572
+209,student_109,prob_125,Array Basics,Easy,0.25,1,NONE,26049,0,10,0.412
+210,student_109,prob_217,Prefix Sum & Cumulative,Hard,0.75,1,NONE,34148,0,11,0.426
+211,student_109,prob_140,Sorting Algorithms,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,41471,3,12,0.509
+212,student_109,prob_109,Strings & Char Arrays,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,38315,2,13,0.526
+213,student_109,prob_161,Sorting Algorithms,Easy,0.25,1,NONE,18724,0,14,0.528
+214,student_109,prob_240,Sorting Algorithms,Easy,0.25,1,NONE,26764,0,15,0.585
+215,student_109,prob_132,Sorting Algorithms,Easy,0.25,1,NONE,21302,0,16,0.635
+216,student_109,prob_264,2D Arrays & Matrices,Easy,0.25,1,NONE,27288,0,17,0.408
+217,student_109,prob_186,Stack & Queue Fundamentals,Hard,0.75,1,NONE,53872,0,18,0.496
+218,student_109,prob_154,Prefix Sum & Cumulative,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,64958,3,19,0.495
+219,student_109,prob_253,Stack & Queue Fundamentals,Easy,0.25,0,TIME_LIMIT_EXCEEDED,11072,0,20,0.556
+220,student_109,prob_145,Array Basics,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,51523,0,21,0.482
+221,student_109,prob_104,Two Pointer Technique,Medium,0.5,1,NONE,12501,0,22,0.498
+222,student_109,prob_183,Sorting Algorithms,Medium,0.5,1,NONE,34105,0,23,0.678
+223,student_109,prob_208,Array Basics,Easy,0.25,1,NONE,32986,0,24,0.503
+224,student_109,prob_215,Recursion & Backtracking,Easy,0.25,1,NONE,29298,0,25,0.537
+225,student_109,prob_229,Sorting Algorithms,Medium,0.5,1,NONE,28454,0,26,0.717
+226,student_109,prob_269,Prefix Sum & Cumulative,Hard,0.75,1,NONE,43429,0,27,0.515
+227,student_109,prob_108,Recursion & Backtracking,Easy,0.25,1,NONE,20010,0,28,0.592
+228,student_109,prob_226,Array Basics,Hard,0.75,0,NULL_POINTER_EXCEPTION,38854,0,29,0.563
+229,student_109,prob_256,2D Arrays & Matrices,Easy,0.25,1,NONE,36121,0,30,0.479
+230,student_110,prob_156,Two Pointer Technique,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,47782,0,1,0.662
+231,student_110,prob_187,Strings & Char Arrays,Medium,0.5,1,NONE,25182,0,2,0.611
+232,student_110,prob_166,2D Arrays & Matrices,Medium,0.5,0,TIME_LIMIT_EXCEEDED,44293,3,3,0.626
+233,student_110,prob_124,Sorting Algorithms,Hard,0.75,0,NULL_POINTER_EXCEPTION,47185,1,4,0.518
+234,student_110,prob_134,Strings & Char Arrays,Easy,0.25,1,NONE,33252,0,5,0.657
+235,student_110,prob_206,Recursion & Backtracking,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,31053,1,6,0.596
+236,student_110,prob_114,Sorting Algorithms,Hard,0.75,0,NULL_POINTER_EXCEPTION,33549,0,7,0.537
+237,student_110,prob_248,Binary Search,Medium,0.5,1,NONE,26775,0,8,0.652
+238,student_110,prob_158,Recursion & Backtracking,Easy,0.25,1,NONE,32465,0,9,0.612
+239,student_110,prob_130,Two Pointer Technique,Medium,0.5,1,NONE,40822,0,10,0.675
+240,student_110,prob_260,Binary Search,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,33247,0,11,0.694
+241,student_110,prob_256,Stack & Queue Fundamentals,Medium,0.5,1,NONE,34905,0,12,0.697
+242,student_110,prob_180,Binary Search,Easy,0.25,1,NONE,38829,0,13,0.706
+243,student_110,prob_137,Sorting Algorithms,Medium,0.5,1,NONE,26398,0,14,0.556
+244,student_110,prob_263,Stack & Queue Fundamentals,Medium,0.5,1,NONE,40063,0,15,0.733
+245,student_110,prob_197,Array Basics,Easy,0.25,1,NONE,21071,0,16,0.704
+246,student_110,prob_180,Strings & Char Arrays,Medium,0.5,1,NONE,30885,0,17,0.699
+247,student_110,prob_122,Sorting Algorithms,Medium,0.5,1,NONE,46683,0,18,0.609
+248,student_110,prob_113,Array Basics,Easy,0.25,1,NONE,33402,0,19,0.739
+249,student_110,prob_225,Two Pointer Technique,Easy,0.25,1,NONE,33259,0,20,0.714
+250,student_110,prob_232,Stack & Queue Fundamentals,Medium,0.5,1,NONE,49163,0,21,0.765
+251,student_110,prob_274,Two Pointer Technique,Easy,0.25,1,NONE,23749,0,22,0.749
+252,student_111,prob_211,Binary Search,Easy,0.25,1,NONE,34095,0,1,0.359
+253,student_111,prob_159,Sliding Window,Easy,0.25,1,NONE,22189,0,2,0.494
+254,student_111,prob_111,Recursion & Backtracking,Medium,0.5,0,TIME_LIMIT_EXCEEDED,39802,3,3,0.402
+255,student_111,prob_247,Strings & Char Arrays,Easy,0.25,0,TIME_LIMIT_EXCEEDED,24350,0,4,0.515
+256,student_111,prob_130,Strings & Char Arrays,Medium,0.5,1,NONE,37076,0,5,0.534
+257,student_111,prob_259,Strings & Char Arrays,Easy,0.25,1,NONE,33054,0,6,0.59
+258,student_111,prob_163,2D Arrays & Matrices,Hard,0.75,0,OFF_BY_ONE_ERROR,36093,1,7,0.367
+259,student_111,prob_202,Strings & Char Arrays,Medium,0.5,1,NONE,61020,0,8,0.639
+260,student_111,prob_144,Binary Search,Medium,0.5,1,NONE,23839,0,9,0.436
+261,student_111,prob_231,Two Pointer Technique,Medium,0.5,1,NONE,21341,0,10,0.45
+262,student_111,prob_266,Prefix Sum & Cumulative,Hard,0.75,1,NONE,59809,0,11,0.512
+263,student_111,prob_151,Sliding Window,Easy,0.25,1,NONE,35412,0,12,0.555
+264,student_111,prob_227,Sliding Window,Medium,0.5,0,LOGIC_EDGE_CASE,43401,3,13,0.608
+265,student_111,prob_245,2D Arrays & Matrices,Medium,0.5,0,NULL_POINTER_EXCEPTION,43452,0,14,0.392
+266,student_111,prob_221,Stack & Queue Fundamentals,Easy,0.25,0,TIME_LIMIT_EXCEEDED,25765,1,15,0.403
+267,student_111,prob_119,2D Arrays & Matrices,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,25145,3,16,0.416
+268,student_111,prob_195,Binary Search,Medium,0.5,1,NONE,36821,0,17,0.504
+269,student_111,prob_230,Binary Search,Easy,0.25,0,OFF_BY_ONE_ERROR,17786,0,18,0.563
+270,student_111,prob_111,Strings & Char Arrays,Medium,0.5,1,NONE,47613,0,19,0.683
+271,student_111,prob_229,2D Arrays & Matrices,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,44147,2,20,0.44
+272,student_111,prob_188,Sliding Window,Hard,0.75,1,NONE,36006,0,21,0.624
+273,student_111,prob_164,Two Pointer Technique,Medium,0.5,1,NONE,32055,0,22,0.516
+274,student_111,prob_173,2D Arrays & Matrices,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,50867,2,23,0.462
+275,student_111,prob_254,Strings & Char Arrays,Medium,0.5,1,NONE,29147,0,24,0.721
+276,student_111,prob_274,Array Basics,Medium,0.5,0,OFF_BY_ONE_ERROR,26045,3,25,0.437
+277,student_111,prob_269,Strings & Char Arrays,Easy,0.25,1,NONE,28836,0,26,0.754
+278,student_111,prob_250,Stack & Queue Fundamentals,Hard,0.75,1,NONE,48851,0,27,0.427
+279,student_111,prob_268,Sliding Window,Hard,0.75,1,NONE,39828,0,28,0.669
+280,student_111,prob_122,Strings & Char Arrays,Easy,0.25,1,NONE,20259,0,29,0.784
+281,student_111,prob_272,Binary Search,Medium,0.5,0,TIME_LIMIT_EXCEEDED,38696,0,30,0.581
+282,student_112,prob_126,Sliding Window,Easy,0.25,1,NONE,8540,0,1,0.421
+283,student_112,prob_259,Recursion & Backtracking,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,19028,2,2,0.402
+284,student_112,prob_147,Sliding Window,Medium,0.5,1,NONE,27296,0,3,0.491
+285,student_112,prob_213,Stack & Queue Fundamentals,Hard,0.75,1,NONE,43356,0,4,0.517
+286,student_112,prob_257,Array Basics,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,39648,0,5,0.373
+287,student_112,prob_180,Binary Search,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,53622,0,6,0.552
+288,student_112,prob_274,2D Arrays & Matrices,Hard,0.75,1,NONE,56209,0,7,0.487
+289,student_112,prob_229,Stack & Queue Fundamentals,Hard,0.75,0,TIME_LIMIT_EXCEEDED,43998,0,8,0.575
+290,student_112,prob_152,Recursion & Backtracking,Medium,0.5,1,NONE,35689,0,9,0.426
+291,student_112,prob_265,Stack & Queue Fundamentals,Easy,0.25,1,NONE,13887,0,10,0.592
+292,student_112,prob_233,2D Arrays & Matrices,Hard,0.75,0,OFF_BY_ONE_ERROR,45695,0,11,0.549
+293,student_112,prob_138,Two Pointer Technique,Easy,0.25,0,TIME_LIMIT_EXCEEDED,22453,3,12,0.537
+294,student_112,prob_107,Strings & Char Arrays,Easy,0.25,0,NULL_POINTER_EXCEPTION,29790,0,13,0.365
+295,student_112,prob_161,Strings & Char Arrays,Easy,0.25,1,NONE,15990,0,14,0.391
+296,student_112,prob_108,Strings & Char Arrays,Hard,0.75,1,NONE,52149,0,15,0.464
+297,student_112,prob_136,Sorting Algorithms,Hard,0.75,0,LOGIC_EDGE_CASE,64310,1,16,0.494
+298,student_112,prob_221,Array Basics,Easy,0.25,0,LOGIC_EDGE_CASE,24612,0,17,0.398
+299,student_112,prob_241,2D Arrays & Matrices,Medium,0.5,0,OFF_BY_ONE_ERROR,40738,1,18,0.567
+300,student_112,prob_174,Stack & Queue Fundamentals,Medium,0.5,1,NONE,44199,0,19,0.641
+301,student_112,prob_208,Prefix Sum & Cumulative,Easy,0.25,1,NONE,21103,0,20,0.454
+302,student_112,prob_228,Stack & Queue Fundamentals,Medium,0.5,1,NONE,38606,0,21,0.684
+303,student_112,prob_248,Stack & Queue Fundamentals,Medium,0.5,1,NONE,36068,0,22,0.722
+304,student_112,prob_101,Prefix Sum & Cumulative,Medium,0.5,1,NONE,37089,0,23,0.519
+305,student_112,prob_148,Stack & Queue Fundamentals,Medium,0.5,1,NONE,26641,0,24,0.755
+306,student_112,prob_235,Two Pointer Technique,Medium,0.5,1,NONE,36211,0,25,0.555
+307,student_112,prob_112,Recursion & Backtracking,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,41893,2,26,0.495
+308,student_112,prob_105,Strings & Char Arrays,Hard,0.75,1,NONE,63331,0,27,0.528
+309,student_112,prob_269,Sorting Algorithms,Medium,0.5,1,NONE,47429,0,28,0.514
+310,student_112,prob_240,Two Pointer Technique,Medium,0.5,0,TIME_LIMIT_EXCEEDED,61755,2,29,0.609
+311,student_112,prob_276,Sorting Algorithms,Hard,0.75,1,NONE,36709,0,30,0.572
+312,student_113,prob_110,Sorting Algorithms,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,54687,0,1,0.48
+313,student_113,prob_185,Prefix Sum & Cumulative,Easy,0.25,0,OFF_BY_ONE_ERROR,26419,0,2,0.642
+314,student_113,prob_203,Binary Search,Easy,0.25,1,NONE,50496,0,3,0.526
+315,student_113,prob_148,2D Arrays & Matrices,Hard,0.75,1,NONE,34519,0,4,0.628
+316,student_113,prob_233,2D Arrays & Matrices,Medium,0.5,1,NONE,24142,0,5,0.673
+317,student_113,prob_240,Binary Search,Hard,0.75,0,OFF_BY_ONE_ERROR,37026,1,6,0.582
+318,student_113,prob_270,Binary Search,Easy,0.25,1,NONE,8000,0,7,0.599
+319,student_113,prob_210,Binary Search,Easy,0.25,1,NONE,17910,0,8,0.647
+320,student_113,prob_111,Sliding Window,Medium,0.5,1,NONE,25109,0,9,0.632
+321,student_113,prob_264,Sorting Algorithms,Medium,0.5,1,NONE,36024,0,10,0.501
+322,student_113,prob_194,Array Basics,Easy,0.25,1,NONE,28320,0,11,0.473
+323,student_113,prob_274,Recursion & Backtracking,Hard,0.75,0,OFF_BY_ONE_ERROR,66733,3,12,0.51
+324,student_113,prob_266,2D Arrays & Matrices,Easy,0.25,1,NONE,35624,0,13,0.712
+325,student_113,prob_274,Sorting Algorithms,Medium,0.5,0,OFF_BY_ONE_ERROR,27296,0,14,0.561
+326,student_113,prob_120,2D Arrays & Matrices,Hard,0.75,1,NONE,33438,0,15,0.747
+327,student_113,prob_181,Stack & Queue Fundamentals,Easy,0.25,1,NONE,30122,0,16,0.492
+328,student_113,prob_148,Binary Search,Easy,0.25,1,NONE,8376,0,17,0.69
+329,student_113,prob_215,2D Arrays & Matrices,Medium,0.5,0,OFF_BY_ONE_ERROR,56196,2,18,0.777
+330,student_113,prob_226,Prefix Sum & Cumulative,Hard,0.75,1,NONE,58372,0,19,0.656
+331,student_113,prob_214,Prefix Sum & Cumulative,Easy,0.25,0,NULL_POINTER_EXCEPTION,18589,3,20,0.697
+332,student_113,prob_117,Two Pointer Technique,Hard,0.75,0,TIME_LIMIT_EXCEEDED,23661,0,21,0.573
+333,student_113,prob_280,Recursion & Backtracking,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,50465,0,22,0.53
+334,student_113,prob_132,Sliding Window,Medium,0.5,1,NONE,32844,0,23,0.676
+335,student_113,prob_227,Prefix Sum & Cumulative,Medium,0.5,1,NONE,49073,0,24,0.709
+336,student_113,prob_220,Array Basics,Medium,0.5,1,NONE,15086,0,25,0.536
+337,student_113,prob_223,Recursion & Backtracking,Easy,0.25,0,OFF_BY_ONE_ERROR,17026,3,26,0.549
+338,student_113,prob_248,Recursion & Backtracking,Medium,0.5,1,NONE,34282,0,27,0.567
+339,student_114,prob_233,Sliding Window,Medium,0.5,0,OFF_BY_ONE_ERROR,39955,0,1,0.309
+340,student_114,prob_158,Sliding Window,Easy,0.25,1,NONE,23991,0,2,0.337
+341,student_114,prob_165,Sorting Algorithms,Hard,0.75,0,TIME_LIMIT_EXCEEDED,56866,0,3,0.298
+342,student_114,prob_258,Prefix Sum & Cumulative,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,26580,0,4,0.231
+343,student_114,prob_140,Recursion & Backtracking,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,27683,0,5,0.206
+344,student_114,prob_111,Sliding Window,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,40835,3,6,0.416
+345,student_114,prob_247,Array Basics,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,35565,1,7,0.299
+346,student_114,prob_261,Strings & Char Arrays,Medium,0.5,1,NONE,47931,0,8,0.158
+347,student_114,prob_204,Recursion & Backtracking,Easy,0.25,0,NULL_POINTER_EXCEPTION,15896,3,9,0.238
+348,student_114,prob_219,Binary Search,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,20982,2,10,0.22
+349,student_114,prob_182,Prefix Sum & Cumulative,Easy,0.25,1,NONE,44723,0,11,0.261
+350,student_114,prob_195,Sorting Algorithms,Hard,0.75,1,NONE,53379,0,12,0.326
+351,student_114,prob_220,Recursion & Backtracking,Medium,0.5,1,NONE,30410,0,13,0.269
+352,student_114,prob_125,Two Pointer Technique,Easy,0.25,1,NONE,48005,0,14,0.26
+353,student_114,prob_258,Array Basics,Easy,0.25,1,NONE,30779,0,15,0.327
+354,student_114,prob_248,Strings & Char Arrays,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,43543,0,16,0.259
+355,student_114,prob_232,Sorting Algorithms,Easy,0.25,1,NONE,30202,0,17,0.407
+356,student_114,prob_106,2D Arrays & Matrices,Medium,0.5,1,NONE,64120,0,18,0.214
+357,student_114,prob_113,Two Pointer Technique,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,70455,2,19,0.349
+358,student_114,prob_268,Array Basics,Easy,0.25,1,NONE,26404,0,20,0.408
+359,student_114,prob_128,2D Arrays & Matrices,Easy,0.25,1,NONE,41050,0,21,0.308
+360,student_115,prob_260,2D Arrays & Matrices,Medium,0.5,1,NONE,46684,0,1,0.282
+361,student_115,prob_243,Stack & Queue Fundamentals,Easy,0.25,0,NULL_POINTER_EXCEPTION,45363,2,2,0.277
+362,student_115,prob_231,Sorting Algorithms,Medium,0.5,1,NONE,27360,0,3,0.344
+363,student_115,prob_136,Strings & Char Arrays,Medium,0.5,1,NONE,47172,0,4,0.242
+364,student_115,prob_232,Sorting Algorithms,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,61640,0,5,0.423
+365,student_115,prob_177,Sliding Window,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,8000,3,6,0.281
+366,student_115,prob_245,Stack & Queue Fundamentals,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,14740,0,7,0.306
+367,student_115,prob_185,Binary Search,Medium,0.5,1,NONE,14469,0,8,0.345
+368,student_115,prob_262,Two Pointer Technique,Hard,0.75,0,LOGIC_EDGE_CASE,45706,0,9,0.301
+369,student_115,prob_268,Array Basics,Medium,0.5,1,NONE,47550,0,10,0.327
+370,student_115,prob_235,Stack & Queue Fundamentals,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,56968,0,11,0.333
+371,student_115,prob_275,Stack & Queue Fundamentals,Medium,0.5,1,NONE,39828,0,12,0.36
+372,student_115,prob_181,Prefix Sum & Cumulative,Easy,0.25,0,OFF_BY_ONE_ERROR,48483,2,13,0.273
+373,student_115,prob_257,Strings & Char Arrays,Easy,0.25,0,NULL_POINTER_EXCEPTION,12378,0,14,0.333
+374,student_115,prob_233,2D Arrays & Matrices,Hard,0.75,0,OFF_BY_ONE_ERROR,28499,0,15,0.368
+375,student_115,prob_181,Prefix Sum & Cumulative,Medium,0.5,0,NULL_POINTER_EXCEPTION,38273,0,16,0.302
+376,student_115,prob_275,Sliding Window,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,43548,3,17,0.31
+377,student_115,prob_164,Binary Search,Medium,0.5,1,NONE,38547,0,18,0.424
+378,student_115,prob_177,Binary Search,Medium,0.5,1,NONE,14130,0,19,0.493
+379,student_115,prob_244,Binary Search,Medium,0.5,0,NULL_POINTER_EXCEPTION,37870,2,20,0.554
+380,student_115,prob_240,Binary Search,Easy,0.25,1,NONE,13286,0,21,0.571
+381,student_115,prob_138,Strings & Char Arrays,Hard,0.75,0,TIME_LIMIT_EXCEEDED,56975,0,22,0.359
+382,student_115,prob_268,Binary Search,Easy,0.25,0,OFF_BY_ONE_ERROR,33338,2,23,0.623
+383,student_115,prob_238,Binary Search,Medium,0.5,1,NONE,27661,0,24,0.638
+384,student_115,prob_251,Binary Search,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,42773,3,25,0.681
+385,student_115,prob_114,Prefix Sum & Cumulative,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,16229,1,26,0.33
+386,student_116,prob_116,2D Arrays & Matrices,Medium,0.5,0,TIME_LIMIT_EXCEEDED,35397,3,1,0.459
+387,student_116,prob_110,Two Pointer Technique,Medium,0.5,1,NONE,47611,0,2,0.397
+388,student_116,prob_202,Sliding Window,Medium,0.5,0,OFF_BY_ONE_ERROR,24320,0,3,0.52
+389,student_116,prob_103,2D Arrays & Matrices,Easy,0.25,0,TIME_LIMIT_EXCEEDED,32198,0,4,0.48
+390,student_116,prob_186,Binary Search,Medium,0.5,1,NONE,29786,0,5,0.539
+391,student_116,prob_135,Binary Search,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,26635,0,6,0.594
+392,student_116,prob_129,Recursion & Backtracking,Medium,0.5,1,NONE,34865,0,7,0.353
+393,student_116,prob_166,Sorting Algorithms,Easy,0.25,1,NONE,13726,0,8,0.43
+394,student_116,prob_176,Sliding Window,Easy,0.25,1,NONE,19505,0,9,0.539
+395,student_116,prob_257,Stack & Queue Fundamentals,Medium,0.5,1,NONE,21774,0,10,0.364
+396,student_116,prob_148,Strings & Char Arrays,Hard,0.75,0,OFF_BY_ONE_ERROR,69726,1,11,0.354
+397,student_116,prob_215,Sliding Window,Medium,0.5,0,OFF_BY_ONE_ERROR,36572,1,12,0.594
+398,student_116,prob_247,Binary Search,Hard,0.75,1,NONE,37752,0,13,0.611
+399,student_116,prob_161,Array Basics,Easy,0.25,1,NONE,28717,0,14,0.457
+400,student_116,prob_141,Array Basics,Medium,0.5,1,NONE,34801,0,15,0.522
+401,student_116,prob_277,Strings & Char Arrays,Medium,0.5,0,LOGIC_EDGE_CASE,33497,0,16,0.38
+402,student_116,prob_157,Two Pointer Technique,Medium,0.5,0,TIME_LIMIT_EXCEEDED,43519,0,17,0.469
+403,student_116,prob_256,Sliding Window,Medium,0.5,1,NONE,45239,0,18,0.611
+404,student_116,prob_271,Sorting Algorithms,Medium,0.5,0,NULL_POINTER_EXCEPTION,29783,0,19,0.498
+405,student_116,prob_121,Prefix Sum & Cumulative,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,29239,0,20,0.386
+406,student_116,prob_129,Recursion & Backtracking,Medium,0.5,0,OFF_BY_ONE_ERROR,32848,0,21,0.431
+407,student_117,prob_134,Recursion & Backtracking,Medium,0.5,1,NONE,9607,0,1,0.325
+408,student_117,prob_179,Recursion & Backtracking,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,19048,0,2,0.406
+409,student_117,prob_112,Array Basics,Medium,0.5,0,LOGIC_EDGE_CASE,53633,1,3,0.302
+410,student_117,prob_116,Strings & Char Arrays,Easy,0.25,1,NONE,46970,0,4,0.38
+411,student_117,prob_265,Two Pointer Technique,Hard,0.75,0,TIME_LIMIT_EXCEEDED,44242,1,5,0.287
+412,student_117,prob_197,Strings & Char Arrays,Medium,0.5,0,NULL_POINTER_EXCEPTION,44149,0,6,0.454
+413,student_117,prob_131,Strings & Char Arrays,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,30965,2,7,0.476
+414,student_117,prob_158,Sliding Window,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,84177,0,8,0.428
+415,student_117,prob_240,Array Basics,Medium,0.5,0,NULL_POINTER_EXCEPTION,50665,0,9,0.33
+416,student_117,prob_140,Strings & Char Arrays,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,35695,0,10,0.497
+417,student_117,prob_208,Binary Search,Easy,0.25,0,OFF_BY_ONE_ERROR,15764,3,11,0.435
+418,student_117,prob_126,Stack & Queue Fundamentals,Medium,0.5,0,OFF_BY_ONE_ERROR,17953,1,12,0.37
+419,student_117,prob_113,Stack & Queue Fundamentals,Easy,0.25,1,NONE,29672,0,13,0.395
+420,student_117,prob_160,Prefix Sum & Cumulative,Medium,0.5,1,NONE,28154,0,14,0.361
+421,student_117,prob_160,Recursion & Backtracking,Easy,0.25,0,OFF_BY_ONE_ERROR,10163,2,15,0.429
+422,student_117,prob_273,Stack & Queue Fundamentals,Easy,0.25,1,NONE,19471,0,16,0.468
+423,student_117,prob_206,Sorting Algorithms,Easy,0.25,0,LOGIC_EDGE_CASE,14252,0,17,0.297
+424,student_117,prob_252,Binary Search,Easy,0.25,1,NONE,47476,0,18,0.458
+425,student_117,prob_227,Sliding Window,Medium,0.5,1,NONE,47810,0,19,0.45
+426,student_117,prob_182,Array Basics,Hard,0.75,0,LOGIC_EDGE_CASE,47135,3,20,0.357
+427,student_118,prob_153,Strings & Char Arrays,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,61805,2,1,0.509
+428,student_118,prob_149,Sorting Algorithms,Medium,0.5,0,TIME_LIMIT_EXCEEDED,34974,3,2,0.635
+429,student_118,prob_255,Array Basics,Easy,0.25,1,NONE,13710,0,3,0.599
+430,student_118,prob_251,Array Basics,Hard,0.75,1,NONE,62323,0,4,0.647
+431,student_118,prob_186,Recursion & Backtracking,Easy,0.25,1,NONE,30512,0,5,0.588
+432,student_118,prob_149,Binary Search,Hard,0.75,1,NONE,31598,0,6,0.632
+433,student_118,prob_153,Two Pointer Technique,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,31761,0,7,0.62
+434,student_118,prob_267,Strings & Char Arrays,Hard,0.75,0,TIME_LIMIT_EXCEEDED,33538,3,8,0.528
+435,student_118,prob_228,Sorting Algorithms,Easy,0.25,1,NONE,8000,0,9,0.65
+436,student_118,prob_182,2D Arrays & Matrices,Easy,0.25,0,NULL_POINTER_EXCEPTION,35159,0,10,0.651
+437,student_118,prob_245,Prefix Sum & Cumulative,Medium,0.5,1,NONE,56958,0,11,0.573
+438,student_118,prob_242,Prefix Sum & Cumulative,Medium,0.5,1,NONE,17262,0,12,0.624
+439,student_118,prob_140,Stack & Queue Fundamentals,Medium,0.5,1,NONE,40801,0,13,0.669
+440,student_118,prob_163,Prefix Sum & Cumulative,Easy,0.25,1,NONE,16238,0,14,0.669
+441,student_118,prob_265,2D Arrays & Matrices,Medium,0.5,0,TIME_LIMIT_EXCEEDED,28200,2,15,0.665
+442,student_118,prob_240,2D Arrays & Matrices,Medium,0.5,0,TIME_LIMIT_EXCEEDED,26937,3,16,0.679
+443,student_118,prob_235,2D Arrays & Matrices,Easy,0.25,0,LOGIC_EDGE_CASE,13677,0,17,0.692
+444,student_118,prob_272,Array Basics,Hard,0.75,1,NONE,44628,0,18,0.689
+445,student_118,prob_262,Array Basics,Medium,0.5,1,NONE,24074,0,19,0.726
+446,student_118,prob_156,Prefix Sum & Cumulative,Easy,0.25,1,NONE,27291,0,20,0.709
+447,student_118,prob_264,Recursion & Backtracking,Medium,0.5,1,NONE,33442,0,21,0.637
+448,student_118,prob_206,Stack & Queue Fundamentals,Hard,0.75,0,OFF_BY_ONE_ERROR,41178,3,22,0.709
+449,student_118,prob_238,Array Basics,Easy,0.25,1,NONE,13155,0,23,0.759
+450,student_118,prob_128,Binary Search,Easy,0.25,0,LOGIC_EDGE_CASE,17124,1,24,0.676
+451,student_118,prob_259,Two Pointer Technique,Medium,0.5,1,NONE,43110,0,25,0.635
+452,student_118,prob_202,Recursion & Backtracking,Easy,0.25,1,NONE,30056,0,26,0.681
+453,student_119,prob_222,Two Pointer Technique,Medium,0.5,1,NONE,25248,0,1,0.404
+454,student_119,prob_212,Array Basics,Medium,0.5,0,OFF_BY_ONE_ERROR,38171,0,2,0.41
+455,student_119,prob_111,Sorting Algorithms,Medium,0.5,0,OFF_BY_ONE_ERROR,45995,0,3,0.348
+456,student_119,prob_112,Prefix Sum & Cumulative,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,8000,0,4,0.287
+457,student_119,prob_240,Two Pointer Technique,Medium,0.5,1,NONE,43499,0,5,0.475
+458,student_119,prob_181,Stack & Queue Fundamentals,Medium,0.5,1,NONE,29027,0,6,0.333
+459,student_119,prob_120,Array Basics,Hard,0.75,0,LOGIC_EDGE_CASE,53826,0,7,0.434
+460,student_119,prob_200,Binary Search,Easy,0.25,1,NONE,17820,0,8,0.44
+461,student_119,prob_277,Recursion & Backtracking,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,8000,0,9,0.313
+462,student_119,prob_120,Two Pointer Technique,Medium,0.5,0,OFF_BY_ONE_ERROR,17448,1,10,0.538
+463,student_119,prob_108,Sorting Algorithms,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,37556,2,11,0.374
+464,student_119,prob_159,Binary Search,Medium,0.5,1,NONE,40095,0,12,0.507
+465,student_119,prob_148,Sorting Algorithms,Medium,0.5,1,NONE,26127,0,13,0.399
+466,student_119,prob_259,Stack & Queue Fundamentals,Medium,0.5,1,NONE,44642,0,14,0.413
+467,student_119,prob_263,Binary Search,Medium,0.5,0,OFF_BY_ONE_ERROR,17041,2,15,0.566
+468,student_119,prob_128,Sliding Window,Medium,0.5,1,NONE,36186,0,16,0.372
+469,student_119,prob_193,Two Pointer Technique,Easy,0.25,1,NONE,12447,0,17,0.557
+470,student_119,prob_211,Binary Search,Easy,0.25,1,NONE,19157,0,18,0.583
+471,student_119,prob_242,2D Arrays & Matrices,Medium,0.5,0,OFF_BY_ONE_ERROR,37548,2,19,0.354
+472,student_119,prob_200,Two Pointer Technique,Medium,0.5,0,NULL_POINTER_EXCEPTION,26654,2,20,0.61
+473,student_119,prob_163,Two Pointer Technique,Medium,0.5,1,NONE,32364,0,21,0.625
+474,student_120,prob_261,Sorting Algorithms,Easy,0.25,1,NONE,40265,0,1,0.375
+475,student_120,prob_128,2D Arrays & Matrices,Medium,0.5,1,NONE,31266,0,2,0.349
+476,student_120,prob_198,Sliding Window,Easy,0.25,0,TIME_LIMIT_EXCEEDED,38217,0,3,0.37
+477,student_120,prob_267,Sorting Algorithms,Medium,0.5,1,NONE,24633,0,4,0.45
+478,student_120,prob_278,Stack & Queue Fundamentals,Easy,0.25,1,NONE,34547,0,5,0.247
+479,student_120,prob_202,Prefix Sum & Cumulative,Medium,0.5,1,NONE,55488,0,6,0.35
+480,student_120,prob_226,Sorting Algorithms,Easy,0.25,1,NONE,8000,0,7,0.516
+481,student_120,prob_172,Stack & Queue Fundamentals,Medium,0.5,1,NONE,28626,0,8,0.338
+482,student_120,prob_240,Strings & Char Arrays,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,45114,0,9,0.371
+483,student_120,prob_154,Sliding Window,Medium,0.5,0,LOGIC_EDGE_CASE,35752,0,10,0.395
+484,student_120,prob_205,2D Arrays & Matrices,Medium,0.5,0,OFF_BY_ONE_ERROR,42643,0,11,0.427
+485,student_120,prob_165,2D Arrays & Matrices,Easy,0.25,1,NONE,20941,0,12,0.45
+486,student_120,prob_223,Sliding Window,Medium,0.5,0,OFF_BY_ONE_ERROR,39228,3,13,0.42
+487,student_120,prob_193,Stack & Queue Fundamentals,Medium,0.5,0,LOGIC_EDGE_CASE,36321,1,14,0.417
+488,student_120,prob_269,Recursion & Backtracking,Medium,0.5,0,OFF_BY_ONE_ERROR,52202,0,15,0.344
+489,student_120,prob_245,Sorting Algorithms,Easy,0.25,1,NONE,31242,0,16,0.574
+490,student_120,prob_211,Strings & Char Arrays,Hard,0.75,1,NONE,52240,0,17,0.396
+491,student_120,prob_231,Two Pointer Technique,Easy,0.25,1,NONE,23247,0,18,0.267
+492,student_120,prob_219,Recursion & Backtracking,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,32338,2,19,0.37
+493,student_120,prob_107,Stack & Queue Fundamentals,Medium,0.5,1,NONE,32998,0,20,0.441
+494,student_120,prob_122,2D Arrays & Matrices,Easy,0.25,1,NONE,32922,0,21,0.516
+495,student_120,prob_153,Two Pointer Technique,Hard,0.75,0,TIME_LIMIT_EXCEEDED,43137,2,22,0.355
+496,student_120,prob_213,Recursion & Backtracking,Medium,0.5,1,NONE,41666,0,23,0.396
+497,student_120,prob_130,2D Arrays & Matrices,Easy,0.25,1,NONE,53094,0,24,0.574
+498,student_120,prob_163,Array Basics,Hard,0.75,0,LOGIC_EDGE_CASE,58643,0,25,0.3
+499,student_120,prob_244,Recursion & Backtracking,Easy,0.25,1,NONE,24277,0,26,0.468
+500,student_120,prob_204,Strings & Char Arrays,Hard,0.75,1,NONE,62604,0,27,0.468
+501,student_120,prob_202,Sliding Window,Easy,0.25,1,NONE,23292,0,28,0.443
+502,student_120,prob_200,Array Basics,Medium,0.5,0,NULL_POINTER_EXCEPTION,13732,0,29,0.328
+503,student_121,prob_264,Binary Search,Medium,0.5,1,NONE,19185,0,1,0.85
+504,student_121,prob_251,Sorting Algorithms,Medium,0.5,1,NONE,8832,0,2,0.844
+505,student_121,prob_177,Two Pointer Technique,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,17064,3,3,0.823
+506,student_121,prob_181,Stack & Queue Fundamentals,Medium,0.5,1,NONE,31503,0,4,0.773
+507,student_121,prob_196,Two Pointer Technique,Easy,0.25,1,NONE,41399,0,5,0.83
+508,student_121,prob_136,Sliding Window,Medium,0.5,1,NONE,35205,0,6,0.714
+509,student_121,prob_263,Stack & Queue Fundamentals,Medium,0.5,1,NONE,28653,0,7,0.8
+510,student_121,prob_145,Recursion & Backtracking,Medium,0.5,1,NONE,41235,0,8,0.799
+511,student_121,prob_148,Recursion & Backtracking,Easy,0.25,1,NONE,8000,0,9,0.823
+512,student_121,prob_192,Sorting Algorithms,Hard,0.75,1,NONE,44109,0,10,0.863
+513,student_121,prob_199,Array Basics,Medium,0.5,1,NONE,40532,0,11,0.724
+514,student_121,prob_276,Recursion & Backtracking,Medium,0.5,1,NONE,13539,0,12,0.845
+515,student_121,prob_108,2D Arrays & Matrices,Medium,0.5,0,NULL_POINTER_EXCEPTION,45007,3,13,0.827
+516,student_121,prob_238,Prefix Sum & Cumulative,Easy,0.25,1,NONE,25344,0,14,0.703
+517,student_121,prob_227,Binary Search,Easy,0.25,1,NONE,16298,0,15,0.868
+518,student_121,prob_169,Recursion & Backtracking,Medium,0.5,1,NONE,38875,0,16,0.863
+519,student_121,prob_111,Recursion & Backtracking,Hard,0.75,1,NONE,68530,0,17,0.88
+520,student_121,prob_268,2D Arrays & Matrices,Medium,0.5,0,OFF_BY_ONE_ERROR,33464,0,18,0.834
+521,student_121,prob_213,Prefix Sum & Cumulative,Easy,0.25,0,NULL_POINTER_EXCEPTION,24261,1,19,0.738
+522,student_121,prob_251,Two Pointer Technique,Medium,0.5,1,NONE,25770,0,20,0.851
+523,student_122,prob_175,Sliding Window,Easy,0.25,1,NONE,15143,0,1,0.508
+524,student_122,prob_135,Stack & Queue Fundamentals,Easy,0.25,0,LOGIC_EDGE_CASE,35305,0,2,0.475
+525,student_122,prob_164,Strings & Char Arrays,Hard,0.75,0,LOGIC_EDGE_CASE,35068,1,3,0.433
+526,student_122,prob_248,Sliding Window,Medium,0.5,0,LOGIC_EDGE_CASE,36200,1,4,0.567
+527,student_122,prob_120,Binary Search,Medium,0.5,1,NONE,29609,0,5,0.437
+528,student_122,prob_195,Two Pointer Technique,Medium,0.5,0,LOGIC_EDGE_CASE,41089,0,6,0.472
+529,student_122,prob_101,2D Arrays & Matrices,Hard,0.75,1,NONE,49345,0,7,0.48
+530,student_122,prob_271,Two Pointer Technique,Medium,0.5,1,NONE,47792,0,8,0.493
+531,student_122,prob_155,Sorting Algorithms,Hard,0.75,0,NULL_POINTER_EXCEPTION,39221,2,9,0.431
+532,student_122,prob_134,2D Arrays & Matrices,Easy,0.25,0,TIME_LIMIT_EXCEEDED,22103,0,10,0.542
+533,student_122,prob_112,Stack & Queue Fundamentals,Hard,0.75,0,LOGIC_EDGE_CASE,33596,0,11,0.496
+534,student_122,prob_213,Two Pointer Technique,Medium,0.5,0,OFF_BY_ONE_ERROR,30010,1,12,0.554
+535,student_122,prob_134,2D Arrays & Matrices,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,29869,0,13,0.561
+536,student_122,prob_165,Binary Search,Easy,0.25,0,TIME_LIMIT_EXCEEDED,34425,2,14,0.504
+537,student_122,prob_179,Two Pointer Technique,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,24275,3,15,0.572
+538,student_122,prob_125,Prefix Sum & Cumulative,Medium,0.5,1,NONE,45777,0,16,0.471
+539,student_122,prob_252,Array Basics,Easy,0.25,1,NONE,41609,0,17,0.422
+540,student_122,prob_103,Prefix Sum & Cumulative,Medium,0.5,1,NONE,40303,0,18,0.534
+541,student_122,prob_223,Sorting Algorithms,Hard,0.75,0,NULL_POINTER_EXCEPTION,67863,0,19,0.454
+542,student_122,prob_127,Two Pointer Technique,Easy,0.25,1,NONE,16056,0,20,0.589
+543,student_122,prob_265,Two Pointer Technique,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,10406,1,21,0.638
+544,student_122,prob_257,Sliding Window,Easy,0.25,1,NONE,8000,0,22,0.585
+545,student_122,prob_206,Sliding Window,Medium,0.5,0,LOGIC_EDGE_CASE,53294,0,23,0.634
+546,student_122,prob_136,Stack & Queue Fundamentals,Medium,0.5,0,OFF_BY_ONE_ERROR,43194,0,24,0.516
+547,student_122,prob_210,Two Pointer Technique,Medium,0.5,1,NONE,34674,0,25,0.653
+548,student_123,prob_149,Binary Search,Easy,0.25,1,NONE,27997,0,1,0.521
+549,student_123,prob_162,Strings & Char Arrays,Easy,0.25,1,NONE,11132,0,2,0.584
+550,student_123,prob_264,2D Arrays & Matrices,Medium,0.5,1,NONE,63986,0,3,0.453
+551,student_123,prob_182,Stack & Queue Fundamentals,Easy,0.25,0,OFF_BY_ONE_ERROR,26188,0,4,0.471
+552,student_123,prob_145,Sliding Window,Medium,0.5,0,NULL_POINTER_EXCEPTION,35950,3,5,0.512
+553,student_123,prob_104,2D Arrays & Matrices,Hard,0.75,0,OFF_BY_ONE_ERROR,53347,0,6,0.518
+554,student_123,prob_261,Binary Search,Easy,0.25,0,NULL_POINTER_EXCEPTION,30410,0,7,0.578
+555,student_123,prob_203,Recursion & Backtracking,Medium,0.5,1,NONE,37324,0,8,0.635
+556,student_123,prob_140,Two Pointer Technique,Medium,0.5,1,NONE,25152,0,9,0.591
+557,student_123,prob_153,Binary Search,Easy,0.25,1,NONE,30295,0,10,0.595
+558,student_123,prob_263,Sliding Window,Medium,0.5,1,NONE,57222,0,11,0.531
+559,student_123,prob_162,Two Pointer Technique,Easy,0.25,1,NONE,40782,0,12,0.64
+560,student_123,prob_256,Array Basics,Easy,0.25,0,OFF_BY_ONE_ERROR,43756,0,13,0.483
+561,student_123,prob_136,Array Basics,Easy,0.25,0,LOGIC_EDGE_CASE,18503,1,14,0.503
+562,student_123,prob_167,Array Basics,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,12762,0,15,0.523
+563,student_123,prob_131,Sliding Window,Medium,0.5,0,TIME_LIMIT_EXCEEDED,33128,0,16,0.588
+564,student_123,prob_235,Array Basics,Easy,0.25,1,NONE,25306,0,17,0.542
+565,student_123,prob_231,Two Pointer Technique,Easy,0.25,0,LOGIC_EDGE_CASE,37768,2,18,0.683
+566,student_123,prob_127,Sorting Algorithms,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,8000,2,19,0.497
+567,student_123,prob_231,Stack & Queue Fundamentals,Medium,0.5,1,NONE,52992,0,20,0.493
+568,student_123,prob_199,Array Basics,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,22741,2,21,0.597
+569,student_123,prob_268,Sliding Window,Easy,0.25,0,OFF_BY_ONE_ERROR,19515,0,22,0.604
+570,student_123,prob_182,Strings & Char Arrays,Easy,0.25,1,NONE,12492,0,23,0.634
+571,student_123,prob_114,Binary Search,Hard,0.75,0,OFF_BY_ONE_ERROR,24779,0,24,0.644
+572,student_123,prob_112,Sliding Window,Easy,0.25,1,NONE,34515,0,25,0.62
+573,student_124,prob_227,Stack & Queue Fundamentals,Easy,0.25,1,NONE,29099,0,1,0.341
+574,student_124,prob_107,Prefix Sum & Cumulative,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,22739,2,2,0.233
+575,student_124,prob_186,Prefix Sum & Cumulative,Medium,0.5,0,LOGIC_EDGE_CASE,22678,0,3,0.264
+576,student_124,prob_179,Array Basics,Medium,0.5,1,NONE,34189,0,4,0.388
+577,student_124,prob_116,Two Pointer Technique,Easy,0.25,0,NULL_POINTER_EXCEPTION,48247,0,5,0.309
+578,student_124,prob_160,Sliding Window,Medium,0.5,1,NONE,35104,0,6,0.346
+579,student_124,prob_122,Recursion & Backtracking,Medium,0.5,0,NULL_POINTER_EXCEPTION,20181,0,7,0.289
+580,student_124,prob_201,Stack & Queue Fundamentals,Easy,0.25,1,NONE,25270,0,8,0.42
+581,student_124,prob_270,Two Pointer Technique,Medium,0.5,1,NONE,34946,0,9,0.337
+582,student_124,prob_181,Sliding Window,Easy,0.25,1,NONE,8000,0,10,0.424
+583,student_124,prob_160,Strings & Char Arrays,Medium,0.5,0,TIME_LIMIT_EXCEEDED,37567,0,11,0.4
+584,student_124,prob_250,Two Pointer Technique,Hard,0.75,1,NONE,45448,0,12,0.416
+585,student_124,prob_220,Two Pointer Technique,Easy,0.25,1,NONE,36573,0,13,0.486
+586,student_124,prob_219,Sorting Algorithms,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,60406,0,14,0.291
+587,student_124,prob_276,Binary Search,Hard,0.75,1,NONE,61738,0,15,0.337
+588,student_124,prob_138,Binary Search,Hard,0.75,0,OFF_BY_ONE_ERROR,44992,2,16,0.416
+589,student_124,prob_274,Two Pointer Technique,Medium,0.5,0,NULL_POINTER_EXCEPTION,24941,0,17,0.548
+590,student_124,prob_216,Binary Search,Easy,0.25,0,OFF_BY_ONE_ERROR,59099,0,18,0.44
+591,student_124,prob_219,Recursion & Backtracking,Medium,0.5,1,NONE,38930,0,19,0.318
+592,student_124,prob_104,Two Pointer Technique,Hard,0.75,1,NONE,48386,0,20,0.566
+593,student_124,prob_196,Array Basics,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,47929,2,21,0.462
+594,student_124,prob_120,Two Pointer Technique,Medium,0.5,1,NONE,40596,0,22,0.618
+595,student_124,prob_266,Array Basics,Hard,0.75,1,NONE,46487,0,23,0.483
+596,student_124,prob_185,2D Arrays & Matrices,Hard,0.75,1,NONE,41335,0,24,0.362
+597,student_124,prob_144,Two Pointer Technique,Easy,0.25,1,NONE,21657,0,25,0.664
+598,student_124,prob_210,Stack & Queue Fundamentals,Medium,0.5,0,NULL_POINTER_EXCEPTION,37826,3,26,0.49
+599,student_125,prob_136,2D Arrays & Matrices,Easy,0.25,1,NONE,19585,0,1,0.413
+600,student_125,prob_105,Strings & Char Arrays,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,17552,3,2,0.42
+601,student_125,prob_240,Strings & Char Arrays,Medium,0.5,1,NONE,37383,0,3,0.443
+602,student_125,prob_183,2D Arrays & Matrices,Easy,0.25,1,NONE,23046,0,4,0.484
+603,student_125,prob_253,Strings & Char Arrays,Easy,0.25,1,NONE,44154,0,5,0.51
+604,student_125,prob_236,Prefix Sum & Cumulative,Easy,0.25,0,TIME_LIMIT_EXCEEDED,8000,2,6,0.454
+605,student_125,prob_162,Sorting Algorithms,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,49204,3,7,0.42
+606,student_125,prob_248,Binary Search,Medium,0.5,0,LOGIC_EDGE_CASE,51059,1,8,0.513
+607,student_125,prob_182,Strings & Char Arrays,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,11225,3,9,0.568
+608,student_125,prob_280,Sorting Algorithms,Hard,0.75,1,NONE,41994,0,10,0.443
+609,student_125,prob_227,Sorting Algorithms,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,41649,0,11,0.51
+610,student_125,prob_124,Recursion & Backtracking,Easy,0.25,1,NONE,9216,0,12,0.443
+611,student_125,prob_235,Array Basics,Easy,0.25,1,NONE,16772,0,13,0.472
+612,student_125,prob_188,2D Arrays & Matrices,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,12779,0,14,0.546
+613,student_125,prob_251,Sliding Window,Hard,0.75,0,TIME_LIMIT_EXCEEDED,67133,1,15,0.488
+614,student_125,prob_196,Sliding Window,Medium,0.5,0,TIME_LIMIT_EXCEEDED,47334,0,16,0.508
+615,student_125,prob_183,Strings & Char Arrays,Medium,0.5,1,NONE,51365,0,17,0.586
+616,student_125,prob_225,Sliding Window,Hard,0.75,0,NULL_POINTER_EXCEPTION,54766,0,18,0.528
+617,student_125,prob_258,Sorting Algorithms,Easy,0.25,0,LOGIC_EDGE_CASE,12557,0,19,0.53
+618,student_125,prob_145,Sorting Algorithms,Easy,0.25,1,NONE,19812,0,20,0.548
+619,student_125,prob_133,Strings & Char Arrays,Easy,0.25,1,NONE,31979,0,21,0.635
+620,student_125,prob_109,Sliding Window,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,21440,3,22,0.547
+621,student_126,prob_186,Sliding Window,Medium,0.5,0,LOGIC_EDGE_CASE,43089,0,1,0.454
+622,student_126,prob_278,2D Arrays & Matrices,Easy,0.25,1,NONE,21649,0,2,0.499
+623,student_126,prob_213,Two Pointer Technique,Medium,0.5,0,LOGIC_EDGE_CASE,30035,2,3,0.464
+624,student_126,prob_190,Strings & Char Arrays,Hard,0.75,0,NULL_POINTER_EXCEPTION,53065,0,4,0.62
+625,student_126,prob_276,Recursion & Backtracking,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,39864,0,5,0.6
+626,student_126,prob_109,Prefix Sum & Cumulative,Easy,0.25,1,NONE,20202,0,6,0.604
+627,student_126,prob_127,Binary Search,Easy,0.25,1,NONE,38445,0,7,0.535
+628,student_126,prob_241,Two Pointer Technique,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,11561,0,8,0.485
+629,student_126,prob_211,Two Pointer Technique,Easy,0.25,0,NULL_POINTER_EXCEPTION,31925,0,9,0.506
+630,student_126,prob_114,Sliding Window,Medium,0.5,1,NONE,41651,0,10,0.476
+631,student_126,prob_239,Two Pointer Technique,Easy,0.25,0,NULL_POINTER_EXCEPTION,20819,0,11,0.525
+632,student_126,prob_125,Binary Search,Medium,0.5,1,NONE,38447,0,12,0.59
+633,student_126,prob_226,Array Basics,Medium,0.5,1,NONE,19520,0,13,0.527
+634,student_126,prob_123,Sliding Window,Easy,0.25,1,NONE,35622,0,14,0.539
+635,student_126,prob_153,Binary Search,Hard,0.75,0,NULL_POINTER_EXCEPTION,42314,1,15,0.64
+636,student_126,prob_179,Sliding Window,Medium,0.5,0,NULL_POINTER_EXCEPTION,28261,0,16,0.594
+637,student_126,prob_200,Strings & Char Arrays,Medium,0.5,0,TIME_LIMIT_EXCEEDED,47121,3,17,0.635
+638,student_126,prob_148,Sliding Window,Medium,0.5,1,NONE,26081,0,18,0.61
+639,student_126,prob_168,2D Arrays & Matrices,Easy,0.25,1,NONE,8000,0,19,0.559
+640,student_126,prob_271,Prefix Sum & Cumulative,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,25854,0,20,0.651
+641,student_126,prob_239,Two Pointer Technique,Easy,0.25,1,NONE,31805,0,21,0.544
+642,student_126,prob_234,Strings & Char Arrays,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,29168,2,22,0.649
+643,student_127,prob_145,Recursion & Backtracking,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,68619,2,1,0.439
+644,student_127,prob_275,Sliding Window,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,22579,1,2,0.259
+645,student_127,prob_167,Strings & Char Arrays,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,47919,0,3,0.367
+646,student_127,prob_202,Sorting Algorithms,Hard,0.75,0,OFF_BY_ONE_ERROR,50094,3,4,0.386
+647,student_127,prob_218,Recursion & Backtracking,Easy,0.25,1,NONE,26401,0,5,0.461
+648,student_127,prob_129,Array Basics,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,31023,0,6,0.253
+649,student_127,prob_250,Strings & Char Arrays,Easy,0.25,1,NONE,32352,0,7,0.392
+650,student_127,prob_238,Two Pointer Technique,Hard,0.75,0,OFF_BY_ONE_ERROR,47110,0,8,0.308
+651,student_127,prob_268,Sorting Algorithms,Hard,0.75,1,NONE,60802,0,9,0.411
+652,student_127,prob_259,2D Arrays & Matrices,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,38933,1,10,0.275
+653,student_127,prob_202,Stack & Queue Fundamentals,Medium,0.5,1,NONE,39366,0,11,0.332
+654,student_127,prob_222,Sorting Algorithms,Medium,0.5,1,NONE,33199,0,12,0.481
+655,student_127,prob_178,Binary Search,Hard,0.75,1,NONE,46879,0,13,0.399
+656,student_127,prob_279,Binary Search,Easy,0.25,1,NONE,31256,0,14,0.471
+657,student_127,prob_177,Two Pointer Technique,Hard,0.75,1,NONE,27040,0,15,0.336
+658,student_127,prob_207,2D Arrays & Matrices,Medium,0.5,1,NONE,21384,0,16,0.304
+659,student_127,prob_155,Stack & Queue Fundamentals,Medium,0.5,1,NONE,46481,0,17,0.412
+660,student_127,prob_232,Strings & Char Arrays,Medium,0.5,0,TIME_LIMIT_EXCEEDED,39612,0,18,0.465
+661,student_127,prob_246,Sliding Window,Easy,0.25,0,NULL_POINTER_EXCEPTION,25354,3,19,0.288
+662,student_127,prob_164,Array Basics,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,27783,0,20,0.283
+663,student_127,prob_219,Array Basics,Medium,0.5,0,LOGIC_EDGE_CASE,41733,2,21,0.311
+664,student_127,prob_226,Recursion & Backtracking,Medium,0.5,0,LOGIC_EDGE_CASE,31085,2,22,0.526
+665,student_127,prob_190,Stack & Queue Fundamentals,Medium,0.5,0,NULL_POINTER_EXCEPTION,28222,0,23,0.482
+666,student_127,prob_124,Sorting Algorithms,Easy,0.25,0,LOGIC_EDGE_CASE,29912,0,24,0.544
+667,student_127,prob_247,Binary Search,Easy,0.25,1,NONE,15821,0,25,0.534
+668,student_127,prob_205,Prefix Sum & Cumulative,Hard,0.75,0,LOGIC_EDGE_CASE,52461,3,26,0.331
+669,student_128,prob_190,Binary Search,Medium,0.5,0,TIME_LIMIT_EXCEEDED,13467,2,1,0.508
+670,student_128,prob_274,2D Arrays & Matrices,Easy,0.25,1,NONE,36248,0,2,0.688
+671,student_128,prob_127,Recursion & Backtracking,Hard,0.75,1,NONE,49569,0,3,0.64
+672,student_128,prob_196,Array Basics,Medium,0.5,1,NONE,36970,0,4,0.686
+673,student_128,prob_177,Recursion & Backtracking,Medium,0.5,1,NONE,45690,0,5,0.683
+674,student_128,prob_171,Two Pointer Technique,Medium,0.5,1,NONE,53884,0,6,0.534
+675,student_128,prob_267,Sorting Algorithms,Hard,0.75,1,NONE,56070,0,7,0.561
+676,student_128,prob_162,Binary Search,Easy,0.25,1,NONE,8000,0,8,0.527
+677,student_128,prob_275,Array Basics,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,28543,2,9,0.724
+678,student_128,prob_204,Sliding Window,Medium,0.5,0,TIME_LIMIT_EXCEEDED,26400,2,10,0.537
+679,student_128,prob_247,Strings & Char Arrays,Medium,0.5,1,NONE,34211,0,11,0.57
+680,student_128,prob_276,Prefix Sum & Cumulative,Easy,0.25,1,NONE,30110,0,12,0.688
+681,student_128,prob_272,Recursion & Backtracking,Medium,0.5,1,NONE,25189,0,13,0.721
+682,student_128,prob_147,Sorting Algorithms,Medium,0.5,0,LOGIC_EDGE_CASE,36139,0,14,0.613
+683,student_128,prob_167,Binary Search,Easy,0.25,1,NONE,14833,0,15,0.584
+684,student_128,prob_275,Recursion & Backtracking,Medium,0.5,1,NONE,26560,0,16,0.754
+685,student_128,prob_158,Sorting Algorithms,Medium,0.5,1,NONE,17018,0,17,0.629
+686,student_128,prob_219,Binary Search,Medium,0.5,0,TIME_LIMIT_EXCEEDED,22819,2,18,0.634
+687,student_128,prob_259,Two Pointer Technique,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,17678,0,19,0.59
+688,student_128,prob_131,Two Pointer Technique,Medium,0.5,1,NONE,22187,0,20,0.606
+689,student_128,prob_139,Strings & Char Arrays,Medium,0.5,1,NONE,46542,0,21,0.621
+690,student_128,prob_246,Sliding Window,Hard,0.75,1,NONE,32505,0,22,0.555
+691,student_128,prob_225,2D Arrays & Matrices,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,55486,0,23,0.726
+692,student_128,prob_263,Sorting Algorithms,Medium,0.5,1,NONE,39818,0,24,0.673
+693,student_128,prob_144,Array Basics,Easy,0.25,1,NONE,26116,0,25,0.735
+694,student_128,prob_123,Stack & Queue Fundamentals,Medium,0.5,1,NONE,23598,0,26,0.529
+695,student_128,prob_199,Sliding Window,Medium,0.5,0,NULL_POINTER_EXCEPTION,42302,2,27,0.609
+696,student_128,prob_196,Array Basics,Easy,0.25,1,NONE,16990,0,28,0.767
+697,student_129,prob_112,Recursion & Backtracking,Medium,0.5,1,NONE,37705,0,1,0.471
+698,student_129,prob_187,Binary Search,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,76962,0,2,0.533
+699,student_129,prob_226,Strings & Char Arrays,Hard,0.75,0,TIME_LIMIT_EXCEEDED,45088,0,3,0.489
+700,student_129,prob_204,Sorting Algorithms,Medium,0.5,1,NONE,50032,0,4,0.387
+701,student_129,prob_251,Array Basics,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,17803,1,5,0.355
+702,student_129,prob_267,Recursion & Backtracking,Easy,0.25,1,NONE,25821,0,6,0.535
+703,student_129,prob_253,Array Basics,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,57491,0,7,0.381
+704,student_129,prob_207,Array Basics,Medium,0.5,0,OFF_BY_ONE_ERROR,28717,1,8,0.406
+705,student_129,prob_153,2D Arrays & Matrices,Medium,0.5,0,NULL_POINTER_EXCEPTION,57990,0,9,0.359
+706,student_129,prob_270,Array Basics,Easy,0.25,1,NONE,34734,0,10,0.43
+707,student_129,prob_136,Recursion & Backtracking,Easy,0.25,1,NONE,19491,0,11,0.591
+708,student_129,prob_259,Strings & Char Arrays,Hard,0.75,1,NONE,53830,0,12,0.509
+709,student_129,prob_168,Two Pointer Technique,Easy,0.25,0,NULL_POINTER_EXCEPTION,37912,1,13,0.383
+710,student_129,prob_205,Recursion & Backtracking,Hard,0.75,1,NONE,53703,0,14,0.64
+711,student_129,prob_154,Binary Search,Easy,0.25,1,NONE,8000,0,15,0.552
+712,student_129,prob_272,2D Arrays & Matrices,Easy,0.25,1,NONE,17515,0,16,0.384
+713,student_129,prob_124,Two Pointer Technique,Hard,0.75,0,LOGIC_EDGE_CASE,43271,0,17,0.407
+714,student_129,prob_166,Recursion & Backtracking,Easy,0.25,1,NONE,25348,0,18,0.683
+715,student_129,prob_126,Prefix Sum & Cumulative,Medium,0.5,0,TIME_LIMIT_EXCEEDED,43689,0,19,0.53
+716,student_129,prob_181,Sliding Window,Hard,0.75,0,TIME_LIMIT_EXCEEDED,48373,0,20,0.428
+717,student_130,prob_130,Two Pointer Technique,Medium,0.5,1,NONE,19475,0,1,0.564
+718,student_130,prob_199,Strings & Char Arrays,Medium,0.5,1,NONE,40062,0,2,0.549
+719,student_130,prob_116,2D Arrays & Matrices,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,42827,3,3,0.512
+720,student_130,prob_274,Sliding Window,Easy,0.25,0,NULL_POINTER_EXCEPTION,32217,0,4,0.432
+721,student_130,prob_192,2D Arrays & Matrices,Easy,0.25,1,NONE,38469,0,5,0.531
+722,student_130,prob_134,Stack & Queue Fundamentals,Easy,0.25,0,LOGIC_EDGE_CASE,35507,0,6,0.459
+723,student_130,prob_206,2D Arrays & Matrices,Hard,0.75,1,NONE,51010,0,7,0.588
+724,student_130,prob_181,2D Arrays & Matrices,Easy,0.25,1,NONE,24658,0,8,0.637
+725,student_130,prob_245,Array Basics,Medium,0.5,0,LOGIC_EDGE_CASE,15568,0,9,0.436
+726,student_130,prob_277,Prefix Sum & Cumulative,Hard,0.75,0,TIME_LIMIT_EXCEEDED,50655,0,10,0.574
+727,student_130,prob_164,Stack & Queue Fundamentals,Easy,0.25,1,NONE,27992,0,11,0.481
+728,student_130,prob_199,2D Arrays & Matrices,Easy,0.25,1,NONE,28759,0,12,0.681
+729,student_130,prob_141,Sliding Window,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,30179,3,13,0.454
+730,student_130,prob_183,Recursion & Backtracking,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,32527,2,14,0.496
+731,student_130,prob_230,Prefix Sum & Cumulative,Easy,0.25,1,NONE,38137,0,15,0.591
+732,student_130,prob_161,Prefix Sum & Cumulative,Medium,0.5,1,NONE,35025,0,16,0.64
+733,student_130,prob_215,Two Pointer Technique,Medium,0.5,0,NULL_POINTER_EXCEPTION,43678,2,17,0.617
+734,student_130,prob_268,Sorting Algorithms,Easy,0.25,1,NONE,25839,0,18,0.451
+735,student_130,prob_243,Array Basics,Easy,0.25,1,NONE,25857,0,19,0.458
+736,student_130,prob_255,Recursion & Backtracking,Easy,0.25,1,NONE,36759,0,20,0.516
+737,student_130,prob_217,Stack & Queue Fundamentals,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,29307,3,21,0.543
+738,student_130,prob_158,Sorting Algorithms,Medium,0.5,1,NONE,36653,0,22,0.517
+739,student_130,prob_254,2D Arrays & Matrices,Easy,0.25,1,NONE,19952,0,23,0.719
+740,student_130,prob_216,2D Arrays & Matrices,Medium,0.5,1,NONE,30286,0,24,0.753
+741,student_130,prob_101,Two Pointer Technique,Easy,0.25,1,NONE,21789,0,25,0.632
+742,student_130,prob_196,Sorting Algorithms,Medium,0.5,0,TIME_LIMIT_EXCEEDED,38165,0,26,0.575
+743,student_131,prob_187,2D Arrays & Matrices,Hard,0.75,1,NONE,40499,0,1,0.496
+744,student_131,prob_263,Two Pointer Technique,Medium,0.5,1,NONE,51313,0,2,0.501
+745,student_131,prob_230,Stack & Queue Fundamentals,Easy,0.25,0,NULL_POINTER_EXCEPTION,15508,0,3,0.455
+746,student_131,prob_113,Sliding Window,Hard,0.75,1,NONE,44001,0,4,0.506
+747,student_131,prob_146,Recursion & Backtracking,Hard,0.75,0,NULL_POINTER_EXCEPTION,40967,0,5,0.348
+748,student_131,prob_256,Stack & Queue Fundamentals,Easy,0.25,0,OFF_BY_ONE_ERROR,43607,3,6,0.477
+749,student_131,prob_256,Sorting Algorithms,Medium,0.5,1,NONE,38602,0,7,0.512
+750,student_131,prob_135,Prefix Sum & Cumulative,Easy,0.25,0,TIME_LIMIT_EXCEEDED,38626,0,8,0.39
+751,student_131,prob_280,Sliding Window,Medium,0.5,0,LOGIC_EDGE_CASE,18417,0,9,0.565
+752,student_131,prob_152,Recursion & Backtracking,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,49448,0,10,0.374
+753,student_131,prob_189,Prefix Sum & Cumulative,Medium,0.5,1,NONE,46919,0,11,0.415
+754,student_131,prob_278,Sliding Window,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,47231,0,12,0.582
+755,student_131,prob_247,Sorting Algorithms,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,49029,0,13,0.571
+756,student_131,prob_104,Strings & Char Arrays,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,30036,2,14,0.412
+757,student_131,prob_114,Recursion & Backtracking,Easy,0.25,1,NONE,43156,0,15,0.399
+758,student_131,prob_275,Array Basics,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,53830,0,16,0.525
+759,student_131,prob_176,Binary Search,Easy,0.25,1,NONE,21890,0,17,0.389
+760,student_131,prob_216,Prefix Sum & Cumulative,Medium,0.5,1,NONE,30898,0,18,0.485
+761,student_131,prob_266,Two Pointer Technique,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,53684,0,19,0.561
+762,student_131,prob_279,Recursion & Backtracking,Medium,0.5,1,NONE,55198,0,20,0.471
+763,student_131,prob_198,Binary Search,Medium,0.5,1,NONE,29969,0,21,0.463
+764,student_132,prob_240,Prefix Sum & Cumulative,Hard,0.75,0,LOGIC_EDGE_CASE,35857,3,1,0.697
+765,student_132,prob_150,Stack & Queue Fundamentals,Easy,0.25,1,NONE,17518,0,2,0.801
+766,student_132,prob_232,Binary Search,Medium,0.5,0,OFF_BY_ONE_ERROR,14766,1,3,0.85
+767,student_132,prob_243,Two Pointer Technique,Medium,0.5,1,NONE,19876,0,4,0.732
+768,student_132,prob_166,Binary Search,Easy,0.25,1,NONE,8850,0,5,0.856
+769,student_132,prob_140,Array Basics,Easy,0.25,1,NONE,11686,0,6,0.807
+770,student_132,prob_114,Array Basics,Easy,0.25,1,NONE,20483,0,7,0.83
+771,student_132,prob_247,Stack & Queue Fundamentals,Hard,0.75,1,NONE,43710,0,8,0.825
+772,student_132,prob_148,Recursion & Backtracking,Medium,0.5,0,TIME_LIMIT_EXCEEDED,49506,0,9,0.718
+773,student_132,prob_207,Recursion & Backtracking,Easy,0.25,1,NONE,8919,0,10,0.729
+774,student_132,prob_157,Recursion & Backtracking,Medium,0.5,1,NONE,42711,0,11,0.762
+775,student_132,prob_176,Prefix Sum & Cumulative,Medium,0.5,1,NONE,28332,0,12,0.709
+776,student_132,prob_267,Prefix Sum & Cumulative,Hard,0.75,0,NULL_POINTER_EXCEPTION,40306,0,13,0.744
+777,student_132,prob_162,Array Basics,Easy,0.25,1,NONE,28997,0,14,0.85
+778,student_132,prob_111,Stack & Queue Fundamentals,Hard,0.75,1,NONE,27427,0,15,0.846
+779,student_132,prob_173,Sorting Algorithms,Medium,0.5,0,OFF_BY_ONE_ERROR,35488,3,16,0.741
+780,student_132,prob_231,Array Basics,Hard,0.75,0,TIME_LIMIT_EXCEEDED,42897,0,17,0.868
+781,student_132,prob_267,2D Arrays & Matrices,Medium,0.5,1,NONE,36809,0,18,0.716
+782,student_132,prob_125,Prefix Sum & Cumulative,Easy,0.25,1,NONE,24370,0,19,0.754
+783,student_132,prob_154,Sliding Window,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,70363,1,20,0.753
+784,student_132,prob_127,Prefix Sum & Cumulative,Hard,0.75,1,NONE,33247,0,21,0.784
+785,student_132,prob_212,Prefix Sum & Cumulative,Medium,0.5,1,NONE,24528,0,22,0.81
+786,student_132,prob_218,Two Pointer Technique,Medium,0.5,1,NONE,23422,0,23,0.764
+787,student_132,prob_146,Sorting Algorithms,Easy,0.25,1,NONE,14234,0,24,0.752
+788,student_132,prob_159,Binary Search,Medium,0.5,1,NONE,23251,0,25,0.873
+789,student_132,prob_204,Binary Search,Medium,0.5,1,NONE,45168,0,26,0.888
+790,student_133,prob_173,Recursion & Backtracking,Easy,0.25,0,TIME_LIMIT_EXCEEDED,41878,0,1,0.458
+791,student_133,prob_237,2D Arrays & Matrices,Medium,0.5,0,OFF_BY_ONE_ERROR,27983,0,2,0.619
+792,student_133,prob_240,Prefix Sum & Cumulative,Easy,0.25,1,NONE,14844,0,3,0.627
+793,student_133,prob_274,Binary Search,Hard,0.75,1,NONE,50489,0,4,0.484
+794,student_133,prob_243,Sorting Algorithms,Hard,0.75,1,NONE,38205,0,5,0.615
+795,student_133,prob_253,Sliding Window,Easy,0.25,1,NONE,32427,0,6,0.604
+796,student_133,prob_189,Strings & Char Arrays,Medium,0.5,0,TIME_LIMIT_EXCEEDED,37267,3,7,0.479
+797,student_133,prob_232,Prefix Sum & Cumulative,Medium,0.5,1,NONE,16643,0,8,0.671
+798,student_133,prob_165,Sliding Window,Easy,0.25,1,NONE,43402,0,9,0.652
+799,student_133,prob_246,Prefix Sum & Cumulative,Easy,0.25,1,NONE,46382,0,10,0.711
+800,student_133,prob_241,Array Basics,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,37478,0,11,0.565
+801,student_133,prob_126,Two Pointer Technique,Easy,0.25,1,NONE,20179,0,12,0.55
+802,student_133,prob_185,Prefix Sum & Cumulative,Medium,0.5,1,NONE,38262,0,13,0.746
+803,student_133,prob_126,Sorting Algorithms,Easy,0.25,1,NONE,28845,0,14,0.661
+804,student_133,prob_185,Binary Search,Medium,0.5,0,TIME_LIMIT_EXCEEDED,42734,0,15,0.546
+805,student_133,prob_194,Stack & Queue Fundamentals,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,58954,0,16,0.556
+806,student_133,prob_181,Sorting Algorithms,Hard,0.75,1,NONE,42709,0,17,0.702
+807,student_133,prob_265,Prefix Sum & Cumulative,Medium,0.5,1,NONE,25252,0,18,0.776
+808,student_133,prob_274,Strings & Char Arrays,Easy,0.25,1,NONE,8280,0,19,0.5
+809,student_133,prob_192,Sorting Algorithms,Hard,0.75,1,NONE,36061,0,20,0.738
+810,student_133,prob_266,Binary Search,Medium,0.5,1,NONE,34434,0,21,0.564
+811,student_133,prob_136,Stack & Queue Fundamentals,Easy,0.25,1,NONE,46367,0,22,0.574
+812,student_133,prob_105,Recursion & Backtracking,Easy,0.25,0,LOGIC_EDGE_CASE,18621,1,23,0.48
+813,student_133,prob_155,Recursion & Backtracking,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,37517,3,24,0.501
+814,student_133,prob_239,Array Basics,Medium,0.5,1,NONE,34635,0,25,0.582
+815,student_133,prob_201,2D Arrays & Matrices,Medium,0.5,1,NONE,49093,0,26,0.634
+816,student_134,prob_245,Stack & Queue Fundamentals,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,67661,1,1,0.268
+817,student_134,prob_192,Stack & Queue Fundamentals,Medium,0.5,0,LOGIC_EDGE_CASE,30968,0,2,0.297
+818,student_134,prob_117,Array Basics,Easy,0.25,1,NONE,21465,0,3,0.282
+819,student_134,prob_153,Binary Search,Medium,0.5,1,NONE,49868,0,4,0.361
+820,student_134,prob_112,Recursion & Backtracking,Hard,0.75,0,NULL_POINTER_EXCEPTION,55521,0,5,0.413
+821,student_134,prob_234,Array Basics,Hard,0.75,1,NONE,69498,0,6,0.369
+822,student_134,prob_240,Binary Search,Hard,0.75,1,NONE,54345,0,7,0.437
+823,student_134,prob_120,Stack & Queue Fundamentals,Easy,0.25,0,TIME_LIMIT_EXCEEDED,23027,0,8,0.325
+824,student_134,prob_191,Recursion & Backtracking,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,34426,0,9,0.436
+825,student_134,prob_255,Sorting Algorithms,Medium,0.5,1,NONE,50642,0,10,0.443
+826,student_134,prob_143,Array Basics,Medium,0.5,1,NONE,47184,0,11,0.444
+827,student_134,prob_155,Prefix Sum & Cumulative,Easy,0.25,1,NONE,33425,0,12,0.434
+828,student_134,prob_131,Sliding Window,Easy,0.25,1,NONE,40138,0,13,0.289
+829,student_134,prob_130,Prefix Sum & Cumulative,Medium,0.5,1,NONE,51370,0,14,0.502
+830,student_134,prob_252,2D Arrays & Matrices,Medium,0.5,1,NONE,53924,0,15,0.459
+831,student_134,prob_163,Sliding Window,Medium,0.5,1,NONE,45123,0,16,0.375
+832,student_134,prob_135,Array Basics,Easy,0.25,1,NONE,25333,0,17,0.511
+833,student_134,prob_115,Recursion & Backtracking,Easy,0.25,1,NONE,29099,0,18,0.459
+834,student_134,prob_204,Sliding Window,Easy,0.25,1,NONE,41816,0,19,0.45
+835,student_134,prob_173,Stack & Queue Fundamentals,Hard,0.75,0,LOGIC_EDGE_CASE,37535,0,20,0.352
+836,student_134,prob_221,Two Pointer Technique,Easy,0.25,1,NONE,31762,0,21,0.343
+837,student_134,prob_147,2D Arrays & Matrices,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,22618,3,22,0.524
+838,student_134,prob_276,Stack & Queue Fundamentals,Medium,0.5,1,NONE,37683,0,23,0.378
+839,student_135,prob_258,Stack & Queue Fundamentals,Easy,0.25,1,NONE,38167,0,1,0.596
+840,student_135,prob_124,Stack & Queue Fundamentals,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,25119,0,2,0.645
+841,student_135,prob_274,2D Arrays & Matrices,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,33383,0,3,0.58
+842,student_135,prob_112,Strings & Char Arrays,Medium,0.5,1,NONE,16507,0,4,0.657
+843,student_135,prob_198,Recursion & Backtracking,Medium,0.5,0,NULL_POINTER_EXCEPTION,41780,0,5,0.625
+844,student_135,prob_209,Sorting Algorithms,Medium,0.5,0,LOGIC_EDGE_CASE,40571,0,6,0.758
+845,student_135,prob_122,Sliding Window,Easy,0.25,1,NONE,48784,0,7,0.748
+846,student_135,prob_166,Binary Search,Medium,0.5,1,NONE,29132,0,8,0.735
+847,student_135,prob_102,Prefix Sum & Cumulative,Easy,0.25,1,NONE,25455,0,9,0.686
+848,student_135,prob_197,Stack & Queue Fundamentals,Medium,0.5,1,NONE,35818,0,10,0.659
+849,student_135,prob_193,Prefix Sum & Cumulative,Medium,0.5,1,NONE,51755,0,11,0.724
+850,student_135,prob_165,Two Pointer Technique,Easy,0.25,1,NONE,21682,0,12,0.642
+851,student_135,prob_194,Binary Search,Hard,0.75,1,NONE,46174,0,13,0.767
+852,student_135,prob_153,Stack & Queue Fundamentals,Easy,0.25,1,NONE,30120,0,14,0.7
+853,student_135,prob_146,Strings & Char Arrays,Medium,0.5,1,NONE,35065,0,15,0.698
+854,student_135,prob_179,Sorting Algorithms,Medium,0.5,1,NONE,27468,0,16,0.768
+855,student_135,prob_136,Stack & Queue Fundamentals,Easy,0.25,1,NONE,25154,0,17,0.736
+856,student_135,prob_280,Two Pointer Technique,Medium,0.5,1,NONE,45709,0,18,0.685
+857,student_135,prob_187,Sliding Window,Easy,0.25,1,NONE,10507,0,19,0.778
+858,student_135,prob_102,Recursion & Backtracking,Medium,0.5,0,OFF_BY_ONE_ERROR,34421,3,20,0.64
+859,student_135,prob_254,Two Pointer Technique,Hard,0.75,1,NONE,34424,0,21,0.723
+860,student_135,prob_195,Strings & Char Arrays,Easy,0.25,1,NONE,37166,0,22,0.734
+861,student_135,prob_234,Two Pointer Technique,Medium,0.5,0,NULL_POINTER_EXCEPTION,14547,0,23,0.756
+862,student_135,prob_145,Binary Search,Medium,0.5,1,NONE,26118,0,24,0.795
+863,student_135,prob_269,2D Arrays & Matrices,Medium,0.5,1,NONE,37352,0,25,0.597
+864,student_136,prob_202,Binary Search,Medium,0.5,1,NONE,56516,0,1,0.388
+865,student_136,prob_124,Strings & Char Arrays,Medium,0.5,0,LOGIC_EDGE_CASE,36941,0,2,0.427
+866,student_136,prob_158,Recursion & Backtracking,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,21067,2,3,0.435
+867,student_136,prob_167,Stack & Queue Fundamentals,Hard,0.75,0,NULL_POINTER_EXCEPTION,70303,0,4,0.403
+868,student_136,prob_119,Sliding Window,Medium,0.5,1,NONE,20353,0,5,0.315
+869,student_136,prob_238,Recursion & Backtracking,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,8000,0,6,0.457
+870,student_136,prob_197,Stack & Queue Fundamentals,Easy,0.25,1,NONE,33010,0,7,0.427
+871,student_136,prob_187,Stack & Queue Fundamentals,Medium,0.5,1,NONE,31705,0,8,0.496
+872,student_136,prob_167,2D Arrays & Matrices,Medium,0.5,0,OFF_BY_ONE_ERROR,25475,0,9,0.387
+873,student_136,prob_159,Two Pointer Technique,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,46230,0,10,0.428
+874,student_136,prob_238,Sorting Algorithms,Medium,0.5,1,NONE,40655,0,11,0.401
+875,student_136,prob_174,Array Basics,Medium,0.5,1,NONE,30961,0,12,0.377
+876,student_136,prob_222,Two Pointer Technique,Medium,0.5,0,TIME_LIMIT_EXCEEDED,22366,1,13,0.451
+877,student_136,prob_275,Sorting Algorithms,Medium,0.5,0,TIME_LIMIT_EXCEEDED,48199,3,14,0.473
+878,student_136,prob_162,Prefix Sum & Cumulative,Medium,0.5,1,NONE,45532,0,15,0.332
+879,student_136,prob_164,Binary Search,Easy,0.25,1,NONE,26539,0,16,0.462
+880,student_136,prob_274,Stack & Queue Fundamentals,Medium,0.5,0,OFF_BY_ONE_ERROR,59889,0,17,0.556
+881,student_136,prob_224,2D Arrays & Matrices,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,24889,0,18,0.411
+882,student_136,prob_248,Sorting Algorithms,Medium,0.5,1,NONE,19423,0,19,0.494
+883,student_136,prob_248,Binary Search,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,29427,1,20,0.526
+884,student_136,prob_109,Sliding Window,Easy,0.25,0,NULL_POINTER_EXCEPTION,27182,0,21,0.397
+885,student_136,prob_131,Recursion & Backtracking,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,30650,0,22,0.479
+886,student_136,prob_198,Recursion & Backtracking,Medium,0.5,0,OFF_BY_ONE_ERROR,34835,0,23,0.5
+887,student_136,prob_167,Stack & Queue Fundamentals,Easy,0.25,1,NONE,31954,0,24,0.574
+888,student_136,prob_221,Sliding Window,Medium,0.5,1,NONE,22711,0,25,0.421
+889,student_136,prob_209,Stack & Queue Fundamentals,Easy,0.25,1,NONE,45055,0,26,0.625
+890,student_136,prob_172,Prefix Sum & Cumulative,Medium,0.5,0,TIME_LIMIT_EXCEEDED,36744,0,27,0.412
+891,student_136,prob_248,2D Arrays & Matrices,Easy,0.25,1,NONE,41137,0,28,0.435
+892,student_137,prob_262,Sliding Window,Medium,0.5,1,NONE,38411,0,1,0.609
+893,student_137,prob_225,Recursion & Backtracking,Medium,0.5,1,NONE,39779,0,2,0.634
+894,student_137,prob_142,Binary Search,Easy,0.25,0,OFF_BY_ONE_ERROR,31135,3,3,0.577
+895,student_137,prob_262,Array Basics,Easy,0.25,1,NONE,29671,0,4,0.618
+896,student_137,prob_193,Two Pointer Technique,Medium,0.5,1,NONE,42011,0,5,0.643
+897,student_137,prob_132,Sorting Algorithms,Medium,0.5,0,TIME_LIMIT_EXCEEDED,50248,2,6,0.587
+898,student_137,prob_267,Sorting Algorithms,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,46656,0,7,0.604
+899,student_137,prob_191,Recursion & Backtracking,Easy,0.25,1,NONE,32806,0,8,0.677
+900,student_137,prob_215,Sorting Algorithms,Medium,0.5,1,NONE,33221,0,9,0.62
+901,student_137,prob_262,Two Pointer Technique,Medium,0.5,1,NONE,51580,0,10,0.686
+902,student_137,prob_247,Sliding Window,Hard,0.75,0,TIME_LIMIT_EXCEEDED,36182,3,11,0.656
+903,student_137,prob_142,Strings & Char Arrays,Hard,0.75,1,NONE,65910,0,12,0.634
+904,student_137,prob_175,Sorting Algorithms,Easy,0.25,1,NONE,23816,0,13,0.665
+905,student_137,prob_214,Binary Search,Medium,0.5,1,NONE,17129,0,14,0.594
+906,student_137,prob_216,Sorting Algorithms,Medium,0.5,1,NONE,35835,0,15,0.705
+907,student_137,prob_270,Strings & Char Arrays,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,16126,0,16,0.678
+908,student_137,prob_127,Binary Search,Hard,0.75,0,OFF_BY_ONE_ERROR,54386,2,17,0.643
+909,student_137,prob_235,Two Pointer Technique,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,16467,2,18,0.724
+910,student_137,prob_122,Two Pointer Technique,Easy,0.25,1,NONE,18944,0,19,0.735
+911,student_137,prob_173,Strings & Char Arrays,Easy,0.25,1,NONE,8000,0,20,0.691
+912,student_137,prob_144,2D Arrays & Matrices,Medium,0.5,1,NONE,28871,0,21,0.472
+913,student_137,prob_184,Array Basics,Easy,0.25,1,NONE,8000,0,22,0.664
+914,student_137,prob_135,2D Arrays & Matrices,Medium,0.5,0,TIME_LIMIT_EXCEEDED,15291,0,23,0.535
+915,student_137,prob_262,Recursion & Backtracking,Easy,0.25,1,NONE,33423,0,24,0.716
+916,student_137,prob_224,Stack & Queue Fundamentals,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,43728,2,25,0.502
+917,student_137,prob_179,Recursion & Backtracking,Easy,0.25,1,NONE,29404,0,26,0.75
+918,student_137,prob_103,Sorting Algorithms,Medium,0.5,1,NONE,22695,0,27,0.741
+919,student_137,prob_237,Array Basics,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,33726,2,28,0.704
+920,student_137,prob_223,Array Basics,Medium,0.5,1,NONE,34255,0,29,0.716
+921,student_137,prob_175,Binary Search,Easy,0.25,1,NONE,10398,0,30,0.657
+922,student_138,prob_257,Binary Search,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,47543,0,1,0.204
+923,student_138,prob_147,Binary Search,Easy,0.25,0,TIME_LIMIT_EXCEEDED,40031,1,2,0.236
+924,student_138,prob_280,Sliding Window,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,26851,0,3,0.242
+925,student_138,prob_139,Stack & Queue Fundamentals,Medium,0.5,1,NONE,39825,0,4,0.241
+926,student_138,prob_127,Array Basics,Hard,0.75,1,NONE,52003,0,5,0.27
+927,student_138,prob_139,Binary Search,Easy,0.25,0,LOGIC_EDGE_CASE,8000,1,6,0.267
+928,student_138,prob_180,Array Basics,Medium,0.5,1,NONE,36537,0,7,0.358
+929,student_138,prob_115,2D Arrays & Matrices,Hard,0.75,0,OFF_BY_ONE_ERROR,41319,1,8,0.169
+930,student_138,prob_221,Binary Search,Medium,0.5,1,NONE,27483,0,9,0.296
+931,student_138,prob_132,Sliding Window,Easy,0.25,0,NULL_POINTER_EXCEPTION,26130,0,10,0.272
+932,student_138,prob_109,Prefix Sum & Cumulative,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,61075,0,11,0.234
+933,student_138,prob_154,Prefix Sum & Cumulative,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,47193,0,12,0.265
+934,student_138,prob_111,2D Arrays & Matrices,Medium,0.5,0,TIME_LIMIT_EXCEEDED,32649,3,13,0.202
+935,student_138,prob_264,Recursion & Backtracking,Medium,0.5,1,NONE,46374,0,14,0.239
+936,student_138,prob_161,Binary Search,Easy,0.25,0,LOGIC_EDGE_CASE,46295,1,15,0.381
+937,student_138,prob_171,Strings & Char Arrays,Easy,0.25,1,NONE,40598,0,16,0.284
+938,student_138,prob_249,Stack & Queue Fundamentals,Easy,0.25,0,OFF_BY_ONE_ERROR,30218,0,17,0.332
+939,student_138,prob_123,2D Arrays & Matrices,Medium,0.5,1,NONE,31739,0,18,0.234
+940,student_138,prob_259,Prefix Sum & Cumulative,Easy,0.25,1,NONE,37881,0,19,0.294
+941,student_138,prob_266,Sorting Algorithms,Hard,0.75,0,LOGIC_EDGE_CASE,54225,2,20,0.238
+942,student_138,prob_182,Sliding Window,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,50245,0,21,0.301
+943,student_138,prob_106,Recursion & Backtracking,Medium,0.5,0,NULL_POINTER_EXCEPTION,47125,0,22,0.33
+944,student_138,prob_111,Strings & Char Arrays,Medium,0.5,1,NONE,52097,0,23,0.37
+945,student_138,prob_149,2D Arrays & Matrices,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,33080,0,24,0.326
+946,student_138,prob_220,Stack & Queue Fundamentals,Easy,0.25,1,NONE,45311,0,25,0.359
+947,student_138,prob_140,Binary Search,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,51874,3,26,0.405
+948,student_138,prob_194,2D Arrays & Matrices,Easy,0.25,1,NONE,54406,0,27,0.353
+949,student_138,prob_198,2D Arrays & Matrices,Easy,0.25,1,NONE,21232,0,28,0.431
+950,student_138,prob_162,Sliding Window,Hard,0.75,0,TIME_LIMIT_EXCEEDED,70334,0,29,0.329
+951,student_139,prob_134,Two Pointer Technique,Easy,0.25,0,OFF_BY_ONE_ERROR,30362,0,1,0.286
+952,student_139,prob_225,Sliding Window,Hard,0.75,1,NONE,40170,0,2,0.31
+953,student_139,prob_200,Prefix Sum & Cumulative,Easy,0.25,1,NONE,22181,0,3,0.34
+954,student_139,prob_256,2D Arrays & Matrices,Medium,0.5,0,TIME_LIMIT_EXCEEDED,34143,1,4,0.295
+955,student_139,prob_121,Two Pointer Technique,Easy,0.25,0,LOGIC_EDGE_CASE,33077,0,5,0.314
+956,student_139,prob_243,2D Arrays & Matrices,Hard,0.75,1,NONE,54261,0,6,0.323
+957,student_139,prob_169,Strings & Char Arrays,Hard,0.75,0,OFF_BY_ONE_ERROR,41103,0,7,0.307
+958,student_139,prob_178,Recursion & Backtracking,Easy,0.25,1,NONE,27695,0,8,0.353
+959,student_139,prob_237,Two Pointer Technique,Hard,0.75,0,OFF_BY_ONE_ERROR,73694,1,9,0.342
+960,student_139,prob_164,Strings & Char Arrays,Easy,0.25,1,NONE,48718,0,10,0.335
+961,student_139,prob_243,Stack & Queue Fundamentals,Medium,0.5,1,NONE,43223,0,11,0.289
+962,student_139,prob_280,Strings & Char Arrays,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,38443,2,12,0.415
+963,student_139,prob_147,Strings & Char Arrays,Hard,0.75,1,NONE,49428,0,13,0.438
+964,student_139,prob_141,Recursion & Backtracking,Medium,0.5,1,NONE,45349,0,14,0.431
+965,student_139,prob_241,Recursion & Backtracking,Hard,0.75,0,TIME_LIMIT_EXCEEDED,35714,0,15,0.499
+966,student_139,prob_183,Sorting Algorithms,Hard,0.75,0,LOGIC_EDGE_CASE,44899,3,16,0.318
+967,student_139,prob_197,Stack & Queue Fundamentals,Easy,0.25,1,NONE,8000,0,17,0.375
+968,student_139,prob_216,Recursion & Backtracking,Hard,0.75,1,NONE,52778,0,18,0.519
+969,student_139,prob_109,2D Arrays & Matrices,Hard,0.75,1,NONE,55753,0,19,0.404
+970,student_139,prob_155,Binary Search,Medium,0.5,0,TIME_LIMIT_EXCEEDED,32189,1,20,0.313
+971,student_139,prob_242,Sorting Algorithms,Easy,0.25,0,LOGIC_EDGE_CASE,46875,0,21,0.345
+972,student_139,prob_192,Recursion & Backtracking,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,23278,2,22,0.577
+973,student_139,prob_250,Sliding Window,Easy,0.25,1,NONE,10415,0,23,0.393
+974,student_139,prob_246,Prefix Sum & Cumulative,Easy,0.25,0,OFF_BY_ONE_ERROR,30681,0,24,0.419
+975,student_139,prob_280,Prefix Sum & Cumulative,Medium,0.5,0,NULL_POINTER_EXCEPTION,50552,3,25,0.442
+976,student_140,prob_255,Strings & Char Arrays,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,54534,0,1,0.505
+977,student_140,prob_182,Array Basics,Medium,0.5,0,OFF_BY_ONE_ERROR,28820,1,2,0.498
+978,student_140,prob_279,Recursion & Backtracking,Medium,0.5,1,NONE,47271,0,3,0.595
+979,student_140,prob_201,Prefix Sum & Cumulative,Easy,0.25,1,NONE,23865,0,4,0.654
+980,student_140,prob_201,2D Arrays & Matrices,Medium,0.5,0,OFF_BY_ONE_ERROR,32256,2,5,0.477
+981,student_140,prob_247,Sliding Window,Easy,0.25,1,NONE,34931,0,6,0.533
+982,student_140,prob_203,Array Basics,Medium,0.5,1,NONE,42155,0,7,0.518
+983,student_140,prob_151,Recursion & Backtracking,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,15410,0,8,0.643
+984,student_140,prob_235,2D Arrays & Matrices,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,52046,0,9,0.498
+985,student_140,prob_211,Prefix Sum & Cumulative,Easy,0.25,1,NONE,40888,0,10,0.696
+986,student_140,prob_129,Sorting Algorithms,Medium,0.5,1,NONE,26820,0,11,0.585
+987,student_140,prob_183,Strings & Char Arrays,Medium,0.5,1,NONE,39077,0,12,0.525
+988,student_140,prob_179,Sorting Algorithms,Medium,0.5,1,NONE,40255,0,13,0.635
+989,student_140,prob_213,Sliding Window,Hard,0.75,0,NULL_POINTER_EXCEPTION,47455,0,14,0.589
+990,student_140,prob_276,Array Basics,Hard,0.75,1,NONE,37723,0,15,0.576
+991,student_140,prob_122,Sorting Algorithms,Easy,0.25,1,NONE,16268,0,16,0.679
+992,student_140,prob_259,Two Pointer Technique,Medium,0.5,1,NONE,34020,0,17,0.642
+993,student_140,prob_179,Sliding Window,Hard,0.75,0,OFF_BY_ONE_ERROR,58400,1,18,0.606
+994,student_140,prob_238,2D Arrays & Matrices,Medium,0.5,1,NONE,40850,0,19,0.518
+995,student_140,prob_167,Prefix Sum & Cumulative,Easy,0.25,1,NONE,19880,0,20,0.732
+996,student_140,prob_272,Recursion & Backtracking,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,43587,0,21,0.658
+997,student_140,prob_116,Array Basics,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,8000,1,22,0.626
+998,student_140,prob_170,Binary Search,Easy,0.25,1,NONE,38112,0,23,0.5
+999,student_140,prob_270,Array Basics,Medium,0.5,0,OFF_BY_ONE_ERROR,13450,2,24,0.641
+1000,student_140,prob_267,Sorting Algorithms,Hard,0.75,1,NONE,39978,0,25,0.717
+1001,student_140,prob_126,Strings & Char Arrays,Easy,0.25,1,NONE,10891,0,26,0.582
+1002,student_140,prob_123,Sorting Algorithms,Medium,0.5,1,NONE,18791,0,27,0.751
+1003,student_140,prob_106,Sliding Window,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,38257,0,28,0.621
+1004,student_140,prob_186,Array Basics,Easy,0.25,1,NONE,18715,0,29,0.656
+1005,student_141,prob_172,Strings & Char Arrays,Hard,0.75,0,OFF_BY_ONE_ERROR,47185,0,1,0.553
+1006,student_141,prob_198,Prefix Sum & Cumulative,Easy,0.25,0,LOGIC_EDGE_CASE,22464,3,2,0.678
+1007,student_141,prob_207,Recursion & Backtracking,Hard,0.75,0,LOGIC_EDGE_CASE,48752,0,3,0.586
+1008,student_141,prob_180,Prefix Sum & Cumulative,Medium,0.5,1,NONE,33949,0,4,0.691
+1009,student_141,prob_153,Stack & Queue Fundamentals,Easy,0.25,1,NONE,8000,0,5,0.623
+1010,student_141,prob_180,Sliding Window,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,44982,0,6,0.679
+1011,student_141,prob_138,Recursion & Backtracking,Hard,0.75,1,NONE,37102,0,7,0.602
+1012,student_141,prob_243,Stack & Queue Fundamentals,Hard,0.75,1,NONE,24348,0,8,0.668
+1013,student_141,prob_182,Recursion & Backtracking,Hard,0.75,1,NONE,37890,0,9,0.65
+1014,student_141,prob_178,Sliding Window,Medium,0.5,0,NULL_POINTER_EXCEPTION,51036,0,10,0.692
+1015,student_141,prob_171,2D Arrays & Matrices,Medium,0.5,0,LOGIC_EDGE_CASE,43230,0,11,0.648
+1016,student_141,prob_148,Sliding Window,Medium,0.5,1,NONE,28843,0,12,0.704
+1017,student_141,prob_169,Array Basics,Medium,0.5,1,NONE,28836,0,13,0.669
+1018,student_141,prob_160,Stack & Queue Fundamentals,Medium,0.5,1,NONE,29168,0,14,0.708
+1019,student_141,prob_277,Prefix Sum & Cumulative,Medium,0.5,1,NONE,57948,0,15,0.728
+1020,student_141,prob_196,2D Arrays & Matrices,Easy,0.25,0,NULL_POINTER_EXCEPTION,27610,0,16,0.662
+1021,student_141,prob_136,Sliding Window,Hard,0.75,1,NONE,48188,0,17,0.74
+1022,student_141,prob_104,Sliding Window,Easy,0.25,1,NONE,35391,0,18,0.771
+1023,student_141,prob_272,Binary Search,Hard,0.75,1,NONE,45893,0,19,0.623
+1024,student_141,prob_213,Prefix Sum & Cumulative,Medium,0.5,1,NONE,29919,0,20,0.76
+1025,student_141,prob_218,Stack & Queue Fundamentals,Medium,0.5,1,NONE,30671,0,21,0.743
+1026,student_141,prob_198,Prefix Sum & Cumulative,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,32168,0,22,0.789
+1027,student_141,prob_235,Sorting Algorithms,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,32581,0,23,0.701
+1028,student_141,prob_111,Array Basics,Medium,0.5,1,NONE,41759,0,24,0.709
+1029,student_141,prob_111,Prefix Sum & Cumulative,Medium,0.5,1,NONE,33651,0,25,0.798
+1030,student_141,prob_202,Recursion & Backtracking,Medium,0.5,0,OFF_BY_ONE_ERROR,41819,2,26,0.692
+1031,student_141,prob_143,Binary Search,Medium,0.5,1,NONE,32059,0,27,0.668
+1032,student_142,prob_216,Recursion & Backtracking,Easy,0.25,1,NONE,25332,0,1,0.621
+1033,student_142,prob_152,Array Basics,Easy,0.25,1,NONE,8000,0,2,0.599
+1034,student_142,prob_267,2D Arrays & Matrices,Easy,0.25,1,NONE,35384,0,3,0.557
+1035,student_142,prob_130,Sliding Window,Medium,0.5,1,NONE,38546,0,4,0.519
+1036,student_142,prob_199,2D Arrays & Matrices,Medium,0.5,1,NONE,46364,0,5,0.61
+1037,student_142,prob_241,Recursion & Backtracking,Medium,0.5,1,NONE,8000,0,6,0.667
+1038,student_142,prob_186,Strings & Char Arrays,Easy,0.25,1,NONE,49449,0,7,0.639
+1039,student_142,prob_146,Stack & Queue Fundamentals,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,42713,0,8,0.54
+1040,student_142,prob_215,Array Basics,Medium,0.5,1,NONE,47686,0,9,0.647
+1041,student_142,prob_134,Binary Search,Medium,0.5,1,NONE,21909,0,10,0.565
+1042,student_142,prob_228,Prefix Sum & Cumulative,Easy,0.25,0,OFF_BY_ONE_ERROR,31742,0,11,0.477
+1043,student_142,prob_269,Recursion & Backtracking,Hard,0.75,0,NULL_POINTER_EXCEPTION,31747,3,12,0.707
+1044,student_142,prob_254,2D Arrays & Matrices,Medium,0.5,1,NONE,26903,0,13,0.657
+1045,student_142,prob_243,Stack & Queue Fundamentals,Easy,0.25,0,TIME_LIMIT_EXCEEDED,47357,0,14,0.559
+1046,student_142,prob_268,Prefix Sum & Cumulative,Easy,0.25,1,NONE,22100,0,15,0.498
+1047,student_142,prob_255,Sorting Algorithms,Easy,0.25,0,LOGIC_EDGE_CASE,26997,0,16,0.528
+1048,student_142,prob_128,Binary Search,Easy,0.25,1,NONE,34829,0,17,0.617
+1049,student_142,prob_173,Strings & Char Arrays,Hard,0.75,1,NONE,50336,0,18,0.683
+1050,student_142,prob_146,Stack & Queue Fundamentals,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,36193,0,19,0.576
+1051,student_142,prob_110,2D Arrays & Matrices,Medium,0.5,1,NONE,38768,0,20,0.698
+1052,student_142,prob_198,Two Pointer Technique,Medium,0.5,1,NONE,63229,0,21,0.474
+1053,student_142,prob_132,Two Pointer Technique,Medium,0.5,0,OFF_BY_ONE_ERROR,33697,1,22,0.537
+1054,student_142,prob_154,Binary Search,Easy,0.25,1,NONE,26801,0,23,0.663
+1055,student_142,prob_262,Prefix Sum & Cumulative,Medium,0.5,1,NONE,46996,0,24,0.558
+1056,student_142,prob_277,Recursion & Backtracking,Hard,0.75,1,NONE,57655,0,25,0.719
+1057,student_142,prob_167,Stack & Queue Fundamentals,Hard,0.75,0,TIME_LIMIT_EXCEEDED,58633,2,26,0.593
+1058,student_143,prob_107,Binary Search,Hard,0.75,1,NONE,52742,0,1,0.512
+1059,student_143,prob_154,2D Arrays & Matrices,Medium,0.5,1,NONE,21361,0,2,0.45
+1060,student_143,prob_186,Stack & Queue Fundamentals,Hard,0.75,1,NONE,64678,0,3,0.565
+1061,student_143,prob_277,Sorting Algorithms,Medium,0.5,0,OFF_BY_ONE_ERROR,21321,0,4,0.466
+1062,student_143,prob_177,Binary Search,Easy,0.25,1,NONE,28709,0,5,0.571
+1063,student_143,prob_188,Recursion & Backtracking,Medium,0.5,0,OFF_BY_ONE_ERROR,26026,0,6,0.435
+1064,student_143,prob_150,Strings & Char Arrays,Medium,0.5,0,OFF_BY_ONE_ERROR,34307,0,7,0.512
+1065,student_143,prob_110,Sorting Algorithms,Hard,0.75,0,NULL_POINTER_EXCEPTION,49022,0,8,0.487
+1066,student_143,prob_219,Sliding Window,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,38933,0,9,0.426
+1067,student_143,prob_234,Strings & Char Arrays,Hard,0.75,1,NONE,50140,0,10,0.531
+1068,student_143,prob_154,Binary Search,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,54442,0,11,0.622
+1069,student_143,prob_172,Stack & Queue Fundamentals,Medium,0.5,0,TIME_LIMIT_EXCEEDED,40519,1,12,0.617
+1070,student_143,prob_237,Array Basics,Easy,0.25,1,NONE,22147,0,13,0.496
+1071,student_143,prob_253,Sliding Window,Medium,0.5,1,NONE,46646,0,14,0.449
+1072,student_143,prob_109,Two Pointer Technique,Hard,0.75,0,LOGIC_EDGE_CASE,59351,0,15,0.487
+1073,student_143,prob_161,Binary Search,Medium,0.5,1,NONE,20346,0,16,0.637
+1074,student_143,prob_145,Sorting Algorithms,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,42246,0,17,0.508
+1075,student_143,prob_152,Two Pointer Technique,Medium,0.5,1,NONE,43491,0,18,0.507
+1076,student_143,prob_224,Two Pointer Technique,Medium,0.5,1,NONE,31506,0,19,0.566
+1077,student_143,prob_224,Recursion & Backtracking,Easy,0.25,1,NONE,41586,0,20,0.457
+1078,student_143,prob_126,Recursion & Backtracking,Easy,0.25,1,NONE,23276,0,21,0.522
+1079,student_143,prob_110,Recursion & Backtracking,Medium,0.5,1,NONE,36584,0,22,0.58
+1080,student_143,prob_276,2D Arrays & Matrices,Medium,0.5,0,OFF_BY_ONE_ERROR,33000,1,23,0.516
+1081,student_143,prob_112,Stack & Queue Fundamentals,Hard,0.75,1,NONE,45264,0,24,0.632
+1082,student_143,prob_264,Two Pointer Technique,Medium,0.5,0,TIME_LIMIT_EXCEEDED,21922,2,25,0.619
+1083,student_143,prob_171,Prefix Sum & Cumulative,Easy,0.25,1,NONE,8000,0,26,0.489
+1084,student_143,prob_131,Recursion & Backtracking,Easy,0.25,1,NONE,44211,0,27,0.63
+1085,student_143,prob_104,Binary Search,Easy,0.25,1,NONE,14914,0,28,0.681
+1086,student_144,prob_108,Sorting Algorithms,Medium,0.5,1,NONE,23625,0,1,0.393
+1087,student_144,prob_199,2D Arrays & Matrices,Hard,0.75,1,NONE,19681,0,2,0.467
+1088,student_144,prob_253,Array Basics,Easy,0.25,1,NONE,17855,0,3,0.47
+1089,student_144,prob_180,Stack & Queue Fundamentals,Medium,0.5,0,NULL_POINTER_EXCEPTION,19645,0,4,0.52
+1090,student_144,prob_121,Sorting Algorithms,Hard,0.75,0,LOGIC_EDGE_CASE,65226,0,5,0.466
+1091,student_144,prob_279,2D Arrays & Matrices,Medium,0.5,1,NONE,47640,0,6,0.531
+1092,student_144,prob_265,2D Arrays & Matrices,Easy,0.25,1,NONE,17264,0,7,0.587
+1093,student_144,prob_258,2D Arrays & Matrices,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,62551,0,8,0.637
+1094,student_144,prob_280,Binary Search,Hard,0.75,1,NONE,57303,0,9,0.528
+1095,student_144,prob_117,Sorting Algorithms,Medium,0.5,0,NULL_POINTER_EXCEPTION,31624,0,10,0.487
+1096,student_144,prob_144,2D Arrays & Matrices,Easy,0.25,1,NONE,8000,0,11,0.651
+1097,student_144,prob_204,Binary Search,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,63013,0,12,0.584
+1098,student_144,prob_178,Two Pointer Technique,Easy,0.25,1,NONE,8847,0,13,0.561
+1099,student_144,prob_241,Recursion & Backtracking,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,15777,0,14,0.548
+1100,student_144,prob_252,Sliding Window,Hard,0.75,0,TIME_LIMIT_EXCEEDED,57793,3,15,0.473
+1101,student_144,prob_188,Strings & Char Arrays,Medium,0.5,1,NONE,64799,0,16,0.421
+1102,student_144,prob_272,Recursion & Backtracking,Medium,0.5,1,NONE,52133,0,17,0.566
+1103,student_144,prob_219,Two Pointer Technique,Medium,0.5,0,NULL_POINTER_EXCEPTION,42289,3,18,0.614
+1104,student_144,prob_118,Sorting Algorithms,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,42659,2,19,0.508
+1105,student_144,prob_270,Stack & Queue Fundamentals,Easy,0.25,0,NULL_POINTER_EXCEPTION,35763,3,20,0.539
+1106,student_144,prob_263,Array Basics,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,34629,0,21,0.534
+1107,student_144,prob_200,Array Basics,Medium,0.5,0,NULL_POINTER_EXCEPTION,38896,0,22,0.552
+1108,student_144,prob_275,Stack & Queue Fundamentals,Medium,0.5,1,NONE,36773,0,23,0.557
+1109,student_144,prob_189,Sorting Algorithms,Easy,0.25,0,LOGIC_EDGE_CASE,24771,2,24,0.528
+1110,student_144,prob_231,Two Pointer Technique,Medium,0.5,1,NONE,26475,0,25,0.629
+1111,student_144,prob_114,Strings & Char Arrays,Hard,0.75,0,OFF_BY_ONE_ERROR,42154,3,26,0.491
+1112,student_144,prob_108,Array Basics,Medium,0.5,0,TIME_LIMIT_EXCEEDED,15207,2,27,0.57
+1113,student_144,prob_204,Prefix Sum & Cumulative,Medium,0.5,0,LOGIC_EDGE_CASE,34342,2,28,0.472
+1114,student_144,prob_145,Strings & Char Arrays,Medium,0.5,1,NONE,23659,0,29,0.511
+1115,student_145,prob_135,Sliding Window,Medium,0.5,0,NULL_POINTER_EXCEPTION,25105,0,1,0.225
+1116,student_145,prob_279,Two Pointer Technique,Easy,0.25,0,NULL_POINTER_EXCEPTION,30507,0,2,0.282
+1117,student_145,prob_242,Stack & Queue Fundamentals,Hard,0.75,0,NULL_POINTER_EXCEPTION,65052,0,3,0.264
+1118,student_145,prob_209,2D Arrays & Matrices,Medium,0.5,1,NONE,49368,0,4,0.368
+1119,student_145,prob_161,Stack & Queue Fundamentals,Easy,0.25,1,NONE,9502,0,5,0.293
+1120,student_145,prob_246,Recursion & Backtracking,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,16472,1,6,0.391
+1121,student_145,prob_224,2D Arrays & Matrices,Medium,0.5,1,NONE,49637,0,7,0.444
+1122,student_145,prob_121,Two Pointer Technique,Easy,0.25,0,TIME_LIMIT_EXCEEDED,16558,0,8,0.311
+1123,student_145,prob_221,Recursion & Backtracking,Hard,0.75,1,NONE,45652,0,9,0.415
+1124,student_145,prob_188,Two Pointer Technique,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,44949,1,10,0.339
+1125,student_145,prob_232,Recursion & Backtracking,Medium,0.5,1,NONE,26728,0,11,0.486
+1126,student_145,prob_191,2D Arrays & Matrices,Medium,0.5,1,NONE,39612,0,12,0.511
+1127,student_145,prob_253,Binary Search,Easy,0.25,1,NONE,12340,0,13,0.31
+1128,student_145,prob_249,Binary Search,Medium,0.5,0,OFF_BY_ONE_ERROR,31132,0,14,0.393
+1129,student_145,prob_260,Sliding Window,Medium,0.5,0,TIME_LIMIT_EXCEEDED,42185,0,15,0.256
+1130,student_145,prob_230,Array Basics,Easy,0.25,1,NONE,9232,0,16,0.366
+1131,student_145,prob_134,Two Pointer Technique,Hard,0.75,1,NONE,53634,0,17,0.365
+1132,student_145,prob_255,Stack & Queue Fundamentals,Easy,0.25,0,OFF_BY_ONE_ERROR,28112,0,18,0.378
+1133,student_145,prob_167,Sliding Window,Hard,0.75,0,LOGIC_EDGE_CASE,54978,1,19,0.286
+1134,student_145,prob_138,Prefix Sum & Cumulative,Medium,0.5,0,OFF_BY_ONE_ERROR,41035,1,20,0.321
+1135,student_145,prob_227,Stack & Queue Fundamentals,Hard,0.75,1,NONE,64718,0,21,0.403
+1136,student_145,prob_213,Strings & Char Arrays,Medium,0.5,1,NONE,39851,0,22,0.219
+1137,student_145,prob_130,Sliding Window,Easy,0.25,0,TIME_LIMIT_EXCEEDED,23195,2,23,0.314
+1138,student_145,prob_178,Array Basics,Easy,0.25,1,NONE,29816,0,24,0.442
+1139,student_145,prob_200,2D Arrays & Matrices,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,44868,3,25,0.57
+1140,student_145,prob_212,2D Arrays & Matrices,Easy,0.25,1,NONE,28934,0,26,0.587
+1141,student_145,prob_236,Array Basics,Easy,0.25,0,NULL_POINTER_EXCEPTION,28835,0,27,0.509
+1142,student_146,prob_273,Binary Search,Medium,0.5,1,NONE,28103,0,1,0.346
+1143,student_146,prob_274,Prefix Sum & Cumulative,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,28572,0,2,0.444
+1144,student_146,prob_103,Sliding Window,Easy,0.25,1,NONE,9696,0,3,0.409
+1145,student_146,prob_127,Two Pointer Technique,Easy,0.25,1,NONE,47522,0,4,0.495
+1146,student_146,prob_259,2D Arrays & Matrices,Medium,0.5,0,TIME_LIMIT_EXCEEDED,21601,1,5,0.46
+1147,student_146,prob_156,Two Pointer Technique,Easy,0.25,1,NONE,18212,0,6,0.556
+1148,student_146,prob_134,Stack & Queue Fundamentals,Medium,0.5,0,OFF_BY_ONE_ERROR,27906,3,7,0.354
+1149,student_146,prob_148,Strings & Char Arrays,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,47266,0,8,0.384
+1150,student_146,prob_220,Two Pointer Technique,Medium,0.5,1,NONE,32988,0,9,0.609
+1151,student_146,prob_278,Two Pointer Technique,Medium,0.5,0,TIME_LIMIT_EXCEEDED,51500,0,10,0.656
+1152,student_146,prob_198,Sorting Algorithms,Easy,0.25,0,TIME_LIMIT_EXCEEDED,18445,0,11,0.393
+1153,student_146,prob_168,Strings & Char Arrays,Easy,0.25,1,NONE,29875,0,12,0.409
+1154,student_146,prob_152,Sliding Window,Medium,0.5,1,NONE,26503,0,13,0.48
+1155,student_146,prob_156,Stack & Queue Fundamentals,Medium,0.5,0,OFF_BY_ONE_ERROR,62269,2,14,0.38
+1156,student_146,prob_119,Stack & Queue Fundamentals,Medium,0.5,0,LOGIC_EDGE_CASE,22276,1,15,0.405
+1157,student_146,prob_215,Two Pointer Technique,Medium,0.5,1,NONE,40245,0,16,0.67
+1158,student_146,prob_264,Array Basics,Hard,0.75,1,NONE,54132,0,17,0.324
+1159,student_146,prob_201,Array Basics,Hard,0.75,0,TIME_LIMIT_EXCEEDED,51493,2,18,0.405
+1160,student_146,prob_204,Stack & Queue Fundamentals,Easy,0.25,0,NULL_POINTER_EXCEPTION,24304,0,19,0.429
+1161,student_146,prob_277,Two Pointer Technique,Medium,0.5,1,NONE,34969,0,20,0.709
+1162,student_146,prob_192,2D Arrays & Matrices,Easy,0.25,1,NONE,27053,0,21,0.482
+1163,student_146,prob_262,Sorting Algorithms,Medium,0.5,1,NONE,34763,0,22,0.417
+1164,student_146,prob_175,Two Pointer Technique,Medium,0.5,0,TIME_LIMIT_EXCEEDED,48094,2,23,0.744
+1165,student_146,prob_199,Prefix Sum & Cumulative,Easy,0.25,1,NONE,53053,0,24,0.466
+1166,student_146,prob_128,Prefix Sum & Cumulative,Easy,0.25,1,NONE,19837,0,25,0.53
+1167,student_146,prob_136,Sorting Algorithms,Medium,0.5,0,NULL_POINTER_EXCEPTION,20089,0,26,0.487
+1168,student_146,prob_117,Array Basics,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,25468,2,27,0.429
+1169,student_146,prob_216,Recursion & Backtracking,Medium,0.5,1,NONE,67484,0,28,0.461
+1170,student_146,prob_111,Array Basics,Easy,0.25,1,NONE,16883,0,29,0.451
+1171,student_146,prob_274,Strings & Char Arrays,Easy,0.25,0,LOGIC_EDGE_CASE,46197,0,30,0.48
+1172,student_147,prob_125,Sliding Window,Easy,0.25,0,TIME_LIMIT_EXCEEDED,46037,0,1,0.371
+1173,student_147,prob_128,2D Arrays & Matrices,Medium,0.5,0,OFF_BY_ONE_ERROR,29262,0,2,0.373
+1174,student_147,prob_210,Two Pointer Technique,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,42733,1,3,0.44
+1175,student_147,prob_276,Sorting Algorithms,Hard,0.75,0,LOGIC_EDGE_CASE,65446,1,4,0.426
+1176,student_147,prob_155,Stack & Queue Fundamentals,Medium,0.5,1,NONE,31356,0,5,0.416
+1177,student_147,prob_131,Array Basics,Medium,0.5,1,NONE,33462,0,6,0.527
+1178,student_147,prob_279,Binary Search,Easy,0.25,1,NONE,18925,0,7,0.528
+1179,student_147,prob_249,Sorting Algorithms,Medium,0.5,1,NONE,23728,0,8,0.449
+1180,student_147,prob_141,Array Basics,Easy,0.25,0,LOGIC_EDGE_CASE,18114,0,9,0.583
+1181,student_147,prob_102,Array Basics,Hard,0.75,1,NONE,31218,0,10,0.6
+1182,student_147,prob_207,Sliding Window,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,46314,0,11,0.396
+1183,student_147,prob_264,2D Arrays & Matrices,Medium,0.5,1,NONE,26665,0,12,0.398
+1184,student_147,prob_145,Binary Search,Medium,0.5,1,NONE,38710,0,13,0.585
+1185,student_147,prob_123,Stack & Queue Fundamentals,Medium,0.5,0,LOGIC_EDGE_CASE,17234,0,14,0.486
+1186,student_147,prob_161,Binary Search,Easy,0.25,1,NONE,29876,0,15,0.634
+1187,student_147,prob_125,Prefix Sum & Cumulative,Easy,0.25,1,NONE,35907,0,16,0.549
+1188,student_147,prob_219,Stack & Queue Fundamentals,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,11980,0,17,0.507
+1189,student_147,prob_139,Prefix Sum & Cumulative,Easy,0.25,1,NONE,30394,0,18,0.603
+1190,student_147,prob_112,2D Arrays & Matrices,Medium,0.5,1,NONE,50637,0,19,0.47
+1191,student_147,prob_212,Array Basics,Medium,0.5,1,NONE,21389,0,20,0.648
+1192,student_147,prob_114,Binary Search,Easy,0.25,0,NULL_POINTER_EXCEPTION,45976,3,21,0.678
+1193,student_147,prob_119,Recursion & Backtracking,Easy,0.25,0,NULL_POINTER_EXCEPTION,30933,0,22,0.547
+1194,student_147,prob_184,Prefix Sum & Cumulative,Medium,0.5,1,NONE,27445,0,23,0.651
+1195,student_147,prob_184,Strings & Char Arrays,Easy,0.25,1,NONE,25236,0,24,0.462
+1196,student_147,prob_126,Prefix Sum & Cumulative,Medium,0.5,1,NONE,42605,0,25,0.693
+1197,student_147,prob_119,Prefix Sum & Cumulative,Medium,0.5,0,NULL_POINTER_EXCEPTION,36817,0,26,0.729
+1198,student_147,prob_212,2D Arrays & Matrices,Medium,0.5,1,NONE,42370,0,27,0.534
+1199,student_147,prob_146,Sliding Window,Easy,0.25,1,NONE,14857,0,28,0.421
+1200,student_148,prob_188,2D Arrays & Matrices,Medium,0.5,1,NONE,34295,0,1,0.685
+1201,student_148,prob_144,Prefix Sum & Cumulative,Hard,0.75,0,LOGIC_EDGE_CASE,25298,0,2,0.727
+1202,student_148,prob_226,Stack & Queue Fundamentals,Hard,0.75,0,OFF_BY_ONE_ERROR,40928,3,3,0.777
+1203,student_148,prob_164,Prefix Sum & Cumulative,Medium,0.5,0,TIME_LIMIT_EXCEEDED,21416,2,4,0.738
+1204,student_148,prob_252,Prefix Sum & Cumulative,Easy,0.25,1,NONE,13436,0,5,0.749
+1205,student_148,prob_111,Sliding Window,Hard,0.75,0,NULL_POINTER_EXCEPTION,57096,0,6,0.76
+1206,student_148,prob_209,2D Arrays & Matrices,Medium,0.5,1,NONE,45358,0,7,0.723
+1207,student_148,prob_216,Recursion & Backtracking,Medium,0.5,0,LOGIC_EDGE_CASE,39572,0,8,0.743
+1208,student_148,prob_104,2D Arrays & Matrices,Easy,0.25,1,NONE,9155,0,9,0.756
+1209,student_148,prob_176,Strings & Char Arrays,Hard,0.75,1,NONE,38466,0,10,0.793
+1210,student_148,prob_223,Prefix Sum & Cumulative,Medium,0.5,1,NONE,46820,0,11,0.779
+1211,student_148,prob_247,Binary Search,Easy,0.25,1,NONE,23963,0,12,0.745
+1212,student_148,prob_136,Stack & Queue Fundamentals,Easy,0.25,1,NONE,50094,0,13,0.786
+1213,student_148,prob_263,Strings & Char Arrays,Easy,0.25,0,LOGIC_EDGE_CASE,26982,0,14,0.818
+1214,student_148,prob_277,Array Basics,Hard,0.75,1,NONE,44567,0,15,0.724
+1215,student_148,prob_170,Sorting Algorithms,Medium,0.5,1,NONE,28553,0,16,0.732
+1216,student_148,prob_115,Stack & Queue Fundamentals,Medium,0.5,0,LOGIC_EDGE_CASE,33865,2,17,0.812
+1217,student_148,prob_220,Recursion & Backtracking,Hard,0.75,0,OFF_BY_ONE_ERROR,40433,2,18,0.753
+1218,student_148,prob_266,Stack & Queue Fundamentals,Easy,0.25,1,NONE,30760,0,19,0.819
+1219,student_148,prob_153,Recursion & Backtracking,Medium,0.5,1,NONE,43743,0,20,0.763
+1220,student_148,prob_130,Sliding Window,Hard,0.75,1,NONE,32831,0,21,0.77
+1221,student_148,prob_158,2D Arrays & Matrices,Medium,0.5,0,LOGIC_EDGE_CASE,16288,3,22,0.786
+1222,student_148,prob_275,Sorting Algorithms,Medium,0.5,1,NONE,10228,0,23,0.764
+1223,student_148,prob_189,Strings & Char Arrays,Easy,0.25,1,NONE,28358,0,24,0.825
+1224,student_148,prob_132,2D Arrays & Matrices,Medium,0.5,1,NONE,19022,0,25,0.794
+1225,student_148,prob_237,2D Arrays & Matrices,Medium,0.5,1,NONE,8000,0,26,0.819
+1226,student_149,prob_279,Sliding Window,Easy,0.25,0,OFF_BY_ONE_ERROR,28638,1,1,0.55
+1227,student_149,prob_106,Sliding Window,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,63891,0,2,0.568
+1228,student_149,prob_208,Binary Search,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,33902,0,3,0.489
+1229,student_149,prob_149,2D Arrays & Matrices,Medium,0.5,1,NONE,44037,0,4,0.508
+1230,student_149,prob_206,Two Pointer Technique,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,24957,0,5,0.611
+1231,student_149,prob_184,Stack & Queue Fundamentals,Easy,0.25,1,NONE,22788,0,6,0.607
+1232,student_149,prob_246,2D Arrays & Matrices,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,45004,2,7,0.567
+1233,student_149,prob_167,Sliding Window,Hard,0.75,1,NONE,40492,0,8,0.586
+1234,student_149,prob_217,Prefix Sum & Cumulative,Medium,0.5,0,OFF_BY_ONE_ERROR,37184,2,9,0.546
+1235,student_149,prob_238,Sliding Window,Medium,0.5,1,NONE,37835,0,10,0.635
+1236,student_149,prob_278,Binary Search,Easy,0.25,1,NONE,15958,0,11,0.51
+1237,student_149,prob_182,Sliding Window,Easy,0.25,1,NONE,35879,0,12,0.679
+1238,student_149,prob_148,Stack & Queue Fundamentals,Easy,0.25,1,NONE,21875,0,13,0.654
+1239,student_149,prob_182,Prefix Sum & Cumulative,Medium,0.5,1,NONE,24906,0,14,0.564
+1240,student_149,prob_142,Sorting Algorithms,Easy,0.25,1,NONE,30413,0,15,0.508
+1241,student_149,prob_138,Recursion & Backtracking,Easy,0.25,0,NULL_POINTER_EXCEPTION,13193,0,16,0.668
+1242,student_149,prob_240,2D Arrays & Matrices,Hard,0.75,1,NONE,44313,0,17,0.585
+1243,student_149,prob_222,Recursion & Backtracking,Easy,0.25,1,NONE,23865,0,18,0.681
+1244,student_149,prob_245,Binary Search,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,57006,0,19,0.569
+1245,student_149,prob_223,2D Arrays & Matrices,Easy,0.25,1,NONE,29671,0,20,0.634
+1246,student_149,prob_179,Array Basics,Easy,0.25,1,NONE,23674,0,21,0.595
+1247,student_149,prob_115,Array Basics,Medium,0.5,0,NULL_POINTER_EXCEPTION,43788,2,22,0.643
+1248,student_149,prob_157,Stack & Queue Fundamentals,Medium,0.5,1,NONE,50657,0,23,0.696
+1249,student_149,prob_215,Binary Search,Easy,0.25,1,NONE,30669,0,24,0.586
+1250,student_150,prob_215,Strings & Char Arrays,Medium,0.5,0,TIME_LIMIT_EXCEEDED,39155,2,1,0.159
+1251,student_150,prob_207,Recursion & Backtracking,Easy,0.25,0,NULL_POINTER_EXCEPTION,13289,0,2,0.276
+1252,student_150,prob_207,2D Arrays & Matrices,Easy,0.25,0,NULL_POINTER_EXCEPTION,16249,0,3,0.166
+1253,student_150,prob_235,Sliding Window,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,45368,2,4,0.246
+1254,student_150,prob_264,Sorting Algorithms,Easy,0.25,0,NULL_POINTER_EXCEPTION,21717,2,5,0.227
+1255,student_150,prob_136,Binary Search,Medium,0.5,0,LOGIC_EDGE_CASE,36787,0,6,0.284
+1256,student_150,prob_242,Prefix Sum & Cumulative,Easy,0.25,1,NONE,29711,0,7,0.309
+1257,student_150,prob_219,2D Arrays & Matrices,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,35387,3,8,0.2
+1258,student_150,prob_168,Prefix Sum & Cumulative,Easy,0.25,1,NONE,28185,0,9,0.392
+1259,student_150,prob_174,Binary Search,Hard,0.75,0,NULL_POINTER_EXCEPTION,54869,3,10,0.313
+1260,student_150,prob_171,Strings & Char Arrays,Easy,0.25,0,LOGIC_EDGE_CASE,29804,1,11,0.193
+1261,student_150,prob_193,2D Arrays & Matrices,Hard,0.75,1,NONE,25325,0,12,0.232
+1262,student_150,prob_167,Stack & Queue Fundamentals,Medium,0.5,1,NONE,27759,0,13,0.318
+1263,student_150,prob_248,2D Arrays & Matrices,Hard,0.75,0,TIME_LIMIT_EXCEEDED,47302,0,14,0.324
+1264,student_150,prob_115,Array Basics,Hard,0.75,1,NONE,34514,0,15,0.214
+1265,student_150,prob_170,Sliding Window,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,36230,1,16,0.276
+1266,student_150,prob_236,Sorting Algorithms,Medium,0.5,0,TIME_LIMIT_EXCEEDED,57400,2,17,0.258
+1267,student_150,prob_254,Two Pointer Technique,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,53656,0,18,0.33
+1268,student_150,prob_170,Sliding Window,Medium,0.5,0,LOGIC_EDGE_CASE,36469,0,19,0.305
+1269,student_150,prob_173,Sorting Algorithms,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,46920,3,20,0.288
+1270,student_150,prob_142,Sorting Algorithms,Medium,0.5,1,NONE,40815,0,21,0.316
+1271,student_150,prob_149,Two Pointer Technique,Easy,0.25,1,NONE,24986,0,22,0.357
+1272,student_150,prob_242,Recursion & Backtracking,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,31670,0,23,0.305
+1273,student_150,prob_105,Two Pointer Technique,Medium,0.5,0,OFF_BY_ONE_ERROR,35401,0,24,0.434
+1274,student_150,prob_253,2D Arrays & Matrices,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,24373,0,25,0.351
+1275,student_150,prob_178,Recursion & Backtracking,Medium,0.5,1,NONE,41076,0,26,0.332
+1276,student_150,prob_133,Array Basics,Medium,0.5,1,NONE,40958,0,27,0.308
+1277,student_150,prob_154,Sliding Window,Medium,0.5,1,NONE,39067,0,28,0.333
+1278,student_150,prob_211,Sliding Window,Hard,0.75,0,OFF_BY_ONE_ERROR,54274,2,29,0.413
+1279,student_150,prob_269,Array Basics,Easy,0.25,1,NONE,43319,0,30,0.391
+1280,student_151,prob_124,Prefix Sum & Cumulative,Easy,0.25,1,NONE,35416,0,1,0.673
+1281,student_151,prob_229,Sliding Window,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,26203,1,2,0.5
+1282,student_151,prob_126,Stack & Queue Fundamentals,Easy,0.25,1,NONE,8000,0,3,0.564
+1283,student_151,prob_150,Stack & Queue Fundamentals,Medium,0.5,1,NONE,45234,0,4,0.617
+1284,student_151,prob_102,Binary Search,Easy,0.25,1,NONE,8000,0,5,0.622
+1285,student_151,prob_279,Two Pointer Technique,Hard,0.75,0,LOGIC_EDGE_CASE,41325,0,6,0.588
+1286,student_151,prob_128,Stack & Queue Fundamentals,Easy,0.25,1,NONE,9980,0,7,0.663
+1287,student_151,prob_205,Sliding Window,Hard,0.75,0,NULL_POINTER_EXCEPTION,22398,1,8,0.52
+1288,student_151,prob_220,Two Pointer Technique,Medium,0.5,1,NONE,40519,0,9,0.605
+1289,student_151,prob_193,Two Pointer Technique,Medium,0.5,1,NONE,43132,0,10,0.652
+1290,student_151,prob_184,Binary Search,Medium,0.5,1,NONE,27104,0,11,0.667
+1291,student_151,prob_254,2D Arrays & Matrices,Easy,0.25,1,NONE,8000,0,12,0.657
+1292,student_151,prob_175,Binary Search,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,27467,0,13,0.707
+1293,student_151,prob_222,Strings & Char Arrays,Easy,0.25,1,NONE,28723,0,14,0.663
+1294,student_151,prob_202,Sorting Algorithms,Easy,0.25,0,NULL_POINTER_EXCEPTION,8000,0,15,0.68
+1295,student_151,prob_278,2D Arrays & Matrices,Medium,0.5,0,OFF_BY_ONE_ERROR,36222,2,16,0.698
+1296,student_151,prob_187,Stack & Queue Fundamentals,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,43838,1,17,0.703
+1297,student_151,prob_228,Prefix Sum & Cumulative,Medium,0.5,0,OFF_BY_ONE_ERROR,40973,2,18,0.712
+1298,student_151,prob_203,Binary Search,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,35457,3,19,0.719
+1299,student_151,prob_204,Sorting Algorithms,Medium,0.5,1,NONE,22345,0,20,0.693
+1300,student_151,prob_217,2D Arrays & Matrices,Medium,0.5,1,NONE,48381,0,21,0.71
+1301,student_151,prob_160,Two Pointer Technique,Easy,0.25,1,NONE,22119,0,22,0.694
+1302,student_151,prob_107,Sliding Window,Easy,0.25,0,OFF_BY_ONE_ERROR,23694,0,23,0.539
+1303,student_151,prob_125,Sliding Window,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,22822,3,24,0.558
+1304,student_151,prob_227,Two Pointer Technique,Medium,0.5,1,NONE,28702,0,25,0.73
+1305,student_151,prob_226,2D Arrays & Matrices,Easy,0.25,1,NONE,13404,0,26,0.745
+1306,student_151,prob_239,Recursion & Backtracking,Easy,0.25,1,NONE,21946,0,27,0.561
+1307,student_151,prob_131,Recursion & Backtracking,Easy,0.25,0,NULL_POINTER_EXCEPTION,44562,0,28,0.614
+1308,student_152,prob_129,Binary Search,Medium,0.5,1,NONE,19261,0,1,0.533
+1309,student_152,prob_221,Stack & Queue Fundamentals,Medium,0.5,0,LOGIC_EDGE_CASE,16361,0,2,0.482
+1310,student_152,prob_115,2D Arrays & Matrices,Medium,0.5,1,NONE,53378,0,3,0.391
+1311,student_152,prob_197,Strings & Char Arrays,Easy,0.25,1,NONE,23212,0,4,0.413
+1312,student_152,prob_252,Stack & Queue Fundamentals,Medium,0.5,0,TIME_LIMIT_EXCEEDED,27695,1,5,0.503
+1313,student_152,prob_250,Array Basics,Easy,0.25,1,NONE,38203,0,6,0.478
+1314,student_152,prob_192,Array Basics,Medium,0.5,0,NULL_POINTER_EXCEPTION,28456,2,7,0.541
+1315,student_152,prob_252,Strings & Char Arrays,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,57636,2,8,0.483
+1316,student_152,prob_179,Two Pointer Technique,Hard,0.75,1,NONE,53859,0,9,0.398
+1317,student_152,prob_184,Two Pointer Technique,Easy,0.25,1,NONE,19869,0,10,0.47
+1318,student_152,prob_208,Array Basics,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,61611,0,11,0.559
+1319,student_152,prob_106,Binary Search,Easy,0.25,1,NONE,18455,0,12,0.589
+1320,student_152,prob_247,Sorting Algorithms,Medium,0.5,1,NONE,44629,0,13,0.437
+1321,student_152,prob_273,Two Pointer Technique,Hard,0.75,1,NONE,49315,0,14,0.534
+1322,student_152,prob_271,Prefix Sum & Cumulative,Easy,0.25,1,NONE,41345,0,15,0.561
+1323,student_152,prob_212,Sorting Algorithms,Easy,0.25,1,NONE,44462,0,16,0.504
+1324,student_152,prob_238,Prefix Sum & Cumulative,Medium,0.5,0,OFF_BY_ONE_ERROR,36108,0,17,0.614
+1325,student_152,prob_247,Prefix Sum & Cumulative,Easy,0.25,1,NONE,16683,0,18,0.629
+1326,student_152,prob_249,Strings & Char Arrays,Hard,0.75,0,OFF_BY_ONE_ERROR,51243,0,19,0.504
+1327,student_152,prob_246,Two Pointer Technique,Medium,0.5,1,NONE,27591,0,20,0.59
+1328,student_152,prob_120,Recursion & Backtracking,Medium,0.5,1,NONE,59884,0,21,0.536
+1329,student_152,prob_270,Binary Search,Medium,0.5,1,NONE,37362,0,22,0.638
+1330,student_152,prob_165,Recursion & Backtracking,Easy,0.25,1,NONE,21340,0,23,0.591
+1331,student_152,prob_261,Stack & Queue Fundamentals,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,37940,1,24,0.523
+1332,student_152,prob_220,Recursion & Backtracking,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,29558,0,25,0.64
+1333,student_152,prob_212,Binary Search,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,34064,0,26,0.682
+1334,student_153,prob_266,Two Pointer Technique,Medium,0.5,0,TIME_LIMIT_EXCEEDED,50829,0,1,0.51
+1335,student_153,prob_204,Sliding Window,Easy,0.25,1,NONE,18541,0,2,0.482
+1336,student_153,prob_163,Prefix Sum & Cumulative,Easy,0.25,1,NONE,13861,0,3,0.429
+1337,student_153,prob_152,Binary Search,Medium,0.5,0,NULL_POINTER_EXCEPTION,42864,1,4,0.474
+1338,student_153,prob_172,Sliding Window,Easy,0.25,1,NONE,40653,0,5,0.544
+1339,student_153,prob_106,Recursion & Backtracking,Easy,0.25,0,LOGIC_EDGE_CASE,35052,0,6,0.44
+1340,student_153,prob_255,Array Basics,Hard,0.75,1,NONE,58377,0,7,0.376
+1341,student_153,prob_272,Binary Search,Hard,0.75,0,NULL_POINTER_EXCEPTION,37343,0,8,0.495
+1342,student_153,prob_229,Two Pointer Technique,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,19362,3,9,0.529
+1343,student_153,prob_161,Two Pointer Technique,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,54440,1,10,0.548
+1344,student_153,prob_200,Stack & Queue Fundamentals,Easy,0.25,0,TIME_LIMIT_EXCEEDED,22552,0,11,0.35
+1345,student_153,prob_128,Prefix Sum & Cumulative,Hard,0.75,1,NONE,43414,0,12,0.498
+1346,student_153,prob_205,Sliding Window,Easy,0.25,1,NONE,42362,0,13,0.599
+1347,student_153,prob_237,Binary Search,Hard,0.75,1,NONE,53099,0,14,0.515
+1348,student_153,prob_240,Sorting Algorithms,Medium,0.5,1,NONE,41895,0,15,0.372
+1349,student_153,prob_172,Strings & Char Arrays,Medium,0.5,1,NONE,62404,0,16,0.369
+1350,student_153,prob_109,Sliding Window,Medium,0.5,0,TIME_LIMIT_EXCEEDED,28702,3,17,0.647
+1351,student_153,prob_180,Array Basics,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,47558,2,18,0.451
+1352,student_153,prob_214,Sorting Algorithms,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,47108,0,19,0.448
+1353,student_153,prob_177,Strings & Char Arrays,Easy,0.25,0,TIME_LIMIT_EXCEEDED,29647,1,20,0.444
+1354,student_153,prob_213,Prefix Sum & Cumulative,Hard,0.75,1,NONE,64766,0,21,0.558
+1355,student_153,prob_171,Sorting Algorithms,Hard,0.75,0,NULL_POINTER_EXCEPTION,52518,0,22,0.47
+1356,student_153,prob_186,Two Pointer Technique,Hard,0.75,0,NULL_POINTER_EXCEPTION,52884,0,23,0.566
+1357,student_153,prob_230,Strings & Char Arrays,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,59294,0,24,0.467
+1358,student_153,prob_241,Two Pointer Technique,Medium,0.5,1,NONE,32045,0,25,0.584
+1359,student_153,prob_114,Sorting Algorithms,Medium,0.5,1,NONE,26354,0,26,0.491
+1360,student_153,prob_261,Sliding Window,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,23886,1,27,0.661
+1361,student_153,prob_141,Binary Search,Easy,0.25,1,NONE,8000,0,28,0.573
+1362,student_153,prob_253,Prefix Sum & Cumulative,Medium,0.5,0,LOGIC_EDGE_CASE,61099,0,29,0.611
+1363,student_154,prob_243,Sorting Algorithms,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,10093,1,1,0.693
+1364,student_154,prob_144,Stack & Queue Fundamentals,Medium,0.5,0,NULL_POINTER_EXCEPTION,30676,3,2,0.711
+1365,student_154,prob_167,Array Basics,Medium,0.5,1,NONE,30010,0,3,0.646
+1366,student_154,prob_246,Sliding Window,Easy,0.25,1,NONE,27020,0,4,0.638
+1367,student_154,prob_217,Two Pointer Technique,Easy,0.25,1,NONE,33120,0,5,0.54
+1368,student_154,prob_149,2D Arrays & Matrices,Easy,0.25,1,NONE,33657,0,6,0.662
+1369,student_154,prob_134,Binary Search,Easy,0.25,1,NONE,16335,0,7,0.701
+1370,student_154,prob_149,Strings & Char Arrays,Hard,0.75,0,TIME_LIMIT_EXCEEDED,41326,0,8,0.609
+1371,student_154,prob_161,Strings & Char Arrays,Easy,0.25,0,OFF_BY_ONE_ERROR,26722,2,9,0.625
+1372,student_154,prob_250,Stack & Queue Fundamentals,Medium,0.5,1,NONE,30347,0,10,0.723
+1373,student_154,prob_183,2D Arrays & Matrices,Easy,0.25,1,NONE,42620,0,11,0.703
+1374,student_154,prob_166,Strings & Char Arrays,Medium,0.5,0,LOGIC_EDGE_CASE,39223,3,12,0.64
+1375,student_154,prob_186,Two Pointer Technique,Easy,0.25,1,NONE,32150,0,13,0.595
+1376,student_154,prob_256,Prefix Sum & Cumulative,Medium,0.5,1,NONE,41286,0,14,0.553
+1377,student_154,prob_198,Stack & Queue Fundamentals,Medium,0.5,0,OFF_BY_ONE_ERROR,47413,3,15,0.756
+1378,student_154,prob_244,Binary Search,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,45504,0,16,0.737
+1379,student_154,prob_229,Array Basics,Medium,0.5,1,NONE,17769,0,17,0.688
+1380,student_154,prob_236,2D Arrays & Matrices,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,48128,3,18,0.739
+1381,student_154,prob_112,Strings & Char Arrays,Easy,0.25,1,NONE,15515,0,19,0.654
+1382,student_154,prob_211,Sliding Window,Medium,0.5,0,TIME_LIMIT_EXCEEDED,26988,0,20,0.681
+1383,student_154,prob_168,Binary Search,Hard,0.75,1,NONE,50368,0,21,0.748
+1384,student_154,prob_226,Recursion & Backtracking,Easy,0.25,0,TIME_LIMIT_EXCEEDED,38191,0,22,0.672
+1385,student_154,prob_114,Sliding Window,Medium,0.5,0,LOGIC_EDGE_CASE,33587,0,23,0.694
+1386,student_154,prob_110,Prefix Sum & Cumulative,Easy,0.25,1,NONE,27037,0,24,0.607
+1387,student_154,prob_212,2D Arrays & Matrices,Easy,0.25,1,NONE,43758,0,25,0.749
+1388,student_154,prob_244,Two Pointer Technique,Hard,0.75,0,OFF_BY_ONE_ERROR,46221,3,26,0.644
+1389,student_154,prob_138,2D Arrays & Matrices,Medium,0.5,1,NONE,64552,0,27,0.779
+1390,student_154,prob_173,Two Pointer Technique,Easy,0.25,1,NONE,30118,0,28,0.658
+1391,student_154,prob_270,Sliding Window,Hard,0.75,0,TIME_LIMIT_EXCEEDED,22202,0,29,0.706
+1392,student_154,prob_247,Stack & Queue Fundamentals,Easy,0.25,0,OFF_BY_ONE_ERROR,32372,0,30,0.766
+1393,student_155,prob_121,Two Pointer Technique,Hard,0.75,1,NONE,46899,0,1,0.78
+1394,student_155,prob_169,2D Arrays & Matrices,Hard,0.75,0,NULL_POINTER_EXCEPTION,57802,0,2,0.659
+1395,student_155,prob_112,Stack & Queue Fundamentals,Medium,0.5,1,NONE,40403,0,3,0.677
+1396,student_155,prob_246,Stack & Queue Fundamentals,Hard,0.75,1,NONE,40664,0,4,0.716
+1397,student_155,prob_265,Sliding Window,Easy,0.25,1,NONE,8000,0,5,0.641
+1398,student_155,prob_119,Binary Search,Easy,0.25,1,NONE,19817,0,6,0.617
+1399,student_155,prob_203,Recursion & Backtracking,Hard,0.75,1,NONE,32119,0,7,0.716
+1400,student_155,prob_142,Binary Search,Easy,0.25,0,NULL_POINTER_EXCEPTION,15359,1,8,0.663
+1401,student_155,prob_268,Strings & Char Arrays,Medium,0.5,1,NONE,39388,0,9,0.659
+1402,student_155,prob_211,Sliding Window,Easy,0.25,1,NONE,42364,0,10,0.684
+1403,student_155,prob_195,Binary Search,Hard,0.75,0,TIME_LIMIT_EXCEEDED,47061,0,11,0.677
+1404,student_155,prob_200,Recursion & Backtracking,Easy,0.25,1,NONE,8000,0,12,0.75
+1405,student_155,prob_124,2D Arrays & Matrices,Easy,0.25,1,NONE,27660,0,13,0.672
+1406,student_155,prob_124,Strings & Char Arrays,Hard,0.75,0,NULL_POINTER_EXCEPTION,56685,0,14,0.7
+1407,student_155,prob_140,Array Basics,Medium,0.5,0,LOGIC_EDGE_CASE,25008,3,15,0.712
+1408,student_155,prob_122,2D Arrays & Matrices,Medium,0.5,1,NONE,30717,0,16,0.712
+1409,student_155,prob_223,Binary Search,Medium,0.5,1,NONE,32501,0,17,0.69
+1410,student_155,prob_177,Binary Search,Easy,0.25,1,NONE,12906,0,18,0.727
+1411,student_155,prob_113,Prefix Sum & Cumulative,Medium,0.5,1,NONE,40104,0,19,0.66
+1412,student_155,prob_128,Recursion & Backtracking,Easy,0.25,1,NONE,20874,0,20,0.78
+1413,student_155,prob_270,Recursion & Backtracking,Medium,0.5,1,NONE,37359,0,21,0.807
+1414,student_155,prob_250,Stack & Queue Fundamentals,Hard,0.75,1,NONE,31675,0,22,0.75
+1415,student_156,prob_168,2D Arrays & Matrices,Medium,0.5,1,NONE,27315,0,1,0.696
+1416,student_156,prob_255,Sorting Algorithms,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,51233,1,2,0.61
+1417,student_156,prob_237,Binary Search,Hard,0.75,1,NONE,38090,0,3,0.622
+1418,student_156,prob_144,Array Basics,Easy,0.25,1,NONE,43288,0,4,0.625
+1419,student_156,prob_269,2D Arrays & Matrices,Medium,0.5,1,NONE,27769,0,5,0.732
+1420,student_156,prob_258,Stack & Queue Fundamentals,Medium,0.5,1,NONE,35261,0,6,0.716
+1421,student_156,prob_123,Sorting Algorithms,Medium,0.5,0,LOGIC_EDGE_CASE,43756,2,7,0.626
+1422,student_156,prob_105,Sliding Window,Easy,0.25,1,NONE,8000,0,8,0.631
+1423,student_156,prob_267,Prefix Sum & Cumulative,Hard,0.75,1,NONE,21435,0,9,0.686
+1424,student_156,prob_261,Sliding Window,Medium,0.5,1,NONE,14257,0,10,0.675
+1425,student_156,prob_219,Recursion & Backtracking,Easy,0.25,1,NONE,37715,0,11,0.638
+1426,student_156,prob_143,Sliding Window,Medium,0.5,1,NONE,25942,0,12,0.714
+1427,student_156,prob_225,Sliding Window,Medium,0.5,1,NONE,63263,0,13,0.748
+1428,student_156,prob_163,2D Arrays & Matrices,Easy,0.25,1,NONE,15793,0,14,0.764
+1429,student_156,prob_127,Prefix Sum & Cumulative,Easy,0.25,0,NULL_POINTER_EXCEPTION,24779,1,15,0.724
+1430,student_156,prob_242,Strings & Char Arrays,Hard,0.75,0,LOGIC_EDGE_CASE,61070,0,16,0.77
+1431,student_156,prob_232,Binary Search,Easy,0.25,1,NONE,46638,0,17,0.667
+1432,student_156,prob_236,Stack & Queue Fundamentals,Medium,0.5,0,NULL_POINTER_EXCEPTION,57302,1,18,0.75
+1433,student_156,prob_117,Array Basics,Medium,0.5,1,NONE,47065,0,19,0.67
+1434,student_156,prob_222,Binary Search,Hard,0.75,1,NONE,54853,0,20,0.707
+1435,student_156,prob_106,Two Pointer Technique,Medium,0.5,0,TIME_LIMIT_EXCEEDED,39675,2,21,0.776
+1436,student_157,prob_273,Sliding Window,Hard,0.75,0,NULL_POINTER_EXCEPTION,56154,0,1,0.427
+1437,student_157,prob_173,Sorting Algorithms,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,30199,0,2,0.314
+1438,student_157,prob_152,Two Pointer Technique,Medium,0.5,1,NONE,26995,0,3,0.457
+1439,student_157,prob_207,Sliding Window,Medium,0.5,1,NONE,36773,0,4,0.45
+1440,student_157,prob_113,2D Arrays & Matrices,Easy,0.25,1,NONE,24771,0,5,0.375
+1441,student_157,prob_274,Array Basics,Medium,0.5,1,NONE,31375,0,6,0.438
+1442,student_157,prob_187,Sliding Window,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,35170,1,7,0.516
+1443,student_157,prob_244,Strings & Char Arrays,Easy,0.25,1,NONE,38277,0,8,0.428
+1444,student_157,prob_243,Prefix Sum & Cumulative,Medium,0.5,0,TIME_LIMIT_EXCEEDED,37875,0,9,0.449
+1445,student_157,prob_127,Binary Search,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,64544,0,10,0.452
+1446,student_157,prob_129,Array Basics,Hard,0.75,0,NULL_POINTER_EXCEPTION,33113,0,11,0.506
+1447,student_157,prob_111,Two Pointer Technique,Medium,0.5,0,OFF_BY_ONE_ERROR,34490,0,12,0.522
+1448,student_157,prob_141,Recursion & Backtracking,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,18212,0,13,0.327
+1449,student_157,prob_126,Binary Search,Medium,0.5,0,NULL_POINTER_EXCEPTION,14415,0,14,0.474
+1450,student_157,prob_136,Sliding Window,Medium,0.5,1,NONE,35821,0,15,0.535
+1451,student_157,prob_102,Two Pointer Technique,Hard,0.75,0,NULL_POINTER_EXCEPTION,45353,0,16,0.542
+1452,student_157,prob_122,Prefix Sum & Cumulative,Hard,0.75,0,TIME_LIMIT_EXCEEDED,64975,0,17,0.471
+1453,student_157,prob_163,Binary Search,Medium,0.5,0,TIME_LIMIT_EXCEEDED,44383,0,18,0.495
+1454,student_157,prob_159,Sliding Window,Medium,0.5,1,NONE,24523,0,19,0.591
+1455,student_157,prob_205,Sliding Window,Hard,0.75,1,NONE,69063,0,20,0.64
+1456,student_157,prob_214,2D Arrays & Matrices,Hard,0.75,0,LOGIC_EDGE_CASE,61466,1,21,0.45
+1457,student_157,prob_122,Sliding Window,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,43799,0,22,0.683
+1458,student_158,prob_275,Recursion & Backtracking,Hard,0.75,1,NONE,42824,0,1,0.569
+1459,student_158,prob_103,Recursion & Backtracking,Hard,0.75,0,TIME_LIMIT_EXCEEDED,34028,0,2,0.621
+1460,student_158,prob_215,Binary Search,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,41075,0,3,0.429
+1461,student_158,prob_279,Prefix Sum & Cumulative,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,58607,0,4,0.568
+1462,student_158,prob_178,Sorting Algorithms,Hard,0.75,0,NULL_POINTER_EXCEPTION,68157,0,5,0.448
+1463,student_158,prob_133,Two Pointer Technique,Easy,0.25,1,NONE,44061,0,6,0.384
+1464,student_158,prob_124,Recursion & Backtracking,Hard,0.75,1,NONE,39675,0,7,0.636
+1465,student_158,prob_263,Recursion & Backtracking,Medium,0.5,1,NONE,22106,0,8,0.68
+1466,student_158,prob_162,Sliding Window,Easy,0.25,0,SYNTAX_OR_TYPE_ERROR,27232,0,9,0.548
+1467,student_158,prob_196,Binary Search,Medium,0.5,0,OFF_BY_ONE_ERROR,14320,0,10,0.452
+1468,student_158,prob_113,Binary Search,Medium,0.5,1,NONE,39420,0,11,0.473
+1469,student_158,prob_161,Two Pointer Technique,Medium,0.5,0,OFF_BY_ONE_ERROR,33770,0,12,0.458
+1470,student_158,prob_253,Stack & Queue Fundamentals,Medium,0.5,0,LOGIC_EDGE_CASE,29949,0,13,0.454
+1471,student_158,prob_247,Prefix Sum & Cumulative,Medium,0.5,1,NONE,16405,0,14,0.586
+1472,student_158,prob_164,Sliding Window,Medium,0.5,1,NONE,41705,0,15,0.566
+1473,student_158,prob_193,Two Pointer Technique,Easy,0.25,1,NONE,19149,0,16,0.48
+1474,student_158,prob_209,2D Arrays & Matrices,Easy,0.25,0,NULL_POINTER_EXCEPTION,11503,1,17,0.4
+1475,student_158,prob_195,Sliding Window,Medium,0.5,1,NONE,8000,0,18,0.618
+1476,student_158,prob_202,Recursion & Backtracking,Medium,0.5,1,NONE,35211,0,19,0.718
+1477,student_158,prob_226,Binary Search,Medium,0.5,0,NULL_POINTER_EXCEPTION,56809,0,20,0.537
+1478,student_158,prob_133,Strings & Char Arrays,Hard,0.75,1,NONE,65477,0,21,0.452
+1479,student_158,prob_232,2D Arrays & Matrices,Medium,0.5,1,NONE,30056,0,22,0.424
+1480,student_158,prob_222,Recursion & Backtracking,Easy,0.25,1,NONE,18315,0,23,0.752
+1481,student_158,prob_131,Array Basics,Medium,0.5,0,TIME_LIMIT_EXCEEDED,41167,0,24,0.518
+1482,student_158,prob_195,Stack & Queue Fundamentals,Hard,0.75,1,NONE,33561,0,25,0.476
+1483,student_159,prob_226,Binary Search,Hard,0.75,1,NONE,47626,0,1,0.608
+1484,student_159,prob_112,Array Basics,Easy,0.25,1,NONE,33197,0,2,0.625
+1485,student_159,prob_216,Strings & Char Arrays,Medium,0.5,1,NONE,48728,0,3,0.677
+1486,student_159,prob_256,Sorting Algorithms,Medium,0.5,1,NONE,32803,0,4,0.624
+1487,student_159,prob_218,Sliding Window,Medium,0.5,1,NONE,31560,0,5,0.659
+1488,student_159,prob_184,2D Arrays & Matrices,Medium,0.5,1,NONE,23469,0,6,0.654
+1489,student_159,prob_187,Two Pointer Technique,Medium,0.5,0,NULL_POINTER_EXCEPTION,24082,2,7,0.578
+1490,student_159,prob_214,Recursion & Backtracking,Easy,0.25,1,NONE,21287,0,8,0.526
+1491,student_159,prob_180,Binary Search,Medium,0.5,0,LOGIC_EDGE_CASE,38413,3,9,0.655
+1492,student_159,prob_239,Recursion & Backtracking,Medium,0.5,0,OFF_BY_ONE_ERROR,44967,3,10,0.583
+1493,student_159,prob_229,Stack & Queue Fundamentals,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,24366,2,11,0.599
+1494,student_159,prob_171,Array Basics,Easy,0.25,0,INDEX_OUT_OF_BOUNDS,41917,0,12,0.67
+1495,student_159,prob_249,Prefix Sum & Cumulative,Easy,0.25,1,NONE,20751,0,13,0.622
+1496,student_159,prob_183,2D Arrays & Matrices,Easy,0.25,1,NONE,23748,0,14,0.696
+1497,student_159,prob_106,Strings & Char Arrays,Medium,0.5,1,NONE,25038,0,15,0.716
+1498,student_159,prob_236,Sorting Algorithms,Medium,0.5,1,NONE,8000,0,16,0.669
+1499,student_159,prob_126,Sorting Algorithms,Medium,0.5,1,NONE,44613,0,17,0.709
+1500,student_159,prob_166,Recursion & Backtracking,Easy,0.25,1,NONE,32847,0,18,0.6
+1501,student_159,prob_184,Two Pointer Technique,Easy,0.25,0,LOGIC_EDGE_CASE,20629,3,19,0.595
+1502,student_159,prob_200,Sliding Window,Easy,0.25,1,NONE,24808,0,20,0.7
+1503,student_159,prob_183,Two Pointer Technique,Easy,0.25,1,NONE,30196,0,21,0.611
+1504,student_159,prob_253,Binary Search,Medium,0.5,0,OFF_BY_ONE_ERROR,15254,1,22,0.669
+1505,student_159,prob_230,Stack & Queue Fundamentals,Easy,0.25,1,NONE,17656,0,23,0.615
+1506,student_159,prob_182,Strings & Char Arrays,Hard,0.75,1,NONE,53536,0,24,0.75
+1507,student_159,prob_108,2D Arrays & Matrices,Medium,0.5,1,NONE,18953,0,25,0.732
+1508,student_159,prob_273,Strings & Char Arrays,Medium,0.5,0,OFF_BY_ONE_ERROR,37527,3,26,0.78
+1509,student_159,prob_133,Two Pointer Technique,Easy,0.25,1,NONE,8000,0,27,0.658
+1510,student_159,prob_263,Binary Search,Medium,0.5,1,NONE,39602,0,28,0.682
+1511,student_159,prob_144,Recursion & Backtracking,Easy,0.25,0,TIME_LIMIT_EXCEEDED,23577,0,29,0.648
+1512,student_160,prob_275,2D Arrays & Matrices,Easy,0.25,1,NONE,8000,0,1,0.728
+1513,student_160,prob_231,Strings & Char Arrays,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,56435,0,2,0.62
+1514,student_160,prob_245,Binary Search,Easy,0.25,1,NONE,13643,0,3,0.786
+1515,student_160,prob_132,Two Pointer Technique,Easy,0.25,1,NONE,12735,0,4,0.701
+1516,student_160,prob_182,Sliding Window,Medium,0.5,0,NULL_POINTER_EXCEPTION,34865,3,5,0.604
+1517,student_160,prob_163,Sorting Algorithms,Medium,0.5,0,LOGIC_EDGE_CASE,46242,0,6,0.693
+1518,student_160,prob_254,Sorting Algorithms,Easy,0.25,1,NONE,10268,0,7,0.705
+1519,student_160,prob_266,Sorting Algorithms,Easy,0.25,1,NONE,23198,0,8,0.741
+1520,student_160,prob_103,Array Basics,Medium,0.5,1,NONE,37604,0,9,0.679
+1521,student_160,prob_201,Sliding Window,Medium,0.5,0,LOGIC_EDGE_CASE,40775,0,10,0.62
+1522,student_160,prob_272,Recursion & Backtracking,Easy,0.25,0,LOGIC_EDGE_CASE,24575,1,11,0.592
+1523,student_160,prob_197,2D Arrays & Matrices,Medium,0.5,1,NONE,28054,0,12,0.761
+1524,student_160,prob_279,Stack & Queue Fundamentals,Medium,0.5,1,NONE,22527,0,13,0.786
+1525,student_160,prob_150,Array Basics,Easy,0.25,1,NONE,23492,0,14,0.717
+1526,student_160,prob_172,2D Arrays & Matrices,Easy,0.25,1,NONE,9593,0,15,0.79
+1527,student_160,prob_261,Sorting Algorithms,Easy,0.25,1,NONE,8000,0,16,0.772
+1528,student_160,prob_227,Binary Search,Hard,0.75,1,NONE,47697,0,17,0.812
+1529,student_160,prob_256,Sorting Algorithms,Easy,0.25,1,NONE,33305,0,18,0.799
+1530,student_160,prob_246,Prefix Sum & Cumulative,Easy,0.25,0,LOGIC_EDGE_CASE,8000,2,19,0.696
+1531,student_160,prob_269,Recursion & Backtracking,Medium,0.5,1,NONE,20341,0,20,0.608
+1532,student_160,prob_145,Stack & Queue Fundamentals,Medium,0.5,1,NONE,39888,0,21,0.812
+1533,student_160,prob_159,Two Pointer Technique,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,57148,3,22,0.737
+1534,student_160,prob_274,Recursion & Backtracking,Medium,0.5,1,NONE,32708,0,23,0.655
+1535,student_161,prob_220,Sorting Algorithms,Medium,0.5,0,TIME_LIMIT_EXCEEDED,27213,3,1,0.463
+1536,student_161,prob_208,2D Arrays & Matrices,Medium,0.5,0,LOGIC_EDGE_CASE,33755,2,2,0.425
+1537,student_161,prob_150,Recursion & Backtracking,Medium,0.5,1,NONE,52448,0,3,0.365
+1538,student_161,prob_107,Sorting Algorithms,Easy,0.25,1,NONE,18198,0,4,0.484
+1539,student_161,prob_151,Prefix Sum & Cumulative,Hard,0.75,0,OFF_BY_ONE_ERROR,36359,0,5,0.503
+1540,student_161,prob_261,Sliding Window,Easy,0.25,1,NONE,20157,0,6,0.447
+1541,student_161,prob_107,Two Pointer Technique,Easy,0.25,1,NONE,14510,0,7,0.415
+1542,student_161,prob_162,Stack & Queue Fundamentals,Medium,0.5,0,TIME_LIMIT_EXCEEDED,37422,2,8,0.543
+1543,student_161,prob_119,Sorting Algorithms,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,65446,0,9,0.546
+1544,student_161,prob_122,Stack & Queue Fundamentals,Medium,0.5,0,LOGIC_EDGE_CASE,39826,1,10,0.561
+1545,student_161,prob_116,Array Basics,Hard,0.75,0,LOGIC_EDGE_CASE,42921,1,11,0.355
+1546,student_161,prob_211,2D Arrays & Matrices,Easy,0.25,1,NONE,22448,0,12,0.448
+1547,student_161,prob_114,Two Pointer Technique,Easy,0.25,1,NONE,8000,0,13,0.485
+1548,student_161,prob_160,Binary Search,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,56547,0,14,0.441
+1549,student_161,prob_259,Stack & Queue Fundamentals,Medium,0.5,0,NULL_POINTER_EXCEPTION,35015,2,15,0.579
+1550,student_161,prob_273,Stack & Queue Fundamentals,Easy,0.25,1,NONE,23784,0,16,0.596
+1551,student_161,prob_150,Array Basics,Medium,0.5,1,NONE,74267,0,17,0.381
+1552,student_161,prob_118,Two Pointer Technique,Easy,0.25,1,NONE,29535,0,18,0.547
+1553,student_161,prob_247,Stack & Queue Fundamentals,Medium,0.5,1,NONE,26928,0,19,0.644
+1554,student_161,prob_208,Sliding Window,Medium,0.5,1,NONE,30833,0,20,0.513
+1555,student_162,prob_180,Recursion & Backtracking,Medium,0.5,1,NONE,49026,0,1,0.449
+1556,student_162,prob_103,Stack & Queue Fundamentals,Easy,0.25,1,NONE,26604,0,2,0.538
+1557,student_162,prob_114,Recursion & Backtracking,Medium,0.5,0,OFF_BY_ONE_ERROR,17986,3,3,0.515
+1558,student_162,prob_118,Strings & Char Arrays,Easy,0.25,0,LOGIC_EDGE_CASE,36276,0,4,0.513
+1559,student_162,prob_278,Sorting Algorithms,Easy,0.25,1,NONE,17227,0,5,0.538
+1560,student_162,prob_249,2D Arrays & Matrices,Medium,0.5,1,NONE,57725,0,6,0.408
+1561,student_162,prob_217,Stack & Queue Fundamentals,Hard,0.75,0,NULL_POINTER_EXCEPTION,58206,1,7,0.593
+1562,student_162,prob_220,Array Basics,Medium,0.5,0,LOGIC_EDGE_CASE,29877,1,8,0.455
+1563,student_162,prob_185,Stack & Queue Fundamentals,Easy,0.25,1,NONE,40617,0,9,0.61
+1564,student_162,prob_102,Strings & Char Arrays,Easy,0.25,1,NONE,26059,0,10,0.533
+1565,student_162,prob_243,Sorting Algorithms,Easy,0.25,1,NONE,35478,0,11,0.593
+1566,student_162,prob_262,Two Pointer Technique,Easy,0.25,1,NONE,31062,0,12,0.511
+1567,student_162,prob_108,Stack & Queue Fundamentals,Hard,0.75,1,NONE,35089,0,13,0.657
+1568,student_162,prob_168,Prefix Sum & Cumulative,Easy,0.25,1,NONE,17522,0,14,0.441
+1569,student_162,prob_146,Sliding Window,Easy,0.25,1,NONE,37605,0,15,0.552
+1570,student_162,prob_136,Prefix Sum & Cumulative,Easy,0.25,0,OFF_BY_ONE_ERROR,21228,3,16,0.508
+1571,student_162,prob_179,Strings & Char Arrays,Medium,0.5,0,TIME_LIMIT_EXCEEDED,30401,0,17,0.589
+1572,student_162,prob_260,2D Arrays & Matrices,Easy,0.25,0,LOGIC_EDGE_CASE,13784,3,18,0.479
+1573,student_162,prob_137,Strings & Char Arrays,Hard,0.75,1,NONE,50328,0,19,0.605
+1574,student_162,prob_197,Sliding Window,Medium,0.5,1,NONE,59995,0,20,0.605
+1575,student_162,prob_263,Sorting Algorithms,Easy,0.25,1,NONE,12435,0,21,0.642
+1576,student_162,prob_176,Prefix Sum & Cumulative,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,45536,3,22,0.528
+1577,student_162,prob_172,Sliding Window,Easy,0.25,1,NONE,42192,0,23,0.653
+1578,student_162,prob_221,Sliding Window,Hard,0.75,0,NULL_POINTER_EXCEPTION,44289,1,24,0.694
+1579,student_162,prob_266,Stack & Queue Fundamentals,Easy,0.25,1,NONE,30674,0,25,0.698
+1580,student_162,prob_146,Recursion & Backtracking,Medium,0.5,1,NONE,22496,0,26,0.535
+1581,student_162,prob_224,Sorting Algorithms,Medium,0.5,1,NONE,40385,0,27,0.685
+1582,student_163,prob_135,Strings & Char Arrays,Hard,0.75,0,TIME_LIMIT_EXCEEDED,45209,1,1,0.274
+1583,student_163,prob_159,Two Pointer Technique,Easy,0.25,1,NONE,39283,0,2,0.337
+1584,student_163,prob_187,Stack & Queue Fundamentals,Easy,0.25,1,NONE,41703,0,3,0.409
+1585,student_163,prob_182,Strings & Char Arrays,Medium,0.5,0,TIME_LIMIT_EXCEEDED,68529,0,4,0.303
+1586,student_163,prob_160,Binary Search,Medium,0.5,1,NONE,44410,0,5,0.323
+1587,student_163,prob_122,Binary Search,Medium,0.5,1,NONE,41364,0,6,0.404
+1588,student_163,prob_159,Binary Search,Hard,0.75,0,LOGIC_EDGE_CASE,49787,2,7,0.476
+1589,student_163,prob_240,Two Pointer Technique,Easy,0.25,1,NONE,23217,0,8,0.416
+1590,student_163,prob_171,Prefix Sum & Cumulative,Easy,0.25,0,TIME_LIMIT_EXCEEDED,31517,3,9,0.295
+1591,student_163,prob_167,Prefix Sum & Cumulative,Medium,0.5,0,LOGIC_EDGE_CASE,33910,0,10,0.323
+1592,student_163,prob_189,Array Basics,Medium,0.5,1,NONE,39476,0,11,0.358
+1593,student_163,prob_232,Strings & Char Arrays,Hard,0.75,0,LOGIC_EDGE_CASE,63266,3,12,0.331
+1594,student_163,prob_154,Sliding Window,Hard,0.75,1,NONE,35376,0,13,0.325
+1595,student_163,prob_242,2D Arrays & Matrices,Easy,0.25,1,NONE,41133,0,14,0.363
+1596,student_163,prob_122,2D Arrays & Matrices,Medium,0.5,1,NONE,53260,0,15,0.439
+1597,student_163,prob_216,Sorting Algorithms,Hard,0.75,0,LOGIC_EDGE_CASE,46038,2,16,0.412
+1598,student_163,prob_133,Recursion & Backtracking,Easy,0.25,1,NONE,8000,0,17,0.406
+1599,student_163,prob_269,Binary Search,Hard,0.75,1,NONE,40161,0,18,0.497
+1600,student_163,prob_276,Sorting Algorithms,Easy,0.25,1,NONE,43019,0,19,0.435
+1601,student_163,prob_246,Strings & Char Arrays,Medium,0.5,0,TIME_LIMIT_EXCEEDED,37180,1,20,0.358
+1602,student_163,prob_185,Array Basics,Hard,0.75,1,NONE,35463,0,21,0.435
+1603,student_163,prob_201,Stack & Queue Fundamentals,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,31397,0,22,0.48
+1604,student_163,prob_237,Strings & Char Arrays,Easy,0.25,1,NONE,37542,0,23,0.383
+1605,student_163,prob_246,Strings & Char Arrays,Easy,0.25,1,NONE,34016,0,24,0.457
+1606,student_163,prob_144,2D Arrays & Matrices,Medium,0.5,1,NONE,34588,0,25,0.506
+1607,student_163,prob_277,Two Pointer Technique,Medium,0.5,1,NONE,33053,0,26,0.486
+1608,student_163,prob_118,Stack & Queue Fundamentals,Medium,0.5,1,NONE,32754,0,27,0.501
+1609,student_164,prob_118,Two Pointer Technique,Easy,0.25,1,NONE,16601,0,1,0.392
+1610,student_164,prob_180,Strings & Char Arrays,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,67055,0,2,0.404
+1611,student_164,prob_180,Strings & Char Arrays,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,43803,0,3,0.428
+1612,student_164,prob_137,Stack & Queue Fundamentals,Easy,0.25,0,NULL_POINTER_EXCEPTION,42276,1,4,0.407
+1613,student_164,prob_164,2D Arrays & Matrices,Easy,0.25,1,NONE,45926,0,5,0.267
+1614,student_164,prob_226,Recursion & Backtracking,Easy,0.25,1,NONE,39650,0,6,0.356
+1615,student_164,prob_124,2D Arrays & Matrices,Medium,0.5,1,NONE,32491,0,7,0.355
+1616,student_164,prob_177,Binary Search,Medium,0.5,0,TIME_LIMIT_EXCEEDED,42515,0,8,0.427
+1617,student_164,prob_259,Strings & Char Arrays,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,37380,1,9,0.451
+1618,student_164,prob_125,Strings & Char Arrays,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,26826,0,10,0.473
+1619,student_164,prob_141,Strings & Char Arrays,Medium,0.5,1,NONE,41563,0,11,0.494
+1620,student_164,prob_279,Binary Search,Hard,0.75,0,LOGIC_EDGE_CASE,33522,0,12,0.45
+1621,student_164,prob_120,Prefix Sum & Cumulative,Hard,0.75,0,SYNTAX_OR_TYPE_ERROR,61923,2,13,0.425
+1622,student_164,prob_165,Two Pointer Technique,Medium,0.5,0,NULL_POINTER_EXCEPTION,32095,0,14,0.465
+1623,student_164,prob_119,Prefix Sum & Cumulative,Medium,0.5,1,NONE,40084,0,15,0.448
+1624,student_164,prob_165,2D Arrays & Matrices,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,41070,1,16,0.432
+1625,student_164,prob_272,Two Pointer Technique,Medium,0.5,1,NONE,34564,0,17,0.486
+1626,student_164,prob_241,2D Arrays & Matrices,Medium,0.5,1,NONE,44711,0,18,0.455
+1627,student_164,prob_221,Prefix Sum & Cumulative,Medium,0.5,1,NONE,31972,0,19,0.514
+1628,student_164,prob_105,Binary Search,Hard,0.75,1,NONE,58126,0,20,0.472
+1629,student_164,prob_237,Stack & Queue Fundamentals,Easy,0.25,1,NONE,11519,0,21,0.431
+1630,student_164,prob_103,Strings & Char Arrays,Easy,0.25,1,NONE,29187,0,22,0.555
+1631,student_164,prob_156,Binary Search,Easy,0.25,1,NONE,50938,0,23,0.535
+1632,student_164,prob_263,Array Basics,Hard,0.75,0,NULL_POINTER_EXCEPTION,35666,0,24,0.382
+1633,student_164,prob_214,Recursion & Backtracking,Medium,0.5,0,OFF_BY_ONE_ERROR,29537,2,25,0.434
+1634,student_164,prob_197,Array Basics,Medium,0.5,1,NONE,43837,0,26,0.407
+1635,student_165,prob_112,Two Pointer Technique,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,35004,0,1,0.685
+1636,student_165,prob_149,Strings & Char Arrays,Medium,0.5,0,TIME_LIMIT_EXCEEDED,37057,0,2,0.693
+1637,student_165,prob_210,Stack & Queue Fundamentals,Easy,0.25,1,NONE,28720,0,3,0.716
+1638,student_165,prob_183,Two Pointer Technique,Easy,0.25,1,NONE,30466,0,4,0.698
+1639,student_165,prob_104,Sliding Window,Easy,0.25,1,NONE,36166,0,5,0.712
+1640,student_165,prob_269,Strings & Char Arrays,Easy,0.25,1,NONE,27767,0,6,0.705
+1641,student_165,prob_118,Binary Search,Medium,0.5,1,NONE,29954,0,7,0.676
+1642,student_165,prob_127,Prefix Sum & Cumulative,Medium,0.5,0,NULL_POINTER_EXCEPTION,40920,0,8,0.742
+1643,student_165,prob_254,Recursion & Backtracking,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,55648,1,9,0.626
+1644,student_165,prob_278,Sorting Algorithms,Hard,0.75,0,LOGIC_EDGE_CASE,41258,0,10,0.562
+1645,student_165,prob_277,Sliding Window,Easy,0.25,1,NONE,11155,0,11,0.747
+1646,student_165,prob_250,Sorting Algorithms,Hard,0.75,0,OFF_BY_ONE_ERROR,56134,3,12,0.58
+1647,student_165,prob_160,2D Arrays & Matrices,Medium,0.5,1,NONE,31405,0,13,0.722
+1648,student_165,prob_180,Recursion & Backtracking,Medium,0.5,0,INDEX_OUT_OF_BOUNDS,8000,1,14,0.641
+1649,student_165,prob_196,Prefix Sum & Cumulative,Medium,0.5,0,SYNTAX_OR_TYPE_ERROR,43018,1,15,0.752
+1650,student_165,prob_153,2D Arrays & Matrices,Easy,0.25,1,NONE,16425,0,16,0.755
+1651,student_165,prob_214,Array Basics,Easy,0.25,1,NONE,21763,0,17,0.574
+1652,student_165,prob_111,Sorting Algorithms,Easy,0.25,1,NONE,26833,0,18,0.596
+1653,student_165,prob_174,Recursion & Backtracking,Medium,0.5,1,NONE,35135,0,19,0.656
+1654,student_165,prob_188,Array Basics,Easy,0.25,1,NONE,31363,0,20,0.625
+1655,student_165,prob_271,Prefix Sum & Cumulative,Easy,0.25,1,NONE,17624,0,21,0.762
+1656,student_165,prob_198,Prefix Sum & Cumulative,Hard,0.75,0,INDEX_OUT_OF_BOUNDS,49007,0,22,0.791
+1657,student_165,prob_102,Recursion & Backtracking,Easy,0.25,1,NONE,19735,0,23,0.697

@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    LEARNPATH AI â€” Main Design System & Base CSS
    Tagline: "Understand your mistakes. Improve your concepts."
    ============================================================ */
@@ -133,16 +133,34 @@ button {
   z-index: 1;
 }
 
-/* Fullscreen Edge-to-Edge IntelliJ IDE */
+/* Fullscreen Edge-to-Edge IntelliJ IDE & Coding Playground */
 .app-container:has(.intellij-ide-container),
-.app-container.app-ide-mode {
+.app-container:has(.playground-wrapper),
+.app-container.app-ide-mode,
+.app-container.app-playground-mode {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 8px 14px 10px !important;
+  margin: 0 !important;
+  height: calc(100vh - var(--header-height)) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+/* Fullscreen Edge-to-Edge VS Code Studio (Open World Mode) */
+.app-container:has(.vscode-studio-container),
+.app-container.app-vscode-mode {
   max-width: 100% !important;
   width: 100% !important;
   padding: 0 !important;
   margin: 0 !important;
-  height: calc(100vh - var(--header-height));
-  display: flex;
-  flex-direction: column;
+  height: calc(100vh - var(--header-height)) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
 }
 
 /* Navigation Header */

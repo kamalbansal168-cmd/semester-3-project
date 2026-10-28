@@ -52,8 +52,10 @@ export function renderEvaluationView(state, evaluationData = null) {
     { id: 'fig1', title: 'Per-Topic Mastery Distribution', file: 'results/fig1_topic_mastery.png' },
     { id: 'fig2', title: 'Misconception / Error Distribution', file: 'results/fig2_error_distribution.png' },
     { id: 'fig3', title: 'Recovery Rate: Control vs LearnPath AI', file: 'results/fig3_recovery_rate.png' },
-    { id: 'fig4', title: 'ROC Curve (Knowledge Prediction Performance)', file: 'results/fig4_roc_curve.png' },
-    { id: 'fig5', title: 'Model Comparison (AUC / F1 / ACC / MSE)', file: 'results/fig5_model_comparison.png' }
+    { id: 'fig4', title: 'ROC Curve (Knowledge Prediction Performance)', file: 'results/kaggle_fig1_roc_curves.png' },
+    { id: 'fig5', title: 'Confusion Matrix - TransDKT+ (Holdout Test)', file: 'results/kaggle_fig4_confusion_matrix.png' },
+    { id: 'fig6', title: 'Model Comparison (AUC / F1 / ACC / MSE)', file: 'results/kaggle_fig2_model_metrics.png' },
+    { id: 'fig7', title: 'Cognitive Learning Trajectory (1,650+ Rows)', file: 'results/kaggle_fig3_learning_trajectory.png' }
   ];
 
   return `
@@ -95,6 +97,7 @@ export function renderEvaluationView(state, evaluationData = null) {
         </div>
         <div class="eval-audit-badges">
           <span class="eval-badge eval-badge-paper">📘 [PAPER] Springer Nature Reference</span>
+          <span class="eval-badge eval-badge-kaggle" style="background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.35); padding: 4px 10px; border-radius: 999px; font-weight: 600; font-size: 0.78rem;">📊 [KAGGLE BENCHMARK] 1,657 EDM Rows (AUC: 0.854)</span>
           <span class="eval-badge eval-badge-synthetic">⚙️ [SYNTHETIC] 300-Student CPU Baseline</span>
           <span class="eval-badge eval-badge-real">🌱 [REAL] Active Student Data (${real.attempts} Attempts)</span>
         </div>
@@ -176,6 +179,14 @@ export function renderEvaluationView(state, evaluationData = null) {
                 <td>${m.mse !== null ? m.mse.toFixed(4) : 'N/A'}</td>
               </tr>
             `).join('')}
+            <tr style="background: rgba(46, 204, 113, 0.08); font-weight: 600;">
+              <td><strong>TransDKT+ (Kaggle Benchmark)</strong></td>
+              <td><span class="eval-badge" style="background: rgba(46, 204, 113, 0.2); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.4);">[KAGGLE EDM]</span></td>
+              <td style="color: #2ecc71;"><strong>0.8539</strong></td>
+              <td>0.8510</td>
+              <td>79.2%</td>
+              <td>0.1463</td>
+            </tr>
             <tr class="highlight-real">
               <td><strong>⭐ LearnPath AI (Active Session)</strong></td>
               <td><span class="eval-badge eval-badge-real">[REAL DATA]</span></td>

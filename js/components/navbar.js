@@ -59,7 +59,9 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
     mistakes: 'Review Mistakes',
     profile: 'Profile',
     notes: 'Notes',
+    'vscode-studio': '🌍 VS Code Studio',
     evaluation: '🔬 Research Evaluation',
+    admin: '👑 Executive Admin Portal',
   }[activeRoute] || '';
 
   // Logged In Student Application Navigation
@@ -82,6 +84,14 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
 
         <!-- Right Side: Battle Button, Points, Streak, Profile, 3-Dot Menu & Logout -->
         <div class="nav-right">
+          ${user.role === 'admin' ? `
+            <!-- Executive Super Admin Button (Visible ONLY to Authenticated Owner) -->
+            <button class="btn btn-sm nav-admin-btn" data-route="admin" style="display:flex;align-items:center;gap:6px;font-weight:700;background:rgba(234, 179, 8, 0.15);color:#facc15;border:1px solid rgba(250, 204, 21, 0.4);border-radius:8px;padding:6px 12px;cursor:pointer;" title="Owner / Super Admin Dashboard">
+              <span>👑</span>
+              <span>Admin Panel</span>
+            </button>
+          ` : ''}
+
           <!-- Prominent Code Battle Arena Button -->
           <button class="btn btn-sm btn-primary nav-battle-btn" data-route="battle" style="display:flex;align-items:center;gap:6px;font-weight:700;background:linear-gradient(135deg, #ef4444 0%, #8b5cf6 100%);border:none;box-shadow:0 2px 8px rgba(239, 68, 68, 0.35);">
             <span>⚔️</span>
@@ -135,6 +145,11 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
                 <span>Coding IDE</span>
                 ${activeRoute === 'playground' ? '<span class="nav-dropdown-active-dot"></span>' : ''}
               </a>
+              <a class="nav-dropdown-item ${activeRoute === 'vscode-studio' ? 'active' : ''}" data-route="vscode-studio" role="menuitem">
+                <span class="nav-dropdown-icon">🌍</span>
+                <span>Open World (VS Code)</span>
+                ${activeRoute === 'vscode-studio' ? '<span class="nav-dropdown-active-dot"></span>' : ''}
+              </a>
               <a class="nav-dropdown-item ${activeRoute === 'topics' || activeRoute === 'practice' ? 'active' : ''}" data-route="topics" role="menuitem">
                 <span class="nav-dropdown-icon">🎯</span>
                 <span>Practice</span>
@@ -160,6 +175,13 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
                 <span>Research Evaluation</span>
                 ${activeRoute === 'evaluation' ? '<span class="nav-dropdown-active-dot"></span>' : ''}
               </a>
+              ${user.role === 'admin' ? `
+                <a class="nav-dropdown-item ${activeRoute === 'admin' ? 'active' : ''}" data-route="admin" role="menuitem">
+                  <span class="nav-dropdown-icon">👑</span>
+                  <span>Executive Admin Portal</span>
+                  ${activeRoute === 'admin' ? '<span class="nav-dropdown-active-dot"></span>' : ''}
+                </a>
+              ` : ''}
               <div class="nav-dropdown-divider"></div>
               <button class="nav-dropdown-item nav-dropdown-logout" id="btn-logout" role="menuitem">
                 <span class="nav-dropdown-icon">🚪</span>

@@ -1,3 +1,4 @@
 node_modules/
 .env
 semester-3-project/
+.temp_runs/

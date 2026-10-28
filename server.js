@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { exec, spawn } = require('child_process');
 const { WebSocketServer } = require('ws');
 
 const PORT = 3000;
@@ -16,6 +17,22 @@ const MIME_TYPES = {
 };
 
 const server = http.createServer((req, res) => {
+  // Real Code Execution API (JVM / Python / Node.js)
+  if (req.url === '/api/execute' && req.method === 'POST') {
+    let body = '';
+    req.on('data', chunk => { body += chunk; });
+    req.on('end', () => {
+      try {
+        const payload = JSON.parse(body || '{}');
+        executeUserCode(payload, res);
+      } catch (err) {
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: false, error: 'Malformed JSON payload: ' + err.message }));
+      }
+    });
+    return;
+  }
+
   // Prevent directory traversal
   const rawPath = req.url === '/' ? 'index.html' : req.url.split('?')[0];
   const safeFilePath = path.normalize(path.join(__dirname, rawPath));
@@ -338,11 +355,236 @@ wss.on('connection', (ws) => {
   });
 });
 
+// ============================================================
+// REAL CODE EXECUTION ENGINE (JVM HotSpot / Python / Node)
+// ============================================================
+function executeUserCode(payload, res) {
+  const { code = '', language = 'java', stdin = '', fileName = 'Main.java' } = payload;
+  const startTime = Date.now();
+
+  const runId = 'run_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
+  const tempDir = path.join(__dirname, '.temp_runs', runId);
+  try {
+    fs.mkdirSync(tempDir, { recursive: true });
+  } catch (e) {}
+
+  const cleanup = () => {
+    try {
+      if (fs.existsSync(tempDir)) {
+        fs.rmSync(tempDir, { recursive: true, force: true });
+      }
+    } catch (e) {}
+  };
+
+  const sendResponse = (result) => {
+    cleanup();
+    res.writeHead(200, {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-store'
+    });
+    res.end(JSON.stringify({
+      ...result,
+      executionTimeMs: Date.now() - startTime
+    }));
+  };
+
+  const lang = (language || '').toLowerCase();
+
+  // 1. JAVA: Compiles with javac and runs on Real JVM (HotSpot)
+  if (lang === 'java') {
+    let className = 'Main';
+    const match = code.match(/(?:public\s+)?(?:final\s+)?class\s+([A-Za-z0-9_]+)/);
+    if (match && match[1]) {
+      className = match[1];
+    } else if (fileName && fileName.endsWith('.java')) {
+      className = path.basename(fileName, '.java');
+    }
+
+    const sourceFile = path.join(tempDir, `${className}.java`);
+    fs.writeFileSync(sourceFile, code, 'utf-8');
+
+    // Step A: Compilation with javac
+    exec(`javac "${className}.java"`, { cwd: tempDir, timeout: 8000 }, (compileErr, compileStdout, compileStderr) => {
+      if (compileErr) {
+        const errText = compileStderr || compileStdout || compileErr.message;
+        return sendResponse({
+          success: false,
+          stdout: '',
+          error: errText.trim(),
+          stage: 'Compilation Error',
+          runtime: 'JVM 25.0.1 (HotSpot)'
+        });
+      }
+
+      // Step B: Execution with java (Real JVM)
+      let stdout = '';
+      let stderr = '';
+      let isTimedOut = false;
+
+      const child = spawn('java', [className], { cwd: tempDir });
+
+      const timer = setTimeout(() => {
+        isTimedOut = true;
+        try { child.kill('SIGKILL'); } catch (e) {}
+      }, 7000);
+
+      if (stdin) {
+        try {
+          child.stdin.write(stdin);
+          child.stdin.end();
+        } catch (e) {}
+      } else {
+        child.stdin.end();
+      }
+
+      child.stdout.on('data', d => { stdout += d.toString(); });
+      child.stderr.on('data', d => { stderr += d.toString(); });
+
+      child.on('error', (err) => {
+        clearTimeout(timer);
+        sendResponse({
+          success: false,
+          stdout,
+          error: `JVM Runtime Process Error: ${err.message}`,
+          stage: 'Runtime',
+          runtime: 'JVM 25.0.1 (HotSpot)'
+        });
+      });
+
+      child.on('close', (exitCode) => {
+        clearTimeout(timer);
+        if (isTimedOut) {
+          return sendResponse({
+            success: false,
+            stdout: stdout.trimEnd(),
+            error: 'Time Limit Exceeded: Process exceeded 7000ms execution limit.',
+            stage: 'Timeout',
+            runtime: 'JVM 25.0.1 (HotSpot)'
+          });
+        }
+
+        const isSuccess = exitCode === 0;
+        sendResponse({
+          success: isSuccess,
+          stdout: stdout.trimEnd(),
+          error: isSuccess ? null : (stderr.trim() || `Process exited with error code ${exitCode}`),
+          stage: isSuccess ? 'Success' : 'Runtime Exception',
+          runtime: 'JVM 25.0.1 (HotSpot)',
+          exitCode
+        });
+      });
+    });
+    return;
+  }
+
+  // 2. PYTHON: Runs using py / python3
+  if (lang === 'py' || lang === 'python') {
+    const scriptFile = path.join(tempDir, 'script.py');
+    fs.writeFileSync(scriptFile, code, 'utf-8');
+
+    let stdout = '';
+    let stderr = '';
+    let isTimedOut = false;
+
+    const pyCmd = process.platform === 'win32' ? 'py' : 'python3';
+    const child = spawn(pyCmd, ['script.py'], { cwd: tempDir });
+
+    const timer = setTimeout(() => {
+      isTimedOut = true;
+      try { child.kill('SIGKILL'); } catch (e) {}
+    }, 7000);
+
+    if (stdin) {
+      try { child.stdin.write(stdin); child.stdin.end(); } catch (e) {}
+    } else {
+      child.stdin.end();
+    }
+
+    child.stdout.on('data', d => { stdout += d.toString(); });
+    child.stderr.on('data', d => { stderr += d.toString(); });
+
+    child.on('close', (exitCode) => {
+      clearTimeout(timer);
+      if (isTimedOut) {
+        return sendResponse({
+          success: false,
+          stdout: stdout.trimEnd(),
+          error: 'Time Limit Exceeded: Process exceeded 7000ms limit.',
+          runtime: 'Python 3'
+        });
+      }
+      const isSuccess = exitCode === 0;
+      sendResponse({
+        success: isSuccess,
+        stdout: stdout.trimEnd(),
+        error: isSuccess ? null : (stderr.trim() || `Process exited with code ${exitCode}`),
+        runtime: 'Python 3',
+        exitCode
+      });
+    });
+    return;
+  }
+
+  // 3. JAVASCRIPT / NODE.JS
+  if (lang === 'js' || lang === 'javascript' || lang === 'node') {
+    const scriptFile = path.join(tempDir, 'script.js');
+    fs.writeFileSync(scriptFile, code, 'utf-8');
+
+    let stdout = '';
+    let stderr = '';
+    let isTimedOut = false;
+
+    const child = spawn(process.execPath, ['script.js'], { cwd: tempDir });
+
+    const timer = setTimeout(() => {
+      isTimedOut = true;
+      try { child.kill('SIGKILL'); } catch (e) {}
+    }, 7000);
+
+    if (stdin) {
+      try { child.stdin.write(stdin); child.stdin.end(); } catch (e) {}
+    } else {
+      child.stdin.end();
+    }
+
+    child.stdout.on('data', d => { stdout += d.toString(); });
+    child.stderr.on('data', d => { stderr += d.toString(); });
+
+    child.on('close', (exitCode) => {
+      clearTimeout(timer);
+      if (isTimedOut) {
+        return sendResponse({
+          success: false,
+          stdout: stdout.trimEnd(),
+          error: 'Time Limit Exceeded (7000ms).',
+          runtime: 'Node.js'
+        });
+      }
+      const isSuccess = exitCode === 0;
+      sendResponse({
+        success: isSuccess,
+        stdout: stdout.trimEnd(),
+        error: isSuccess ? null : (stderr.trim() || `Process exited with code ${exitCode}`),
+        runtime: 'Node.js',
+        exitCode
+      });
+    });
+    return;
+  }
+
+  sendResponse({
+    success: false,
+    error: `Language '${language}' is not supported yet by real execution engine.`,
+    runtime: 'Unknown'
+  });
+}
+
 server.listen(PORT, () => {
   console.log(`\n============================================================`);
   console.log(`LEARNPATH AI Platform running successfully!`);
   console.log(`Open in your browser: http://localhost:${PORT}`);
   console.log(`⚔️ Real-Time Multiplayer Battle Arena WebSocket: ACTIVE`);
+  console.log(`⚡ Real-Time JVM & Compiler Execution API: ACTIVE (Java 25.0.1)`);
   console.log(`Tagline: "Understand your mistakes. Improve your concepts."`);
   console.log(`============================================================\n`);
 });

@@ -1,0 +1,42 @@
+{
+  "dataset_rows": 1657,
+  "benchmark_dataset": "Kaggle ASSISTments / EdNet EDM Format with Misconceptions",
+  "models": {
+    "Baseline (IRT / BKT)": {
+      "AUC": 0.8539,
+      "Accuracy": 79.22,
+      "F1": 0.851,
+      "Precision": 0.7434,
+      "Recall": 0.9949,
+      "MSE": 0.1463,
+      "BCE_Loss": 0.4504,
+      "Train_Time_Sec": 0.056
+    },
+    "Ensemble DKT (Random Forest)": {
+      "AUC": 0.8433,
+      "Accuracy": 79.82,
+      "F1": 0.854,
+      "Precision": 0.751,
+      "Recall": 0.9899,
+      "MSE": 0.1473,
+      "BCE_Loss": 0.4579,
+      "Train_Time_Sec": 0.339
+    },
+    "TransDKT+ (Gradient Boost)": {
+      "AUC": 0.8045,
+      "Accuracy": 78.61,
+      "F1": 0.8383,
+      "Precision": 0.7635,
+      "Recall": 0.9293,
+      "MSE": 0.1526,
+      "BCE_Loss": 0.4523,
+      "Train_Time_Sec": 0.488
+    }
+  },
+  "figures": [
+    "results/kaggle_fig1_roc_curves.png",
+    "results/kaggle_fig2_model_metrics.png",
+    "results/kaggle_fig3_learning_trajectory.png",
+    "results/kaggle_fig4_confusion_matrix.png"
+  ]
+}
