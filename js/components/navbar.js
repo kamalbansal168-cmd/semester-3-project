@@ -182,6 +182,10 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
                   ${activeRoute === 'admin' ? '<span class="nav-dropdown-active-dot"></span>' : ''}
                 </a>
               ` : ''}
+              <a class="nav-dropdown-item" id="nav-btn-feedback" role="menuitem" style="cursor: pointer;">
+                <span class="nav-dropdown-icon">💬</span>
+                <span>Give Feedback</span>
+              </a>
               <div class="nav-dropdown-divider"></div>
               <button class="nav-dropdown-item nav-dropdown-logout" id="btn-logout" role="menuitem">
                 <span class="nav-dropdown-icon">🚪</span>

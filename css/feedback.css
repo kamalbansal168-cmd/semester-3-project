@@ -1,0 +1,416 @@
+/* ============================================================
+   LEARNPATH AI — Feedback System CSS
+   (Floating Button + Modal + Admin Feedback Cards)
+   ============================================================ */
+
+/* ── Floating Feedback Button ─────────────────────────────── */
+.feedback-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 22px;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #7c3aed 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.55), 0 2px 8px rgba(0,0,0,0.35);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.3px;
+  animation: fab-bounce 3s ease-in-out infinite;
+}
+.feedback-fab:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 36px rgba(99, 102, 241, 0.7), 0 4px 12px rgba(0,0,0,0.4);
+  background: linear-gradient(135deg, #818cf8 0%, #6366f1 50%, #8b5cf6 100%);
+}
+.feedback-fab .fab-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+@keyframes fab-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%  { transform: translateY(-5px); }
+}
+
+/* ── Feedback Modal Overlay ───────────────────────────────── */
+.feedback-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9500;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: overlay-in 0.2s ease;
+}
+@keyframes overlay-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.feedback-modal {
+  background: linear-gradient(145deg, #0f172a 0%, #0d1631 100%);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  border-radius: 22px;
+  padding: 36px;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  box-shadow:
+    0 32px 80px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255,255,255,0.04) inset,
+    0 0 60px rgba(99,102,241,0.12);
+  animation: modal-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.feedback-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+.feedback-modal-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 4px;
+}
+.feedback-modal-subtitle {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.feedback-close-btn {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #94a3b8;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.feedback-close-btn:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #f87171;
+}
+
+/* Star Rating */
+.feedback-rating-group {
+  margin-bottom: 22px;
+}
+.feedback-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 10px;
+}
+.feedback-stars {
+  display: flex;
+  gap: 8px;
+}
+.feedback-star {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease;
+  filter: grayscale(1) opacity(0.35);
+  line-height: 1;
+  user-select: none;
+}
+.feedback-star.active,
+.feedback-star:hover {
+  filter: grayscale(0) opacity(1);
+  transform: scale(1.15);
+}
+
+/* Category Chips */
+.feedback-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+.feedback-chip {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  background: rgba(99, 102, 241, 0.08);
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.feedback-chip.selected,
+.feedback-chip:hover {
+  background: rgba(99, 102, 241, 0.25);
+  border-color: rgba(99, 102, 241, 0.6);
+  color: #c7d2fe;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+}
+
+/* Textarea */
+.feedback-textarea {
+  width: 100%;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  resize: vertical;
+  min-height: 110px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+.feedback-textarea:focus {
+  border-color: rgba(99, 102, 241, 0.7);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+.feedback-textarea::placeholder { color: #475569; }
+
+/* Submit Button */
+.feedback-submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #4338ca 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+  letter-spacing: 0.3px;
+}
+.feedback-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(99, 102, 241, 0.6);
+  background: linear-gradient(135deg, #818cf8 0%, #6366f1 50%, #4f46e5 100%);
+}
+.feedback-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Success State */
+.feedback-success {
+  text-align: center;
+  padding: 20px 0;
+}
+.feedback-success-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 16px;
+  animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes pop-in {
+  from { transform: scale(0); }
+  to   { transform: scale(1); }
+}
+.feedback-success-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #34d399;
+  margin-bottom: 8px;
+}
+.feedback-success-msg {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* ── Admin Feedback Section ───────────────────────────────── */
+.admin-feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.admin-feedback-card {
+  background: linear-gradient(145deg, rgba(22, 30, 65, 0.9) 0%, rgba(15, 20, 45, 0.85) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 14px;
+  padding: 18px 20px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.admin-feedback-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+  border-radius: 14px 14px 0 0;
+}
+.admin-feedback-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(99, 102, 241, 0.45);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3), 0 0 20px rgba(99,102,241,0.12);
+}
+
+.admin-fb-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.admin-fb-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.admin-fb-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(99,102,241,0.4);
+  flex-shrink: 0;
+}
+.admin-fb-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #f1f5f9;
+}
+.admin-fb-time {
+  font-size: 0.72rem;
+  color: #475569;
+}
+.admin-fb-stars {
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+.admin-fb-category {
+  display: inline-block;
+  padding: 3px 10px;
+  background: rgba(99,102,241,0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99,102,241,0.3);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.admin-fb-message {
+  font-size: 0.87rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  font-style: italic;
+}
+.admin-feedback-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #475569;
+  font-size: 0.9rem;
+}
+.admin-feedback-empty-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+/* Rating color variants */
+.admin-feedback-card.rating-5::before { background: linear-gradient(90deg, #10b981, #34d399); }
+.admin-feedback-card.rating-4::before { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+.admin-feedback-card.rating-3::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.admin-feedback-card.rating-2::before,
+.admin-feedback-card.rating-1::before { background: linear-gradient(90deg, #ef4444, #f87171); }
+
+/* Admin feedback stats bar */
+.admin-fb-stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  background: rgba(0,0,0,0.25);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(99,102,241,0.15);
+}
+.admin-fb-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.admin-fb-stat-val {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #a5b4fc;
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1;
+}
+.admin-fb-stat-lbl {
+  font-size: 0.74rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+/* Delete button on feedback card */
+.admin-fb-delete {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.2);
+  color: #f87171;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+.admin-feedback-card:hover .admin-fb-delete {
+  opacity: 1;
+}
+.admin-fb-delete:hover {
+  background: rgba(239,68,68,0.25);
+  border-color: rgba(239,68,68,0.5);
+  transform: scale(1.1);
+}

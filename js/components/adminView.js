@@ -1,10 +1,9 @@
-/* ============================================================
-   LEARNPATH AI — Super Admin / Company Executive Portal View
-   (Owner / "Malik" Full Platform Governance Dashboard)
-   ============================================================ */
+import { FeedbackEngine } from '../engine/feedbackEngine.js';
 
 export function renderAdminView(state) {
   const activeUser = state.user || { name: 'Aryan Soni', points: 42 };
+  const feedbacks = FeedbackEngine.getAll();
+  const feedbackStats = FeedbackEngine.getStats();
 
   // Master Registered User Roster (In-House Students + Live Session)
   const masterUsers = [
@@ -247,6 +246,79 @@ export function renderAdminView(state) {
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- User Feedback & Experience Governance Section -->
+      <div class="admin-card" style="margin-top: 24px;">
+        <div class="admin-card-header" style="flex-wrap: wrap; gap: 12px;">
+          <div>
+            <h2 class="admin-card-title">
+              <span>💬</span> Student & User Direct Feedback Management
+            </h2>
+            <p style="font-size: 0.82rem; color: #94a3b8; margin: 4px 0 0;">
+              Live feedback, star ratings, and module reviews submitted by registered students across the platform.
+            </p>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <span class="admin-badge-plan pro" style="font-size: 0.82rem; padding: 6px 14px;">
+              ⭐ Avg Rating: ${feedbackStats.avgRating} / 5.0 (${feedbacks.length} Submissions)
+            </span>
+          </div>
+        </div>
+
+        <!-- Quick Summary Stats Bar -->
+        <div class="admin-fb-stats">
+          <div class="admin-fb-stat">
+            <span class="admin-fb-stat-val">${feedbackStats.total}</span>
+            <span class="admin-fb-stat-lbl">Total Submissions</span>
+          </div>
+          <div class="admin-fb-stat">
+            <span class="admin-fb-stat-val" style="color: #fbbf24;">${feedbackStats.avgRating} ★</span>
+            <span class="admin-fb-stat-lbl">Average Score</span>
+          </div>
+          <div class="admin-fb-stat">
+            <span class="admin-fb-stat-val" style="color: #34d399;">${feedbacks.filter(f => f.rating >= 4).length}</span>
+            <span class="admin-fb-stat-lbl">Positive (4-5★)</span>
+          </div>
+          <div class="admin-fb-stat">
+            <span class="admin-fb-stat-val" style="color: #60a5fa;">${Object.keys(feedbackStats.byCategory).length}</span>
+            <span class="admin-fb-stat-lbl">Categories Tracked</span>
+          </div>
+        </div>
+
+        <!-- Feedback Cards Grid -->
+        ${feedbacks.length === 0 ? `
+          <div class="admin-feedback-empty">
+            <span class="admin-feedback-empty-icon">📭</span>
+            <p>No user feedback submitted yet. When users submit feedback via the floating button, it will appear here in real-time.</p>
+          </div>
+        ` : `
+          <div class="admin-feedback-grid">
+            ${feedbacks.map(fb => `
+              <div class="admin-feedback-card rating-${fb.rating}">
+                <button class="admin-fb-delete" data-id="${fb.id}" title="Delete feedback entry">🗑️</button>
+                <div class="admin-fb-card-top">
+                  <div class="admin-fb-user">
+                    <div class="admin-fb-avatar">${(fb.name || 'U').charAt(0).toUpperCase()}</div>
+                    <div>
+                      <div class="admin-fb-name">${fb.name}</div>
+                      <div class="admin-fb-time">${fb.dateStr || 'Recent'}</div>
+                    </div>
+                  </div>
+                  <div class="admin-fb-stars" title="${fb.rating} Stars">
+                    ${FeedbackEngine.starsHtml(fb.rating)}
+                  </div>
+                </div>
+                <div>
+                  <span class="admin-fb-category">${fb.category || 'General'}</span>
+                </div>
+                <div class="admin-fb-message">
+                  "${fb.message}"
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `}
       </div>
     </div>
   `;

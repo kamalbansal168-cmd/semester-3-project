@@ -30,6 +30,7 @@ import { vfs } from './engine/virtualFileSystem.js';
 import { MultiLanguageRunner } from './engine/multiLanguageRunner.js';
 import { battleEngine } from './engine/battleEngine.js';
 import { exportResearchData } from './engine/dataExporter.js';
+import { FeedbackEngine } from './engine/feedbackEngine.js';
 
 class LearnPathApp {
   constructor() {
@@ -128,6 +129,7 @@ class LearnPathApp {
     });
 
     this.render();
+    this.renderFeedbackFAB();
     store.subscribe(() => {
       this.render();
     });
@@ -178,6 +180,7 @@ class LearnPathApp {
     }
 
     this.render();
+    this.renderFeedbackFAB();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -363,7 +366,191 @@ class LearnPathApp {
         alert('⚡ Kaggle DKT Model Weights Verified & Synced!\n\nArchitecture: TransDKT+ (Gradient Boost)\nAccuracy: 79.20%\nAUC-ROC: 0.8539\nStatus: Production Active');
       });
     }
+
+    // Feedback delete action
+    document.querySelectorAll('.admin-fb-delete').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = btn.dataset.id;
+        if (confirm('Are you sure you want to delete this user feedback entry?')) {
+          FeedbackEngine.delete(id);
+          this.render();
+          this.showToast('Feedback Removed 🗑️', 'The entry has been deleted from the database.', 'info');
+        }
+      });
+    });
   }
+
+  // ── FEEDBACK FAB & MODAL ──────────────────────────────────────────
+
+  renderFeedbackFAB() {
+    const mount = document.getElementById('feedback-mount');
+    if (!mount) return;
+
+    // Only show FAB when logged in AND not on admin route
+    if (!this.isLoggedIn || this.currentRoute === 'landing' ||
+        this.currentRoute === 'signin' || this.currentRoute === 'signup' ||
+        this.currentRoute === 'admin') {
+      mount.innerHTML = '';
+      return;
+    }
+
+    mount.innerHTML = `
+      <button class="feedback-fab" id="btn-open-feedback" title="Send Feedback">
+        <span class="fab-icon">💬</span>
+        <span>Give Feedback</span>
+      </button>
+    `;
+
+    document.getElementById('btn-open-feedback')?.addEventListener('click', () => {
+      this.showFeedbackModal();
+    });
+  }
+
+  showFeedbackModal() {
+    const state = store.getState();
+    const user = state.user;
+    const existingOverlay = document.getElementById('feedback-overlay');
+    if (existingOverlay) existingOverlay.remove();
+
+    const overlay = document.createElement('div');
+    overlay.className = 'feedback-overlay';
+    overlay.id = 'feedback-overlay';
+    overlay.innerHTML = `
+      <div class="feedback-modal" id="feedback-modal" role="dialog" aria-modal="true" aria-labelledby="fb-modal-title">
+        <div class="feedback-modal-header">
+          <div>
+            <h2 class="feedback-modal-title" id="fb-modal-title">💬 Share Your Feedback</h2>
+            <p class="feedback-modal-subtitle">Help us improve LearnPath AI for everyone!</p>
+          </div>
+          <button class="feedback-close-btn" id="btn-close-feedback" aria-label="Close feedback form">✕</button>
+        </div>
+
+        <div id="feedback-form-body">
+          <!-- Star Rating -->
+          <label class="feedback-label">⭐ Your Rating</label>
+          <div class="feedback-stars" id="feedback-stars" role="group" aria-label="Star rating">
+            <span class="feedback-star" data-val="1" title="1 star">⭐</span>
+            <span class="feedback-star" data-val="2" title="2 stars">⭐</span>
+            <span class="feedback-star" data-val="3" title="3 stars">⭐</span>
+            <span class="feedback-star" data-val="4" title="4 stars">⭐</span>
+            <span class="feedback-star" data-val="5" title="5 stars">⭐</span>
+          </div>
+          <input type="hidden" id="feedback-rating-val" value="0">
+
+          <!-- Category -->
+          <label class="feedback-label" style="margin-top:18px;">🏷️ Category</label>
+          <div class="feedback-chips" id="feedback-chips">
+            ${['UI / Design', 'Learning Content', 'AI Suggestions', 'Code Execution', 'Performance', 'Bug Report', 'General'].map(c =>
+              `<button type="button" class="feedback-chip" data-cat="${c}">${c}</button>`
+            ).join('')}
+          </div>
+          <input type="hidden" id="feedback-cat-val" value="General">
+
+          <!-- Message -->
+          <label class="feedback-label">✍️ Your Message</label>
+          <textarea
+            class="feedback-textarea"
+            id="feedback-message"
+            placeholder="Tell us what you loved, what's broken, or what would make this even better..."
+            maxlength="600"
+          ></textarea>
+
+          <button class="feedback-submit-btn" id="btn-submit-feedback" disabled>Submit Feedback →</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    this.bindFeedbackModal(user);
+  }
+
+  bindFeedbackModal(user) {
+    let selectedRating = 0;
+    let selectedCategory = 'General';
+
+    // Pre-select "General" chip
+    document.querySelector('.feedback-chip[data-cat="General"]')?.classList.add('selected');
+
+    // Close
+    const close = () => {
+      const ov = document.getElementById('feedback-overlay');
+      if (ov) ov.remove();
+    };
+    document.getElementById('btn-close-feedback')?.addEventListener('click', close);
+    document.getElementById('feedback-overlay')?.addEventListener('click', (e) => {
+      if (e.target.id === 'feedback-overlay') close();
+    });
+
+    // Stars
+    const stars = document.querySelectorAll('.feedback-star');
+    const ratingInput = document.getElementById('feedback-rating-val');
+    const submitBtn = document.getElementById('btn-submit-feedback');
+
+    const highlightStars = (val) => {
+      stars.forEach(s => {
+        const sv = parseInt(s.dataset.val);
+        s.classList.toggle('active', sv <= val);
+      });
+    };
+    stars.forEach(star => {
+      star.addEventListener('mouseenter', () => highlightStars(parseInt(star.dataset.val)));
+      star.addEventListener('mouseleave', () => highlightStars(selectedRating));
+      star.addEventListener('click', () => {
+        selectedRating = parseInt(star.dataset.val);
+        ratingInput.value = selectedRating;
+        highlightStars(selectedRating);
+        checkCanSubmit();
+      });
+    });
+
+    // Category chips
+    document.querySelectorAll('.feedback-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.feedback-chip').forEach(c => c.classList.remove('selected'));
+        chip.classList.add('selected');
+        selectedCategory = chip.dataset.cat;
+        document.getElementById('feedback-cat-val').value = selectedCategory;
+      });
+    });
+
+    // Message textarea — enable submit once rating + message are filled
+    const msgInput = document.getElementById('feedback-message');
+    const checkCanSubmit = () => {
+      const canSubmit = selectedRating > 0 && msgInput.value.trim().length >= 5;
+      submitBtn.disabled = !canSubmit;
+    };
+    msgInput?.addEventListener('input', checkCanSubmit);
+
+    // Submit
+    submitBtn?.addEventListener('click', () => {
+      const message = msgInput.value.trim();
+      if (!message || selectedRating < 1) return;
+
+      FeedbackEngine.submit({
+        name: user.name || 'Anonymous',
+        email: user.email || '',
+        rating: selectedRating,
+        category: selectedCategory,
+        message
+      });
+
+      // Show success state
+      const formBody = document.getElementById('feedback-form-body');
+      if (formBody) {
+        formBody.innerHTML = `
+          <div class="feedback-success">
+            <span class="feedback-success-icon">🎉</span>
+            <div class="feedback-success-title">Thank You!</div>
+            <p class="feedback-success-msg">Your feedback has been recorded and will be reviewed by the admin team.</p>
+          </div>
+        `;
+      }
+      setTimeout(close, 2200);
+      this.showToast('Feedback Sent! 💬', 'Thank you for helping improve LearnPath AI.', 'success');
+    });
+  }
+
+  // ── END FEEDBACK SECTION ─────────────────────────────────────────
 
   updateLineNumbers() {
     const textarea = document.getElementById('playground-code-input');
@@ -650,6 +837,15 @@ class LearnPathApp {
           btn && btn.classList.remove('open');
           btn && btn.setAttribute('aria-expanded', 'false');
         }
+      }
+
+      // Open Feedback Modal from Navbar 3-dot dropdown
+      if (e.target.closest('#nav-btn-feedback')) {
+        const dropdown = document.getElementById('nav-dots-dropdown');
+        const btn = document.getElementById('nav-dots-toggle');
+        if (dropdown) { dropdown.classList.remove('open'); btn && btn.classList.remove('open'); }
+        this.showFeedbackModal();
+        return;
       }
 
       // ============================================================
