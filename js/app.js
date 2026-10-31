@@ -115,7 +115,7 @@ class LearnPathApp {
     if (this.isLoggedIn) {
       const savedEmail = localStorage.getItem('learnpath_user_email');
       if (savedEmail) {
-        store.switchUser('', savedEmail);
+        store.switchUser('', savedEmail, this.isAdmin ? 'admin' : 'student');
       }
       // Admin users return to admin panel; normal users to dashboard
       this.currentRoute = this.isAdmin ? 'admin' : 'dashboard';
@@ -137,6 +137,22 @@ class LearnPathApp {
   }
 
   navigate(route, params = {}) {
+    // Route Protection: Guard protected routes from unauthenticated access
+    const protectedRoutes = ['dashboard', 'battle', 'topics', 'practice', 'playground', 'question',
+      'recovery', 'retest', 'progress', 'mistakes', 'profile', 'notes', 'insight', 'explanation', 'evaluation', 'admin'];
+    if (protectedRoutes.includes(route) && !this.isLoggedIn) {
+      this.showToast('Login Required', 'Please sign in to access this feature.', 'warning');
+      this.currentRoute = 'signin';
+      this.render();
+      return;
+    }
+    if (route === 'admin' && !this.isAdmin) {
+      this.showToast('Access Denied', 'Admin panel requires administrator credentials.', 'error');
+      this.currentRoute = this.isLoggedIn ? 'dashboard' : 'signin';
+      this.render();
+      return;
+    }
+
     this.currentRoute = route;
     this.routeParams = params;
 
@@ -564,6 +580,8 @@ class LearnPathApp {
   startTimer() {
     this.stopTimer();
     this.secondsElapsed = 0;
+    const initialTimerEl = document.getElementById('timer-display');
+    if (initialTimerEl) initialTimerEl.textContent = '00:00';
     this.timerInterval = setInterval(() => {
       this.secondsElapsed++;
       const timerEl = document.getElementById('timer-display');
@@ -1119,57 +1137,71 @@ class LearnPathApp {
         return;
       }
 
-      // 2. Submit Sign In / Sign Up Form
-      if (e.target.closest('#btn-submit-auth-action')) {
-        const nameInput = document.getElementById('auth-fullname');
+      // 2a. Quick Fill Demo Credentials (Admin / Student)
+      if (e.target.closest('#btn-quick-fill-admin')) {
         const emailInput = document.getElementById('auth-email');
         const passwordInput = document.getElementById('auth-password');
+        if (emailInput) emailInput.value = 'admin@learnpath.edu';
+        if (passwordInput) passwordInput.value = 'admin123';
+        this.showToast('Admin Credentials Filled 👑', 'Ready to sign in. Click Sign In or press Enter.', 'info');
+        return;
+      }
 
-        const name = nameInput ? nameInput.value.trim() : '';
-        const email = emailInput ? emailInput.value.trim() : '';
-        const password = passwordInput ? passwordInput.value : '';
+      if (e.target.closest('#btn-quick-fill-student')) {
+        const emailInput = document.getElementById('auth-email');
+        const passwordInput = document.getElementById('auth-password');
+        if (emailInput) emailInput.value = 'student@example.com';
+        if (passwordInput) passwordInput.value = 'student123';
+        this.showToast('Student Credentials Filled 🎓', 'Ready to sign in. Click Sign In or press Enter.', 'info');
+        return;
+      }
 
-        // --- Validation ---
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email || !emailRegex.test(email)) {
-          this.showToast('Invalid Email', 'Please enter a valid email address.', 'error');
-          if (emailInput) emailInput.focus();
-          return;
+      // 2b. Password Visibility Toggle
+      if (e.target.closest('#btn-toggle-auth-password')) {
+        const passwordInput = document.getElementById('auth-password');
+        const toggleBtn = document.getElementById('btn-toggle-auth-password');
+        if (passwordInput) {
+          const isPass = passwordInput.type === 'password';
+          passwordInput.type = isPass ? 'text' : 'password';
+          if (toggleBtn) toggleBtn.textContent = isPass ? '👁️' : '🙈';
         }
-        if (!password || password.length < 6) {
-          this.showToast('Weak Password', 'Password must be at least 6 characters.', 'error');
-          if (passwordInput) passwordInput.focus();
-          return;
+        return;
+      }
+
+      // 2c. Forgot Password Helper
+      if (e.target.closest('#btn-forgot-password')) {
+        const emailInput = document.getElementById('auth-email');
+        const passwordInput = document.getElementById('auth-password');
+        const enteredEmail = emailInput ? emailInput.value.trim() : '';
+        const emailToReset = prompt(
+          '🔑 Password Recovery:\n\nDefault Demo Accounts:\n• Super Admin: admin@learnpath.edu / admin123\n• Demo Student: student@example.com / student123\n\nTo reset a registered account password, enter your email address:',
+          enteredEmail
+        );
+        if (emailToReset) {
+          const cleanEmail = emailToReset.trim().toLowerCase();
+          const users = store.getRegisteredUsers();
+          if (cleanEmail === 'admin@learnpath.edu') {
+            alert('ℹ️ Admin account password is permanently set to: admin123');
+          } else if (users[cleanEmail]) {
+            const newPass = prompt(`Enter new password for ${cleanEmail} (at least 6 characters):`);
+            if (newPass && newPass.length >= 6) {
+              store.resetPassword(cleanEmail, newPass);
+              this.showToast('Password Updated ✓', 'Your password has been reset. Please sign in now.', 'success');
+              if (passwordInput) passwordInput.value = newPass;
+              if (emailInput) emailInput.value = cleanEmail;
+            } else if (newPass) {
+              this.showToast('Password Too Short', 'Password must be at least 6 characters.', 'error');
+            }
+          } else {
+            this.showToast('Account Not Found', `No registered account found with email "${cleanEmail}".`, 'error');
+          }
         }
-        if (nameInput && name.length < 2) {
-          this.showToast('Name Required', 'Please enter your full name (at least 2 characters).', 'error');
-          if (nameInput) nameInput.focus();
-          return;
-        }
+        return;
+      }
 
-        const displayName = name || email.split('@')[0];
-
-        // ── ADMIN CREDENTIAL CHECK ──────────────────────────────────
-        // Admin credentials: email = admin@learnpath.edu, password = admin123
-        const ADMIN_EMAIL = 'admin@learnpath.edu';
-        const ADMIN_PASSWORD = 'admin123';
-        const isAdminLogin = (email === ADMIN_EMAIL && password === ADMIN_PASSWORD);
-        // ────────────────────────────────────────────────────────────
-
-        store.setUser(displayName, email);
-        this.isLoggedIn = true;
-        this.isAdmin = isAdminLogin;
-        localStorage.setItem('learnpath_logged_in', 'true');
-        localStorage.setItem('learnpath_user_email', email);
-        localStorage.setItem('learnpath_is_admin', isAdminLogin ? 'true' : 'false');
-
-        if (isAdminLogin) {
-          this.showToast('Welcome, Admin! 👑', 'Super Admin Portal access granted.', 'success');
-          this.navigate('admin');
-        } else {
-          this.showToast(`Welcome, ${displayName}! 🎉`, 'Logged in successfully.', 'success');
-          this.navigate('dashboard');
-        }
+      // 2d. Submit Sign In / Sign Up Form
+      if (e.target.closest('#btn-submit-auth-action')) {
+        this.handleAuthSubmit();
         return;
       }
 
@@ -2096,8 +2128,14 @@ class LearnPathApp {
       }
     });
 
-    // Handle Battle Form Submissions
+    // Handle Form Submissions (Auth + Battle)
     document.addEventListener('submit', (e) => {
+      if (e.target.id === 'main-auth-form') {
+        e.preventDefault();
+        this.handleAuthSubmit();
+        return;
+      }
+
       if (e.target.id === 'form-create-battle') {
         e.preventDefault();
         const user = store.getState().user;
@@ -2699,7 +2737,6 @@ class LearnPathApp {
 
     if (result.success) {
       this.stopTimer();
-      const pointsData = store.markQuestionSolved(question.id, 2);
       
       // If recovery gate is active, record coding challenge pass
       const currentState = store.getState();
@@ -2740,7 +2777,6 @@ class LearnPathApp {
 
     if (result.success) {
       this.stopTimer();
-      const pointsData = store.markQuestionSolved(question.id, 2);
       
       // If recovery gate is active, record coding challenge pass
       const currentState = store.getState();
@@ -2756,7 +2792,8 @@ class LearnPathApp {
       });
 
       this.playgroundSubmission = result;
-      this.showToast('Accepted! â­ +2 XP Points Earned', `Total: ${pointsData.totalPoints} pts â€¢ ${pointsData.newRank}`, 'success');
+      const user = store.getState().user;
+      this.showToast('Accepted! ⭐ +2 XP Points Earned', 'Total: ' + (user.points || 0) + ' pts • ' + (user.rank || 'Novice Developer'), 'success');
     } else {
       store.recordAttempt({
         question,
@@ -2775,6 +2812,104 @@ class LearnPathApp {
     }
 
     this.render();
+  }
+
+  handleAuthSubmit() {
+    const isSignUp = this.currentRoute === 'signup';
+    const nameInput = document.getElementById('auth-fullname');
+    const emailInput = document.getElementById('auth-email');
+    const passwordInput = document.getElementById('auth-password');
+    const trackInput = document.getElementById('auth-track');
+
+    const name = nameInput ? nameInput.value.trim() : '';
+    const email = emailInput ? emailInput.value.trim() : '';
+    const password = passwordInput ? passwordInput.value : '';
+    const track = trackInput ? trackInput.value : 'java';
+
+    // 1. Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+      this.showToast('Invalid Email', 'Please enter a valid email address (e.g. student@example.com).', 'error');
+      if (emailInput) emailInput.focus();
+      return;
+    }
+
+    // 2. Password length validation
+    if (!password || password.length < 6) {
+      this.showToast('Weak Password', 'Password must be at least 6 characters long.', 'error');
+      if (passwordInput) passwordInput.focus();
+      return;
+    }
+
+    if (isSignUp) {
+      // 3. Name validation for Sign Up
+      if (!name || name.length < 2) {
+        this.showToast('Name Required', 'Please enter your full name (at least 2 characters).', 'error');
+        if (nameInput) nameInput.focus();
+        return;
+      }
+
+      const regResult = store.registerUser(name, email, password, track);
+      if (!regResult.success) {
+        this.showToast('Registration Error', regResult.error, 'error');
+        if (emailInput) {
+          emailInput.focus();
+          emailInput.select();
+        }
+        return;
+      }
+
+      this.isLoggedIn = true;
+      this.isAdmin = false;
+      this.activeSubject = track || 'java';
+      localStorage.setItem('learnpath_logged_in', 'true');
+      localStorage.setItem('learnpath_user_email', email);
+      localStorage.setItem('learnpath_is_admin', 'false');
+
+      store.switchUser(name, email, 'student');
+      this.showToast('Account Created! 🎉', `Welcome to LearnPath AI, ${name}!`, 'success');
+      this.navigate('dashboard');
+    } else {
+      // Sign In mode: verify credentials strictly against stored password
+      const authResult = store.verifyCredentials(email, password);
+      if (!authResult.success) {
+        this.showToast('Authentication Failed', authResult.error, 'error');
+        if (authResult.error.toLowerCase().includes('password')) {
+          if (passwordInput) {
+            passwordInput.focus();
+            passwordInput.select();
+          }
+        } else {
+          if (emailInput) {
+            emailInput.focus();
+            emailInput.select();
+          }
+        }
+        return;
+      }
+
+      const authenticatedUser = authResult.user;
+      const isAdminLogin = (authenticatedUser.role === 'admin' || email.toLowerCase() === 'admin@learnpath.edu');
+
+      this.isLoggedIn = true;
+      this.isAdmin = isAdminLogin;
+      if (authenticatedUser.track) {
+        this.activeSubject = authenticatedUser.track;
+      }
+      localStorage.setItem('learnpath_logged_in', 'true');
+      localStorage.setItem('learnpath_user_email', email);
+      localStorage.setItem('learnpath_is_admin', isAdminLogin ? 'true' : 'false');
+
+      store.switchUser(authenticatedUser.name, email, isAdminLogin ? 'admin' : 'student');
+
+      if (isAdminLogin) {
+        this.showToast('Welcome, Admin! 👑', 'Super Admin Portal access granted.', 'success');
+        this.navigate('admin');
+      } else {
+        this.showToast(`Welcome back, ${authenticatedUser.name || email.split('@')[0]}! 🎉`, 'Signed in successfully.', 'success');
+        this.navigate('dashboard');
+      }
+    }
   }
 
   handleSubmitAnswer() {
@@ -2803,8 +2938,7 @@ class LearnPathApp {
     });
 
     if (isCorrect) {
-      store.markQuestionSolved(question.id);
-      this.showToast('Correct Solution! âœ“', `Mastery updated and question marked solved.`, 'success');
+      this.showToast('Correct Solution! ✓', 'Mastery updated and question marked solved.', 'success');
     } else {
       this.showToast('Concept Insight Detected ðŸ’¡', `Identified gap in ${question.concept || 'Index Boundaries'}.`, 'warning');
     }
