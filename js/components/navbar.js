@@ -30,6 +30,7 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
             <li><a class="landing-nav-link" data-route="practice" data-requires-auth="true">Practice</a></li>
             <li><a class="landing-nav-link" data-route="playground" data-qid="tp_code_01" data-requires-auth="true">Coding IDE</a></li>
             <li><a class="landing-nav-link" data-route="battle" data-requires-auth="true">⚔️ Code Battle</a></li>
+            <li><a class="landing-nav-link" data-route="contests" data-requires-auth="true">🏆 Contests</a></li>
           </ul>
 
           <!-- Landing Nav Actions -->
@@ -50,6 +51,8 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
   const activeLabel = {
     dashboard: 'Dashboard',
     battle: '⚔️ Code Battle Arena',
+    contests: '🏆 Contests Arena',
+    'contest-arena': '⚔️ Contest Arena',
     playground: 'Coding IDE',
     topics: 'Practice',
     practice: 'Practice',
@@ -91,6 +94,12 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
               <span>Admin Panel</span>
             </button>
           ` : ''}
+
+          <!-- Prominent CodeChef Style Contests Button -->
+          <button class="btn btn-sm nav-contest-btn" data-route="contests" style="display:flex;align-items:center;gap:6px;font-weight:700;background:linear-gradient(135deg, #f59e0b 0%, #d97706 100%);color:#ffffff;border:none;border-radius:8px;padding:6px 12px;cursor:pointer;box-shadow:0 2px 8px rgba(245, 158, 11, 0.35);" title="Competitive Algorithmic Contests">
+            <span>🏆</span>
+            <span>Contests</span>
+          </button>
 
           <!-- Prominent Code Battle Arena Button -->
           <button class="btn btn-sm btn-primary nav-battle-btn" data-route="battle" style="display:flex;align-items:center;gap:6px;font-weight:700;background:linear-gradient(135deg, #ef4444 0%, #8b5cf6 100%);border:none;box-shadow:0 2px 8px rgba(239, 68, 68, 0.35);">
@@ -139,6 +148,11 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
                 <span class="nav-dropdown-icon">⚔️</span>
                 <span>Code Battle Arena</span>
                 ${activeRoute === 'battle' ? '<span class="nav-dropdown-active-dot"></span>' : ''}
+              </a>
+              <a class="nav-dropdown-item ${activeRoute === 'contests' ? 'active' : ''}" data-route="contests" role="menuitem">
+                <span class="nav-dropdown-icon">🏆</span>
+                <span>Contests Arena</span>
+                ${activeRoute === 'contests' ? '<span class="nav-dropdown-active-dot"></span>' : ''}
               </a>
               <a class="nav-dropdown-item ${activeRoute === 'playground' ? 'active' : ''}" data-route="playground" data-qid="tp_code_01" role="menuitem">
                 <span class="nav-dropdown-icon">💻</span>

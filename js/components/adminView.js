@@ -1,9 +1,11 @@
+import { ContestEngine } from '../engine/contestEngine.js';
 import { FeedbackEngine } from '../engine/feedbackEngine.js';
 
 export function renderAdminView(state) {
   const activeUser = state.user || { name: 'Aryan Soni', points: 42 };
   const feedbacks = FeedbackEngine.getAll();
   const feedbackStats = FeedbackEngine.getStats();
+  const contests = ContestEngine.getAllContests();
 
   // Master Registered User Roster (In-House Students + Live Session)
   const masterUsers = [
@@ -245,6 +247,72 @@ export function renderAdminView(state) {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+
+      <!-- Contests & Competitions Management Section -->
+      <div class="admin-card" style="margin-top: 24px;">
+        <div class="admin-card-header" style="flex-wrap: wrap; gap: 12px;">
+          <div>
+            <h2 class="admin-card-title">
+              <span>🏆</span> Competitive Contests & Assessment Scheduling
+            </h2>
+            <p style="font-size: 0.82rem; color: #94a3b8; margin: 4px 0 0;">
+              Schedule, monitor, and configure timed algorithmic contests (CodeChef & LeetCode style) for student cohorts.
+            </p>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <button class="btn btn-primary btn-sm" id="btn-admin-create-contest" style="font-weight: 700; display: flex; align-items: center; gap: 6px;">
+              <span>➕</span> Schedule New Contest
+            </button>
+          </div>
+        </div>
+
+        <div class="admin-table-wrapper" style="margin-top: 14px;">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Contest Title</th>
+                <th>Status</th>
+                <th>Start Time</th>
+                <th>Duration</th>
+                <th>Problems</th>
+                <th>Registered Users</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${contests.length === 0 ? `
+                <tr><td colspan="7" style="text-align:center; color:#94a3b8; padding:20px;">No contests scheduled yet.</td></tr>
+              ` : contests.map(c => `
+                <tr>
+                  <td>
+                    <strong>${c.title}</strong>
+                    <div style="font-size: 0.76rem; color: #94a3b8;">${c.tagline}</div>
+                  </td>
+                  <td>
+                    <span class="contest-status-pill ${c.status.toLowerCase()}">
+                      ${c.status === 'LIVE' ? '<span class="pulsing-dot"></span>' : ''}
+                      ${c.badge}
+                    </span>
+                  </td>
+                  <td style="font-size: 0.84rem; color: #cbd5e1;">
+                    ${new Date(c.startTime).toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                  </td>
+                  <td>${c.durationMinutes}m</td>
+                  <td><span class="admin-badge-plan pro">${c.problems.length} Problems</span></td>
+                  <td><strong>${c.registeredUsers.length}</strong> students</td>
+                  <td>
+                    <div style="display: flex; gap: 6px;">
+                      <button class="btn btn-sm btn-secondary btn-view-standings" data-cid="${c.id}" style="padding: 4px 8px; font-size: 0.75rem;">Standings</button>
+                      <button class="btn btn-sm btn-delete-contest" data-cid="${c.id}" style="background: rgba(239,68,68,0.2); color: #f87171; border: 1px solid rgba(239,68,68,0.3); padding: 4px 8px; font-size: 0.75rem;">🗑️</button>
+                    </div>
+                  </td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
         </div>
       </div>
 

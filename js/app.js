@@ -31,6 +31,13 @@ import { MultiLanguageRunner } from './engine/multiLanguageRunner.js';
 import { battleEngine } from './engine/battleEngine.js';
 import { exportResearchData } from './engine/dataExporter.js';
 import { FeedbackEngine } from './engine/feedbackEngine.js';
+import { ContestEngine } from './engine/contestEngine.js';
+import {
+  renderContestsLobbyView,
+  renderContestArenaView,
+  renderContestLeaderboardModal,
+  renderCreateContestModal
+} from './components/contestView.js';
 
 class LearnPathApp {
   constructor() {
@@ -355,6 +362,233 @@ class LearnPathApp {
     }
   }
 
+  bindContestLobbyEvents() {
+    // Filter tabs
+    document.querySelectorAll('.contest-tab-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        this.contestFilterTab = e.currentTarget.dataset.filter;
+        this.render();
+      });
+    });
+
+    // Register button
+    document.querySelectorAll('.btn-register-contest').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const cid = e.currentTarget.dataset.cid;
+        const res = ContestEngine.registerUser(cid, store.getState().user);
+        this.showToast('Contest Registration', res.message, res.success ? 'success' : 'info');
+        this.render();
+      });
+    });
+
+    // Unregister button
+    document.querySelectorAll('.btn-unregister-contest').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const cid = e.currentTarget.dataset.cid;
+        ContestEngine.unregisterUser(cid, store.getState().user.email);
+        this.showToast('Unregistered', 'You have withdrawn registration for this contest.', 'info');
+        this.render();
+      });
+    });
+
+    // Enter Arena
+    document.querySelectorAll('.btn-enter-contest').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const cid = e.currentTarget.dataset.cid;
+        this.activeContestId = cid;
+        this.activeContestProblemIdx = 0;
+        this.contestCode = null;
+        this.contestRunResults = null;
+        this.navigate('contest-arena');
+      });
+    });
+
+    // View Standings / Leaderboard
+    document.querySelectorAll('.btn-view-standings').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const cid = e.currentTarget.dataset.cid;
+        this.showContestLeaderboard(cid);
+      });
+    });
+
+    // Admin Delete Contest
+    document.querySelectorAll('.btn-delete-contest').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const cid = e.currentTarget.dataset.cid;
+        if (confirm('Are you sure you want to delete this contest?')) {
+          ContestEngine.deleteContest(cid);
+          this.showToast('Contest Deleted', 'The contest has been removed.', 'info');
+          this.render();
+        }
+      });
+    });
+
+    // Open Admin Create Contest Modal
+    document.getElementById('btn-open-create-contest')?.addEventListener('click', () => {
+      this.showCreateContestModal();
+    });
+  }
+
+  showContestLeaderboard(cid) {
+    const contest = ContestEngine.getContestById(cid);
+    if (!contest) return;
+    const modalContainer = document.getElementById('contest-leaderboard-modal-container') || document.body;
+    modalContainer.innerHTML = renderContestLeaderboardModal(contest, store.getState().user);
+    modalContainer.style.display = 'block';
+
+    document.getElementById('btn-close-leaderboard')?.addEventListener('click', () => {
+      modalContainer.innerHTML = '';
+      modalContainer.style.display = 'none';
+    });
+    document.getElementById('leaderboard-modal-overlay')?.addEventListener('click', (e) => {
+      if (e.target.id === 'leaderboard-modal-overlay') {
+        modalContainer.innerHTML = '';
+        modalContainer.style.display = 'none';
+      }
+    });
+  }
+
+  showCreateContestModal() {
+    const modalContainer = document.getElementById('create-contest-modal-container') || document.body;
+    modalContainer.innerHTML = renderCreateContestModal();
+    modalContainer.style.display = 'block';
+
+    const close = () => {
+      modalContainer.innerHTML = '';
+      modalContainer.style.display = 'none';
+    };
+
+    document.getElementById('btn-close-create-modal')?.addEventListener('click', close);
+    document.getElementById('btn-cancel-create-modal')?.addEventListener('click', close);
+    document.getElementById('create-contest-modal-overlay')?.addEventListener('click', (e) => {
+      if (e.target.id === 'create-contest-modal-overlay') close();
+    });
+
+    document.getElementById('form-create-contest')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const title = document.getElementById('new-contest-title').value.trim();
+      const tagline = document.getElementById('new-contest-tagline').value.trim();
+      const startTime = document.getElementById('new-contest-start').value;
+      const durationMinutes = document.getElementById('new-contest-duration').value;
+      const checkedBoxes = document.querySelectorAll('input[name="contest_problems"]:checked');
+      const problemIds = Array.from(checkedBoxes).map(cb => cb.value);
+
+      if (problemIds.length === 0) {
+        alert('Please select at least 1 coding problem for the contest.');
+        return;
+      }
+
+      ContestEngine.createContest({
+        title,
+        tagline,
+        startTime,
+        durationMinutes,
+        problemIds,
+        author: store.getState().user?.name || 'Admin'
+      });
+
+      close();
+      this.showToast('Contest Created!', `${title} has been scheduled successfully. 🚀`, 'success');
+      this.render();
+    });
+  }
+
+  bindContestArenaEvents(contest) {
+    if (this.arenaClockInterval) clearInterval(this.arenaClockInterval);
+
+    // Start Live Clock
+    const updateClock = () => {
+      const clockEl = document.getElementById('arena-clock-time');
+      if (!clockEl) return;
+      const now = Date.now();
+      const end = new Date(contest.endTime).getTime();
+      const diff = end - now;
+
+      if (diff <= 0) {
+        clockEl.textContent = 'CONTEST ENDED';
+        clockEl.style.color = '#94a3b8';
+      } else {
+        const hrs = Math.floor(diff / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        const secs = Math.floor((diff % 60000) / 1000);
+        clockEl.textContent = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      }
+    };
+    updateClock();
+    this.arenaClockInterval = setInterval(updateClock, 1000);
+
+    // Exit Arena Button
+    document.getElementById('btn-exit-arena')?.addEventListener('click', () => {
+      if (this.arenaClockInterval) clearInterval(this.arenaClockInterval);
+      this.navigate('contests');
+    });
+
+    // Standings modal from inside arena
+    document.querySelectorAll('.btn-view-standings').forEach(btn => {
+      btn.addEventListener('click', () => {
+        this.showContestLeaderboard(contest.id);
+      });
+    });
+
+    // Switch Problem
+    document.querySelectorAll('.btn-switch-problem').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const pidx = parseInt(e.currentTarget.dataset.pidx);
+        this.activeContestProblemIdx = pidx;
+        this.contestCode = null; // reset to problem's template
+        this.contestRunResults = null;
+        this.render();
+      });
+    });
+
+    // Reset Template
+    document.getElementById('btn-reset-code')?.addEventListener('click', () => {
+      const prob = contest.problems[this.activeContestProblemIdx];
+      const q = QUESTIONS_DB.find(item => item.id === prob.id);
+      if (q && q.starterCode) {
+        const input = document.getElementById('arena-code-input');
+        if (input) input.value = q.starterCode;
+      }
+    });
+
+    // Run Sample Tests Button
+    document.getElementById('btn-run-sample-tests')?.addEventListener('click', () => {
+      const prob = contest.problems[this.activeContestProblemIdx];
+      const q = QUESTIONS_DB.find(item => item.id === prob.id);
+      const code = document.getElementById('arena-code-input')?.value || '';
+      this.contestCode = code;
+
+      const res = CodeExecutionEngine.runTestCases(q, code, false);
+      res.isContestSubmit = false;
+      this.contestRunResults = res;
+      this.render();
+    });
+
+    // Submit Solution for Contest Scoring
+    document.getElementById('btn-submit-contest-solution')?.addEventListener('click', () => {
+      const prob = contest.problems[this.activeContestProblemIdx];
+      const q = QUESTIONS_DB.find(item => item.id === prob.id);
+      const code = document.getElementById('arena-code-input')?.value || '';
+      this.contestCode = code;
+
+      const res = CodeExecutionEngine.runTestCases(q, code, true);
+      res.isContestSubmit = true;
+
+      // Record in contest engine
+      ContestEngine.recordSubmission(contest.id, store.getState().user, prob.code, code, res);
+
+      this.contestRunResults = res;
+
+      if (res.allPassed) {
+        this.showToast('Accepted (AC)! 🎉', `Congratulations! Problem ${prob.code} solved. +${prob.points} points awarded.`, 'success');
+      } else {
+        this.showToast('Wrong Answer (WA)', `Problem ${prob.code}: ${res.passedCount}/${res.totalCount} test cases passed.`, 'error');
+      }
+
+      this.render();
+    });
+  }
+
   bindAdminEvents() {
     const searchInput = document.getElementById('admin-user-search');
     if (searchInput) {
@@ -375,6 +609,11 @@ class LearnPathApp {
         alert('📥 Master Enterprise Database exported successfully in JSON format!');
       });
     }
+
+    // Admin Schedule Contest Button inside Admin Portal
+    document.getElementById('btn-admin-create-contest')?.addEventListener('click', () => {
+      this.showCreateContestModal();
+    });
 
     const syncBtn = document.getElementById('btn-admin-sync-ml');
     if (syncBtn) {
