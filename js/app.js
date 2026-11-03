@@ -326,6 +326,28 @@ class LearnPathApp {
         });
         break;
 
+      case 'contests':
+        mainEl.innerHTML = renderContestsLobbyView(state, this.contestFilterTab);
+        this.bindContestLobbyEvents();
+        break;
+
+      case 'contest-arena': {
+        const activeContest = ContestEngine.getContestById(this.activeContestId);
+        if (!activeContest) {
+          this.navigate('contests');
+          return;
+        }
+        mainEl.innerHTML = renderContestArenaView(
+          state,
+          activeContest,
+          this.activeContestProblemIdx,
+          this.contestCode,
+          this.contestRunResults
+        );
+        this.bindContestArenaEvents(activeContest);
+        break;
+      }
+
       case 'battle':
         mainEl.innerHTML = renderBattleView(this.battleEngineState);
         break;
