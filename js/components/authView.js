@@ -19,34 +19,63 @@ export function renderAuthView(isSignUp = false) {
 
         <!-- Sign In / Sign Up Tabs -->
         <div class="auth-tabs-bar">
-          <button class="auth-tab-btn ${!isSignUp ? 'active' : ''}" id="tab-auth-signin" data-route="signin">
+          <button type="button" class="auth-tab-btn ${!isSignUp ? 'active' : ''}" id="tab-auth-signin" data-route="signin">
             Sign In
           </button>
-          <button class="auth-tab-btn ${isSignUp ? 'active' : ''}" id="tab-auth-signup" data-route="signup">
+          <button type="button" class="auth-tab-btn ${isSignUp ? 'active' : ''}" id="tab-auth-signup" data-route="signup">
             Create Account
           </button>
         </div>
 
+        ${!isSignUp ? `
+          <!-- Quick Demo Credentials Helper Box -->
+          <div style="background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; padding: 12px 14px; font-size: 0.82rem;">
+            <div style="font-weight: 700; color: #334155; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;">
+              <span style="display: flex; align-items: center; gap: 4px;">
+                <span>⚡</span> Quick Demo Credentials:
+              </span>
+              <span style="font-size: 0.72rem; color: #64748b; font-weight: 600;">Click to Auto-Fill</span>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button type="button" class="btn btn-sm" id="btn-quick-fill-student" style="padding: 5px 10px; font-size: 0.78rem; background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; border-radius: 6px; font-weight: 700; cursor: pointer;">
+                🎓 Demo Student (student@example.com)
+              </button>
+              <button type="button" class="btn btn-sm" id="btn-quick-fill-admin" style="padding: 5px 10px; font-size: 0.78rem; background: #fef3c7; color: #b45309; border: 1px solid #fde68a; border-radius: 6px; font-weight: 700; cursor: pointer;">
+                👑 Super Admin (admin@learnpath.edu)
+              </button>
+            </div>
+          </div>
+        ` : ''}
+
         <!-- Auth Form -->
-        <form id="main-auth-form" style="display: flex; flex-direction: column; gap: 14px;" onsubmit="event.preventDefault();">
+        <form id="main-auth-form" style="display: flex; flex-direction: column; gap: 14px;">
           ${isSignUp ? `
             <div class="form-group">
               <label class="form-label" for="auth-fullname">Full Name</label>
-              <input type="text" id="auth-fullname" class="form-input" placeholder="e.g. Aryan Sharma" required />
+              <input type="text" id="auth-fullname" class="form-input" placeholder="e.g. Aryan Sharma" required autocomplete="name" />
             </div>
           ` : ''}
 
           <div class="form-group">
             <label class="form-label" for="auth-email">Email Address</label>
-            <input type="email" id="auth-email" class="form-input" placeholder="student@example.com" required />
+            <input type="email" id="auth-email" class="form-input" placeholder="student@example.com" required autocomplete="email" />
           </div>
 
           <div class="form-group">
             <div style="display: flex; justify-content: space-between; align-items: center;">
               <label class="form-label" for="auth-password">Password</label>
-              ${!isSignUp ? `<a href="#" style="font-size: 0.78rem; color: var(--primary);">Forgot Password?</a>` : ''}
+              ${!isSignUp ? `
+                <button type="button" id="btn-forgot-password" style="background: none; border: none; padding: 0; font-size: 0.78rem; color: var(--primary); cursor: pointer; text-decoration: underline; font-family: inherit;">
+                  Forgot Password?
+                </button>
+              ` : ''}
             </div>
-            <input type="password" id="auth-password" class="form-input" placeholder="Min. 6 characters" required />
+            <div style="position: relative; display: flex; align-items: center;">
+              <input type="password" id="auth-password" class="form-input" placeholder="Min. 6 characters" required autocomplete="current-password" style="padding-right: 42px;" />
+              <button type="button" id="btn-toggle-auth-password" style="position: absolute; right: 12px; background: none; border: none; cursor: pointer; font-size: 1rem; color: #64748b; padding: 0; display: flex; align-items: center;" title="Show or hide password">
+                👁️
+              </button>
+            </div>
           </div>
 
           ${isSignUp ? `
@@ -60,13 +89,13 @@ export function renderAuthView(isSignUp = false) {
             </div>
           ` : ''}
 
-          <button type="button" class="btn btn-primary btn-lg" id="btn-submit-auth-action" style="width: 100%; margin-top: 6px;">
+          <button type="submit" class="btn btn-primary btn-lg" id="btn-submit-auth-action" style="width: 100%; margin-top: 6px;">
             ${isSignUp ? 'Create Account & Start Learning →' : 'Sign In to Dashboard →'}
           </button>
         </form>
 
         <div style="text-align: center; margin-top: 6px;">
-          <a data-route="landing" style="font-size: 0.88rem; color: var(--text-muted); font-weight: 600;">
+          <a data-route="landing" style="font-size: 0.88rem; color: var(--text-muted); font-weight: 600; cursor: pointer;">
             ← Back to Home
           </a>
         </div>

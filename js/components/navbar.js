@@ -84,7 +84,7 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
 
         <!-- Right Side: Battle Button, Points, Streak, Profile, 3-Dot Menu & Logout -->
         <div class="nav-right">
-          ${user.role === 'admin' ? `
+          ${(user.role === 'admin' || user.email === 'admin@learnpath.edu') ? `
             <!-- Executive Super Admin Button (Visible ONLY to Authenticated Owner) -->
             <button class="btn btn-sm nav-admin-btn" data-route="admin" style="display:flex;align-items:center;gap:6px;font-weight:700;background:rgba(234, 179, 8, 0.15);color:#facc15;border:1px solid rgba(250, 204, 21, 0.4);border-radius:8px;padding:6px 12px;cursor:pointer;" title="Owner / Super Admin Dashboard">
               <span>👑</span>
@@ -175,7 +175,7 @@ export function renderNavbar(state, activeRoute, isLoggedIn = false) {
                 <span>Research Evaluation</span>
                 ${activeRoute === 'evaluation' ? '<span class="nav-dropdown-active-dot"></span>' : ''}
               </a>
-              ${user.role === 'admin' ? `
+              ${(user.role === 'admin' || user.email === 'admin@learnpath.edu') ? `
                 <a class="nav-dropdown-item ${activeRoute === 'admin' ? 'active' : ''}" data-route="admin" role="menuitem">
                   <span class="nav-dropdown-icon">👑</span>
                   <span>Executive Admin Portal</span>

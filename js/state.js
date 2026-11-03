@@ -10,6 +10,41 @@ import { calculateStreakStats, formatDate, generateSeedActivity } from './engine
 const LEGACY_STORAGE_KEY = 'learnpath_ai_state_v4_topics12';
 const REGISTERED_USERS_KEY = 'learnpath_registered_users_v1';
 
+export const DEFAULT_USERS = {
+  'admin@learnpath.edu': {
+    name: 'System Administrator',
+    email: 'admin@learnpath.edu',
+    password: 'admin123',
+    role: 'admin',
+    track: 'java',
+    createdAt: '2026-01-01T00:00:00.000Z'
+  },
+  'student@example.com': {
+    name: 'Student',
+    email: 'student@example.com',
+    password: 'student123',
+    role: 'student',
+    track: 'java',
+    createdAt: '2026-01-01T00:00:00.000Z'
+  },
+  'aryan.soni@learnpath.edu': {
+    name: 'Aryan Soni',
+    email: 'aryan.soni@learnpath.edu',
+    password: 'aryan123',
+    role: 'student',
+    track: 'java',
+    createdAt: '2026-01-01T00:00:00.000Z'
+  },
+  'priya.sharma@learnpath.edu': {
+    name: 'Priya Sharma',
+    email: 'priya.sharma@learnpath.edu',
+    password: 'priya123',
+    role: 'student',
+    track: 'java',
+    createdAt: '2026-01-01T00:00:00.000Z'
+  }
+};
+
 export function getUserStorageKey(email) {
   if (!email) return 'learnpath_user_state_guest';
   const clean = String(email).trim().toLowerCase().replace(/[^a-z0-9]/g, '_');
@@ -66,6 +101,9 @@ export class StateStore {
         state.user.email = email;
         state.user.avatar = displayName ? displayName.charAt(0).toUpperCase() : 'S';
       }
+    }
+    if (email && state.user) {
+      state.user.role = (email.toLowerCase() === 'admin@learnpath.edu') ? 'admin' : (state.user.role || 'student');
     }
 
     // Auto-merge to ensure all topics from Java and Python are always present
@@ -185,7 +223,7 @@ export class StateStore {
     };
   }
 
-  // Mark question solved with Green Tick and award points
+  // Mark question solved with Green Tick and award points (only for new solves)
   markQuestionSolved(qid, pointsToAdd = 2) {
     if (!this.state.solvedQuestions) {
       this.state.solvedQuestions = [];
@@ -193,10 +231,16 @@ export class StateStore {
     const isNewSolve = !this.state.solvedQuestions.includes(qid);
     if (isNewSolve) {
       this.state.solvedQuestions.push(qid);
+      return this.awardPoints(pointsToAdd);
     }
 
-    // Award +2 points on solve
-    return this.awardPoints(pointsToAdd);
+    return {
+      pointsEarned: 0,
+      totalPoints: this.state.user ? this.state.user.points : 0,
+      newRank: this.state.user ? this.state.user.rank : 'Novice Developer',
+      newLevel: this.state.user ? this.state.user.level : 'Beginner',
+      rankedUp: false
+    };
   }
 
   // Helper static rank calculations
@@ -222,8 +266,138 @@ export class StateStore {
     return StateStore.getLevelFromPoints(points);
   }
 
+  // Retrieve all registered users, ensuring seed demo accounts exist
+  getRegisteredUsers() {
+    let users = {};
+    try {
+      const saved = localStorage.getItem(REGISTERED_USERS_KEY);
+      if (saved) {
+        users = JSON.parse(saved);
+      }
+    } catch (e) {
+      console.warn('Error reading registered users from localStorage:', e);
+    }
+
+    let modified = false;
+    for (const [email, defUser] of Object.entries(DEFAULT_USERS)) {
+      if (!users[email]) {
+        users[email] = { ...defUser };
+        modified = true;
+      } else if (!users[email].password) {
+        // Upgrade legacy user record with default password
+        users[email].password = defUser.password;
+        if (!users[email].role) users[email].role = defUser.role;
+        modified = true;
+      }
+    }
+    if (modified) {
+      try {
+        localStorage.setItem(REGISTERED_USERS_KEY, JSON.stringify(users));
+      } catch (e) {}
+    }
+    return users;
+  }
+
+  saveRegisteredUsers(users) {
+    try {
+      localStorage.setItem(REGISTERED_USERS_KEY, JSON.stringify(users));
+    } catch (e) {
+      console.warn('Error saving registered users to localStorage:', e);
+    }
+  }
+
+  // Register a new student account
+  registerUser(name, email, password, track = 'java') {
+    const cleanEmail = String(email).trim().toLowerCase();
+    const users = this.getRegisteredUsers();
+
+    if (cleanEmail === 'admin@learnpath.edu') {
+      return { success: false, error: 'The email "admin@learnpath.edu" is reserved for the Super Admin. Please sign in instead.' };
+    }
+
+    if (users[cleanEmail]) {
+      return { success: false, error: 'An account with this email already exists. Please sign in instead.' };
+    }
+
+    const newUser = {
+      name: name.trim(),
+      email: cleanEmail,
+      password: password,
+      track: track || 'java',
+      role: 'student',
+      createdAt: new Date().toISOString(),
+      lastActive: new Date().toISOString()
+    };
+
+    users[cleanEmail] = newUser;
+    this.saveRegisteredUsers(users);
+
+    return { success: true, user: newUser };
+  }
+
+  // Verify credentials on sign-in
+  verifyCredentials(email, password) {
+    const cleanEmail = String(email).trim().toLowerCase();
+    const users = this.getRegisteredUsers();
+
+    // Check Admin
+    if (cleanEmail === 'admin@learnpath.edu') {
+      if (password === 'admin123') {
+        return {
+          success: true,
+          user: {
+            name: 'System Administrator',
+            email: 'admin@learnpath.edu',
+            role: 'admin',
+            track: 'java'
+          }
+        };
+      } else {
+        return { success: false, error: 'Incorrect password for admin account. Please try again.' };
+      }
+    }
+
+    const user = users[cleanEmail];
+    if (!user) {
+      return {
+        success: false,
+        error: 'No account found with this email. Please check your spelling or click "Create Account".'
+      };
+    }
+
+    // Support both student123 and password123 for demo student account
+    const isDemoStudent = (cleanEmail === 'student@example.com');
+    const validDemoPassword = isDemoStudent && (password === 'student123' || password === 'password123');
+
+    if (user.password && user.password !== password && !validDemoPassword) {
+      return { success: false, error: 'Incorrect password. Please try again.' };
+    }
+
+    // If user record lacked password (legacy), set it now
+    if (!user.password) {
+      user.password = password;
+    }
+
+    user.lastActive = new Date().toISOString();
+    this.saveRegisteredUsers(users);
+
+    return { success: true, user };
+  }
+
+  // Reset password for an existing account
+  resetPassword(email, newPassword) {
+    const cleanEmail = String(email).trim().toLowerCase();
+    const users = this.getRegisteredUsers();
+    if (users[cleanEmail]) {
+      users[cleanEmail].password = newPassword;
+      this.saveRegisteredUsers(users);
+      return true;
+    }
+    return false;
+  }
+
   // Action: Switch Active User (Isolates progress per student email)
-  switchUser(name, email) {
+  switchUser(name, email, role = 'student') {
     if (!email) {
       this.currentEmail = null;
       this.state = this.loadUserState(null);
@@ -233,18 +407,25 @@ export class StateStore {
 
     const cleanEmail = String(email).trim().toLowerCase();
     this.currentEmail = cleanEmail;
+    const detectedRole = role || (cleanEmail === 'admin@learnpath.edu' ? 'admin' : 'student');
 
     // Register user in local user registry
     try {
-      const reg = JSON.parse(localStorage.getItem(REGISTERED_USERS_KEY) || '{}');
-      const prevName = reg[cleanEmail]?.name || '';
+      const users = this.getRegisteredUsers();
+      const prevName = users[cleanEmail]?.name || '';
       const finalName = name || prevName || email.split('@')[0];
-      reg[cleanEmail] = {
-        name: finalName,
-        email: cleanEmail,
-        lastActive: new Date().toISOString()
-      };
-      localStorage.setItem(REGISTERED_USERS_KEY, JSON.stringify(reg));
+      if (!users[cleanEmail]) {
+        users[cleanEmail] = {
+          name: finalName,
+          email: cleanEmail,
+          role: detectedRole,
+          lastActive: new Date().toISOString()
+        };
+      } else {
+        users[cleanEmail].lastActive = new Date().toISOString();
+        if (role) users[cleanEmail].role = detectedRole;
+      }
+      this.saveRegisteredUsers(users);
     } catch (e) {}
 
     // Load isolated state for this specific user
@@ -254,12 +435,13 @@ export class StateStore {
       this.state.user.avatar = name.charAt(0).toUpperCase();
     }
     this.state.user.email = cleanEmail;
+    this.state.user.role = detectedRole;
     this.saveState();
   }
 
   // Alias for backward compatibility
-  setUser(name, email) {
-    this.switchUser(name, email);
+  setUser(name, email, role = 'student') {
+    this.switchUser(name, email, role);
   }
 
   // Action: Clear active session on logout

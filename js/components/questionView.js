@@ -23,7 +23,7 @@ export function renderQuestionView(questionId, userSelection = null, feedbackSta
         <div style="display: flex; align-items: center; gap: 12px;">
           <span class="badge ${getDifficultyBadgeClass(question.difficulty)}">${question.difficulty}</span>
           <div class="question-timer-pill" id="question-timer">
-            <span>⏱</span> <span id="timer-display">00:45</span>
+            <span>⏱</span> <span id="timer-display">00:00</span>
           </div>
         </div>
       </div>
