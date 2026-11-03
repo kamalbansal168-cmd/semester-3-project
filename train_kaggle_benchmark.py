@@ -41,11 +41,15 @@ if sys.stderr and hasattr(sys.stderr, "buffer"):
     except Exception:
         pass
 
+# pyrefly: ignore[missing-import]
 import numpy as np
 import pandas as pd
+# pyrefly: ignore[missing-import]
 import matplotlib
 matplotlib.use("Agg")
+# pyrefly: ignore[missing-import]
 import matplotlib.pyplot as plt
+# pyrefly: ignore[missing-import]
 import joblib
 
 from sklearn.metrics import (

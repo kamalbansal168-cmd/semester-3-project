@@ -9,6 +9,7 @@ to produce authentic, publication-grade evaluation metrics
 import os
 import json
 import random
+# pyrefly: ignore[missing-import]
 import numpy as np
 
 DATA_FOLDER = "./data"
